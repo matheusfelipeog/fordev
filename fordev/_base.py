@@ -18,10 +18,12 @@ def _random_user_agent() -> str:
     return choice(LIST_OF_USER_AGENT)
 
 
-def _create_headers(referer: str) -> dict:
+def _create_headers(content_length: int, referer: str) -> dict:
     """Create headers for use in requests module.
     
     Keyword arguments:
+    
+    `content_length: int` - Indicates the size of the entity-body, in bytes, sent to the recipient.
 
     `referer: str` - Reference of the action to be performed.
     """
@@ -35,7 +37,7 @@ def _create_headers(referer: str) -> dict:
         "accept": "*/*",
         "accept-encoding": "gzip, deflate, br",
         "accept-language": "pt,en-US;q=0.9,en;q=0.8",
-        "content-length": "38",
+        "content-length": str(content_length),
         "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         "dnt": "1",
         "origin": "https://www.4devs.com.br",
@@ -49,10 +51,12 @@ def _create_headers(referer: str) -> dict:
     return headers
 
 
-def fordev_request(referer: str, payload: dict) -> dict:
+def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
     """Create request for 4dev API and get your content.
     
     Keyword arguments:
+
+    `content_length: int` - Indicates the size of the entity-body, in bytes, sent to the recipient.
 
     `referer: str` - Reference of the action to be performed.
 
@@ -62,7 +66,7 @@ def fordev_request(referer: str, payload: dict) -> dict:
     try:
         response = requests.post(
             url=URL_4DEV_API,
-            headers=_create_headers(referer),
+            headers=_create_headers(content_length, referer),
             data=payload
         )
 

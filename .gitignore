@@ -1,0 +1,6 @@
+# ignore environment directories
+venv/
+.vscode/
+
+# Ignore cache of module importing
+__pycache__/

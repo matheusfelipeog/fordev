@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+"""All constants using in fordev module."""
 
+# -------------- fordev request --------------
 LIST_OF_USER_AGENT: list = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36',
@@ -15,3 +17,11 @@ LIST_OF_USER_AGENT: list = [
 ]
 
 URL_4DEV_API: str = 'https://www.4devs.com.br/ferramentas_online.php'
+
+
+# -------------- fordev generator --------------
+ALL_UF_CODE = [
+    "AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA",
+    "MT", "MS", "MG","PA", "PB", "PR", "PE", "PI", "RJ",
+    "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO", "DF"
+]

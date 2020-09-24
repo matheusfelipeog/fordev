@@ -20,7 +20,7 @@ URL_4DEV_API: str = 'https://www.4devs.com.br/ferramentas_online.php'
 
 
 # -------------- fordev generator --------------
-ALL_UF_CODE = [
+ALL_UF_CODE: list = [
     "AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA",
     "MT", "MS", "MG","PA", "PB", "PR", "PE", "PI", "RJ",
     "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO", "DF"

@@ -3,7 +3,8 @@
 
 Options:
     CNH - Carteira Nacional de Habilitação;
-    CPF - Cadastro de Pessoas Físicas.
+    CPF - Cadastro de Pessoas Físicas;
+    CNPJ - Cadastro Nacional da Pessoa Jurídica.
 """
 
 # --- Local libraries ---
@@ -60,6 +61,31 @@ def cpf(format: bool=True, state: str='', data_only: bool=True) -> str:
         'acao': 'gerar_cpf',
         'pontuacao': 'S' if format else 'N',
         'cpf_estado': state
+    }
+
+    r = fordev_request(content_length, referer, payload=payload)
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
+    return r
+
+
+def cnpj(format: bool=True, data_only: bool=True) -> str:
+    """Random generate of CNPJ(Cadastro Nacional da Pessoa Jurídica).
+    
+    Keyword arguments:
+
+    `format: bool` - If True, returns formatted data how "12.345.678/0009-10". If false, formatted data how "12345678000910".
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    content_length = 27
+    referer = 'gerador_de_cnpj'
+    payload = {
+        'acao': 'gerar_cnpj',
+        'pontuacao': 'S' if format else 'N',
     }
 
     r = fordev_request(content_length, referer, payload=payload)

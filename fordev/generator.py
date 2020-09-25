@@ -3,6 +3,7 @@
 
 Options:
     CNH - Carteira Nacional de Habilitação;
+    CPF - Cadastro de Pessoas Físicas.
 """
 
 # --- Local libraries ---

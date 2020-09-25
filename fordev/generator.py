@@ -4,7 +4,8 @@
 Options:
     CNH - Carteira Nacional de Habilitação;
     CPF - Cadastro de Pessoas Físicas;
-    CNPJ - Cadastro Nacional da Pessoa Jurídica.
+    CNPJ - Cadastro Nacional da Pessoa Jurídica;
+    RG - Registro Geral of emitter SSP-SP.
 """
 
 # --- Local libraries ---
@@ -85,6 +86,31 @@ def cnpj(format: bool=True, data_only: bool=True) -> str:
     referer = 'gerador_de_cnpj'
     payload = {
         'acao': 'gerar_cnpj',
+        'pontuacao': 'S' if format else 'N',
+    }
+
+    r = fordev_request(content_length, referer, payload=payload)
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
+    return r
+
+
+def rg(format: bool=True, data_only: bool=True) -> str:
+    """Random generate of RG(Registro Geral) of emitter SSP-SP.
+    
+    Keyword arguments:
+
+    `format: bool` - If True, returns formatted data how "12.345.678-9". If false, formatted data how "123456789".
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    content_length = 25
+    referer = 'gerador_de_rg'
+    payload = {
+        'acao': 'gerar_rg',
         'pontuacao': 'S' if format else 'N',
     }
 

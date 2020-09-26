@@ -13,6 +13,8 @@ Options:
 # --- Standard libraries ----
 from json import loads as json_loads
 
+from random import sample as random_sample
+
 # --- Local libraries ---
 from ._base import fordev_request
 
@@ -249,3 +251,31 @@ def people(
     
     # In case of failure, return msg status and msg error.
     return r
+
+
+def uf(n: int=1, data_only: bool=True) -> list:
+    """Random generation of UF(Unidade Federativa) code.
+
+    Keyword arguments:
+
+    `n: int` - A number of UF for generate random code. The range is of 1 to 27.
+
+    `data_only: bool` - If True, return data only. If False, return msg and data.
+    """
+
+    # Check if number of UF is invalid. If true, raise exception.
+    if not (1 <= n <= 27):
+        msg_error = f'The n value "{n}" is invalid. Enter a valid number of UF.'
+        msg_error += f' The range is 1 to 27 UF code.'
+
+        raise ValueError(msg_error)
+    
+    full_data = {
+        'msg': 'success', 
+        'data': random_sample(ALL_UF_CODE, n)
+        }
+
+    if data_only:
+        return full_data['data']
+    else:
+        return full_data

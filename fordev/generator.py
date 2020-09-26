@@ -2,6 +2,7 @@
 """Module for generating random data.
 
 Options:
+    Certificate - Certificate(birth, wedding, religious wedding and death);
     CNH - Carteira Nacional de Habilitação;
     CPF - Cadastro de Pessoas Físicas;
     CNPJ - Cadastro Nacional da Pessoa Jurídica;
@@ -23,6 +24,56 @@ from ._base import fordev_request
 from ._const import ALL_UF_CODE
 
 from ._filter import filter_city_name
+
+
+def certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str:
+    """Random generate of certificate(birth, wedding, religious wedding and death).
+    
+    Keyword arguments:
+
+    `type_: str` - Type of certificate generate.
+        Options: 
+            'B' = Birth,
+            'W' = Wedding,
+            'R' = Religious Wedding,
+            'D' = Death and
+            'I' = Indifferent (Default).
+
+    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    type_ = type_.upper()
+
+    # Check if certificate type is invalid. If true, raise exception.
+    if type_ not in ['I', 'B', 'W', 'R', 'D']:
+        msg_error = f'The certificate type "{type_}" is invalid. Enter a valid sex.'
+        msg_error += f' Ex: "B" = Birth, "W" = Wedding, "R" = Religious Wedding, "D" = Death and "I" = Indifferent (Default).'
+
+        raise ValueError(msg_error)
+
+    # Create a true "acao" flag
+    type_ = 'Indiferente' if type_ == 'I' \
+        else 'nascimento' if type_ == 'B' \
+        else 'casamento' if type_ == 'W' \
+        else 'casamento_religioso' if type_ == 'R' \
+        else 'D' # Death
+
+    content_length = 67  # Max of bytes for generate certificate in all possibilities.
+    referer = 'gerador_numero_certidoes'
+    payload = {
+        'acao': 'gerador_certidao',
+        'pontuacao': 'S' if format else 'N',
+        'tipo_certidao': type_
+    }
+
+    r = fordev_request(content_length, referer, payload=payload)
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+
+    return r
 
 
 def cnh(data_only: bool=True) -> str:

@@ -6,8 +6,10 @@ Options:
     CPF - Cadastro de Pessoas Físicas;
     CNPJ - Cadastro Nacional da Pessoa Jurídica;
     RG - Registro Geral of emitter SSP-SP;
-    Voter Title - Voter Title for the selected state.
-    People Data - Generate random people data.
+    Voter Title - Voter Title for the selected state;
+    People Data - Generate random people data;
+    UF - generation of UF(Unidade Federativa) code;
+    City - Random city generation using state UF code.
 """
 
 # --- Standard libraries ----
@@ -19,6 +21,8 @@ from random import sample as random_sample
 from ._base import fordev_request
 
 from ._const import ALL_UF_CODE
+
+from ._filter import filter_city_name
 
 
 def cnh(data_only: bool=True) -> str:
@@ -279,3 +283,41 @@ def uf(n: int=1, data_only: bool=True) -> list:
         return full_data['data']
     else:
         return full_data
+
+
+def city(state: str='SP', data_only: bool=True) -> list:
+    """Random city generation using state UF code.
+
+    `state: str` - State UF(Unidade Federativa) code for city generate. Default is "SP".
+        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
+    
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    # Normalize
+    state = state.upper()
+
+    # Check if state is invalid. If true, raise exception.
+    if state not in ALL_UF_CODE:
+        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
+        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
+
+        raise ValueError(msg_error)
+
+    content_length = 35
+    referer = 'gerador_de_pessoas'
+    payload = {
+        'acao': 'carregar_cidades',
+        'cep_estado': state
+    }
+
+    # This response is in html format
+    r = fordev_request(content_length, referer, payload=payload)
+    
+    # Replace data in html format with city names only
+    r['data'] = filter_city_name(r['data'])
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
+    return r

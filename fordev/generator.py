@@ -10,6 +10,7 @@ Options:
     Vehicle Plate - Generate random Vehicle plate code;
     CNPJ - Cadastro Nacional da Pessoa Jurídica;
     RG - Registro Geral of emitter SSP-SP;
+    State Registration - Generate random state registration code;
     Voter Title - Voter Title for the selected state;
     People Data - Generate random people data;
     UF - generation of UF(Unidade Federativa) code;
@@ -262,6 +263,44 @@ def rg(format: bool=True, data_only: bool=True) -> str:
     payload = {
         'acao': 'gerar_rg',
         'pontuacao': 'S' if format else 'N',
+    }
+
+    r = fordev_request(content_length, referer, payload=payload)
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
+    return r
+
+
+def state_registration(state: str='SP', format: bool=True, data_only: bool=True) -> str:
+    """Generate random state registration code.
+    
+    Keyword arguments:
+
+    `state: str` - State UF(Unidade Federativa) code for generating the Voter Title.
+        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
+
+    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    state = state.upper()
+
+    # Check if state is invalid. If true, raise exception.
+    if state not in ALL_UF_CODE:
+        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
+        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
+
+        raise ValueError(msg_error)
+
+    content_length = 35
+    referer = 'gerador_de_inscricao_estadual'
+    payload = {
+        'acao': 'gerar_ie',
+        'pontuacao': 'S' if format else 'N',
+        'estado': state
     }
 
     r = fordev_request(content_length, referer, payload=payload)

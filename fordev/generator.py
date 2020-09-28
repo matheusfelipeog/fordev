@@ -5,6 +5,7 @@ Options:
     Certificate - Certificate(birth, wedding, religious wedding and death);
     CNH - Carteira Nacional de Habilitação;
     CPF - Cadastro de Pessoas Físicas;
+    PIS/PASEP - Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público;
     CNPJ - Cadastro Nacional da Pessoa Jurídica;
     RG - Registro Geral of emitter SSP-SP;
     Voter Title - Voter Title for the selected state;
@@ -132,6 +133,31 @@ def cpf(format: bool=True, state: str='', data_only: bool=True) -> str:
         return r['data']
     
     return r
+
+
+def pis_pasep(format: bool=True, data_only: bool=True):
+    """Random generate of PIS/PASEP code.
+    
+    Keyword arguments:
+
+    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    content_length = 26
+    referer = 'gerador_de_pis_pasep'
+    payload = {
+        'acao': 'gerar_pis',
+        'pontuacao': 'S' if format else 'N'
+    }
+
+    r = fordev_request(content_length, referer, payload=payload)
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
+    return r    
 
 
 def cnpj(format: bool=True, data_only: bool=True) -> str:

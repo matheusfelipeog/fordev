@@ -137,7 +137,7 @@ def cpf(format: bool=True, state: str='', data_only: bool=True) -> str:
     return r
 
 
-def pis_pasep(format: bool=True, data_only: bool=True):
+def pis_pasep(format: bool=True, data_only: bool=True) -> str:
     """Random generate of PIS/PASEP code.
     
     Keyword arguments:
@@ -162,7 +162,7 @@ def pis_pasep(format: bool=True, data_only: bool=True):
     return r    
 
 
-def renavam(format: bool=True, data_only: bool=True):
+def renavam(format: bool=True, data_only: bool=True) -> str:
     """Random generate of RENAVAM(Registro Nacional de Veículos Automotores) code.
     
     Keyword arguments:

@@ -4,6 +4,7 @@
 Options:
     Certificate - Certificate(birth, wedding, religious wedding and death);
     CNH - Carteira Nacional de Habilitação;
+    Bank Account - Generate random bank account information;
     CPF - Cadastro de Pessoas Físicas;
     PIS/PASEP - Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público;
     RENAVAM - Registro Nacional de Veículos Automotores;
@@ -28,6 +29,7 @@ from ._base import fordev_request
 from ._const import ALL_UF_CODE
 
 from ._filter import filter_city_name
+from ._filter import filter_bank_account_info
 
 
 def certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str:
@@ -97,6 +99,71 @@ def cnh(data_only: bool=True) -> str:
     if data_only and r['msg'] == 'success':
         return r['data']
 
+    return r
+
+
+def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
+    """Generate random bank account information.
+    
+    Keyword arguments:
+
+    `bank: str` - Flag of the bank that wants to generate the account information.
+        Options:
+            0 = Random;
+            1 = Banco do Brasil;
+            2 = Bradesco;
+            3 = Citibank;
+            4 = Itaú;
+            5 = Santander.
+
+    `state: str` - State UF(Unidade Federativa) code for generating the bank account.
+        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    # Check if bank code is invalid. If true, raise exception.
+    if not (0 <= bank <= 5):
+        msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
+        msg_error += f' The range is 0 to 5.'
+
+        raise ValueError(msg_error)
+
+    # Replace the bank number with the bank code used in 4devs.
+    bank = '' if bank == 0 \
+        else 2 if bank == 1 \
+        else 121 if bank == 2 \
+        else 85 if bank == 3 \
+        else 120 if bank == 4 \
+        else 151
+
+    # Normalize
+    state = state.upper()
+
+    # Check if state is invalid. If true, raise exception.
+    if state != '' and state not in ALL_UF_CODE:
+        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
+        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
+
+        raise ValueError(msg_error)
+
+    content_length = 45
+    referer = 'gerador_conta_bancaria'
+    payload = {
+        'acao': 'gerar_conta_bancaria',
+        'estado': state,
+        'banco': bank
+    }
+
+    # This response is in html format
+    r = fordev_request(content_length, referer, payload=payload)
+    
+    # Replace data in html format with bank account info only.
+    r['data'] = filter_bank_account_info(r['data'])
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
     return r
 
 

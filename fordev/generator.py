@@ -9,6 +9,7 @@ Options:
     PIS/PASEP - Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público;
     RENAVAM - Registro Nacional de Veículos Automotores;
     Vehicle - Generate random Vehicle data;
+    Vehicle Brand - Random generation of vehicle brand;
     Vehicle Plate - Generate random Vehicle plate code;
     CNPJ - Cadastro Nacional da Pessoa Jurídica;
     RG - Registro Geral of emitter SSP-SP;
@@ -401,6 +402,37 @@ def vehicle(brand_code: int=0, state: str='', format: bool=True, data_only: bool
         return r['data']
     
     return r
+
+
+def vehicle_brand(n: int=1, data_only: bool=True) -> list:
+    """Random generation of vehicle brand.
+
+    Keyword arguments:
+
+    `n: int` - A number of vehicle brand for generate random code. The range is of 1 to 87.
+
+    `data_only: bool` - If True, return data only. If False, return msg and data.
+    """
+
+    # Check if number of UF is invalid. If true, raise exception.
+    if not (1 <= n <= 87):
+        msg_error = f'The n value "{n}" is invalid. Enter a valid number of UF.'
+        msg_error += f' The range is 1 to 27 UF code.'
+
+        raise ValueError(msg_error)
+    
+    full_data = {
+        'msg': 'success', 
+        'data': random_sample(
+            [v_brand['brand_name'] for v_brand in ALL_VEHICLE_BRANDS.values()],  # Create a list brand name
+            n 
+        )
+    }
+
+    if data_only:
+        return full_data['data']
+    else:
+        return full_data
 
 
 def vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str:

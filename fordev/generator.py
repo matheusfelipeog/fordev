@@ -7,6 +7,7 @@ Options:
     CPF - Cadastro de Pessoas Físicas;
     PIS/PASEP - Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público;
     RENAVAM - Registro Nacional de Veículos Automotores;
+    Vehicle Plate - Generate random Vehicle plate code;
     CNPJ - Cadastro Nacional da Pessoa Jurídica;
     RG - Registro Geral of emitter SSP-SP;
     Voter Title - Voter Title for the selected state;
@@ -181,6 +182,44 @@ def renavam(format: bool=True, data_only: bool=True):
         return r['data']
     
     return r 
+
+
+def vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str:
+    """Generate random Vehicle plate code.
+    
+    Keyword arguments:
+
+    `state: str` - State UF(Unidade Federativa) code for generating the Voter Title.
+        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
+
+    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    state = state.upper()
+
+    # Check if state is invalid. If true, raise exception.
+    if state != '' and state not in ALL_UF_CODE:
+        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
+        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
+
+        raise ValueError(msg_error)
+
+    content_length = 36 if state == '' else 38
+    referer = 'gerador_de_placa_automoveis'
+    payload = {
+        'acao': 'gerar_placa',
+        'pontuacao': 'S' if format else 'N',
+        'estado': state
+    }
+
+    r = fordev_request(content_length, referer, payload=payload)
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
+    return r
 
 
 def cnpj(format: bool=True, data_only: bool=True) -> str:

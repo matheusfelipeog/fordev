@@ -55,7 +55,7 @@ def filter_vehicle_info(html: str) -> dict:
     return data_dict
 
 
-def filter_city_name(html: str):
+def filter_city_name(html: str) -> list:
     """Filter the city name in the data of the HTML structure.
 
     Keyword arguments:

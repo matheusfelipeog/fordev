@@ -6,6 +6,7 @@ Options:
     CNH - Carteira Nacional de Habilitação;
     CPF - Cadastro de Pessoas Físicas;
     PIS/PASEP - Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público;
+    RENAVAM - Registro Nacional de Veículos Automotores;
     CNPJ - Cadastro Nacional da Pessoa Jurídica;
     RG - Registro Geral of emitter SSP-SP;
     Voter Title - Voter Title for the selected state;
@@ -158,6 +159,28 @@ def pis_pasep(format: bool=True, data_only: bool=True):
         return r['data']
     
     return r    
+
+
+def renavam(format: bool=True, data_only: bool=True):
+    """Random generate of RENAVAM(Registro Nacional de Veículos Automotores) code.
+    
+    Keyword arguments:
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    content_length = 18
+    referer = 'gerador_de_renavam'
+    payload = {
+        'acao': 'gerar_renavam'
+    }
+
+    r = fordev_request(content_length, referer, payload=payload)
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
+    return r 
 
 
 def cnpj(format: bool=True, data_only: bool=True) -> str:

@@ -8,6 +8,7 @@ Options:
     CPF - Cadastro de Pessoas Físicas;
     PIS/PASEP - Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público;
     RENAVAM - Registro Nacional de Veículos Automotores;
+    Vehicle - Generate random Vehicle data;
     Vehicle Plate - Generate random Vehicle plate code;
     CNPJ - Cadastro Nacional da Pessoa Jurídica;
     RG - Registro Geral of emitter SSP-SP;
@@ -27,8 +28,10 @@ from random import sample as random_sample
 from ._base import fordev_request
 
 from ._const import ALL_UF_CODE
+from ._const import ALL_VEHICLE_BRANDS
 
 from ._filter import filter_city_name
+from ._filter import filter_vehicle_info
 from ._filter import filter_bank_account_info
 
 
@@ -250,6 +253,154 @@ def renavam(format: bool=True, data_only: bool=True) -> str:
         return r['data']
     
     return r 
+
+
+def vehicle(brand_code: int=0, state: str='', format: bool=True, data_only: bool=True) -> dict:
+    """Generate random bank account information.
+    
+    Keyword arguments:
+
+    `brand: int` - Flag of the vehicle brand that wants to generate the vehicle information.
+        Options:
+            0 = Random;
+            1 = Acura;
+            2 = Agrale;
+            3 = Alfa Romeo;
+            4 = AM Gen;
+            5 = Asia Motors;
+            6 = ASTON MARTIN;
+            7 = Audi;
+            8 = BMW;
+            9 = BRM;
+            10 = Buggy;
+            11 = Bugre;
+            12 = Cadillac;
+            13 = CBT Jipe;
+            14 = CHANA;
+            15 = CHANGAN;
+            16 = CHERY;
+            17 = Chrysler;
+            18 = Citroen;
+            19 = Cross Lander;
+            20 = Daewoo;
+            21 = Daihatsu;
+            22 = Dodge;
+            23 = EFFA;
+            24 = Engesa;
+            25 = Envemo;
+            26 = Ferrari;
+            27 = Fiat;
+            28 = Fibravan;
+            29 = Ford;
+            30 = FOTON;
+            31 = Fyber;
+            32 = GEELY;
+            33 = GM - Chevrolet;
+            34 = GREAT WALL;
+            35 = Gurgel;
+            36 = HAFEI;
+            37 = Honda;
+            38 = Hyundai;
+            39 = Isuzu;
+            40 = JAC;
+            41 = Jaguar;
+            42 = Jeep;
+            43 = JINBEI;
+            44 = JPX;
+            45 = Kia Motors;
+            46 = Lada;
+            47 = LAMBORGHINI;
+            48 = Land Rover;
+            49 = Lexus;
+            50 = LIFAN;
+            51 = LOBINI;
+            52 = Lotus;
+            53 = Mahindra;
+            54 = Maserati;
+            55 = Matra;
+            56 = Mazda;
+            57 = Mercedes-Benz;
+            58 = Mercury;
+            59 = MG;
+            60 = MINI;
+            61 = Mitsubishi;
+            62 = Miura;
+            63 = Nissan;
+            64 = Peugeot;
+            65 = Plymouth;
+            66 = Pontiac;
+            67 = Porsche;
+            68 = RAM;
+            69 = RELY;
+            70 = Renault;
+            71 = Rolls-Royce;
+            72 = Rover;
+            73 = Saab;
+            74 = Saturn;
+            75 = Seat;
+            76 = SHINERAY;
+            77 = smart;
+            78 = SSANGYONG;
+            79 = Subaru;
+            80 = Suzuki;
+            81 = TAC;
+            82 = Toyota;
+            83 = Troller;
+            84 = Volvo;
+            85 = VW - VolksWagen;
+            86 = Wake;
+            87 = Walk.
+
+    `state: str` - State UF(Unidade Federativa) code for generating the bank account.
+        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
+
+    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    # Check if brand code is invalid. If true, raise exception.
+    if not (0 <= brand_code <= 87):
+        msg_error = f'The vehicle brand code value "{brand_code}" is invalid. Enter a valid vehicle brand code.'
+        msg_error += f' The range is 0 to 87.'
+
+        raise ValueError(msg_error)
+
+    # Replace the brand code with the brand code used in 4devs.
+    if brand_code != 0:
+        brand_code = ALL_VEHICLE_BRANDS[brand_code]['code']
+    else:
+        brand_code = ''
+
+    # Normalize
+    state = state.upper()
+
+    # Check if state is invalid. If true, raise exception.
+    if state != '' and state not in ALL_UF_CODE:
+        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
+        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
+
+        raise ValueError(msg_error)
+
+    content_length = 62  # Max of bytes for generate vehicle data in all possibilities.
+    referer = 'gerador_de_veiculos'
+    payload = {
+        'acao': 'gerar_veiculo',
+        'pontuacao': 'S' if format else 'N',
+        'estado': state,
+        'fipe_codigo_marca': brand_code
+    }
+
+    # This response is in html format
+    r = fordev_request(content_length, referer, payload=payload)
+    
+    # Replace data in html format with bank account info only.
+    r['data'] = filter_vehicle_info(r['data'])
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
+    return r
 
 
 def vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str:

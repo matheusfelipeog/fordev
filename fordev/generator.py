@@ -110,7 +110,7 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
     
     Keyword arguments:
 
-    `bank: str` - Flag of the bank that wants to generate the account information.
+    `bank: int` - Flag of the bank that wants to generate the account information.
         Options:
             0 = Random;
             1 = Banco do Brasil;
@@ -170,16 +170,16 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
     return r
 
 
-def cpf(format: bool=True, state: str='', data_only: bool=True) -> str:
+def cpf(state: str='', format: bool=True, data_only: bool=True) -> str:
     """Random generate of CPF(Cadastro de Pessoas Físicas).
     
     Keyword arguments:
 
-    `format: bool` - If True, returns formatted data how "123.456.789-10". If false, formatted data how "12345678910".
-
     `state: str` - State UF(Unidade Federativa) code for generating the CPF. <Optional Parameter>.
         More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
 
+    `format: bool` - If True, returns formatted data how "123.456.789-10". If false, formatted data how "12345678910".
+    
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
 
@@ -233,7 +233,7 @@ def pis_pasep(format: bool=True, data_only: bool=True) -> str:
     return r    
 
 
-def renavam(format: bool=True, data_only: bool=True) -> str:
+def renavam(data_only: bool=True) -> str:
     """Random generate of RENAVAM(Registro Nacional de Veículos Automotores) code.
     
     Keyword arguments:

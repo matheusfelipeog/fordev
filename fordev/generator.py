@@ -77,7 +77,7 @@ def certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str:
         'tipo_certidao': type_
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -97,7 +97,7 @@ def cnh(data_only: bool=True) -> str:
     referer = 'gerador_de_cnh'
     payload = {'acao': 'gerar_cnh'}
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -159,7 +159,7 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
     }
 
     # This response is in html format
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
     
     # Replace data in html format with bank account info only.
     r['data'] = filter_bank_account_info(r['data'])
@@ -200,7 +200,7 @@ def cpf(state: str='', format: bool=True, data_only: bool=True) -> str:
         'cpf_estado': state
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -225,7 +225,7 @@ def pis_pasep(format: bool=True, data_only: bool=True) -> str:
         'pontuacao': 'S' if format else 'N'
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -247,7 +247,7 @@ def renavam(data_only: bool=True) -> str:
         'acao': 'gerar_renavam'
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -392,7 +392,7 @@ def vehicle(brand_code: int=0, state: str='', format: bool=True, data_only: bool
     }
 
     # This response is in html format
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
     
     # Replace data in html format with bank account info only.
     r['data'] = filter_vehicle_info(r['data'])
@@ -433,7 +433,7 @@ def vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str
         'estado': state
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -458,7 +458,7 @@ def cnpj(format: bool=True, data_only: bool=True) -> str:
         'pontuacao': 'S' if format else 'N',
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -483,7 +483,7 @@ def rg(format: bool=True, data_only: bool=True) -> str:
         'pontuacao': 'S' if format else 'N',
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -521,7 +521,7 @@ def state_registration(state: str='SP', format: bool=True, data_only: bool=True)
         'estado': state
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -556,7 +556,7 @@ def voter_title(state: str, data_only: bool=True) -> str:
         'estado': state
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -637,7 +637,7 @@ def people(
         'cep_cidade': 'Selecione o estado!' if state == '' else ''
     }
 
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
 
     if data_only and r['msg'] == 'success':
         return json_loads(r['data'])
@@ -708,7 +708,7 @@ def city(state: str='SP', data_only: bool=True) -> list:
     }
 
     # This response is in html format
-    r = fordev_request(content_length, referer, payload=payload)
+    r = fordev_request(content_length, referer, payload)
     
     # Replace data in html format with city names only
     r['data'] = filter_city_name(r['data'])

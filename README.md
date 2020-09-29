@@ -51,6 +51,8 @@ Socilitando dados randômicos de uma pessoa do sexo *masculino*, de *25 anos de 
 }
 ```
 
+Confira a seção de [funcionalidades](#funcionalidades) para ver todas as funções atualmente disponíveis no módulo **fordev**.
+
 
 ## Funcionalidades
 

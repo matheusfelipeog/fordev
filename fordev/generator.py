@@ -15,7 +15,9 @@ Options:
     RG - Registro Geral of emitter SSP-SP;
     State Registration - Generate random state registration code;
     Voter Title - Voter Title for the selected state;
+    Credit Card - Generate random credit card information;
     People Data - Generate random people data;
+    Company - Generate random company information;
     UF - generation of UF(Unidade Federativa) code;
     City - Random city generation using state UF code.
 """
@@ -37,6 +39,7 @@ from ._filter import filter_city_name
 from ._filter import filter_vehicle_info
 from ._filter import filter_credit_card_info
 from ._filter import filter_bank_account_info
+from ._filter import filter_company_info
 
 
 def certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str:
@@ -744,6 +747,59 @@ def people(
         return r
     
     # In case of failure, return msg status and msg error.
+    return r
+
+
+def company(state: str='SP', age: int=1, format: bool=True, data_only: bool=True) -> dict:
+    """Generate random company information.
+    
+    Keyword arguments:
+
+    `state: str` - State UF(Unidade Federativa) code for generating the bank account.
+        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
+
+    `age: int` - The time of existence of the company (age of the company).
+
+    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    # Normalize
+    state = state.upper()
+
+    # Check if state is invalid. If true, raise exception.
+    if state not in ALL_UF_CODE:
+        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
+        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
+
+        raise ValueError(msg_error)
+
+    # Check if company age is invalid. If true, raise exception.
+    if not (1 <= age <= 30):
+        msg_error = f'The company age value "{age}" is invalid. Enter a valid company age.'
+        msg_error += f' The range is 1 to 30.'
+
+        raise ValueError(msg_error)
+
+    content_length = 48  # Max of bytes for all possibilities.
+    referer = 'gerador_de_empresas'
+    payload = {
+        'acao': 'gerar_empresa',
+        'pontuacao': 'S' if format else 'N',
+        'estado': state,
+        'idade': age
+    }
+
+    # This response is in html format
+    r = fordev_request(content_length, referer, payload)
+    
+    # Replace data in html format with company info only.
+    r['data'] = filter_company_info(r['data'])
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
     return r
 
 

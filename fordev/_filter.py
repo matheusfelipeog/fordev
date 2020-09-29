@@ -96,7 +96,7 @@ def filter_company_info(html: str) -> dict:
     # Get all the data to use as a value in the dictionary return.
     data_of_company = [input_.get('value') for input_ in soup.find_all('input', 'margem_menor')]
 
-    # Join labels with vehicle data
+    # Join labels with company data
     # and convert to a dictionary in the key-value format respectively.
     data_dict = dict(
         zip(labels, data_of_company)

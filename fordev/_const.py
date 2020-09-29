@@ -115,3 +115,16 @@ ALL_VEHICLE_BRANDS: dict = {
     86: {'brand_name': 'Wake', 'code': 163},
     87: {'brand_name': 'Walk', 'code': 120}
 }
+
+ALL_BANK_FLAGS: dict = {
+    1: 'master',
+    2: 'visa16',
+    3: 'amex',
+    4: 'diners',
+    5: 'discover',
+    6: 'enroute',
+    7: 'jcb',
+    8: 'voyager',
+    9: 'hiper',
+    10: 'aura'
+}

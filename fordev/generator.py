@@ -24,15 +24,18 @@ Options:
 from json import loads as json_loads
 
 from random import sample as random_sample
+from random import choice as random_choice
 
 # --- Local libraries ---
 from ._base import fordev_request
 
 from ._const import ALL_UF_CODE
 from ._const import ALL_VEHICLE_BRANDS
+from ._const import ALL_BANK_FLAGS
 
 from ._filter import filter_city_name
 from ._filter import filter_vehicle_info
+from ._filter import filter_credit_card_info
 from ._filter import filter_bank_account_info
 
 
@@ -589,6 +592,65 @@ def voter_title(state: str, data_only: bool=True) -> str:
     }
 
     r = fordev_request(content_length, referer, payload)
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+    
+    return r
+
+
+def credit_card(bank: int=0, format: bool=True, data_only: bool=True) -> dict:
+    """Generate random credit card information.
+    
+    Keyword arguments:
+
+    `bank: int` - Flag of the bank that wants to generate the credit card information.
+        Options:
+            0 = Random;
+            1 = MasterCard;
+            2 = Visa 16 Dígitos;
+            3 = American Express;
+            4 = Diners Club;
+            5 = Discover;
+            6 = enRoute;
+            7 = JCB;
+            8 = Voyager;
+            9 = HiperCard;
+            10 = Aura.
+
+    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+    
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    # Check if bank code is invalid. If true, raise exception.
+    if not (0 <= bank <= 10):
+        msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
+        msg_error += f' The range is 0 to 10.'
+
+        raise ValueError(msg_error)
+
+    # Replace the bank code with the bank flag used in 4devs.
+    if bank != 0:
+        bank = ALL_BANK_FLAGS[bank]
+    else:
+        bank = random_choice(
+            list(ALL_BANK_FLAGS.values())
+        )
+
+    content_length = 43
+    referer = 'gerador_de_numero_cartao_credito'
+    payload = {
+        'acao': 'gerar_cc',
+        'pontuacao': 'S' if format else 'N',
+        'bandeira': bank
+    }
+
+    # This response is in html format
+    r = fordev_request(content_length, referer, payload)
+    
+    # Replace data in html format with credit card info only.
+    r['data'] = filter_credit_card_info(r['data'])
 
     if data_only and r['msg'] == 'success':
         return r['data']

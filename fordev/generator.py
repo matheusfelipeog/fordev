@@ -22,6 +22,29 @@ Options:
     City - Random city generation using state UF code.
 """
 
+
+__all__ = [
+    'certificate',
+    'cnh',
+    'bank_account',
+    'cpf',
+    'pis_pasep',
+    'renavam',
+    'vehicle',
+    'vehicle_brand',
+    'vehicle_plate',
+    'cnpj',
+    'rg',
+    'state_registration',
+    'voter_title',
+    'credit_card',
+    'people',
+    'company',
+    'uf',
+    'city'
+]
+
+
 # --- Standard libraries ----
 from json import loads as json_loads
 

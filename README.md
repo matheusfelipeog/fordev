@@ -14,6 +14,44 @@ O site [4Devs](https://4devs.com.br) disponibiliza diversas funcionalidades muit
 **Fordev** foi construído para resolver esse problema, disponibilizando um módulo de fácil uso que mapeia todo o site 4Devs usando técnicas de scraping, de modo que seja possível obter todos os tipos de dados que são gerados no site.
 
 
+## Demo
+
+Socilitando dados randômicos de uma pessoa do sexo *masculino*, de *25 anos de idade* e que *mora em SP*.
+
+```python
+>>> from fordev.generator import people
+>>> p = people(sex='M', age=25, state='SP')
+>>> print(p)
+
+# Output ---------------------------------------------------------------------------------
+{
+    'altura': '1,90',
+    'bairro': 'Jardim Maria Amélia',
+    'celular': '(12) 98401-5301',
+    'cep': '12318-110',
+    'cidade': 'Jacareí',
+    'cor': 'laranja',
+    'cpf': '061.632.758-70',
+    'data_nasc': '06/12/1995',
+    'email': 'bentoyagolorenzogoncalves-72@alcastro.com.br',
+    'endereco': 'Rua José Benedito de Oliveira',
+    'estado': 'SP',
+    'idade': 25,
+    'mae': 'Tereza Melissa Priscila',
+    'nome': 'Bento Yago Lorenzo Gonçalves',
+    'numero': 760,
+    'pai': 'Sérgio Guilherme Erick Gonçalves',
+    'peso': 88,
+    'rg': '23.920.314-8',
+    'senha': 'ErOKUUyoml',
+    'sexo': 'Masculino',
+    'signo': 'Sagitário',
+    'telefone_fixo': '(12) 2844-9806',
+    'tipo_sanguineo': 'AB+'
+}
+```
+
+
 ## Contribuições
 
 Toda contribuição é super bem-vinda!

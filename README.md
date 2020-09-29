@@ -52,6 +52,32 @@ Socilitando dados randômicos de uma pessoa do sexo *masculino*, de *25 anos de 
 ```
 
 
+## Funcionalidades
+
+Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs.
+
+### `fordev.generator`
+
+- `certificate(...)` - Gerador de certidões de nascimento, casamento e óbito;
+- `cnh(...)` -  Gerador de CNH (Carteira Nacional de Habilitação);
+- `bank_account(...)` - Gerador de contas bancárias;
+- `cpf(...)` - Gerador de CPF (Cadastro de Pessoas Físicas);
+- `pis_pasep(...)` - Gerador de PIS/PASEP (Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público);
+- `renavam(...)` - Gerador de RENAVAM (Registro Nacional de Veículos Automotores);
+- `vehicle(...)` - Gerador de veículos;
+- `vehicle_brand(...)` - Gerador de marca de veículos;
+- `vehicle_plate(...)` - Gerador de placa de veículos;
+- `cnpj(...)` - Gerador de CNPJ (Cadastro Nacional da Pessoa Jurídica);
+- `rg(...)` - Gerador de RG (Registro Geral) emitido por SSP-SP;
+- `state_registration(...)` - Gerador de Inscrições Estaduais válidas para todos os estados;
+- `voter_title(...)` - Gerador de título de eleitor;
+- `credit_card(...)` - Gerador de dados de cartão de crédito;
+- `people(...)` - Gerador de dados de pessoas (Nome, RG, CPF, CEP e Endereço);
+- `company(...)` - Gerador de dados de empresa (Nome, Razão Social, Inscrição Estadual, CNPJ, CEP e Endereço);
+- `uf(...)` - Gerador de código de UF (Unidade Federativa);
+- `city(...)` - Gerador de cidades do brasil por estado selecionado.
+
+
 ## Contribuições
 
 Toda contribuição é super bem-vinda!

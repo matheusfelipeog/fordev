@@ -7,6 +7,17 @@
 </p>
 
 
+## Index
+
+- [O objetivo](#o-objetivo)
+- [Demo](#demo)
+- [Funcionalidades](#funcionalidades)
+   - [fordev.generator](#fordevgenerator)
+- [Contribuições](#contribuições)
+- [Aviso Legal](#aviso-legal)
+- [Licença](#licença)
+
+
 ## O objetivo
 
 O site [4Devs](https://4devs.com.br) disponibiliza diversas funcionalidades muito úteis para um desenvolvedor utilizar em seus projetos que necessitam de dados randômicos válidos e outras peculiaridades, tais como: dados dos principais documentos pessoais do brasil (CPF, CNPJ, CNH etc), dados bancários, dados de cartões de crédito, dados completos de pessoas (nome, idade, documentos, endereço etc) e muitos outros geradores de dados. Porém, até o momento, não possui uma interface/API pública para utiliza-los diretamente no código da aplicação em desenvolvimento, assim, sendo necessário ir buscar tais dados diretamente no site.

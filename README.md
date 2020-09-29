@@ -14,6 +14,21 @@ O site [4Devs](https://4devs.com.br) disponibiliza diversas funcionalidades muit
 **Fordev** foi construído para resolver esse problema, disponibilizando um módulo de fácil uso que mapeia todo o site 4Devs usando técnicas de scraping, de modo que seja possível obter todos os tipos de dados que são gerados no site.
 
 
+## Contribuições
+
+Toda contribuição é super bem-vinda!
+
+Abaixo mostro com o que você pode contribuir:
+
+- Encontrou algum bug, quer propor uma nova funcionalidade ou conversar sobre o projeto? [Abra uma Issue](https://github.com/matheusfelipeog/fordev/issues) e descreve seu caso.
+
+- Existe uma issue aberta e você quer resolve-la, quer implementar uma nova funcionalidade ou melhorar a documentação? Faça suas adições e me envie um *Pull Request*
+
+- Gostou do projeto, mas não quer ou ainda não consegue contribuir com ele? Considere deixar uma estrela ⭐ para o **Fordev**
+
+Obrigado pelo interesse em colaborar de alguma forma com o projeto 😄
+
+
 ## Aviso Legal
 
 Todo os dados são gerados de forma randômica, respeitando as regras de criação de cada tipo de dado. 

@@ -25,9 +25,9 @@ Caso queira pular para a documentação de uma função em específico, basta cl
 - [`cpf(...)`](#cpf) - Gerador de CPF (Cadastro de Pessoas Físicas);
 - [`pis_pasep(...)`](#pis_pasep) - Gerador de PIS/PASEP (Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público);
 - [`renavam(...)`](#renavam) - Gerador de RENAVAM (Registro Nacional de Veículos Automotores);
-- `vehicle(...)` - Gerador de veículos;
-- `vehicle_brand(...)` - Gerador de marca de veículos;
-- `vehicle_plate(...)` - Gerador de placa de veículos;
+- [`vehicle(...)`](#vehicle) - Gerador de veículos;
+- [`vehicle_brand(...)`](#vehicle_brand) - Gerador de marca de veículos;
+- [`vehicle_plate(...)`](#vehicle_plate) - Gerador de placa de veículos;
 - `cnpj(...)` - Gerador de CNPJ (Cadastro Nacional da Pessoa Jurídica);
 - `rg(...)` - Gerador de RG (Registro Geral) emitido por SSP-SP;
 - `state_registration(...)` - Gerador de Inscrições Estaduais válidas para todos os estados;
@@ -206,4 +206,149 @@ Gerador de código de RENAVAM (Registro Nacional de Veículos Automotores) váli
 ```python
 >>> from fordev.generator import renavam
 >>> renavam()
+```
+
+
+### `vehicle(...)`
+
+```python
+vehicle(brand_code: int=0, state: str='', format: bool=True, data_only: bool=True) -> dict
+```
+
+Gerador de dados de veículo (Marca, Modelo, Ano, Renavam, Placa e Cor) válido.
+
+#### Argumentos
+
+- `brand_code: int` - Este argumento recebe um número inteiro, entre 0 a 87, que corresponde a uma marca de veículo disponível para geração dos dados.
+    - Opções
+        - 0 = Random (Padrão);
+        - 1 = Acura;
+        - 2 = Agrale;
+        - 3 = Alfa Romeo;
+        - 4 = AM Gen;
+        - 5 = Asia Motors;
+        - 6 = ASTON MARTIN;
+        - 7 = Audi;
+        - 8 = BMW;
+        - 9 = BRM;
+        - 10 = Buggy;
+        - 11 = Bugre;
+        - 12 = Cadillac;
+        - 13 = CBT Jipe;
+        - 14 = CHANA;
+        - 15 = CHANGAN;
+        - 16 = CHERY;
+        - 17 = Chrysler;
+        - 18 = Citroen;
+        - 19 = Cross Lander;
+        - 20 = Daewoo;
+        - 21 = Daihatsu;
+        - 22 = Dodge;
+        - 23 = EFFA;
+        - 24 = Engesa;
+        - 25 = Envemo;
+        - 26 = Ferrari;
+        - 27 = Fiat;
+        - 28 = Fibravan;
+        - 29 = Ford;
+        - 30 = FOTON;
+        - 31 = Fyber;
+        - 32 = GEELY;
+        - 33 = GM - Chevrolet;
+        - 34 = GREAT WALL;
+        - 35 = Gurgel;
+        - 36 = HAFEI;
+        - 37 = Honda;
+        - 38 = Hyundai;
+        - 39 = Isuzu;
+        - 40 = JAC;
+        - 41 = Jaguar;
+        - 42 = Jeep;
+        - 43 = JINBEI;
+        - 44 = JPX;
+        - 45 = Kia Motors;
+        - 46 = Lada;
+        - 47 = LAMBORGHINI;
+        - 48 = Land Rover;
+        - 49 = Lexus;
+        - 50 = LIFAN;
+        - 51 = LOBINI;
+        - 52 = Lotus;
+        - 53 = Mahindra;
+        - 54 = Maserati;
+        - 55 = Matra;
+        - 56 = Mazda;
+        - 57 = Mercedes-Benz;
+        - 58 = Mercury;
+        - 59 = MG;
+        - 60 = MINI;
+        - 61 = Mitsubishi;
+        - 62 = Miura;
+        - 63 = Nissan;
+        - 64 = Peugeot;
+        - 65 = Plymouth;
+        - 66 = Pontiac;
+        - 67 = Porsche;
+        - 68 = RAM;
+        - 69 = RELY;
+        - 70 = Renault;
+        - 71 = Rolls-Royce;
+        - 72 = Rover;
+        - 73 = Saab;
+        - 74 = Saturn;
+        - 75 = Seat;
+        - 76 = SHINERAY;
+        - 77 = smart;
+        - 78 = SSANGYONG;
+        - 79 = Subaru;
+        - 80 = Suzuki;
+        - 81 = TAC;
+        - 82 = Toyota;
+        - 83 = Troller;
+        - 84 = Volvo;
+        - 85 = VW - VolksWagen;
+        - 86 = Wake;
+        - 87 = Walk.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import vehicle
+>>> vehicle(brand_code=26 state='SP')
+```
+
+
+### `vehicle_brand(...)`
+
+```python
+vehicle_brand(n: int=1, data_only: bool=True) -> list
+```
+
+Gerador de nome de marca de veículos válidos.
+
+#### Argumentos
+
+- `n: int` - Este argumento recebe um número inteiro, entre 1 a 87, que corresponde a quantidade de nomes de marcas de veículos a ser gerado.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import vehicle_brand
+>>> vehicle_brand(n=35)
+```
+
+
+### `vehicle_plate(...)`
+
+```python
+vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str
+```
+
+Gerador de código de placa de veículo válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import vehicle_plate
+>>> vehicle_plate(state='RJ')
 ```

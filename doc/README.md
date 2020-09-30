@@ -23,8 +23,8 @@ Caso queira pular para a documentação de uma função em específico, basta cl
 - [`cnh(...)`](#cnh) - Gerador de CNH (Carteira Nacional de Habilitação);
 - [`bank_account(...)`](#bank_account) - Gerador de contas bancárias;
 - [`cpf(...)`](#cpf) - Gerador de CPF (Cadastro de Pessoas Físicas);
-- `pis_pasep(...)` - Gerador de PIS/PASEP (Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público);
-- `renavam(...)` - Gerador de RENAVAM (Registro Nacional de Veículos Automotores);
+- [`pis_pasep(...)`](#pis_pasep) - Gerador de PIS/PASEP (Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público);
+- [`renavam(...)`](#renavam) - Gerador de RENAVAM (Registro Nacional de Veículos Automotores);
 - `vehicle(...)` - Gerador de veículos;
 - `vehicle_brand(...)` - Gerador de marca de veículos;
 - `vehicle_plate(...)` - Gerador de placa de veículos;
@@ -174,4 +174,36 @@ Gerador de código de CPF (Cadastro de Pessoas Físicas) válidos para todos os 
 ```python
 >>> from fordev.generator import cpf
 >>> cpf(state='AC')
+```
+
+
+### `pis_pasep(...)`
+
+```python
+pis_pasep(format: bool=True, data_only: bool=True) -> str:
+```
+
+Gerador de código de PIS/PASEP (Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público) válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import pis_pasep
+>>> pis_pasep()
+```
+
+
+### `renavam(...)`
+
+```python
+renavam(data_only: bool=True) -> str:
+```
+
+Gerador de código de RENAVAM (Registro Nacional de Veículos Automotores) válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import renavam
+>>> renavam()
 ```

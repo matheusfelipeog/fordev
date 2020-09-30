@@ -8,16 +8,20 @@
 
 <h2 align="center">Documentação Oficial</h2>
 
-Está é a documentação oficial e completa do módulo **Fordev**, aqui você encontrará exemplos e uma explicação individual de cada função geradora, validadora e manipuladora de dados disponibilizados no site [4Devs](https://4devs.com.br).
+Está é a documentação oficial e completa do módulo **Fordev**, aqui você encontrará exemplos e uma explicação individual de cada função geradora, validadora e manipuladora de dados disponibilizados e mapeados no site [4Devs](https://4devs.com.br).
+
+Caso queira obter mais detalhes sobre o projeto, confira o `README.md` na página inicial do repositório do [**Fordev**](https://github.com/matheusfelipeog/fordev).
+
+Agora, para obter mais detalhes sobre como utilizar o projeto **Fordev**, indico iniciar o estudo pela seção [Doc](#doc).
 
 
 ## Funcionalidades
 
 Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs. 
 
-Caso queira pular para a documentação de uma função em específico, basta clicar no nome da função desejada abaixo.
+Caso queira pular para a documentação de uma função/módulo em específico, basta clicar no nome da função desejada abaixo.
 
-### `fordev.generator`
+### [`fordev.generator`](#fordevgenerator-1)
 
 - [`certificate(...)`](#certificate) - Gerador de certidões de nascimento, casamento e óbito;
 - [`cnh(...)`](#cnh) - Gerador de CNH (Carteira Nacional de Habilitação);
@@ -78,6 +82,80 @@ Você pode conferir todos os UFs em [Constantes](https://github.com/matheusfelip
 {'msg': 'failed', 'error': 'MENSAGEM DE ERRO AQUI'}
 # Ou
 {'msg': 'HTTP error', 'error': 'MENSAGEM DE ERRO AQUI'}
+```
+
+
+### Retornos
+
+Muitas das funções disponíveis pelo módulo **Fordev** tem retornos parecidos, variando as msg de sucesso e erro ou os dados, podendo variar de tipo, conforme os argumentos passados, entre: uma string, uma lista ou um dicionário.
+
+Possíveis retornos:
+
+O retorno padrão em quase todas as funções é uma string:
+```python
+>>> from fordev.generator import cpf
+>>> cpf(data_only=False)
+
+# Retorna uma string
+'123.456.789-10'
+```
+
+Algumas funções tem uma lista de strings como retorno:
+```python
+>>> from fordev.generator import uf
+>>> uf(n=10)
+
+# Retorna uma lista de string
+['PE', 'PI', 'RS', 'SP', 'CE', 'AL', 'TO', 'MT', 'MS', 'RR']
+```
+
+Também tem funções que tem um dicionário de dados como retorno:
+```python
+>>> from fordev.generator import people
+>>> people(sex='M', age=25, state='SP')
+
+# Retorna um dicionário
+{
+    'altura': '1,90',
+    'bairro': 'Jardim Maria Amélia',
+    'celular': '(12) 98401-5301',
+    'cep': '12318-110',
+    'cidade': 'Jacareí',
+    'cor': 'laranja',
+    'cpf': '061.632.758-70',
+    'data_nasc': '06/12/1995',
+    'email': 'bentoyagolorenzogoncalves-72@alcastro.com.br',
+    'endereco': 'Rua José Benedito de Oliveira',
+    'estado': 'SP',
+    'idade': 25,
+    'mae': 'Tereza Melissa Priscila',
+    'nome': 'Bento Yago Lorenzo Gonçalves',
+    'numero': 760,
+    'pai': 'Sérgio Guilherme Erick Gonçalves',
+    'peso': 88,
+    'rg': '23.920.314-8',
+    'senha': 'ErOKUUyoml',
+    'sexo': 'Masculino',
+    'signo': 'Sagitário',
+    'telefone_fixo': '(12) 2844-9806',
+    'tipo_sanguineo': 'AB+'
+}
+```
+
+Em caso de erros ou a função que tiverem o argumento `data_only` receber o valor `False`, também retornam um dicionário de dados:
+```python
+>>> from fordev.generator import cpf
+>>> cpf(data_only=False)
+
+# Retorno em caso de falha no processo de scraping
+{'msg': 'failed', 'error': 'MENSAGEM DE ERRO AQUI'}
+
+# Retorno em caso de falha com o protocolo HTTP
+{'msg': 'HTTP error', 'error': 'MENSAGEM DE ERRO AQUI'}
+
+# Retorno caso o argumento 'data_only' receber o valor 'False'
+{'msg': 'success', 'data': '123.456.789-10'}
+
 ```
 
 

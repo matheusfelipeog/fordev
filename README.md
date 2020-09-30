@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="./.github/assets/images/fordev.png" alt="Logo Fordev" width="500px" />
+    <img src="https://raw.githubusercontent.com/matheusfelipeog/fordev/master/.github/assets/images/fordev.png" alt="Logo Fordev" width="500px" />
 </h1>
 
 <p align="center">
@@ -10,8 +10,9 @@
 ## Index
 
 - [O objetivo](#o-objetivo)
+- [Instalação](#instalação)
 - [Demo](#demo)
-- [Documentação Oficial](./doc/README.md)
+- [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md)
 - [Funcionalidades](#funcionalidades)
    - [fordev.generator](#fordevgenerator)
 - [Contribuições](#contribuições)
@@ -24,6 +25,19 @@
 O site [4Devs](https://4devs.com.br) disponibiliza diversas funcionalidades muito úteis para um desenvolvedor utilizar em seus projetos que necessitam de dados randômicos válidos e outras peculiaridades, tais como: dados dos principais documentos pessoais do brasil (CPF, CNPJ, CNH etc), dados bancários, dados de cartões de crédito, dados completos de pessoas (nome, idade, documentos, endereço etc) e muitos outros geradores de dados. Porém, até o momento, não possui uma interface/API pública para utiliza-los diretamente no código da aplicação em desenvolvimento, assim, sendo necessário ir buscar tais dados diretamente no site.
 
 **Fordev** foi construído para resolver esse problema, disponibilizando um módulo de fácil uso que mapeia todo o site 4Devs usando técnicas de scraping, de modo que seja possível obter todos os tipos de dados que são gerados no site.
+
+
+## Instalação
+
+Para instalar, certifique-se de que tenha [Python](https://www.python.org/) e o gerenciador de pacotes `pip` instalados em seu ambiente.
+
+Instale com `pip`:
+
+```bash
+$ pip install fordev
+```
+
+> OBS: fordev precisa de acesso a internet para funcionar corretamente, certifique-se de que também a tenha
 
 
 ## Demo
@@ -70,7 +84,7 @@ Confira a seção de [funcionalidades](#funcionalidades) para ver todas as funç
 
 Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs.
 
-Você pode conferir a [Documentação Oficial](./doc/README.md) para ver uma explicação detalhada e exemplos do uso de todas as funções.
+Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md) para ver uma explicação detalhada e exemplos do uso de todas as funções.
 
 ### `fordev.generator`
 

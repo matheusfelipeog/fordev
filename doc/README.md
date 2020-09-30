@@ -15,32 +15,34 @@ Caso queira obter mais detalhes sobre o projeto, confira o `README.md` na págin
 Agora, para obter mais detalhes sobre como utilizar o projeto **Fordev**, indico iniciar o estudo pela seção [Doc](#doc).
 
 
-## Funcionalidades
+## Index
 
-Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs. 
+Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs.
 
 Caso queira pular para a documentação de uma função/módulo em específico, basta clicar no nome da função desejada abaixo.
 
-### [`fordev.generator`](#fordevgenerator-1)
-
-- [`certificate(...)`](#certificate) - Gerador de certidões de nascimento, casamento e óbito;
-- [`cnh(...)`](#cnh) - Gerador de CNH (Carteira Nacional de Habilitação);
-- [`bank_account(...)`](#bank_account) - Gerador de contas bancárias;
-- [`cpf(...)`](#cpf) - Gerador de CPF (Cadastro de Pessoas Físicas);
-- [`pis_pasep(...)`](#pis_pasep) - Gerador de PIS/PASEP (Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público);
-- [`renavam(...)`](#renavam) - Gerador de RENAVAM (Registro Nacional de Veículos Automotores);
-- [`vehicle(...)`](#vehicle) - Gerador de veículos;
-- [`vehicle_brand(...)`](#vehicle_brand) - Gerador de marca de veículos;
-- [`vehicle_plate(...)`](#vehicle_plate) - Gerador de placa de veículos;
-- [`cnpj(...)`](#cnpj) - Gerador de CNPJ (Cadastro Nacional da Pessoa Jurídica);
-- [`rg(...)`](#rg) - Gerador de RG (Registro Geral) emitido por SSP-SP;
-- [`state_registration(...)`](#state_registration) - Gerador de Inscrições Estaduais válidas para todos os estados;
-- [`voter_title(...)`](#voter_title) - Gerador de título de eleitor;
-- [`credit_card(...)`](#credit_card) - Gerador de dados de cartão de crédito;
-- [`people(...)`](#people) - Gerador de dados de pessoas (Nome, RG, CPF, CEP e Endereço);
-- [`company(...)`](#company) - Gerador de dados de empresa (Nome, Razão Social, Inscrição Estadual, CNPJ, CEP e Endereço);
-- [`uf(...)`](#uf) - Gerador de código de UF (Unidade Federativa);
-- [`city(...)`](#city) - Gerador de cidades do brasil por estado selecionado.
+- [Doc](#doc) - Inicio da documentação.
+    - [Argumentos Genêricos](#argumentos-genêricos) - Explicação dos argumentos genêricos;
+    - [Retornos](#retornos) - Explicação e exemplos de todos os possíveis retornos de cada função.
+- [`fordev.generator`](#fordevgenerator)
+    - [`certificate(...)`](#certificate) - Gerador de certidões de nascimento, casamento e óbito;
+    - [`cnh(...)`](#cnh) - Gerador de CNH (Carteira Nacional de Habilitação);
+    - [`bank_account(...)`](#bank_account) - Gerador de contas bancárias;
+    - [`cpf(...)`](#cpf) - Gerador de CPF (Cadastro de Pessoas Físicas);
+    - [`pis_pasep(...)`](#pis_pasep) - Gerador de PIS/PASEP (Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público);
+    - [`renavam(...)`](#renavam) - Gerador de RENAVAM (Registro Nacional de Veículos Automotores);
+    - [`vehicle(...)`](#vehicle) - Gerador de veículos;
+    - [`vehicle_brand(...)`](#vehicle_brand) - Gerador de marca de veículos;
+    - [`vehicle_plate(...)`](#vehicle_plate) - Gerador de placa de veículos;
+    - [`cnpj(...)`](#cnpj) - Gerador de CNPJ (Cadastro Nacional da Pessoa Jurídica);
+    - [`rg(...)`](#rg) - Gerador de RG (Registro Geral) emitido por SSP-SP;
+    - [`state_registration(...)`](#state_registration) - Gerador de Inscrições Estaduais válidas para todos os estados;
+    - [`voter_title(...)`](#voter_title) - Gerador de título de eleitor;
+    - [`credit_card(...)`](#credit_card) - Gerador de dados de cartão de crédito;
+    - [`people(...)`](#people) - Gerador de dados de pessoas (Nome, RG, CPF, CEP e Endereço);
+    - [`company(...)`](#company) - Gerador de dados de empresa (Nome, Razão Social, Inscrição Estadual, CNPJ, CEP e Endereço);
+    - [`uf(...)`](#uf) - Gerador de código de UF (Unidade Federativa);
+    - [`city(...)`](#city) - Gerador de cidades do brasil por estado selecionado.
 
 
 ## Doc

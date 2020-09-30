@@ -4,6 +4,15 @@
 # --- Third-party libraries ---
 from bs4 import BeautifulSoup
 
+from ._version import __version__
+
+from ._author import __author__
+from ._author import __email__
+from ._author import __github__
+
+__version__ = __version__
+__author__ = f'{__author__} <{__email__}> and <{__github__}>'
+
 
 def filter_bank_account_info(html: str) -> dict:
     """Filter the bank account info in the data of the HTML structure.

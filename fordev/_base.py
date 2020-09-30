@@ -11,6 +11,15 @@ import requests
 from ._const import URL_4DEV_API
 from ._const import LIST_OF_USER_AGENT
 
+from ._version import __version__
+
+from ._author import __author__
+from ._author import __email__
+from ._author import __github__
+
+__version__ = __version__
+__author__ = f'{__author__} <{__email__}> and <{__github__}>'
+
 
 def _random_user_agent() -> str:
     """A random user agent string."""

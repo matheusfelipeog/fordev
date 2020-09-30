@@ -22,6 +22,15 @@ Options:
     City - Random city generation using state UF code.
 """
 
+from ._version import __version__
+
+from ._author import __author__
+from ._author import __email__
+from ._author import __github__
+
+__version__ = __version__
+__author__ = f'{__author__} <{__email__}> and <{__github__}>'
+
 
 __all__ = [
     'certificate',

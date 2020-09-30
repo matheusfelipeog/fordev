@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
 """All constants using in fordev module."""
 
+from ._version import __version__
+
+from ._author import __author__
+from ._author import __email__
+from ._author import __github__
+
+__version__ = __version__
+__author__ = f'{__author__} <{__email__}> and <{__github__}>'
+
+
 # -------------- fordev request --------------
 LIST_OF_USER_AGENT: list = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',

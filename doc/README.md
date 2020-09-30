@@ -28,9 +28,9 @@ Caso queira pular para a documentação de uma função em específico, basta cl
 - [`vehicle(...)`](#vehicle) - Gerador de veículos;
 - [`vehicle_brand(...)`](#vehicle_brand) - Gerador de marca de veículos;
 - [`vehicle_plate(...)`](#vehicle_plate) - Gerador de placa de veículos;
-- `cnpj(...)` - Gerador de CNPJ (Cadastro Nacional da Pessoa Jurídica);
-- `rg(...)` - Gerador de RG (Registro Geral) emitido por SSP-SP;
-- `state_registration(...)` - Gerador de Inscrições Estaduais válidas para todos os estados;
+- [`cnpj(...)`](#cnpj) - Gerador de CNPJ (Cadastro Nacional da Pessoa Jurídica);
+- [`rg(...)`](#rg) - Gerador de RG (Registro Geral) emitido por SSP-SP;
+- [`state_registration(...)`](#state_registration) - Gerador de Inscrições Estaduais válidas para todos os estados;
 - `voter_title(...)` - Gerador de título de eleitor;
 - `credit_card(...)` - Gerador de dados de cartão de crédito;
 - `people(...)` - Gerador de dados de pessoas (Nome, RG, CPF, CEP e Endereço);
@@ -351,4 +351,52 @@ Gerador de código de placa de veículo válido.
 ```python
 >>> from fordev.generator import vehicle_plate
 >>> vehicle_plate(state='RJ')
+```
+
+
+### `cnpj(...)`
+
+```python
+cnpj(format: bool=True, data_only: bool=True) -> str
+```
+
+Gerador de código de CNPJ (Cadastro Nacional da Pessoa Jurídica) válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import cnpj
+>>> cnpj()
+```
+
+
+### `rg(...)`
+
+```python
+rg(format: bool=True, data_only: bool=True) -> str
+```
+
+Gerador de código de RG (Registro Geral) emitido por SSP-SP.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import rg
+>>> rg()
+```
+
+
+### `state_registration(...)`
+
+```python
+state_registration(state: str='SP', format: bool=True, data_only: bool=True) -> str
+```
+
+Gerador de código de Inscrições Estaduais válidas para todos os estados.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import state_registration
+>>> state_registration(state='BA')
 ```

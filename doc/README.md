@@ -24,6 +24,7 @@ Caso queira pular para a documentação de uma função/módulo em específico, 
 - [Doc](#doc) - Inicio da documentação.
     - [Argumentos Genêricos](#argumentos-genêricos) - Explicação dos argumentos genêricos;
     - [Retornos](#retornos) - Explicação e exemplos de todos os possíveis retornos de cada função.
+    
 - [`fordev.generator`](#fordevgenerator)
     - [`certificate(...)`](#certificate) - Gerador de certidões de nascimento, casamento e óbito;
     - [`cnh(...)`](#cnh) - Gerador de CNH (Carteira Nacional de Habilitação);

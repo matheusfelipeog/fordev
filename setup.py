@@ -12,17 +12,6 @@ with open('README.md', mode='r', encoding='utf-8') as f:
     long_description = f.read()
 
 
-def find_requires() -> list:
-    """Find install requirements."""
-
-    with open('requirements.txt', mode='r', encoding='utf-8') as f:
-        all_requires = [
-            module.strip('\n\r') for module in f.readlines()
-        ]
-
-    return all_requires
-
-
 setup(
     name='fordev',
     version=__version__,
@@ -34,7 +23,10 @@ setup(
     author_email=__email__,
     url='https://github.com/matheusfelipeog/fordev',
     packages=find_packages(),
-    install_requires=find_requires(),
+    install_requires=[
+        'requests',
+        'beautifulsoup4'
+    ],
     zip_safe=False,
     python_requires='>=3.6',
     project_urls={

@@ -1,6 +1,6 @@
-<h1 align="center">
+<p align="center">
     <img src="https://raw.githubusercontent.com/matheusfelipeog/fordev/master/.github/assets/images/fordev.png" alt="Logo Fordev" width="500px" />
-</h1>
+</p>
 
 <p align="center">
     <img src="https://img.shields.io/github/license/matheusfelipeog/fordev?color=black&style=for-the-badge" alt="License MIT" />

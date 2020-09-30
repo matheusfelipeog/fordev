@@ -20,9 +20,9 @@ Caso queira pular para a documentação de uma função em específico, basta cl
 ### `fordev.generator`
 
 - [`certificate(...)`](#certificate) - Gerador de certidões de nascimento, casamento e óbito;
-- `cnh(...)` -  Gerador de CNH (Carteira Nacional de Habilitação);
-- `bank_account(...)` - Gerador de contas bancárias;
-- `cpf(...)` - Gerador de CPF (Cadastro de Pessoas Físicas);
+- [`cnh(...)`](#cnh) - Gerador de CNH (Carteira Nacional de Habilitação);
+- [`bank_account(...)`](#bank_account) - Gerador de contas bancárias;
+- [`cpf(...)`](#cpf) - Gerador de CPF (Cadastro de Pessoas Físicas);
 - `pis_pasep(...)` - Gerador de PIS/PASEP (Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público);
 - `renavam(...)` - Gerador de RENAVAM (Registro Nacional de Veículos Automotores);
 - `vehicle(...)` - Gerador de veículos;
@@ -115,4 +115,63 @@ Gerador de certidões de nascimento, casamento, casamento relogioso e óbito.
 ```python
 >>> from fordev.generator import certificate
 >>> certificate(type_='D')
+```
+
+
+### `cnh(...)`
+
+```python
+cnh(data_only: bool=True) -> str:
+```
+
+Gerador de código CNH (Carteira Nacional de Habilitação) válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import cnh
+>>> cnh()
+```
+
+
+### `bank_account(...)`
+
+```python
+bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
+```
+
+Gerador de dados de conta bancária (Conta Corrente, Agência, Banco, Cidade e Estado) válido.
+
+#### Argumentos
+
+- `bank: int` - Este argumento recebe um número inteiro, entre 0 a 5, que corresponde a uma bandeira de um dos bancos disponíveis para geração dos dados bancários.
+    - Opções
+       - 0 = Random (Padrão);
+       - 1 = Banco do Brasil;
+       - 2 = Bradesco;
+       - 3 = Citibank;
+       - 4 = Itaú;
+       - 5 = Santander.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import bank_account
+>>> bank_account(bank=2, state='PB')
+```
+
+
+### `cpf(...)`
+
+```python
+cpf(state: str='', format: bool=True, data_only: bool=True) -> str:
+```
+
+Gerador de código de CPF (Cadastro de Pessoas Físicas) válidos para todos os estados.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import cpf
+>>> cpf(state='AC')
 ```

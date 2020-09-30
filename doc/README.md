@@ -34,9 +34,9 @@ Caso queira pular para a documentação de uma função em específico, basta cl
 - [`voter_title(...)`](#voter_title) - Gerador de título de eleitor;
 - [`credit_card(...)`](#credit_card) - Gerador de dados de cartão de crédito;
 - [`people(...)`](#people) - Gerador de dados de pessoas (Nome, RG, CPF, CEP e Endereço);
-- `company(...)` - Gerador de dados de empresa (Nome, Razão Social, Inscrição Estadual, CNPJ, CEP e Endereço);
-- `uf(...)` - Gerador de código de UF (Unidade Federativa);
-- `city(...)` - Gerador de cidades do brasil por estado selecionado.
+- [`company(...)`](#company) - Gerador de dados de empresa (Nome, Razão Social, Inscrição Estadual, CNPJ, CEP e Endereço);
+- [`uf(...)`](#uf) - Gerador de código de UF (Unidade Federativa);
+- [`city(...)`](#city) - Gerador de cidades do brasil por estado selecionado.
 
 
 ## Doc
@@ -475,4 +475,60 @@ Gerador de dados de pessoas (nome, idade, documentos, contatos, endereço etc) v
 ```python
 >>> from fordev.generator import people
 >>> people(n=5, sex='M', age=75)
+```
+
+
+### `company(...)`
+
+```python
+company(state: str='SP', age: int=1, format: bool=True, data_only: bool=True) -> dict
+```
+
+Gerador de dados de empresa (nome, cnpj, endereço, contatos, data de abertura etc) válidos.
+
+#### Argumentos
+
+- `age: int` - Este argumento recebe um número inteiro, entre 1 a 30, que representa o tempo de existência da empresa em anos.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import company
+>>> company(state='PB', age=10)
+```
+
+
+### `uf(...)`
+
+```python
+uf(n: int=1, data_only: bool=True) -> list
+```
+
+Gerador de código UF (Unidade Federativa) de todos os estados.
+
+#### Argumentos
+
+- `n: int` - Este argumento recebe um número inteiro, entre 1 a 27, que corresponde a quantidade de ufs dos estados a serem gerados.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import uf
+>>> uf(n=15)
+```
+
+
+### `city(...)`
+
+```python
+city(state: str='SP', data_only: bool=True) -> list
+```
+
+Gerador de todas as cidade com base no estado selecionado.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import city
+>>> city(state='PB')
 ```

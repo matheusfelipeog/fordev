@@ -19,7 +19,7 @@ Caso queira pular para a documentação de uma função em específico, basta cl
 
 ### `fordev.generator`
 
-- `certificate(...)` - Gerador de certidões de nascimento, casamento e óbito;
+- [`certificate(...)`](#certificate) - Gerador de certidões de nascimento, casamento e óbito;
 - `cnh(...)` -  Gerador de CNH (Carteira Nacional de Habilitação);
 - `bank_account(...)` - Gerador de contas bancárias;
 - `cpf(...)` - Gerador de CPF (Cadastro de Pessoas Físicas);
@@ -78,4 +78,41 @@ Você pode conferir todos os UFs em [Constantes](https://github.com/matheusfelip
 {'msg': 'failed', 'error': 'MENSAGEM DE ERRO AQUI'}
 # Ou
 {'msg': 'HTTP error', 'error': 'MENSAGEM DE ERRO AQUI'}
+```
+
+
+### `fordev.generator`
+
+Este módulo contém todas as funções geradoras de dados e é responsável por realizar todas as solicitações que corresponde a geração de dados ao site 4Devs.
+
+#### Exemplo:
+
+```python
+>>> import fordev.generator
+```
+
+
+### `certificate(...)`
+
+```python
+certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str:
+```
+
+Gerador de certidões de nascimento, casamento, casamento relogioso e óbito.
+
+#### Argumentos
+
+- `type_: str` - Este argumento rebece um único caracter que especifica qual tipo de certidão que deve ser gerada, são 5 opções disponíveis.
+    - Opções
+        - 'B' = Birth;
+        - 'W' = Wedding;
+        - 'R' = Religious Wedding;
+        - 'D' = Death;
+        - 'I' = Indifferent (Default).
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import certificate
+>>> certificate(type_='D')
 ```

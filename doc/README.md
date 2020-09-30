@@ -95,7 +95,7 @@ Este módulo contém todas as funções geradoras de dados e é responsável por
 ### `certificate(...)`
 
 ```python
-certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str:
+certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de certidões de nascimento, casamento, casamento relogioso e óbito.
@@ -121,7 +121,7 @@ Gerador de certidões de nascimento, casamento, casamento relogioso e óbito.
 ### `cnh(...)`
 
 ```python
-cnh(data_only: bool=True) -> str:
+cnh(data_only: bool=True) -> str
 ```
 
 Gerador de código CNH (Carteira Nacional de Habilitação) válido.
@@ -137,7 +137,7 @@ Gerador de código CNH (Carteira Nacional de Habilitação) válido.
 ### `bank_account(...)`
 
 ```python
-bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
+bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict
 ```
 
 Gerador de dados de conta bancária (Conta Corrente, Agência, Banco, Cidade e Estado) válido.
@@ -164,7 +164,7 @@ Gerador de dados de conta bancária (Conta Corrente, Agência, Banco, Cidade e E
 ### `cpf(...)`
 
 ```python
-cpf(state: str='', format: bool=True, data_only: bool=True) -> str:
+cpf(state: str='', format: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de código de CPF (Cadastro de Pessoas Físicas) válidos para todos os estados.
@@ -180,7 +180,7 @@ Gerador de código de CPF (Cadastro de Pessoas Físicas) válidos para todos os 
 ### `pis_pasep(...)`
 
 ```python
-pis_pasep(format: bool=True, data_only: bool=True) -> str:
+pis_pasep(format: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de código de PIS/PASEP (Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público) válido.
@@ -196,7 +196,7 @@ Gerador de código de PIS/PASEP (Programa de Integração Social e Programa de F
 ### `renavam(...)`
 
 ```python
-renavam(data_only: bool=True) -> str:
+renavam(data_only: bool=True) -> str
 ```
 
 Gerador de código de RENAVAM (Registro Nacional de Veículos Automotores) válido.

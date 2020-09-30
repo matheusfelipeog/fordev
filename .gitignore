@@ -4,3 +4,10 @@ venv/
 
 # Ignore cache of module importing
 __pycache__/
+
+# Ignore credentials file
+.pypirc
+
+# Ignore files and directory of distribution
+dist/
+*.egg-info/

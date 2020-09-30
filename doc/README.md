@@ -31,9 +31,9 @@ Caso queira pular para a documentação de uma função em específico, basta cl
 - [`cnpj(...)`](#cnpj) - Gerador de CNPJ (Cadastro Nacional da Pessoa Jurídica);
 - [`rg(...)`](#rg) - Gerador de RG (Registro Geral) emitido por SSP-SP;
 - [`state_registration(...)`](#state_registration) - Gerador de Inscrições Estaduais válidas para todos os estados;
-- `voter_title(...)` - Gerador de título de eleitor;
-- `credit_card(...)` - Gerador de dados de cartão de crédito;
-- `people(...)` - Gerador de dados de pessoas (Nome, RG, CPF, CEP e Endereço);
+- [`voter_title(...)`](#voter_title) - Gerador de título de eleitor;
+- [`credit_card(...)`](#credit_card) - Gerador de dados de cartão de crédito;
+- [`people(...)`](#people) - Gerador de dados de pessoas (Nome, RG, CPF, CEP e Endereço);
 - `company(...)` - Gerador de dados de empresa (Nome, Razão Social, Inscrição Estadual, CNPJ, CEP e Endereço);
 - `uf(...)` - Gerador de código de UF (Unidade Federativa);
 - `city(...)` - Gerador de cidades do brasil por estado selecionado.
@@ -399,4 +399,80 @@ Gerador de código de Inscrições Estaduais válidas para todos os estados.
 ```python
 >>> from fordev.generator import state_registration
 >>> state_registration(state='BA')
+```
+
+
+### `voter_title(...)`
+
+```python
+voter_title(state: str, data_only: bool=True) -> str
+```
+
+Gerador de código de Título de Eleitor válido para todos os estados.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import voter_title
+>>> voter_title(state='AC')
+```
+
+
+### `credit_card(...)`
+
+```python
+credit_card(bank: int=0, format: bool=True, data_only: bool=True) -> dict
+```
+
+Gerador de dados de cartão de crédito (Número, Data de Validade e CVV) válidos.
+
+#### Argumentos
+
+- `bank: int` - Este argumento recebe um número inteiro, entre 0 a 10, que corresponde a uma bandeira de um dos bancos disponíveis para geração dos dados bancários.
+    - Opções
+        - 0 = Random;
+        - 1 = MasterCard;
+        - 2 = Visa 16 Dígitos;
+        - 3 = American Express;
+        - 4 = Diners Club;
+        - 5 = Discover;
+        - 6 = enRoute;
+        - 7 = JCB;
+        - 8 = Voyager;
+        - 9 = HiperCard;
+        - 10 = Aura.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import credit_card
+>>> credit_card(bank=2)
+```
+
+
+### `people(...)`
+
+```python
+people(n: int=1, sex: str='R', age: int=0, state: str='', format: bool=True, data_only: bool=True) -> str:
+```
+
+Gerador de dados de pessoas (nome, idade, documentos, contatos, endereço etc) válidos.
+
+#### Argumentos
+
+- `n: int` - Este argumento recebe um número inteiro, entre 1 a 30, que corresponde a quantidade de dados de pessoas a ser gerados.
+
+- `sex: str` - Este argumento recebe um único caracter string que corresponde ao sexo da pessoa a ser gerada.
+    - Opções
+        - 'R' = Random;
+        - 'M' = Masculino;
+        - 'F' = Feminino.
+
+- `age: int` - Este argumento recebe um número inteiro, entre 18 a 80, que representa a idade da pessoa a ser gerada.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.generator import people
+>>> people(n=5, sex='M', age=75)
 ```

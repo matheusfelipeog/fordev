@@ -11,6 +11,7 @@
 
 - [O objetivo](#o-objetivo)
 - [Demo](#demo)
+- [Documentação Oficial](./doc/README.md)
 - [Funcionalidades](#funcionalidades)
    - [fordev.generator](#fordevgenerator)
 - [Contribuições](#contribuições)
@@ -68,6 +69,8 @@ Confira a seção de [funcionalidades](#funcionalidades) para ver todas as funç
 ## Funcionalidades
 
 Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs.
+
+Você pode conferir a [Documentação Oficial](./doc/README.md) para ver uma explicação detalhada e exemplos do uso de todas as funções.
 
 ### `fordev.generator`
 

@@ -3,7 +3,18 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/github/license/matheusfelipeog/fordev?color=black&style=for-the-badge" alt="License MIT" />
+    <a href="https://pypi.org/project/fordev/">
+        <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/fordev?style=for-the-badge" />
+    </a>
+    <a href="https://pypi.org/project/fordev/">
+        <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev?style=for-the-badge" />
+    </a>
+    <a href="https://github.com/matheusfelipeog/fordev/releases">
+        <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/fordev?style=for-the-badge" />
+    </a>
+    <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/matheusfelipeog/fordev?color=green&style=for-the-badge" alt="License MIT" />
+    </a>
 </p>
 
 

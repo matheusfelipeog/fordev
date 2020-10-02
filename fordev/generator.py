@@ -74,7 +74,7 @@ from ._filter import filter_bank_account_info
 from ._filter import filter_company_info
 
 
-def certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str:
+def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> str:
     """Random generate of certificate(birth, wedding, religious wedding and death).
     
     Keyword arguments:
@@ -87,7 +87,7 @@ def certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str:
             'D' = Death and
             'I' = Indifferent (Default).
 
-    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+    `formatting: bool` - If True, returns formatted data. If it is false, there is no formatted data.
 
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -112,7 +112,7 @@ def certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str:
     referer = 'gerador_numero_certidoes'
     payload = {
         'acao': 'gerador_certidao',
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
         'tipo_certidao': type_
     }
 
@@ -204,7 +204,7 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
     return r
 
 
-def cpf(state: str='', format: bool=True, data_only: bool=True) -> str:
+def cpf(state: str='', formatting: bool=True, data_only: bool=True) -> str:
     """Random generate of CPF(Cadastro de Pessoas Físicas).
     
     Keyword arguments:
@@ -212,7 +212,7 @@ def cpf(state: str='', format: bool=True, data_only: bool=True) -> str:
     `state: str` - State UF(Unidade Federativa) code for generating the CPF. <Optional Parameter>.
         More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
 
-    `format: bool` - If True, returns formatted data how "123.456.789-10". If false, formatted data how "12345678910".
+    `formatting: bool` - If True, returns formatted data how "123.456.789-10". If false, formatted data how "12345678910".
     
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -230,7 +230,7 @@ def cpf(state: str='', format: bool=True, data_only: bool=True) -> str:
     referer = 'gerador_de_cpf'
     payload = {
         'acao': 'gerar_cpf',
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
         'cpf_estado': state
     }
 
@@ -242,12 +242,12 @@ def cpf(state: str='', format: bool=True, data_only: bool=True) -> str:
     return r
 
 
-def pis_pasep(format: bool=True, data_only: bool=True) -> str:
+def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
     """Random generate of PIS/PASEP code.
     
     Keyword arguments:
 
-    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+    `formatting: bool` - If True, returns formatted data. If it is false, there is no formatted data.
 
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -256,7 +256,7 @@ def pis_pasep(format: bool=True, data_only: bool=True) -> str:
     referer = 'gerador_de_pis_pasep'
     payload = {
         'acao': 'gerar_pis',
-        'pontuacao': 'S' if format else 'N'
+        'pontuacao': 'S' if formatting else 'N'
     }
 
     r = fordev_request(content_length, referer, payload)
@@ -289,7 +289,7 @@ def renavam(data_only: bool=True) -> str:
     return r 
 
 
-def vehicle(brand_code: int=0, state: str='', format: bool=True, data_only: bool=True) -> dict:
+def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: bool=True) -> dict:
     """Generate random bank account information.
     
     Keyword arguments:
@@ -388,7 +388,7 @@ def vehicle(brand_code: int=0, state: str='', format: bool=True, data_only: bool
     `state: str` - State UF(Unidade Federativa) code for generating the bank account.
         More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
 
-    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+    `formatting: bool` - If True, returns formatted data. If it is false, there is no formatted data.
 
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -420,7 +420,7 @@ def vehicle(brand_code: int=0, state: str='', format: bool=True, data_only: bool
     referer = 'gerador_de_veiculos'
     payload = {
         'acao': 'gerar_veiculo',
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
         'estado': state,
         'fipe_codigo_marca': brand_code
     }
@@ -468,7 +468,7 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
         return full_data
 
 
-def vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str:
+def vehicle_plate(state: str='', formatting: bool=True, data_only: bool=True) -> str:
     """Generate random Vehicle plate code.
     
     Keyword arguments:
@@ -476,7 +476,7 @@ def vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str
     `state: str` - State UF(Unidade Federativa) code for generating the Voter Title.
         More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
-    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+    `formatting: bool` - If True, returns formatted data. If it is false, there is no formatted data.
 
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -494,7 +494,7 @@ def vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str
     referer = 'gerador_de_placa_automoveis'
     payload = {
         'acao': 'gerar_placa',
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
         'estado': state
     }
 
@@ -506,12 +506,12 @@ def vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str
     return r
 
 
-def cnpj(format: bool=True, data_only: bool=True) -> str:
+def cnpj(formatting: bool=True, data_only: bool=True) -> str:
     """Random generate of CNPJ(Cadastro Nacional da Pessoa Jurídica).
     
     Keyword arguments:
 
-    `format: bool` - If True, returns formatted data how "12.345.678/0009-10". If false, formatted data how "12345678000910".
+    `formatting: bool` - If True, returns formatted data how "12.345.678/0009-10". If false, formatted data how "12345678000910".
 
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -520,7 +520,7 @@ def cnpj(format: bool=True, data_only: bool=True) -> str:
     referer = 'gerador_de_cnpj'
     payload = {
         'acao': 'gerar_cnpj',
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
     }
 
     r = fordev_request(content_length, referer, payload)
@@ -531,12 +531,12 @@ def cnpj(format: bool=True, data_only: bool=True) -> str:
     return r
 
 
-def rg(format: bool=True, data_only: bool=True) -> str:
+def rg(formatting: bool=True, data_only: bool=True) -> str:
     """Random generate of RG(Registro Geral) of emitter SSP-SP.
     
     Keyword arguments:
 
-    `format: bool` - If True, returns formatted data how "12.345.678-9". If false, formatted data how "123456789".
+    `formatting: bool` - If True, returns formatted data how "12.345.678-9". If false, formatted data how "123456789".
 
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -545,7 +545,7 @@ def rg(format: bool=True, data_only: bool=True) -> str:
     referer = 'gerador_de_rg'
     payload = {
         'acao': 'gerar_rg',
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
     }
 
     r = fordev_request(content_length, referer, payload)
@@ -556,7 +556,7 @@ def rg(format: bool=True, data_only: bool=True) -> str:
     return r
 
 
-def state_registration(state: str='SP', format: bool=True, data_only: bool=True) -> str:
+def state_registration(state: str='SP', formatting: bool=True, data_only: bool=True) -> str:
     """Generate random state registration code.
     
     Keyword arguments:
@@ -564,7 +564,7 @@ def state_registration(state: str='SP', format: bool=True, data_only: bool=True)
     `state: str` - State UF(Unidade Federativa) code for generating the Voter Title.
         More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
-    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+    `formatting: bool` - If True, returns formatted data. If it is false, there is no formatted data.
 
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -582,7 +582,7 @@ def state_registration(state: str='SP', format: bool=True, data_only: bool=True)
     referer = 'gerador_de_inscricao_estadual'
     payload = {
         'acao': 'gerar_ie',
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
         'estado': state
     }
 
@@ -629,7 +629,7 @@ def voter_title(state: str, data_only: bool=True) -> str:
     return r
 
 
-def credit_card(bank: int=0, format: bool=True, data_only: bool=True) -> dict:
+def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dict:
     """Generate random credit card information.
     
     Keyword arguments:
@@ -648,7 +648,7 @@ def credit_card(bank: int=0, format: bool=True, data_only: bool=True) -> dict:
             9 = HiperCard;
             10 = Aura.
 
-    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+    `formatting: bool` - If True, returns formatted data. If it is false, there is no formatted data.
     
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -672,7 +672,7 @@ def credit_card(bank: int=0, format: bool=True, data_only: bool=True) -> dict:
     referer = 'gerador_de_numero_cartao_credito'
     payload = {
         'acao': 'gerar_cc',
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
         'bandeira': bank
     }
 
@@ -693,7 +693,7 @@ def people(
         sex: str='R',
         age: int=0,
         state: str='',
-        format: bool=True,
+        formatting: bool=True,
         data_only: bool=True
     ) -> str:
     """Random generation of Voter Title for the selected state.
@@ -709,7 +709,7 @@ def people(
     `state: str` - State UF(Unidade Federativa) code for generating the people.
         More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
-    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+    `formatting: bool` - If True, returns formatted data. If it is false, there is no formatted data.
 
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -751,7 +751,7 @@ def people(
     payload = {
         'acao': 'gerar_pessoa',
         'sexo': 'H' if sex == 'M' else 'M' if sex == 'F' else 'I',  # H, M and I flags are used in 4devs for filter.
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
         'idade': age,
         'cep_estado': state,
         'txt_qtde': n,
@@ -777,7 +777,7 @@ def people(
     return r
 
 
-def company(state: str='SP', age: int=1, format: bool=True, data_only: bool=True) -> dict:
+def company(state: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
     """Generate random company information.
     
     Keyword arguments:
@@ -787,7 +787,7 @@ def company(state: str='SP', age: int=1, format: bool=True, data_only: bool=True
 
     `age: int` - The time of existence of the company (age of the company).
 
-    `format: bool` - If True, returns formatted data. If it is false, there is no formatted data.
+    `formatting: bool` - If True, returns formatted data. If it is false, there is no formatted data.
 
     `data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
@@ -813,7 +813,7 @@ def company(state: str='SP', age: int=1, format: bool=True, data_only: bool=True
     referer = 'gerador_de_empresas'
     payload = {
         'acao': 'gerar_empresa',
-        'pontuacao': 'S' if format else 'N',
+        'pontuacao': 'S' if formatting else 'N',
         'estado': state,
         'idade': age
     }

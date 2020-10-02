@@ -172,12 +172,7 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
         raise ValueError(msg_error)
 
     # Replace the bank number with the bank code used in 4devs.
-    bank = '' if bank == 0 \
-        else 2 if bank == 1 \
-        else 121 if bank == 2 \
-        else 85 if bank == 3 \
-        else 120 if bank == 4 \
-        else 151
+    bank = ['', 2, 121, 85, 120, 151][bank]  # Use the index for get the bank code.
 
     # Normalize
     state = state.upper()

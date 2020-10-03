@@ -6,7 +6,7 @@ Options:
     CNH - Carteira Nacional de Habilitação;
     Bank Account - Generate random bank account information;
     CPF - Cadastro de Pessoas Físicas;
-    PIS/PASEP - Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público;
+    PIS/PASEP - Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público;
     RENAVAM - Registro Nacional de Veículos Automotores;
     Vehicle - Generate random Vehicle data;
     Vehicle Brand - Random generation of vehicle brand;

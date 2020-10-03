@@ -2,10 +2,10 @@
 
 from setuptools import setup, find_packages
 
-from fordev._version import __version__
+from fordev.__about__ import __version__
 
-from fordev._author import __author__
-from fordev._author import __email__
+from fordev.__about__ import __author__
+from fordev.__about__ import __email__
 
 
 with open('README.md', mode='r', encoding='utf-8') as f:

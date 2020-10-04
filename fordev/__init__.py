@@ -40,11 +40,11 @@ Basic use:
 More info at: https://github.com/matheusfelipeog/fordev
 """
 
-from ._version import __version__
+from .__about__ import __version__
 
-from ._author import __author__
-from ._author import __email__
-from ._author import __github__
+from .__about__ import __author__
+from .__about__ import __email__
+from .__about__ import __github__
 
 __version__ = __version__
 __author__ = f'{__author__} <{__email__}> and <{__github__}>'

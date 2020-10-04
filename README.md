@@ -103,7 +103,7 @@ Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeo
 - `cnh(...)` -  Gerador de CNH (Carteira Nacional de Habilitação);
 - `bank_account(...)` - Gerador de contas bancárias;
 - `cpf(...)` - Gerador de CPF (Cadastro de Pessoas Físicas);
-- `pis_pasep(...)` - Gerador de PIS/PASEP (Programa de Integração Social and Programa de Formação do Patrimônio do Servidor Público);
+- `pis_pasep(...)` - Gerador de PIS/PASEP (Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público);
 - `renavam(...)` - Gerador de RENAVAM (Registro Nacional de Veículos Automotores);
 - `vehicle(...)` - Gerador de veículos;
 - `vehicle_brand(...)` - Gerador de marca de veículos;

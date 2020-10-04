@@ -63,12 +63,12 @@ Você pode conferir todos os UFs em [Constantes](https://github.com/matheusfelip
 >>> cpf(state='SP')
 ```
 
-- `format: bool` - Este argumento representa a formatação contida no retorno de determinado dado gerado, por exemplo um CPF: 123.456.789-10. Você pode especificar `False` para caso não queira que a formatação seja utilizada, assim, com o mesmo exemplo anterior, o CPF ficaria: 12345678910. Ou, pode explicitar `True` para que a formatação seja utilizada (essa opção já é padrão).
+- `formatting: bool` - Este argumento representa a formatação contida no retorno de determinado dado gerado, por exemplo um CPF: 123.456.789-10. Você pode especificar `False` para caso não queira que a formatação seja utilizada, assim, com o mesmo exemplo anterior, o CPF ficaria: 12345678910. Ou, pode explicitar `True` para que a formatação seja utilizada (essa opção já é padrão).
 
 ```python
 # Exemplo de uso do argumento 'format'
 >>> from fordev.generator import cpf
->>> cpf(format=False)
+>>> cpf(formatting=False)
 ```
 
 - `data_only` - Este argumento é um pouco semelhante ao `format`, mas não modificando o dado gerado e sim a estrutura de retorno desse dado. Quando passado o valor `False` para esse argumento, é retornado um `dict` contendo uma mensagem que representa o status da solicitação da geração do dado e o dado em si. De modo oposto, passando o valor `True` é retornado somente o dado (essa opção já é padrão).
@@ -176,7 +176,7 @@ Este módulo contém todas as funções geradoras de dados e é responsável por
 ### `certificate(...)`
 
 ```python
-certificate(type_: str='I', format: bool=True, data_only: bool=True) -> str
+certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de certidões de nascimento, casamento, casamento relogioso e óbito.
@@ -245,7 +245,7 @@ Gerador de dados de conta bancária (Conta Corrente, Agência, Banco, Cidade e E
 ### `cpf(...)`
 
 ```python
-cpf(state: str='', format: bool=True, data_only: bool=True) -> str
+cpf(state: str='', formatting: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de código de CPF (Cadastro de Pessoas Físicas) válidos para todos os estados.
@@ -261,7 +261,7 @@ Gerador de código de CPF (Cadastro de Pessoas Físicas) válidos para todos os 
 ### `pis_pasep(...)`
 
 ```python
-pis_pasep(format: bool=True, data_only: bool=True) -> str
+pis_pasep(formatting: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de código de PIS/PASEP (Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público) válido.
@@ -293,7 +293,7 @@ Gerador de código de RENAVAM (Registro Nacional de Veículos Automotores) váli
 ### `vehicle(...)`
 
 ```python
-vehicle(brand_code: int=0, state: str='', format: bool=True, data_only: bool=True) -> dict
+vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: bool=True) -> dict
 ```
 
 Gerador de dados de veículo (Marca, Modelo, Ano, Renavam, Placa e Cor) válido.
@@ -422,7 +422,7 @@ Gerador de nome de marca de veículos válidos.
 ### `vehicle_plate(...)`
 
 ```python
-vehicle_plate(state: str='', format: bool=True, data_only: bool=True) -> str
+vehicle_plate(state: str='', formatting: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de código de placa de veículo válido.
@@ -438,7 +438,7 @@ Gerador de código de placa de veículo válido.
 ### `cnpj(...)`
 
 ```python
-cnpj(format: bool=True, data_only: bool=True) -> str
+cnpj(formattingt: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de código de CNPJ (Cadastro Nacional da Pessoa Jurídica) válido.
@@ -454,7 +454,7 @@ Gerador de código de CNPJ (Cadastro Nacional da Pessoa Jurídica) válido.
 ### `rg(...)`
 
 ```python
-rg(format: bool=True, data_only: bool=True) -> str
+rg(formatting: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de código de RG (Registro Geral) emitido por SSP-SP.
@@ -470,7 +470,7 @@ Gerador de código de RG (Registro Geral) emitido por SSP-SP.
 ### `state_registration(...)`
 
 ```python
-state_registration(state: str='SP', format: bool=True, data_only: bool=True) -> str
+state_registration(state: str='SP', formatting: bool=True, data_only: bool=True) -> str
 ```
 
 Gerador de código de Inscrições Estaduais válidas para todos os estados.
@@ -502,7 +502,7 @@ Gerador de código de Título de Eleitor válido para todos os estados.
 ### `credit_card(...)`
 
 ```python
-credit_card(bank: int=0, format: bool=True, data_only: bool=True) -> dict
+credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dict
 ```
 
 Gerador de dados de cartão de crédito (Número, Data de Validade e CVV) válidos.
@@ -534,7 +534,7 @@ Gerador de dados de cartão de crédito (Número, Data de Validade e CVV) válid
 ### `people(...)`
 
 ```python
-people(n: int=1, sex: str='R', age: int=0, state: str='', format: bool=True, data_only: bool=True) -> str:
+people(n: int=1, sex: str='R', age: int=0, state: str='', formatting: bool=True, data_only: bool=True) -> str:
 ```
 
 Gerador de dados de pessoas (nome, idade, documentos, contatos, endereço etc) válidos.
@@ -562,7 +562,7 @@ Gerador de dados de pessoas (nome, idade, documentos, contatos, endereço etc) v
 ### `company(...)`
 
 ```python
-company(state: str='SP', age: int=1, format: bool=True, data_only: bool=True) -> dict
+company(state: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict
 ```
 
 Gerador de dados de empresa (nome, cnpj, endereço, contatos, data de abertura etc) válidos.

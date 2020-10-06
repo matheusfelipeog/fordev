@@ -693,6 +693,10 @@ certificate(certificate_code: str, data_only: bool=True) -> bool
 
 Verifica se o código da Certidão passado é válido.
 
+#### Argumentos
+
+- `certificate_code: str` - Este argumento corresponde ao código da certidão.
+
 #### Exemplo de uso
 
 ```python
@@ -708,6 +712,10 @@ cnh(cnh_code: str, data_only: bool=True) -> bool
 ```
 
 Verifica se o código do CNH passado é válido.
+
+#### Argumentos
+
+- `cnh_code: str` - Este argumento corresponde ao código da CNH.
 
 #### Exemplo de uso
 
@@ -725,6 +733,10 @@ cnpj(cnpj_code: str, data_only: bool=True) -> bool
 
 Verifica se o código do CNPJ passado é válido.
 
+#### Argumentos
+
+- `cnpj_code: str` - Este argumento corresponde ao código do CNPJ.
+
 #### Exemplo de uso
 
 ```python
@@ -740,6 +752,10 @@ cpf(cpf_code: str, data_only: bool=True) -> bool
 ```
 
 Verifica se o código do CPF passado é válido.
+
+#### Argumentos
+
+- `cpf_code: str` - Este argumento corresponde ao código do CPF.
 
 #### Exemplo de uso
 
@@ -757,6 +773,10 @@ pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool
 
 Verifica se o código do PIS/PASEP passado é válido.
 
+#### Argumentos
+
+- `pis_pasep_code: str` - Este argumento corresponde ao código do PIS/PASEP.
+
 #### Exemplo de uso
 
 ```python
@@ -772,6 +792,10 @@ renavam(renavam_code: str, data_only: bool=True) -> bool
 ```
 
 Verifica se o código do RENAVAM passado é válido.
+
+#### Argumentos
+
+- `renavam_code: str` - Este argumento corresponde ao código da RENAVAM.
 
 #### Exemplo de uso
 
@@ -789,6 +813,10 @@ rg(rg_code: str, data_only: bool=True) -> bool
 
 Verifica se o código do RG passado é válido.
 
+#### Argumentos
+
+- `rg_code: str` - Este argumento corresponde ao código do RG.
+
 #### Exemplo de uso
 
 ```python
@@ -805,6 +833,10 @@ voter_title(voter_title_code: str, data_only: bool=True) -> bool
 
 Verifica se o código do Título de Eleitor passado é válido.
 
+#### Argumentos
+
+- `voter_title_code: str` - Este argumento corresponde ao código do título de eleitor.
+
 #### Exemplo de uso
 
 ```python
@@ -820,6 +852,10 @@ state_registration(state: str, state_registration_code: str, data_only: bool=Tru
 ```
 
 Verifica se o código da Inscrição Estadual passado é válido.
+
+#### Argumentos
+
+- `state_registration_code: str` - Este argumento corresponde ao código da inscrição estadual.
 
 #### Exemplo de uso
 

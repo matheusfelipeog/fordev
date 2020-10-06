@@ -119,7 +119,7 @@ Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeo
 - `uf(...)` - Gerador de código de UF (Unidade Federativa);
 - `city(...)` - Gerador de cidades do brasil por estado selecionado.
 
-## `fordev.validator`
+### `fordev.validator`
 
 Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
 

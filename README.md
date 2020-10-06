@@ -26,6 +26,7 @@
 - [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md)
 - [Funcionalidades](#funcionalidades)
    - [fordev.generator](#fordevgenerator)
+   - [fordev.validator](#fordevvalidator)
 - [Contribuições](#contribuições)
 - [Aviso Legal](#aviso-legal)
 - [Licença](#licença)
@@ -117,6 +118,14 @@ Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeo
 - `company(...)` - Gerador de dados de empresa (Nome, Razão Social, Inscrição Estadual, CNPJ, CEP e Endereço);
 - `uf(...)` - Gerador de código de UF (Unidade Federativa);
 - `city(...)` - Gerador de cidades do brasil por estado selecionado.
+
+## `fordev.validator`
+
+Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
+
+- `cnh(...)` - Verifica se o código do CNH passado é válido;
+- `cnpj(...)` - Verifica se o código do cnpj passado é válido;
+- `cpf(...)` - Verifica se o código do cpf passado é válido.
 
 
 ## Contribuições

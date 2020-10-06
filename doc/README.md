@@ -45,6 +45,11 @@ Caso queira pular para a documentação de uma função/módulo em específico, 
     - [`uf(...)`](#uf) - Gerador de código de UF (Unidade Federativa);
     - [`city(...)`](#city) - Gerador de cidades do brasil por estado selecionado.
 
+- [`fordev.validator`](#fordevvalidator)
+    - [`cnh(...)`](#cnh-1) - Verifica se o código do CNH passado é válido;
+    - [`cnpj(...)`](#cnpj-1) - Verifica se o código do cnpj passado é válido;
+    - [`cpf(...)`](#cpf-1) - Verifica se o código do cpf passado é válido.
+
 
 ## Doc
 
@@ -612,4 +617,63 @@ Gerador de todas as cidade com base no estado selecionado.
 ```python
 >>> from fordev.generator import city
 >>> city(state='PB')
+```
+
+
+### `fordev.validator`
+
+Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
+
+#### Exemplo:
+
+```python
+>>> import fordev.validator
+```
+
+
+### `cnh(...)`
+
+```python
+cnh(cnh_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do CNH passado é válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import cnh
+>>> cnh('61999385394')
+```
+
+
+### `cnpj(...)`
+
+```python
+cnpj(cnpj_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do CNPJ passado é válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import cnpj
+>>> cnh('02.104.761/0001-19')
+```
+
+
+### `cpf(...)`
+
+```python
+cpf(cpf_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do CPF passado é válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import cpf
+>>> cnh('140.834.930-20')
 ```

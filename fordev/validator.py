@@ -4,7 +4,10 @@
 Options:
     CNH - Check if CNH Code is valid;
     CNPJ - Check if CNPJ Code is valid;
-    CPF - Check if CPF Code is valid.
+    CPF - Check if CPF Code is valid;
+    PIS/PASEP - Check if PIS/PASEP Code is valid;
+    RENAVAM - Check if RENAVAM Code is valid.
+    RG - Check if RG Code is valid.
 """
 
 from .__about__ import __version__
@@ -106,6 +109,87 @@ def cpf(cpf_code: str, data_only: bool=True) -> bool:
     payload = {
         'acao': 'validar_cpf',
         'txt_cpf': cpf_code
+    }
+
+    r = _data_verification_and_normalize(
+        fordev_request(content_length, referer, payload)
+    )
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+
+    return r
+
+
+def pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
+    """Check if PIS/PASEP code is valid.
+    
+    Keyword arguments:
+
+    `pis_pasep_code: str` - PIS/PASEP code for check.
+    
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    content_length = 39
+    referer = 'validador_pis_pasep'
+    payload = {
+        'acao': 'validar_pis',
+        'txt_pis': pis_pasep_code
+    }
+
+    r = _data_verification_and_normalize(
+        fordev_request(content_length, referer, payload)
+    )
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+
+    return r
+
+
+def renavam(renavam_code: str, data_only: bool=True) -> bool:
+    """Check if RENAVAM code is valid.
+    
+    Keyword arguments:
+
+    `renavam_code: str` - RENAVAM code for check.
+    
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    content_length = 43
+    referer = 'validador_de_renavam'
+    payload = {
+        'acao': 'validar_renavam',
+        'txt_renavam': renavam_code
+    }
+
+    r = _data_verification_and_normalize(
+        fordev_request(content_length, referer, payload)
+    )
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+
+    return r
+
+
+def rg(rg_code: str, data_only: bool=True) -> bool:
+    """Check if RG code is valid.
+    
+    Keyword arguments:
+
+    `rg_code: str` - RG code for check.
+    
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    content_length = 35
+    referer = 'validador_rg'
+    payload = {
+        'acao': 'validar_rg',
+        'txt_rg': rg_code
     }
 
     r = _data_verification_and_normalize(

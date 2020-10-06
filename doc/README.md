@@ -46,6 +46,8 @@ Caso queira pular para a documentação de uma função/módulo em específico, 
     - [`city(...)`](#city) - Gerador de cidades do brasil por estado selecionado.
 
 - [`fordev.validator`](#fordevvalidator)
+    - [`credit_card(...)`](#credit_card-1) - Verifica se o código de cartão de crédito passado é válido;
+    - [`bank_account(...)`](#bank_account-1) - Verifica se os dados da conta bancária passado é válido;
     - [`certificate(...)`](#certificate-1) - Verifica se o código de certidão passado é válido;
     - [`cnh(...)`](#cnh-1) - Verifica se o código do CNH passado é válido;
     - [`cnpj(...)`](#cnpj-1) - Verifica se o código do cnpj passado é válido;
@@ -634,6 +636,52 @@ Todas as funções disponíveis neste módulo são responsáveis por verificar s
 
 ```python
 >>> import fordev.validator
+```
+
+
+### `credit_card(...)`
+
+```python
+credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código da Cartão de Crédito passado é válido.
+
+#### Argumentos
+
+- `flag: int` - Este argumento recebe um número inteiro, entre 1 a 12, que corresponde a bandeira do cartão. Veja a docstring para visualizar o número.
+
+- `credit_card_code: str` - Este argumento corresponde ao código do cartão de crédito.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import credit_card
+>>> credit_card(1, '5567 3314 3773 8787')
+```
+
+
+### `bank_account(...)`
+
+```python
+bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool
+```
+
+Verifica se dados da Conta Bancária passado é válido.
+
+#### Argumentos
+
+- `bank: int` - Este argumento recebe um número inteiro, entre 1 a 5, que corresponde ao banco da conta. Veja a docstring para visualizar o número.
+
+- `agency: str` - Este argumento corresponde ao código da agência da conta bancária.
+
+- `account: str` - Este argumento corresponde ao código da conta bancária.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import bank_account
+>>> bank_account(1, '0902', '0190451-5')
 ```
 
 

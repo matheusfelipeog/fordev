@@ -123,6 +123,8 @@ Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeo
 
 Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
 
+- `credit_card(...)` - Verifica se o código de cartão de crédito passado é válido;
+- `bank_account(...)` - Verifica se os dados da conta bancária passado é válido;
 - `certificate(...)` - Verifica se o código de certidão passado é válido;
 - `cnh(...)` - Verifica se o código do CNH passado é válido;
 - `cnpj(...)` - Verifica se o código do cnpj passado é válido;

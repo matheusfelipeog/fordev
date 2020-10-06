@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Module for validating data."""
+"""Module for validating data.
+
+Options:
+    CNH - Check if CNH Code is valid.
+"""
 
 from .__about__ import __version__
 

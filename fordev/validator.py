@@ -3,6 +3,7 @@
 
 Options:
     Credit Card - Check if Credit Card Code is valid;
+    Bank Account - Check if Bank Account data is valid;
     Certificate - Check if Certificate Code is valid;
     CNH - Check if CNH Code is valid;
     CNPJ - Check if CNPJ Code is valid;
@@ -87,6 +88,55 @@ def credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
         'acao': 'validar_cc',
         'txt_cc': credit_card_code,
         'bandeira': flag
+    }
+
+    r = _data_verification_and_normalize(
+        fordev_request(content_length, referer, payload)
+    )
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+
+    return r
+
+
+def bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
+    """Check if bank account data is valid.
+    
+    Keyword arguments:
+
+    `bank: int` - Flag of the bank that wants to validation the account information.
+        Options:
+            1 = Banco do Brasil;
+            2 = Bradesco;
+            3 = Citibank;
+            4 = Itaú;
+            5 = Santander.
+    
+    `agency: str` - Code of bank agency.
+
+    `account: str` - Code of bank account.
+    
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    # Check if bank code is invalid. If true, raise exception.
+    if not (1 <= bank <= 5):
+        msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
+        msg_error += f' The range is 1 to 5.'
+
+        raise ValueError(msg_error)
+
+    # Replace the bank number with the bank code used in 4devs.
+    bank = [2, 121, 85, 120, 151][bank - 1]  # Use the index for get the bank code.
+
+    content_length = 66
+    referer = 'validador_conta_bancaria'
+    payload = {
+        'acao': 'validar_conta_bancaria',
+        'banco': bank,
+        'agencia': agency,
+        'conta': account
     }
 
     r = _data_verification_and_normalize(

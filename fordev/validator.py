@@ -20,6 +20,23 @@ __author__ = f'{__author__} <{__email__}> and <{__github__}>'
 from ._base import fordev_request
 
 
+def _data_verification_and_normalize(data: dict) -> dict:
+    """"Check if data key exists and if value is valid. If true, replace data for new format.
+    
+    Keyword arguments:
+
+    `data: dict` - Data dictionary for verification and format change
+    """
+
+    data = data.copy()
+
+    if data.get('data', False):
+        is_valid = data['data'].split(' - ')[-1].lower() == 'verdadeiro'
+        data['data'] = is_valid
+    
+    return data
+
+
 def cnh(cnh_code: str, data_only: bool=True) -> bool:
     """Check if CNH code is valid.
     
@@ -37,11 +54,9 @@ def cnh(cnh_code: str, data_only: bool=True) -> bool:
         'txt_cnh': cnh_code
     }
 
-    r = fordev_request(content_length, referer, payload)
-
-    # Check if is valid and replace data
-    is_valid = r['data'].split(' - ')[-1].lower() == 'verdadeiro'
-    r['data'] = is_valid
+    r = _data_verification_and_normalize(
+        fordev_request(content_length, referer, payload)
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -66,11 +81,9 @@ def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
         'txt_cnpj': cnpj_code
     }
 
-    r = fordev_request(content_length, referer, payload)
-
-    # Check if is valid and replace data
-    is_valid = r['data'].split(' - ')[-1].lower() == 'verdadeiro'
-    r['data'] = is_valid
+    r = _data_verification_and_normalize(
+        fordev_request(content_length, referer, payload)
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -95,11 +108,9 @@ def cpf(cpf_code: str, data_only: bool=True) -> bool:
         'txt_cpf': cpf_code
     }
 
-    r = fordev_request(content_length, referer, payload)
-
-    # Check if is valid and replace data
-    is_valid = r['data'].split(' - ')[-1].lower() == 'verdadeiro'
-    r['data'] = is_valid
+    r = _data_verification_and_normalize(
+        fordev_request(content_length, referer, payload)
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']

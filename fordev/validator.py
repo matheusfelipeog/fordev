@@ -24,6 +24,22 @@ from .__about__ import __github__
 __version__ = __version__
 __author__ = f'{__author__} <{__email__}> and <{__github__}>'
 
+
+__all__ = [
+    'credit_card',
+    'bank_account',
+    'certificate',
+    'cnh',
+    'cnpj',
+    'cpf',
+    'pis_pasep',
+    'renavam',
+    'rg',
+    'voter_title',
+    'state_registration',
+]
+
+
 # --- Local libraries ---
 from ._base import fordev_request
 

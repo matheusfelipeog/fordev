@@ -662,7 +662,7 @@ Verifica se o código do CNPJ passado é válido.
 
 ```python
 >>> from fordev.validator import cnpj
->>> cnh('02.104.761/0001-19')
+>>> cnpj('02.104.761/0001-19')
 ```
 
 
@@ -678,7 +678,7 @@ Verifica se o código do CPF passado é válido.
 
 ```python
 >>> from fordev.validator import cpf
->>> cnh('140.834.930-20')
+>>> cpf('140.834.930-20')
 ```
 
 

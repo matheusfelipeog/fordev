@@ -125,7 +125,10 @@ Todas as funções disponíveis neste módulo são responsáveis por verificar s
 
 - `cnh(...)` - Verifica se o código do CNH passado é válido;
 - `cnpj(...)` - Verifica se o código do cnpj passado é válido;
-- `cpf(...)` - Verifica se o código do cpf passado é válido.
+- `cpf(...)` - Verifica se o código do cpf passado é válido;
+- `pis_pasep(...)` - Verifica se o código do PIS/PASEP passado é válido;
+- `renavam(...)` - Verifica se o código do RENAVAM passado é válido;
+- `rg(...)` - Verifica se o código do RG passado é válido.
 
 
 ## Contribuições

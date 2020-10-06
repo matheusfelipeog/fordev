@@ -48,7 +48,10 @@ Caso queira pular para a documentação de uma função/módulo em específico, 
 - [`fordev.validator`](#fordevvalidator)
     - [`cnh(...)`](#cnh-1) - Verifica se o código do CNH passado é válido;
     - [`cnpj(...)`](#cnpj-1) - Verifica se o código do cnpj passado é válido;
-    - [`cpf(...)`](#cpf-1) - Verifica se o código do cpf passado é válido.
+    - [`cpf(...)`](#cpf-1) - Verifica se o código do cpf passado é válido;
+    - [`pis_pasep(...)`](#pis_pasep-1) - Verifica se o código do PIS/PASEP passado é válido;
+    - [`renavam(...)`](#renavam-1) - Verifica se o código do RENAVAM passado é válido;
+    - [`rg(...)`](#rg-1) - Verifica se o código do RG passado é válido.
 
 
 ## Doc
@@ -676,4 +679,52 @@ Verifica se o código do CPF passado é válido.
 ```python
 >>> from fordev.validator import cpf
 >>> cnh('140.834.930-20')
+```
+
+
+### `pis_pasep(...)`
+
+```python
+pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do PIS/PASEP passado é válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import pis_pasep
+>>> pis_pasep('891.29467.46-6')
+```
+
+
+### `renavam(...)`
+
+```python
+renavam(renavam_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do RENAVAM passado é válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import renavam
+>>> renavam('36017811164')
+```
+
+
+### `rg(...)`
+
+```python
+rg(rg_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do RG passado é válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import rg
+>>> rg('14.278.923-9')
 ```

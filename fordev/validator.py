@@ -2,6 +2,7 @@
 """Module for validating data.
 
 Options:
+    Credit Card - Check if Credit Card Code is valid;
     Certificate - Check if Certificate Code is valid;
     CNH - Check if CNH Code is valid;
     CNPJ - Check if CNPJ Code is valid;
@@ -26,6 +27,7 @@ __author__ = f'{__author__} <{__email__}> and <{__github__}>'
 from ._base import fordev_request
 
 from ._const import ALL_UF_CODE
+from ._const import ALL_BANK_FLAGS_2
 
 
 def _data_verification_and_normalize(data: dict) -> dict:
@@ -43,6 +45,58 @@ def _data_verification_and_normalize(data: dict) -> dict:
         data['data'] = is_valid
     
     return data
+
+
+def credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
+    """Check if credit card code is valid.
+    
+    Keyword arguments:
+
+    `flag: int` - Flag of the credit card that wants to validation the credit card information.
+        Options:
+            1 = MasterCard;
+            2 = Visa 16 Dígitos;
+            3 = Visa Electron;
+            4 = American Express;
+            5 = Diners Club;
+            6 = Discover;
+            7 = enRoute;
+            8 = JCB;
+            9 = Maestro;
+            10 = Solo;
+            11 = Switch;
+            12 = Laser.
+
+    `credit_card_code: str` - Credit Card Code for check.
+    
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    # Check if bank code is invalid. If true, raise exception.
+    if not (1 <= flag <= 12):
+        msg_error = f'The flag credit card code value "{flag}" is invalid. Enter a valid flag credit card code.'
+        msg_error += f' The range is 1 to 12.'
+
+        raise ValueError(msg_error)
+
+    flag = ALL_BANK_FLAGS_2[flag]
+
+    content_length = 68
+    referer = 'validador_numero_cartao_credito'
+    payload = {
+        'acao': 'validar_cc',
+        'txt_cc': credit_card_code,
+        'bandeira': flag
+    }
+
+    r = _data_verification_and_normalize(
+        fordev_request(content_length, referer, payload)
+    )
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+
+    return r
 
 
 def certificate(certificate_code: str, data_only: bool=True) -> bool:

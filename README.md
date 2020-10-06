@@ -123,12 +123,15 @@ Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeo
 
 Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
 
+- `certificate(...)` - Verifica se o código de certidão passado é válido;
 - `cnh(...)` - Verifica se o código do CNH passado é válido;
 - `cnpj(...)` - Verifica se o código do cnpj passado é válido;
 - `cpf(...)` - Verifica se o código do cpf passado é válido;
 - `pis_pasep(...)` - Verifica se o código do PIS/PASEP passado é válido;
 - `renavam(...)` - Verifica se o código do RENAVAM passado é válido;
-- `rg(...)` - Verifica se o código do RG passado é válido.
+- `rg(...)` - Verifica se o código do RG passado é válido;
+- `voter_title(...)` - Verifica se o código do Título de Eleitor passado é válido;
+- `state_registration(...)` - Verifica se o código da Inscrição Estadual passado é válido.
 
 
 ## Contribuições

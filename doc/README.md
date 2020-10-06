@@ -46,12 +46,15 @@ Caso queira pular para a documentação de uma função/módulo em específico, 
     - [`city(...)`](#city) - Gerador de cidades do brasil por estado selecionado.
 
 - [`fordev.validator`](#fordevvalidator)
+    - [`certificate(...)`](#certificate-1) - Verifica se o código de certidão passado é válido;
     - [`cnh(...)`](#cnh-1) - Verifica se o código do CNH passado é válido;
     - [`cnpj(...)`](#cnpj-1) - Verifica se o código do cnpj passado é válido;
     - [`cpf(...)`](#cpf-1) - Verifica se o código do cpf passado é válido;
     - [`pis_pasep(...)`](#pis_pasep-1) - Verifica se o código do PIS/PASEP passado é válido;
     - [`renavam(...)`](#renavam-1) - Verifica se o código do RENAVAM passado é válido;
-    - [`rg(...)`](#rg-1) - Verifica se o código do RG passado é válido.
+    - [`rg(...)`](#rg-1) - Verifica se o código do RG passado é válido;
+    - [`voter_title(...)`](#voter_title-1) - Verifica se o código do Título de Eleitor passado é válido;
+    - [`state_registration(...)`](#state_registration-1) - Verifica se o código da Inscrição Estadual passado é válido.
 
 
 ## Doc
@@ -634,6 +637,22 @@ Todas as funções disponíveis neste módulo são responsáveis por verificar s
 ```
 
 
+### `certificate(...)`
+
+```python
+certificate(certificate_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código da Certidão passado é válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import certificate
+>>> certificate('126239 01 55 2014 1 39856 604 7586258-53')
+```
+
+
 ### `cnh(...)`
 
 ```python
@@ -727,4 +746,36 @@ Verifica se o código do RG passado é válido.
 ```python
 >>> from fordev.validator import rg
 >>> rg('14.278.923-9')
+```
+
+
+### `voter_title(...)`
+
+```python
+voter_title(voter_title_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do Título de Eleitor passado é válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import voter_title
+>>> voter_title('172335860183')
+```
+
+
+### `state_registration(...)`
+
+```python
+state_registration(state: str, state_registration_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código da Inscrição Estadual passado é válido.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import state_registration
+>>> state_registration('SP', '174.749.664.188')
 ```

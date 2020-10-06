@@ -3,7 +3,8 @@
 
 Options:
     CNH - Check if CNH Code is valid;
-    CNPJ - Check if CNPJ Code is valid.
+    CNPJ - Check if CNPJ Code is valid;
+    CPF - Check if CPF Code is valid.
 """
 
 from .__about__ import __version__
@@ -63,6 +64,35 @@ def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
     payload = {
         'acao': 'validar_cnpj',
         'txt_cnpj': cnpj_code
+    }
+
+    r = fordev_request(content_length, referer, payload)
+
+    # Check if is valid and replace data
+    is_valid = r['data'].split(' - ')[-1].lower() == 'verdadeiro'
+    r['data'] = is_valid
+
+    if data_only and r['msg'] == 'success':
+        return r['data']
+
+    return r
+
+
+def cpf(cpf_code: str, data_only: bool=True) -> bool:
+    """Check if CPF code is valid.
+    
+    Keyword arguments:
+
+    `cpf_code: str` - CPF code for check.
+    
+    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    """
+
+    content_length = 39
+    referer = 'validador_cpf'
+    payload = {
+        'acao': 'validar_cpf',
+        'txt_cpf': cpf_code
     }
 
     r = fordev_request(content_length, referer, payload)

@@ -26,6 +26,7 @@
 - [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md)
 - [Funcionalidades](#funcionalidades)
    - [fordev.generator](#fordevgenerator)
+   - [fordev.validator](#fordevvalidator)
 - [Contribuições](#contribuições)
 - [Aviso Legal](#aviso-legal)
 - [Licença](#licença)
@@ -117,6 +118,22 @@ Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeo
 - `company(...)` - Gerador de dados de empresa (Nome, Razão Social, Inscrição Estadual, CNPJ, CEP e Endereço);
 - `uf(...)` - Gerador de código de UF (Unidade Federativa);
 - `city(...)` - Gerador de cidades do brasil por estado selecionado.
+
+### `fordev.validator`
+
+Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
+
+- `credit_card(...)` - Verifica se o código de cartão de crédito passado é válido;
+- `bank_account(...)` - Verifica se os dados da conta bancária passado é válido;
+- `certificate(...)` - Verifica se o código de certidão passado é válido;
+- `cnh(...)` - Verifica se o código do CNH passado é válido;
+- `cnpj(...)` - Verifica se o código do cnpj passado é válido;
+- `cpf(...)` - Verifica se o código do cpf passado é válido;
+- `pis_pasep(...)` - Verifica se o código do PIS/PASEP passado é válido;
+- `renavam(...)` - Verifica se o código do RENAVAM passado é válido;
+- `rg(...)` - Verifica se o código do RG passado é válido;
+- `voter_title(...)` - Verifica se o código do Título de Eleitor passado é válido;
+- `state_registration(...)` - Verifica se o código da Inscrição Estadual passado é válido.
 
 
 ## Contribuições

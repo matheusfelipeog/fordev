@@ -138,3 +138,18 @@ ALL_BANK_FLAGS: dict = {
     9: 'hiper',
     10: 'aura'
 }
+
+ALL_BANK_FLAGS_2: dict = {
+    1: 'MasterCard',
+    2: 'Visa',
+    3: 'Visa Electron',
+    4: 'American Express',
+    5: 'Diners Club',
+    6: 'Discover',
+    7: 'Enroute',
+    8: 'JCB',
+    9: 'Maestro',
+    10: 'Solo',
+    11: 'Switch',
+    12: 'LaserCard'
+}

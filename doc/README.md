@@ -45,6 +45,19 @@ Caso queira pular para a documentação de uma função/módulo em específico, 
     - [`uf(...)`](#uf) - Gerador de código de UF (Unidade Federativa);
     - [`city(...)`](#city) - Gerador de cidades do brasil por estado selecionado.
 
+- [`fordev.validator`](#fordevvalidator)
+    - [`credit_card(...)`](#credit_card-1) - Verifica se o código de cartão de crédito passado é válido;
+    - [`bank_account(...)`](#bank_account-1) - Verifica se os dados da conta bancária passado é válido;
+    - [`certificate(...)`](#certificate-1) - Verifica se o código de certidão passado é válido;
+    - [`cnh(...)`](#cnh-1) - Verifica se o código do CNH passado é válido;
+    - [`cnpj(...)`](#cnpj-1) - Verifica se o código do cnpj passado é válido;
+    - [`cpf(...)`](#cpf-1) - Verifica se o código do cpf passado é válido;
+    - [`pis_pasep(...)`](#pis_pasep-1) - Verifica se o código do PIS/PASEP passado é válido;
+    - [`renavam(...)`](#renavam-1) - Verifica se o código do RENAVAM passado é válido;
+    - [`rg(...)`](#rg-1) - Verifica se o código do RG passado é válido;
+    - [`voter_title(...)`](#voter_title-1) - Verifica se o código do Título de Eleitor passado é válido;
+    - [`state_registration(...)`](#state_registration-1) - Verifica se o código da Inscrição Estadual passado é válido.
+
 
 ## Doc
 
@@ -612,4 +625,241 @@ Gerador de todas as cidade com base no estado selecionado.
 ```python
 >>> from fordev.generator import city
 >>> city(state='PB')
+```
+
+
+### `fordev.validator`
+
+Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
+
+#### Exemplo:
+
+```python
+>>> import fordev.validator
+```
+
+
+### `credit_card(...)`
+
+```python
+credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código da Cartão de Crédito passado é válido.
+
+#### Argumentos
+
+- `flag: int` - Este argumento recebe um número inteiro, entre 1 a 12, que corresponde a bandeira do cartão. Veja a docstring para visualizar o número.
+
+- `credit_card_code: str` - Este argumento corresponde ao código do cartão de crédito.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import credit_card
+>>> credit_card(1, '5567 3314 3773 8787')
+```
+
+
+### `bank_account(...)`
+
+```python
+bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool
+```
+
+Verifica se dados da Conta Bancária passado é válido.
+
+#### Argumentos
+
+- `bank: int` - Este argumento recebe um número inteiro, entre 1 a 5, que corresponde ao banco da conta. Veja a docstring para visualizar o número.
+
+- `agency: str` - Este argumento corresponde ao código da agência da conta bancária.
+
+- `account: str` - Este argumento corresponde ao código da conta bancária.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import bank_account
+>>> bank_account(1, '0902', '0190451-5')
+```
+
+
+### `certificate(...)`
+
+```python
+certificate(certificate_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código da Certidão passado é válido.
+
+#### Argumentos
+
+- `certificate_code: str` - Este argumento corresponde ao código da certidão.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import certificate
+>>> certificate('126239 01 55 2014 1 39856 604 7586258-53')
+```
+
+
+### `cnh(...)`
+
+```python
+cnh(cnh_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do CNH passado é válido.
+
+#### Argumentos
+
+- `cnh_code: str` - Este argumento corresponde ao código da CNH.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import cnh
+>>> cnh('61999385394')
+```
+
+
+### `cnpj(...)`
+
+```python
+cnpj(cnpj_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do CNPJ passado é válido.
+
+#### Argumentos
+
+- `cnpj_code: str` - Este argumento corresponde ao código do CNPJ.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import cnpj
+>>> cnpj('02.104.761/0001-19')
+```
+
+
+### `cpf(...)`
+
+```python
+cpf(cpf_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do CPF passado é válido.
+
+#### Argumentos
+
+- `cpf_code: str` - Este argumento corresponde ao código do CPF.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import cpf
+>>> cpf('140.834.930-20')
+```
+
+
+### `pis_pasep(...)`
+
+```python
+pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do PIS/PASEP passado é válido.
+
+#### Argumentos
+
+- `pis_pasep_code: str` - Este argumento corresponde ao código do PIS/PASEP.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import pis_pasep
+>>> pis_pasep('891.29467.46-6')
+```
+
+
+### `renavam(...)`
+
+```python
+renavam(renavam_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do RENAVAM passado é válido.
+
+#### Argumentos
+
+- `renavam_code: str` - Este argumento corresponde ao código da RENAVAM.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import renavam
+>>> renavam('36017811164')
+```
+
+
+### `rg(...)`
+
+```python
+rg(rg_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do RG passado é válido.
+
+#### Argumentos
+
+- `rg_code: str` - Este argumento corresponde ao código do RG.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import rg
+>>> rg('14.278.923-9')
+```
+
+
+### `voter_title(...)`
+
+```python
+voter_title(voter_title_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código do Título de Eleitor passado é válido.
+
+#### Argumentos
+
+- `voter_title_code: str` - Este argumento corresponde ao código do título de eleitor.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import voter_title
+>>> voter_title('172335860183')
+```
+
+
+### `state_registration(...)`
+
+```python
+state_registration(state: str, state_registration_code: str, data_only: bool=True) -> bool
+```
+
+Verifica se o código da Inscrição Estadual passado é válido.
+
+#### Argumentos
+
+- `state_registration_code: str` - Este argumento corresponde ao código da inscrição estadual.
+
+#### Exemplo de uso
+
+```python
+>>> from fordev.validator import state_registration
+>>> state_registration('SP', '174.749.664.188')
 ```

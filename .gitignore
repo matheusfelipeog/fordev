@@ -11,3 +11,6 @@ __pycache__/
 # Ignore files and directory of distribution
 dist/
 *.egg-info/
+
+# Ignore build directory
+build/

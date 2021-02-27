@@ -7,6 +7,9 @@
         <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/fordev?color=black&style=for-the-badge" />
     </a>
     <a href="https://pypi.org/project/fordev/">
+        <img alt="Downloads in month" src="https://img.shields.io/pypi/dm/fordev?color=black&style=for-the-badge" />
+    </a>
+    <a href="https://pypi.org/project/fordev/">
         <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev?color=black&style=for-the-badge" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/releases">

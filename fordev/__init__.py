@@ -50,5 +50,6 @@ __version__ = __version__
 __author__ = f'{__author__} <{__email__}> and <{__github__}>'
 
 __all__ = [
-    'generator'
+    'generator',
+    'validator'
 ]

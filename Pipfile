@@ -8,6 +8,7 @@ requests = "==2.24.0"
 beautifulsoup4 = "==4.9.3"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.8"

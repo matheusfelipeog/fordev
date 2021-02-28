@@ -1,15 +1,56 @@
 # -*- coding: utf-8 -*-
 
-from setuptools import setup, find_packages
+import os
+import sys
+from shutil import rmtree
+from setuptools import setup, find_packages, Command
 
 from fordev.__about__ import __version__
-
 from fordev.__about__ import __author__
 from fordev.__about__ import __email__
 
 
-with open('README.md', mode='r', encoding='utf-8') as f:
-    long_description = f.read()
+here = os.path.abspath(os.path.dirname(__file__))
+
+
+class PublishCommand(Command):
+    """Support setup.py publish."""
+
+    description = 'Build and publish package in Pypi.'
+    user_options = []
+
+    @staticmethod
+    def print_status(msg):
+        """Prints message in bold and yellow."""
+        print('\033[1;33m{m}\033[0m'.format(m=msg))
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        try:
+            self.print_status('Removing previous builds…')
+
+            rmtree(os.path.join(here, 'dist'))
+            rmtree(os.path.join(here, 'build'))
+
+        except OSError:
+            pass
+        
+        self.print_status('Build Source and Wheel distribution…')
+        os.system('{python} setup.py sdist bdist_wheel'.format(python=sys.executable))
+
+        self.print_status('Uploading the package to PyPi via Twine…')
+        os.system('twine upload --config-file .pypirc --repository pypi dist/*')
+
+        sys.exit()
+
+
+with open(os.path.join(here, 'README.md'), mode='r', encoding='utf-8') as f:
+    long_description = '\n' + f.read()
 
 
 setup(
@@ -50,5 +91,9 @@ setup(
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules'
-    ]
+    ],
+    # setup.py publish support
+    cmdclass={
+        'publish': PublishCommand
+    }
 )

@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
-"""This module is a base for create requests in 4dev API."""
+"""
+fordev.core
+-----------
 
-# --- Standard libraries ----
+This module is a core for create requests in 4dev API.
+"""
+
 from random import choice
 
-# --- Third-party libraries ---
 import requests
 
-# --- Local libraries ---
 from ._const import URL_4DEV_API
 from ._const import LIST_OF_USER_AGENT
 
@@ -16,9 +18,6 @@ from .__about__ import __version__
 from .__about__ import __author__
 from .__about__ import __email__
 from .__about__ import __github__
-
-__version__ = __version__
-__author__ = f'{__author__} <{__email__}> and <{__github__}>'
 
 
 def _random_user_agent() -> str:
@@ -30,11 +29,13 @@ def _random_user_agent() -> str:
 def _create_headers(content_length: int, referer: str) -> dict:
     """Create headers for use in requests module.
     
-    Keyword arguments:
-    
-    `content_length: int` - Indicates the size of the entity-body, in bytes, sent to the recipient.
+    Parameters
+    ----------
+    content_length
+        Indicates the size of the entity-body, in bytes, sent to the recipient.
 
-    `referer: str` - Reference of the action to be performed.
+    referer
+        Reference of the action to be performed.
     """
 
     headers = {
@@ -63,13 +64,16 @@ def _create_headers(content_length: int, referer: str) -> dict:
 def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
     """Create request for 4dev API and get your content.
     
-    Keyword arguments:
+    Parameters
+    ----------
+    content_length
+        Indicates the size of the entity-body, in bytes, sent to the recipient.
 
-    `content_length: int` - Indicates the size of the entity-body, in bytes, sent to the recipient.
+    referer
+        Reference of the action to be performed.
 
-    `referer: str` - Reference of the action to be performed.
-
-    `payload: dict` - A data dictionary containing the action and other data to request.
+    payload
+        A data dictionary containing the action and other data to request.
     """
 
     try:
@@ -81,22 +85,15 @@ def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
 
         # Check if the status code is between 400 to 600,
         # if yes it returns an error message and the error.
-        try:
-            response.raise_for_status()
-        except requests.HTTPError as err:
-            return {
-                'msg': 'HTTP error',
-                'error': err
-            }
-
+        response.raise_for_status()
+        
         # On success, returns a message and data.
         return {
             'msg': 'success',
             'data': response.text
         }
 
-    # Get any other request errors and return msg and error.
-    except requests.RequestException as err:
+    except (requests.RequestException, requests.HTTPError) as err:
         return {
             'msg': 'failed',
             'error': err

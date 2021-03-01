@@ -41,7 +41,7 @@ __all__ = [
 
 
 # --- Local libraries ---
-from ._base import fordev_request
+from .core import fordev_request
 
 from ._const import ALL_UF_CODE
 from ._const import ALL_BANK_FLAGS_2

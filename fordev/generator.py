@@ -61,7 +61,7 @@ from random import sample as random_sample
 from random import choice as random_choice
 
 # --- Local libraries ---
-from ._base import fordev_request
+from .core import fordev_request
 
 from ._const import ALL_UF_CODE
 from ._const import ALL_VEHICLE_BRANDS

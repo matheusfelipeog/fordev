@@ -5,11 +5,9 @@ Fordev Module
 
 The Fordev module is a generator, validator and manipulator of random data.
 
-
 Example
 -------
-
-Generate data of 1 people
+Generate data of 1 people:
 
 >>> from fordev.generator import people
 >>> people(sex='M', age=25, state='SP')

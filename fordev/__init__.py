@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 """
+Fordev Module
+-------------
+
 The Fordev module is a generator, validator and manipulator of random data.
 
-Basic use:
 
-```
+Example
+-------
+
+Generate data of 1 people
+
 >>> from fordev.generator import people
->>> p = people(sex='M', age=25, state='SP')
->>> print(p)
-
-# Output ---------------------------------------------------------------------------------
+>>> people(sex='M', age=25, state='SP')
 {
     'altura': '1,90',
     'bairro': 'Jardim Maria Amélia',
@@ -35,19 +38,12 @@ Basic use:
     'telefone_fixo': '(12) 2844-9806',
     'tipo_sanguineo': 'AB+'
 }
-```
-
-More info at: https://github.com/matheusfelipeog/fordev
 """
 
 from .__about__ import __version__
-
 from .__about__ import __author__
 from .__about__ import __email__
 from .__about__ import __github__
-
-__version__ = __version__
-__author__ = f'{__author__} <{__email__}> and <{__github__}>'
 
 __all__ = [
     'generator',

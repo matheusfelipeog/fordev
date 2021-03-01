@@ -10,9 +10,6 @@ from .__about__ import __author__
 from .__about__ import __email__
 from .__about__ import __github__
 
-__version__ = __version__
-__author__ = f'{__author__} <{__email__}> and <{__github__}>'
-
 
 def filter_bank_account_info(html: str) -> dict:
     """Filter the bank account info in the data of the HTML structure.

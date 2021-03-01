@@ -14,7 +14,6 @@ from ._const import URL_4DEV_API
 from ._const import LIST_OF_USER_AGENT
 
 from .__about__ import __version__
-
 from .__about__ import __author__
 from .__about__ import __email__
 from .__about__ import __github__

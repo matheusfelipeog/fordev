@@ -6,23 +6,25 @@ fordev.core
 This module is a core for create requests in 4dev API.
 """
 
-from random import choice
-
-import requests
-
-from ._const import URL_4DEV_API
-from ._const import LIST_OF_USER_AGENT
+__all__ = ['fordev_request']
 
 from .__about__ import __version__
 from .__about__ import __author__
 from .__about__ import __email__
 from .__about__ import __github__
 
+from random import choice
+
+import requests
+
+from .const import URL_4DEV_API
+from .const import USER_AGENTS
+
 
 def _random_user_agent() -> str:
     """A random user agent string."""
 
-    return choice(LIST_OF_USER_AGENT)
+    return choice(USER_AGENTS)
 
 
 def _create_headers(content_length: int, referer: str) -> dict:

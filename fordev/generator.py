@@ -102,15 +102,15 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
         else 'casamento_religioso' if type_ == 'R' \
         else 'D' # Death
 
-    content_length = 67  # Max of bytes for generate certificate in all possibilities.
-    referer = 'gerador_numero_certidoes'
-    payload = {
-        'acao': 'gerador_certidao',
-        'pontuacao': 'S' if formatting else 'N',
-        'tipo_certidao': type_
-    }
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=67,  # Max of bytes for generate certificate in all possibilities.
+        referer='gerador_numero_certidoes', 
+        payload={
+            'acao': 'gerador_certidao',
+            'pontuacao': 'S' if formatting else 'N',
+            'tipo_certidao': type_
+        }
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -127,11 +127,11 @@ def cnh(data_only: bool=True) -> str:
         If True, return data only. If False, return msg and data or error.
     """
 
-    content_length = 14
-    referer = 'gerador_de_cnh'
-    payload = {'acao': 'gerar_cnh'}
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=14,
+        referer='gerador_de_cnh',
+        payload={'acao': 'gerar_cnh'}
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -183,16 +183,15 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
 
         raise ValueError(msg_error)
 
-    content_length = 45
-    referer = 'gerador_conta_bancaria'
-    payload = {
-        'acao': 'gerar_conta_bancaria',
-        'estado': state,
-        'banco': bank
-    }
-
-    # This response is in html format
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=45,
+        referer='gerador_conta_bancaria',
+        payload={
+            'acao': 'gerar_conta_bancaria',
+            'estado': state,
+            'banco': bank
+        }
+    )
     
     # Replace data in html format with bank account info only.
     r['data'] = filter_bank_account_info(r['data'])
@@ -229,15 +228,15 @@ def cpf(state: str='', formatting: bool=True, data_only: bool=True) -> str:
 
         raise ValueError(msg_error)
 
-    content_length = 38 if state == '' else 40
-    referer = 'gerador_de_cpf'
-    payload = {
-        'acao': 'gerar_cpf',
-        'pontuacao': 'S' if formatting else 'N',
-        'cpf_estado': state
-    }
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=38 if state == '' else 40,
+        referer='gerador_de_cpf',
+        payload={
+            'acao': 'gerar_cpf',
+            'pontuacao': 'S' if formatting else 'N',
+            'cpf_estado': state
+        }
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -257,14 +256,14 @@ def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
         If True, return data only. If False, return msg and data or error.
     """
 
-    content_length = 26
-    referer = 'gerador_de_pis_pasep'
-    payload = {
-        'acao': 'gerar_pis',
-        'pontuacao': 'S' if formatting else 'N'
-    }
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=26,
+        referer='gerador_de_pis_pasep',
+        payload={
+            'acao': 'gerar_pis',
+            'pontuacao': 'S' if formatting else 'N'
+        }
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -281,13 +280,11 @@ def renavam(data_only: bool=True) -> str:
         If True, return data only. If False, return msg and data or error.
     """
 
-    content_length = 18
-    referer = 'gerador_de_renavam'
-    payload = {
-        'acao': 'gerar_renavam'
-    }
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=18,
+        referer='gerador_de_renavam',
+        payload={'acao': 'gerar_renavam'}
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -427,17 +424,16 @@ def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: 
 
         raise ValueError(msg_error)
 
-    content_length = 62  # Max of bytes for generate vehicle data in all possibilities.
-    referer = 'gerador_de_veiculos'
-    payload = {
-        'acao': 'gerar_veiculo',
-        'pontuacao': 'S' if formatting else 'N',
-        'estado': state,
-        'fipe_codigo_marca': brand_code
-    }
-
-    # This response is in html format
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=62,  # Max of bytes for generate vehicle data in all possibilities.
+        referer='gerador_de_veiculos',
+        payload={
+            'acao': 'gerar_veiculo',
+            'pontuacao': 'S' if formatting else 'N',
+            'estado': state,
+            'fipe_codigo_marca': brand_code
+        }
+    )
     
     # Replace data in html format with bank account info only.
     r['data'] = filter_vehicle_info(r['data'])
@@ -507,15 +503,15 @@ def vehicle_plate(state: str='', formatting: bool=True, data_only: bool=True) ->
 
         raise ValueError(msg_error)
 
-    content_length = 36 if state == '' else 38
-    referer = 'gerador_de_placa_automoveis'
-    payload = {
-        'acao': 'gerar_placa',
-        'pontuacao': 'S' if formatting else 'N',
-        'estado': state
-    }
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=36 if state == '' else 38,
+        referer='gerador_de_placa_automoveis',
+        payload={
+            'acao': 'gerar_placa',
+            'pontuacao': 'S' if formatting else 'N',
+            'estado': state
+        }
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -536,14 +532,14 @@ def cnpj(formatting: bool=True, data_only: bool=True) -> str:
         If True, return data only. If False, return msg and data or error.
     """
 
-    content_length = 27
-    referer = 'gerador_de_cnpj'
-    payload = {
-        'acao': 'gerar_cnpj',
-        'pontuacao': 'S' if formatting else 'N',
-    }
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=27,
+        referer='gerador_de_cnpj',
+        payload={
+            'acao': 'gerar_cnpj',
+            'pontuacao': 'S' if formatting else 'N',
+        }
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -564,14 +560,14 @@ def rg(formatting: bool=True, data_only: bool=True) -> str:
         If True, return data only. If False, return msg and data or error.
     """
 
-    content_length = 25
-    referer = 'gerador_de_rg'
-    payload = {
-        'acao': 'gerar_rg',
-        'pontuacao': 'S' if formatting else 'N',
-    }
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=25,
+        referer='gerador_de_rg',
+        payload={
+            'acao': 'gerar_rg',
+            'pontuacao': 'S' if formatting else 'N',
+        }
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -605,15 +601,15 @@ def state_registration(state: str='SP', formatting: bool=True, data_only: bool=T
 
         raise ValueError(msg_error)
 
-    content_length = 35
-    referer = 'gerador_de_inscricao_estadual'
-    payload = {
-        'acao': 'gerar_ie',
-        'pontuacao': 'S' if formatting else 'N',
-        'estado': state
-    }
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=35,
+        referer='gerador_de_inscricao_estadual',
+        payload={
+            'acao': 'gerar_ie',
+            'pontuacao': 'S' if formatting else 'N',
+            'estado': state
+        }
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -644,14 +640,14 @@ def voter_title(state: str, data_only: bool=True) -> str:
 
         raise ValueError(msg_error)
 
-    content_length = 35
-    referer = 'gerador_de_titulo_de_eleitor'
-    payload = {
-        'acao': 'gerar_titulo_eleitor',
-        'estado': state
-    }
-
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=35,
+        referer='gerador_de_titulo_de_eleitor',
+        payload={
+            'acao': 'gerar_titulo_eleitor',
+            'estado': state
+        }
+    )
 
     if data_only and r['msg'] == 'success':
         return r['data']
@@ -667,17 +663,17 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
     bank
         Flag of the bank that wants to generate the credit card information.
             Options:
-                0 = Random;
-                1 = MasterCard;
-                2 = Visa 16 Dígitos;
-                3 = American Express;
-                4 = Diners Club;
-                5 = Discover;
-                6 = enRoute;
-                7 = JCB;
-                8 = Voyager;
-                9 = HiperCard;
-                10 = Aura.
+                0 = Random
+                1 = MasterCard
+                2 = Visa 16 Dígitos
+                3 = American Express
+                4 = Diners Club
+                5 = Discover
+                6 = enRoute
+                7 = JCB
+                8 = Voyager
+                9 = HiperCard
+                10 = Aura
 
     formatting
         If True, returns formatted data. If it is false, there is no formatted data.
@@ -699,18 +695,17 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
     else:
         bank = random_choice(
             list(ALL_BANK_FLAGS.values())
-        )
+        ) 
 
-    content_length = 43
-    referer = 'gerador_de_numero_cartao_credito'
-    payload = {
-        'acao': 'gerar_cc',
-        'pontuacao': 'S' if formatting else 'N',
-        'bandeira': bank
-    }
-
-    # This response is in html format
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=43,
+        referer='gerador_de_numero_cartao_credito',
+        payload={
+            'acao': 'gerar_cc',
+            'pontuacao': 'S' if formatting else 'N',
+            'bandeira': bank
+        }
+    )
     
     # Replace data in html format with credit card info only.
     r['data'] = filter_credit_card_info(r['data'])
@@ -786,22 +781,22 @@ def people(
 
         raise ValueError(msg_error)
 
-    content_length = 99  # Max of bytes for generate people in all possibilities.
-    referer = 'gerador_de_pessoas'
-    payload = {
-        'acao': 'gerar_pessoa',
-        'sexo': 'H' if sex == 'M' else 'M' if sex == 'F' else 'I',  # H, M and I flags are used in 4devs for filter.
-        'pontuacao': 'S' if formatting else 'N',
-        'idade': age,
-        'cep_estado': state,
-        'txt_qtde': n,
+    r = fordev_request(
+        content_length=99,  # Max of bytes for generate people in all possibilities.
+        referer='gerador_de_pessoas',
+        payload={
+            'acao': 'gerar_pessoa',
+            'sexo': 'H' if sex == 'M' else 'M' if sex == 'F' else 'I',  # H, M and I flags are used in 4devs for filter.
+            'pontuacao': 'S' if formatting else 'N',
+            'idade': age,
+            'cep_estado': state,
+            'txt_qtde': n,
 
-        # If the state is not selected, a default flag is used for the city ('Selecione o estado!') or
-        # If the state is selected and city is not selected, a default flag is used for the city ('').
-        'cep_cidade': 'Selecione o estado!' if state == '' else ''
-    }
-
-    r = fordev_request(content_length, referer, payload)
+            # If the state is not selected, a default flag is used for the city ('Selecione o estado!') or
+            # If the state is selected and city is not selected, a default flag is used for the city ('').
+            'cep_cidade': 'Selecione o estado!' if state == '' else ''
+        }
+    )
 
     if data_only and r['msg'] == 'success':
         return json_loads(r['data'])
@@ -854,17 +849,16 @@ def company(state: str='SP', age: int=1, formatting: bool=True, data_only: bool=
 
         raise ValueError(msg_error)
 
-    content_length = 48  # Max of bytes for all possibilities.
-    referer = 'gerador_de_empresas'
-    payload = {
-        'acao': 'gerar_empresa',
-        'pontuacao': 'S' if formatting else 'N',
-        'estado': state,
-        'idade': age
-    }
-
-    # This response is in html format
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=48,
+        referer='gerador_de_empresas',
+        payload={
+            'acao': 'gerar_empresa',
+            'pontuacao': 'S' if formatting else 'N',
+            'estado': state,
+            'idade': age
+        }
+    )
     
     # Replace data in html format with company info only.
     r['data'] = filter_company_info(r['data'])
@@ -929,15 +923,14 @@ def city(state: str='SP', data_only: bool=True) -> list:
 
         raise ValueError(msg_error)
 
-    content_length = 35
-    referer = 'gerador_de_pessoas'
-    payload = {
-        'acao': 'carregar_cidades',
-        'cep_estado': state
-    }
-
-    # This response is in html format
-    r = fordev_request(content_length, referer, payload)
+    r = fordev_request(
+        content_length=35,
+        referer='gerador_de_pessoas',
+        payload={
+            'acao': 'carregar_cidades',
+            'cep_estado': state
+        }
+    )
     
     # Replace data in html format with city names only
     r['data'] = filter_city_name(r['data'])

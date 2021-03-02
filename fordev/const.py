@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-"""All constants using in fordev module."""
+"""
+fordev.const
+------------
+
+This module contains all constants using in fordev module.
+"""
 
 from .__about__ import __version__
 from .__about__ import __author__
@@ -7,8 +12,9 @@ from .__about__ import __email__
 from .__about__ import __github__
 
 
-# -------------- fordev request --------------
-LIST_OF_USER_AGENT: list = [
+URL_4DEV_API = 'https://www.4devs.com.br/ferramentas_online.php'
+
+USER_AGENTS = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36',
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36',
@@ -22,17 +28,13 @@ LIST_OF_USER_AGENT: list = [
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko)',
 ]
 
-URL_4DEV_API: str = 'https://www.4devs.com.br/ferramentas_online.php'
-
-
-# -------------- fordev generator --------------
-ALL_UF_CODE: list = [
+ALL_UF_CODE = [
     "AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA",
     "MT", "MS", "MG","PA", "PB", "PR", "PE", "PI", "RJ",
     "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO", "DF"
 ]
 
-ALL_VEHICLE_BRANDS: dict = {
+ALL_VEHICLE_BRANDS = {
     1: {'brand_name': 'Acura', 'code': 1},
     2: {'brand_name': 'Agrale', 'code': 2},
     3: {'brand_name': 'Alfa Romeo', 'code': 3},
@@ -122,7 +124,7 @@ ALL_VEHICLE_BRANDS: dict = {
     87: {'brand_name': 'Walk', 'code': 120}
 }
 
-ALL_BANK_FLAGS: dict = {
+ALL_BANK_FLAGS = {
     1: 'master',
     2: 'visa16',
     3: 'amex',
@@ -135,7 +137,7 @@ ALL_BANK_FLAGS: dict = {
     10: 'aura'
 }
 
-ALL_BANK_FLAGS_2: dict = {
+ALL_BANK_FLAGS_2 = {
     1: 'MasterCard',
     2: 'Visa',
     3: 'Visa Electron',

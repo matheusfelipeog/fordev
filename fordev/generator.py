@@ -908,6 +908,8 @@ def uf(n: int=1, data_only: bool=True) -> list:
 def city(state: str='SP', data_only: bool=True) -> list:
     """Random city generation using state UF code.
 
+    Parameters
+    ----------
     state
         State UF(Unidade Federativa) code for city generate. Default is "SP".
     

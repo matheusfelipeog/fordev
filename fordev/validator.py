@@ -1,25 +1,24 @@
 # -*- coding: utf-8 -*-
-"""Module for validating data.
-
-Options:
-    Credit Card - Check if Credit Card Code is valid;
-    Bank Account - Check if Bank Account data is valid;
-    Certificate - Check if Certificate Code is valid;
-    CNH - Check if CNH Code is valid;
-    CNPJ - Check if CNPJ Code is valid;
-    CPF - Check if CPF Code is valid;
-    PIS/PASEP - Check if PIS/PASEP Code is valid;
-    RENAVAM - Check if RENAVAM Code is valid;
-    RG - Check if RG Code is valid;
-    Voter Title - Check if Voter Title Code is valid;
-    State Registration - Check if State Registration Code is valid.
 """
+fordev.validator
+----------------
 
-from .__about__ import __version__
-from .__about__ import __author__
-from .__about__ import __email__
-from .__about__ import __github__
+This module validate the data using the 4devs website.
 
+Use help function for more information:
+
+>>> from fordev import validator
+>>> help(validator)
+Help on module fordev.validator in fordev:
+
+NAME
+    fordev.validator
+
+DESCRIPTION
+(...)
+
+Or consult the official documentation.
+"""
 
 __all__ = [
     'credit_card',
@@ -35,20 +34,25 @@ __all__ = [
     'state_registration',
 ]
 
+from .__about__ import __version__
+from .__about__ import __author__
+from .__about__ import __email__
+from .__about__ import __github__
 
-# --- Local libraries ---
 from .core import fordev_request
 
-from ._const import ALL_UF_CODE
-from ._const import ALL_BANK_FLAGS_2
+from .const import ALL_UF_CODE
+from .const import ALL_BANK_FLAGS_2
 
 
 def _data_verification_and_normalize(data: dict) -> dict:
-    """"Check if data key exists and if value is valid. If true, replace data for new format.
+    """"Check if data key exists and if value is valid.
+    If true, replace data for new format.
     
-    Keyword arguments:
-
-    `data: dict` - Data dictionary for verification and format change
+    Parameters
+    ----------
+    data
+        Data dictionary for verification and format change.
     """
 
     data = data.copy()
@@ -63,26 +67,29 @@ def _data_verification_and_normalize(data: dict) -> dict:
 def credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
     """Check if credit card code is valid.
     
-    Keyword arguments:
+    Parameters
+    ----------
+    flag
+        Flag of the credit card that wants to validation the credit card information.
+            Options:
+                1 = MasterCard
+                2 = Visa 16 Dígitos
+                3 = Visa Electron
+                4 = American Express
+                5 = Diners Club
+                6 = Discover
+                7 = enRoute
+                8 = JCB
+                9 = Maestro
+                10 = Solo
+                11 = Switch
+                12 = Laser
 
-    `flag: int` - Flag of the credit card that wants to validation the credit card information.
-        Options:
-            1 = MasterCard;
-            2 = Visa 16 Dígitos;
-            3 = Visa Electron;
-            4 = American Express;
-            5 = Diners Club;
-            6 = Discover;
-            7 = enRoute;
-            8 = JCB;
-            9 = Maestro;
-            10 = Solo;
-            11 = Switch;
-            12 = Laser.
-
-    `credit_card_code: str` - Credit Card Code for check.
+    credit_card_code
+        Credit Card Code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     # Check if bank code is invalid. If true, raise exception.
@@ -115,21 +122,25 @@ def credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
 def bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
     """Check if bank account data is valid.
     
-    Keyword arguments:
-
-    `bank: int` - Flag of the bank that wants to validation the account information.
-        Options:
-            1 = Banco do Brasil;
-            2 = Bradesco;
-            3 = Citibank;
-            4 = Itaú;
-            5 = Santander.
+    Parameters
+    ----------
+    bank
+        Flag of the bank that wants to validation the account information.
+            Options:
+                1 = Banco do Brasil
+                2 = Bradesco
+                3 = Citibank
+                4 = Itaú
+                5 = Santander
     
-    `agency: str` - Code of bank agency.
+    agency
+        Code of bank agency.
 
-    `account: str` - Code of bank account.
+    account
+        Code of bank account.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     # Check if bank code is invalid. If true, raise exception.
@@ -164,11 +175,13 @@ def bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> 
 def certificate(certificate_code: str, data_only: bool=True) -> bool:
     """Check if Certificate(birth, wedding, religious wedding and death) code is valid.
     
-    Keyword arguments:
-
-    `certificate_code: str` - Certificate code for check.
+    Parameters
+    ----------
+    certificate_code
+        Certificate code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 75
@@ -191,11 +204,13 @@ def certificate(certificate_code: str, data_only: bool=True) -> bool:
 def cnh(cnh_code: str, data_only: bool=True) -> bool:
     """Check if CNH code is valid.
     
-    Keyword arguments:
-
-    `cnh_code: str` - CNH code for check.
+    Parameters
+    ----------
+    cnh_code
+        CNH code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 36
@@ -218,11 +233,13 @@ def cnh(cnh_code: str, data_only: bool=True) -> bool:
 def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
     """Check if CNPJ code is valid.
     
-    Keyword arguments:
-
-    `cnpj_code: str` - CNPJ code for check.
+    Parameters
+    ----------
+    cnpj_code
+        CNPJ code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 47
@@ -245,11 +262,13 @@ def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
 def cpf(cpf_code: str, data_only: bool=True) -> bool:
     """Check if CPF code is valid.
     
-    Keyword arguments:
-
-    `cpf_code: str` - CPF code for check.
+    Parameters
+    ----------
+    cpf_code
+        CPF code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 39
@@ -272,11 +291,12 @@ def cpf(cpf_code: str, data_only: bool=True) -> bool:
 def pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
     """Check if PIS/PASEP code is valid.
     
-    Keyword arguments:
-
-    `pis_pasep_code: str` - PIS/PASEP code for check.
+    Parameters
+    ----------
+    pis_pasep_code
+        PIS/PASEP code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
 
     content_length = 39
@@ -299,11 +319,13 @@ def pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
 def renavam(renavam_code: str, data_only: bool=True) -> bool:
     """Check if RENAVAM code is valid.
     
-    Keyword arguments:
-
-    `renavam_code: str` - RENAVAM code for check.
+    Parameters
+    ----------
+    renavam_code
+        RENAVAM code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 43
@@ -326,11 +348,13 @@ def renavam(renavam_code: str, data_only: bool=True) -> bool:
 def rg(rg_code: str, data_only: bool=True) -> bool:
     """Check if RG code is valid.
     
-    Keyword arguments:
-
-    `rg_code: str` - RG code for check.
+    Parameters
+    ----------
+    rg_code
+        RG code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 35
@@ -353,11 +377,13 @@ def rg(rg_code: str, data_only: bool=True) -> bool:
 def voter_title(voter_title_code: str, data_only: bool=True) -> bool:
     """Check if Voter Title code is valid.
     
-    Keyword arguments:
-
-    `voter_title_code: str` - Voter Title code for check.
+    Parameters
+    ----------
+    voter_title_code
+        Voter Title code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 59
@@ -382,14 +408,18 @@ def voter_title(voter_title_code: str, data_only: bool=True) -> bool:
 def state_registration(state: str, state_registration_code: str, data_only: bool=True) -> bool:
     """Check if State Registration code is valid.
     
-    Keyword arguments:
-
-    `state: str` - State UF(Unidade Federativa) code.
+    Parameters
+    ----------
+    state
+        State UF(Unidade Federativa) code.
+        
         More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
 
-    `state_registration_code: str` - State Registration code for check.
+    state_registration_code
+        State Registration code for check.
     
-    `data_only: bool` - If True, return data only. If False, return msg and data/error.
+    data_only
+        If True, return data only. If False, return msg and data or error.
     """
 
     state = state.upper()

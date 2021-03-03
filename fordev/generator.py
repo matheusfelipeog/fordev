@@ -22,17 +22,17 @@ Or consult the official documentation.
 
 Note
 ----
-Most of the functions of the ``fordev.generator`` module contain 
-parameters in common, they are ``formatting`` and ``data_only``.
+Most of the functions of the ``fordev.generator`` module contain parameters
+in common, they are ``uf_code``, ``formatting`` and ``data_only``.
 
 More details in next section.
 
 Parameters
 ----------
-state: str
-    State UF(Unidade Federativa) code for generating the bank account.
+uf_code: str
+    UF(Unidade Federativa) code for generating data.
     
-    More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
+    More info about UF: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
 formatting: bool
     If ``True``, returns formatted data. 
@@ -148,7 +148,7 @@ def cnh(data_only: bool=True) -> str:
     return r
 
 
-def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
+def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
     """Generate random bank account information.
     
     Parameter
@@ -173,17 +173,16 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
     # Replace the bank number with the bank code used in 4devs.
     bank = ['', 2, 121, 85, 120, 151][bank]  # Use the index for get the bank code.
 
-    # Normalize
-    state = state.upper()
+    uf_code = uf_code.upper()
 
-    raise_for_invalid_uf(uf=state, include_blank=True)
+    raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
     r = fordev_request(
         content_length=45,
         referer='gerador_conta_bancaria',
         payload={
             'acao': 'gerar_conta_bancaria',
-            'estado': state,
+            'estado': uf_code,
             'banco': bank
         }
     )
@@ -197,20 +196,20 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
     return r
 
 
-def cpf(state: str='', formatting: bool=True, data_only: bool=True) -> str:
+def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
     """Random generate of CPF(Cadastro de Pessoas Físicas)."""
 
-    state = state.upper()
+    uf_code = uf_code.upper()
 
-    raise_for_invalid_uf(uf=state, include_blank=True)
+    raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
     r = fordev_request(
-        content_length=38 if state == '' else 40,
+        content_length=38 if uf_code == '' else 40,
         referer='gerador_de_cpf',
         payload={
             'acao': 'gerar_cpf',
             'pontuacao': 'S' if formatting else 'N',
-            'cpf_estado': state
+            'cpf_estado': uf_code
         }
     )
 
@@ -253,7 +252,7 @@ def renavam(data_only: bool=True) -> str:
     return r 
 
 
-def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: bool=True) -> dict:
+def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only: bool=True) -> dict:
     """Generate random bank account information.
     
     Parameter
@@ -363,10 +362,9 @@ def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: 
     else:
         brand_code = ''
 
-    # Normalize
-    state = state.upper()
+    uf_code = uf_code.upper()
 
-    raise_for_invalid_uf(uf=state, include_blank=True)
+    raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
     r = fordev_request(
         content_length=62,  # Max of bytes for generate vehicle data in all possibilities.
@@ -374,7 +372,7 @@ def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: 
         payload={
             'acao': 'gerar_veiculo',
             'pontuacao': 'S' if formatting else 'N',
-            'estado': state,
+            'estado': uf_code,
             'fipe_codigo_marca': brand_code
         }
     )
@@ -417,20 +415,20 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
         return full_data
 
 
-def vehicle_plate(state: str='', formatting: bool=True, data_only: bool=True) -> str:
+def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
     """Generate random Vehicle plate code."""
 
-    state = state.upper()
+    uf_code = uf_code.upper()
 
-    raise_for_invalid_uf(uf=state, include_blank=True)
+    raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
     r = fordev_request(
-        content_length=36 if state == '' else 38,
+        content_length=36 if uf_code == '' else 38,
         referer='gerador_de_placa_automoveis',
         payload={
             'acao': 'gerar_placa',
             'pontuacao': 'S' if formatting else 'N',
-            'estado': state
+            'estado':uf_code
         }
     )
 
@@ -476,12 +474,12 @@ def rg(formatting: bool=True, data_only: bool=True) -> str:
     return r
 
 
-def state_registration(state: str='SP', formatting: bool=True, data_only: bool=True) -> str:
+def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool=True) -> str:
     """Generate random state registration code."""
 
-    state = state.upper()
+    uf_code = uf_code.upper()
 
-    raise_for_invalid_uf(uf=state)
+    raise_for_invalid_uf(uf=uf_code)
 
     r = fordev_request(
         content_length=35,
@@ -489,7 +487,7 @@ def state_registration(state: str='SP', formatting: bool=True, data_only: bool=T
         payload={
             'acao': 'gerar_ie',
             'pontuacao': 'S' if formatting else 'N',
-            'estado': state
+            'estado': uf_code
         }
     )
 
@@ -499,19 +497,19 @@ def state_registration(state: str='SP', formatting: bool=True, data_only: bool=T
     return r
 
 
-def voter_title(state: str, data_only: bool=True) -> str:
+def voter_title(uf_code: str, data_only: bool=True) -> str:
     """Random generation of Voter Title for the selected state."""
 
-    state = state.upper()
+    uf_code = uf_code.upper()
 
-    raise_for_invalid_uf(uf=state)
+    raise_for_invalid_uf(uf=uf_code)
 
     r = fordev_request(
         content_length=35,
         referer='gerador_de_titulo_de_eleitor',
         payload={
             'acao': 'gerar_titulo_eleitor',
-            'estado': state
+            'estado': uf_code
         }
     )
 
@@ -579,11 +577,11 @@ def people(
         n: int=1,
         sex: str='R',
         age: int=0,
-        state: str='',
+        uf_code: str='',
         formatting: bool=True,
         data_only: bool=True
     ) -> str:
-    """Random generation of Voter Title for the selected state.
+    """Random generation of people data.
     
     Parameters
     ----------
@@ -597,9 +595,9 @@ def people(
         Age of people generated. The range is 18 to 80 age.
     """
     
-    # Normalize
     sex = sex.upper()
-    state = state.upper()
+    
+    uf_code = uf_code.upper()
 
     if not (1 <= n <= 30):
         msg_error = f'The n value "{n}" is invalid. Enter a valid number of people.'
@@ -619,7 +617,7 @@ def people(
 
         raise ValueError(msg_error)
     
-    raise_for_invalid_uf(uf=state, include_blank=True)
+    raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
     r = fordev_request(
         content_length=99,  # Max of bytes for generate people in all possibilities.
@@ -629,12 +627,12 @@ def people(
             'sexo': 'H' if sex == 'M' else 'M' if sex == 'F' else 'I',  # H, M and I flags are used in 4devs for filter.
             'pontuacao': 'S' if formatting else 'N',
             'idade': age,
-            'cep_estado': state,
+            'cep_estado': uf_code,
             'txt_qtde': n,
 
             # If the state is not selected, a default flag is used for the city ('Selecione o estado!') or
             # If the state is selected and city is not selected, a default flag is used for the city ('').
-            'cep_cidade': 'Selecione o estado!' if state == '' else ''
+            'cep_cidade': 'Selecione o estado!' if uf_code == '' else ''
         }
     )
 
@@ -652,7 +650,7 @@ def people(
     return r
 
 
-def company(state: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
+def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
     """Generate random company information.
     
     Parameter
@@ -661,10 +659,9 @@ def company(state: str='SP', age: int=1, formatting: bool=True, data_only: bool=
         The time of existence of the company (age of the company).
     """
 
-    # Normalize
-    state = state.upper()
+    uf_code = uf_code.upper()
 
-    raise_for_invalid_uf(uf=state)
+    raise_for_invalid_uf(uf=uf_code)
 
     if not (1 <= age <= 30):
         msg_error = f'The company age value "{age}" is invalid. Enter a valid company age.'
@@ -678,7 +675,7 @@ def company(state: str='SP', age: int=1, formatting: bool=True, data_only: bool=
         payload={
             'acao': 'gerar_empresa',
             'pontuacao': 'S' if formatting else 'N',
-            'estado': state,
+            'estado': uf_code,
             'idade': age
         }
     )
@@ -718,20 +715,19 @@ def uf(n: int=1, data_only: bool=True) -> list:
         return full_data
 
 
-def city(state: str='SP', data_only: bool=True) -> list:
+def city(uf_code: str='SP', data_only: bool=True) -> list:
     """Random city generation using state UF code."""
 
-    # Normalize
-    state = state.upper()
+    uf_code = uf_code.upper()
 
-    raise_for_invalid_uf(uf=state)
+    raise_for_invalid_uf(uf=uf_code)
 
     r = fordev_request(
         content_length=35,
         referer='gerador_de_pessoas',
         payload={
             'acao': 'carregar_cidades',
-            'cep_estado': state
+            'cep_estado': uf_code
         }
     )
     

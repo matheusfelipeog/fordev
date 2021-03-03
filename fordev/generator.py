@@ -19,6 +19,30 @@ DESCRIPTION
 (...)
 
 Or consult the official documentation.
+
+Note
+----
+Most of the functions of the fordev.generator module contain 
+parameters in common, they are ``formatting`` and ``data_only``.
+
+More details in next section.
+
+Parameters
+----------
+state: str
+    State UF(Unidade Federativa) code for generating the bank account.
+    
+    More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
+
+formatting: bool
+    If ``True``, returns formatted data. 
+    If it is ``False``, there is no formatted data.
+
+data_only: bool
+    If ``True``, return data only. If ``False``, return msg and data or error.
+
+OBS: These are common parameters in the functions
+of the ``fordev.generator`` module.
 """
 
 __all__ = [
@@ -68,8 +92,8 @@ from ._filter import filter_company_info
 def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> str:
     """Random generate of certificate(birth, wedding, religious wedding and death).
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     type_
         Type of certificate generate.
             Options: 
@@ -78,12 +102,6 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
                 'R' = Religious Wedding
                 'D' = Death
                 'I' = Indifferent (Default)
-
-    formatting
-        If True, returns formatted data. If it is false, there is no formatted data.
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     type_ = type_.upper()
@@ -119,13 +137,7 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
 
 
 def cnh(data_only: bool=True) -> str:
-    """Random generate of CNH(Carteira Nacional de Habilitação).
-    
-    Parameters
-    ----------
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Random generate of CNH(Carteira Nacional de Habilitação)."""
 
     r = fordev_request(
         content_length=14,
@@ -142,8 +154,8 @@ def cnh(data_only: bool=True) -> str:
 def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
     """Generate random bank account information.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     bank
         Flag of the bank that wants to generate the account information.
             Options:
@@ -153,14 +165,6 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
                 3 = Citibank
                 4 = Itaú
                 5 = Santander
-
-    state
-        State UF(Unidade Federativa) code for generating the bank account.
-
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     # Check if bank code is invalid. If true, raise exception.
@@ -203,21 +207,7 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
 
 
 def cpf(state: str='', formatting: bool=True, data_only: bool=True) -> str:
-    """Random generate of CPF(Cadastro de Pessoas Físicas).
-    
-    Parameters
-    ----------
-    state
-        State UF(Unidade Federativa) code for generating the CPF. <Optional Parameter>.
-        
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
-
-    formatting
-        If True, returns formatted data how "123.456.789-10". If false, formatted data how "12345678910".
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Random generate of CPF(Cadastro de Pessoas Físicas)."""
 
     state = state.upper()
 
@@ -245,16 +235,7 @@ def cpf(state: str='', formatting: bool=True, data_only: bool=True) -> str:
 
 
 def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
-    """Random generate of PIS/PASEP code.
-    
-    Parameters
-    ----------
-    formatting
-        If True, returns formatted data. If it is false, there is no formatted data.
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Random generate of PIS/PASEP code."""
 
     r = fordev_request(
         content_length=26,
@@ -272,13 +253,7 @@ def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
 
 
 def renavam(data_only: bool=True) -> str:
-    """Random generate of RENAVAM(Registro Nacional de Veículos Automotores) code.
-    
-    Parameters
-    ----------
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Random generate of RENAVAM(Registro Nacional de Veículos Automotores) code."""
 
     r = fordev_request(
         content_length=18,
@@ -295,8 +270,8 @@ def renavam(data_only: bool=True) -> str:
 def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: bool=True) -> dict:
     """Generate random bank account information.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     brand
         Flag of the vehicle brand that wants to generate the vehicle information.
             Options:
@@ -388,17 +363,6 @@ def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: 
                 85 = VW - VolksWagen
                 86 = Wake
                 87 = Walk
-
-    state
-        State UF(Unidade Federativa) code for generating the bank account.
-
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
-
-    formatting
-        If True, returns formatted data. If it is false, there is no formatted data.
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     # Check if brand code is invalid. If true, raise exception.
@@ -447,13 +411,10 @@ def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: 
 def vehicle_brand(n: int=1, data_only: bool=True) -> list:
     """Random generation of vehicle brand.
 
-    Parameters
-    ----------
+    Parameter
+    ---------
     n
         A number of vehicle brand for generate random code. The range is of 1 to 87.
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     # Check if number of UF is invalid. If true, raise exception.
@@ -478,21 +439,7 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
 
 
 def vehicle_plate(state: str='', formatting: bool=True, data_only: bool=True) -> str:
-    """Generate random Vehicle plate code.
-    
-    Parameters
-    ---------- 
-    state
-        State UF(Unidade Federativa) code for generating the Voter Title.
-    
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
-
-    formatting
-        If True, returns formatted data. If it is false, there is no formatted data.
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Generate random Vehicle plate code."""
 
     state = state.upper()
 
@@ -520,17 +467,7 @@ def vehicle_plate(state: str='', formatting: bool=True, data_only: bool=True) ->
 
 
 def cnpj(formatting: bool=True, data_only: bool=True) -> str:
-    """Random generate of CNPJ(Cadastro Nacional da Pessoa Jurídica).
-    
-    Parameters
-    ----------
-    formatting
-        If True, returns formatted data how "12.345.678/0009-10". If false,
-        formatted data how "12345678000910".
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Random generate of CNPJ(Cadastro Nacional da Pessoa Jurídica)."""
 
     r = fordev_request(
         content_length=27,
@@ -548,17 +485,7 @@ def cnpj(formatting: bool=True, data_only: bool=True) -> str:
 
 
 def rg(formatting: bool=True, data_only: bool=True) -> str:
-    """Random generate of RG(Registro Geral) of emitter SSP-SP.
-    
-    Parameters
-    ----------
-    formatting
-        If True, returns formatted data how "12.345.678-9".
-        If false, formatted data how "123456789".
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Random generate of RG(Registro Geral) of emitter SSP-SP."""
 
     r = fordev_request(
         content_length=25,
@@ -576,21 +503,7 @@ def rg(formatting: bool=True, data_only: bool=True) -> str:
 
 
 def state_registration(state: str='SP', formatting: bool=True, data_only: bool=True) -> str:
-    """Generate random state registration code.
-    
-    Parameters
-    ----------
-    state
-        State UF(Unidade Federativa) code for generating the Voter Title.
-    
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
-
-    formatting
-        If True, returns formatted data. If it is false, there is no formatted data.
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Generate random state registration code."""
 
     state = state.upper()
 
@@ -618,18 +531,7 @@ def state_registration(state: str='SP', formatting: bool=True, data_only: bool=T
 
 
 def voter_title(state: str, data_only: bool=True) -> str:
-    """Random generation of Voter Title for the selected state.
-    
-    Parameters
-    ----------
-    state
-        State UF(Unidade Federativa) code for generating the Voter Title.
-        
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Random generation of Voter Title for the selected state."""
 
     state = state.upper()
 
@@ -658,8 +560,8 @@ def voter_title(state: str, data_only: bool=True) -> str:
 def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dict:
     """Generate random credit card information.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     bank
         Flag of the bank that wants to generate the credit card information.
             Options:
@@ -674,12 +576,6 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
                 8 = Voyager
                 9 = HiperCard
                 10 = Aura
-
-    formatting
-        If True, returns formatted data. If it is false, there is no formatted data.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     # Check if bank code is invalid. If true, raise exception.
@@ -736,17 +632,6 @@ def people(
 
     age
         Age of people generated. The range is 18 to 80 age.
-
-    state
-        State UF(Unidade Federativa) code for generating the people.
-    
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
-
-    formatting
-        If True, returns formatted data. If it is false, there is no formatted data.
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
     
     # Normalize
@@ -815,21 +700,10 @@ def people(
 def company(state: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
     """Generate random company information.
     
-    Parameters
-    ----------
-    state  
-        State UF(Unidade Federativa) code for generating the bank account.
-        
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
-
+    Parameter
+    ---------
     age
         The time of existence of the company (age of the company).
-
-    formatting
-        If True, returns formatted data. If it is false, there is no formatted data.
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     # Normalize
@@ -876,9 +750,6 @@ def uf(n: int=1, data_only: bool=True) -> list:
     ----------
     n
         A number of UF for generate random code. The range is of 1 to 27.
-
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     # Check if number of UF is invalid. If true, raise exception.
@@ -900,18 +771,7 @@ def uf(n: int=1, data_only: bool=True) -> list:
 
 
 def city(state: str='SP', data_only: bool=True) -> list:
-    """Random city generation using state UF code.
-
-    Parameters
-    ----------
-    state
-        State UF(Unidade Federativa) code for city generate. Default is "SP".
-    
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+    """Random city generation using state UF code."""
 
     # Normalize
     state = state.upper()

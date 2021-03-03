@@ -431,12 +431,7 @@ def state_registration(state: str, state_registration_code: str, data_only: bool
 
     state = state.upper()
 
-    # Check if state is invalid. If true, raise exception.
-    if state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    raise_for_invalid_uf(uf=state)
 
     content_length = 48
     referer = 'validar_inscricao_estadual'

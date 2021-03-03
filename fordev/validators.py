@@ -36,17 +36,17 @@ of the ``fordev.validators`` module.
 """
 
 __all__ = [
-    'credit_card',
-    'bank_account',
-    'certificate',
-    'cnh',
-    'cnpj',
-    'cpf',
-    'pis_pasep',
-    'renavam',
-    'rg',
-    'voter_title',
-    'state_registration',
+    'is_valid_credit_card',
+    'is_valid_bank_account',
+    'is_valid_certificate',
+    'is_valid_cnh',
+    'is_valid_cnpj',
+    'is_valid_cpf',
+    'is_valid_pis_pasep',
+    'is_valid_renavam',
+    'is_valid_rg',
+    'is_valid_voter_title',
+    'is_valid_state_registration',
 ]
 
 from .__about__ import __version__
@@ -104,7 +104,7 @@ def raise_for_invalid_uf(uf, include_blank=False):
         raise ValueError(msg_error)
 
 
-def credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
+def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
     """Check if credit card code is valid.
     
     Parameters
@@ -153,7 +153,7 @@ def credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=r)
 
 
-def bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
+def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
     """Check if bank account data is valid.
     
     Parameters
@@ -200,7 +200,7 @@ def bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> 
     return data_format(data_only=data_only, data_dict=r)
 
 
-def certificate(certificate_code: str, data_only: bool=True) -> bool:
+def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
     """Check if Certificate(birth, wedding, religious wedding and death) code is valid.
     
     Parameter
@@ -223,7 +223,7 @@ def certificate(certificate_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=r)
 
 
-def cnh(cnh_code: str, data_only: bool=True) -> bool:
+def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
     """Check if CNH code is valid.
     
     Parameter
@@ -246,7 +246,7 @@ def cnh(cnh_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=r)
 
 
-def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
+def is_valid_cnpj(cnpj_code: str, data_only: bool=True) -> bool:
     """Check if CNPJ code is valid.
     
     Parameter
@@ -269,7 +269,7 @@ def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=r)
 
 
-def cpf(cpf_code: str, data_only: bool=True) -> bool:
+def is_valid_cpf(cpf_code: str, data_only: bool=True) -> bool:
     """Check if CPF code is valid.
     
     Parameter
@@ -292,7 +292,7 @@ def cpf(cpf_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=r)
 
 
-def pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
+def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
     """Check if PIS/PASEP code is valid.
     
     Parameter
@@ -315,7 +315,7 @@ def pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=r)
 
 
-def renavam(renavam_code: str, data_only: bool=True) -> bool:
+def is_valid_renavam(renavam_code: str, data_only: bool=True) -> bool:
     """Check if RENAVAM code is valid.
     
     Parameter
@@ -338,7 +338,7 @@ def renavam(renavam_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=r)
 
 
-def rg(rg_code: str, data_only: bool=True) -> bool:
+def is_valid_rg(rg_code: str, data_only: bool=True) -> bool:
     """Check if RG code is valid.
     
     Parameter
@@ -361,7 +361,7 @@ def rg(rg_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=r)
 
 
-def voter_title(voter_title_code: str, data_only: bool=True) -> bool:
+def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
     """Check if Voter Title code is valid.
     
     Parameter
@@ -386,7 +386,7 @@ def voter_title(voter_title_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=r)
 
 
-def state_registration(uf_code: str, state_registration_code: str, data_only: bool=True) -> bool:
+def is_valid_state_registration(uf_code: str, state_registration_code: str, data_only: bool=True) -> bool:
     """Check if State Registration code is valid.
     
     Parameters

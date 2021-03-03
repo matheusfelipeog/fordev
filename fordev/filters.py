@@ -1,18 +1,32 @@
 # -*- coding: utf-8 -*-
-"""This module is used to filter data contained in HTML structures."""
+"""
+fordev.filters
+--------------
 
-# --- Third-party libraries ---
-from bs4 import BeautifulSoup
+This module is used to filter data contained in HTML structures
+and json format in Fordev module.
+"""
+
+__all__ = [
+    'data_format',
+    'filter_bank_account_info',
+    'filter_vehicle_info',
+    'filter_credit_card_info',
+    'filter_company_info',
+    'filter_city_name'
+]
 
 from .__about__ import __version__
-
 from .__about__ import __author__
 from .__about__ import __email__
 from .__about__ import __github__
 
+from bs4 import BeautifulSoup
+
 
 def data_format(data_only: bool, data_dict: dict):
     """Filter the data format return."""
+    
     if data_only and data_dict['msg'] == 'success':
         return data_dict['data']
     
@@ -22,9 +36,10 @@ def data_format(data_only: bool, data_dict: dict):
 def filter_bank_account_info(html: str) -> dict:
     """Filter the bank account info in the data of the HTML structure.
 
-    Keyword arguments:
-
-    `html: str` - Content in html structure.
+    Parameter
+    ---------
+    html
+        Content in html structure.
     """
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -35,8 +50,6 @@ def filter_bank_account_info(html: str) -> dict:
     # Get all the data to use as a value in the dictionary return.
     data_of_bank_account = [div.text for div in soup.find_all('div', 'output-txt')]
 
-    # Join labels with bank account data
-    # and convert to a dictionary in the key-value format respectively.
     data_dict = dict(
         zip(labels, data_of_bank_account)
     )
@@ -47,9 +60,10 @@ def filter_bank_account_info(html: str) -> dict:
 def filter_vehicle_info(html: str) -> dict:
     """Filter the vehicle info in the data of the HTML structure.
 
-    Keyword arguments:
-
-    `html: str` - Content in html structure.
+    Parameter
+    ---------
+    html
+        Content in html structure.
     """
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -60,8 +74,6 @@ def filter_vehicle_info(html: str) -> dict:
     # Get all the data to use as a value in the dictionary return.
     data_of_vehicle = [input_.get('value') for input_ in soup.find_all('input', 'margem_menor')]
 
-    # Join labels with vehicle data
-    # and convert to a dictionary in the key-value format respectively.
     data_dict = dict(
         zip(labels, data_of_vehicle)
     )
@@ -72,9 +84,10 @@ def filter_vehicle_info(html: str) -> dict:
 def filter_credit_card_info(html: str) -> dict:
     """Filter the credit card info in the data of the HTML structure.
 
-    Keyword arguments:
-
-    `html: str` - Content in html structure.
+    Parameter
+    ---------
+    html
+        Content in html structure.
     """
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -85,8 +98,6 @@ def filter_credit_card_info(html: str) -> dict:
     # Get all the data to use as a value in the dictionary return.
     data_of_credit_card = [div.text.strip() for div in soup.find_all('div', 'output-txt')]
 
-    # Join labels with credit card data
-    # and convert to a dictionary in the key-value format respectively.
     data_dict = dict(
         zip(labels, data_of_credit_card)
     )
@@ -97,9 +108,10 @@ def filter_credit_card_info(html: str) -> dict:
 def filter_company_info(html: str) -> dict:
     """Filter the company info in the data of the HTML structure.
 
-    Keyword arguments:
-
-    `html: str` - Content in html structure.
+    Parameter
+    ---------
+    html
+        Content in html structure.
     """
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -110,8 +122,6 @@ def filter_company_info(html: str) -> dict:
     # Get all the data to use as a value in the dictionary return.
     data_of_company = [input_.get('value') for input_ in soup.find_all('input', 'margem_menor')]
 
-    # Join labels with company data
-    # and convert to a dictionary in the key-value format respectively.
     data_dict = dict(
         zip(labels, data_of_company)
     )
@@ -122,9 +132,10 @@ def filter_company_info(html: str) -> dict:
 def filter_city_name(html: str) -> list:
     """Filter the city name in the data of the HTML structure.
 
-    Keyword arguments:
-
-    `html: str` - Content in html structure.
+    Parameter
+    ---------
+    html
+        Content in html structure.
     """
 
     soup = BeautifulSoup(html, 'html.parser')

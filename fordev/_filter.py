@@ -11,6 +11,14 @@ from .__about__ import __email__
 from .__about__ import __github__
 
 
+def data_format(data_only: bool, data_dict: dict):
+    """Filter the data format return."""
+    if data_only and data_dict['msg'] == 'success':
+        return data_dict['data']
+    
+    return data_dict
+
+
 def filter_bank_account_info(html: str) -> dict:
     """Filter the bank account info in the data of the HTML structure.
 

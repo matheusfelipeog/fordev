@@ -84,6 +84,7 @@ from .const import ALL_BANK_FLAGS
 
 from .validator import raise_for_invalid_uf
 
+from ._filter import data_format
 from ._filter import filter_city_name
 from ._filter import filter_vehicle_info
 from ._filter import filter_credit_card_info
@@ -127,10 +128,7 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
         }
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def cnh(data_only: bool=True) -> str:
@@ -142,10 +140,7 @@ def cnh(data_only: bool=True) -> str:
         payload={'acao': 'gerar_cnh'}
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
@@ -189,11 +184,8 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
     
     # Replace data in html format with bank account info only.
     r['data'] = filter_bank_account_info(r['data'])
-
-    if data_only and r['msg'] == 'success':
-        return r['data']
     
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
@@ -213,10 +205,7 @@ def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
         }
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-    
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
@@ -230,11 +219,8 @@ def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
             'pontuacao': 'S' if formatting else 'N'
         }
     )
-
-    if data_only and r['msg'] == 'success':
-        return r['data']
     
-    return r    
+    return data_format(data_only=data_only, data_dict=r)    
 
 
 def renavam(data_only: bool=True) -> str:
@@ -246,10 +232,7 @@ def renavam(data_only: bool=True) -> str:
         payload={'acao': 'gerar_renavam'}
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-    
-    return r 
+    return data_format(data_only=data_only, data_dict=r) 
 
 
 def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only: bool=True) -> dict:
@@ -379,11 +362,8 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
     
     # Replace data in html format with bank account info only.
     r['data'] = filter_vehicle_info(r['data'])
-
-    if data_only and r['msg'] == 'success':
-        return r['data']
     
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def vehicle_brand(n: int=1, data_only: bool=True) -> list:
@@ -431,11 +411,8 @@ def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) 
             'estado':uf_code
         }
     )
-
-    if data_only and r['msg'] == 'success':
-        return r['data']
     
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def cnpj(formatting: bool=True, data_only: bool=True) -> str:
@@ -450,10 +427,7 @@ def cnpj(formatting: bool=True, data_only: bool=True) -> str:
         }
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-    
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def rg(formatting: bool=True, data_only: bool=True) -> str:
@@ -467,11 +441,8 @@ def rg(formatting: bool=True, data_only: bool=True) -> str:
             'pontuacao': 'S' if formatting else 'N',
         }
     )
-
-    if data_only and r['msg'] == 'success':
-        return r['data']
     
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool=True) -> str:
@@ -490,11 +461,8 @@ def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool
             'estado': uf_code
         }
     )
-
-    if data_only and r['msg'] == 'success':
-        return r['data']
     
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def voter_title(uf_code: str, data_only: bool=True) -> str:
@@ -513,10 +481,7 @@ def voter_title(uf_code: str, data_only: bool=True) -> str:
         }
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-    
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dict:
@@ -567,10 +532,7 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
     # Replace data in html format with credit card info only.
     r['data'] = filter_credit_card_info(r['data'])
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-    
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def people(
@@ -596,7 +558,7 @@ def people(
     """
     
     sex = sex.upper()
-    
+
     uf_code = uf_code.upper()
 
     if not (1 <= n <= 30):
@@ -683,10 +645,7 @@ def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: boo
     # Replace data in html format with company info only.
     r['data'] = filter_company_info(r['data'])
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-    
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def uf(n: int=1, data_only: bool=True) -> list:
@@ -734,7 +693,4 @@ def city(uf_code: str='SP', data_only: bool=True) -> list:
     # Replace data in html format with city names only
     r['data'] = filter_city_name(r['data'])
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-    
-    return r
+    return data_format(data_only=data_only, data_dict=r)

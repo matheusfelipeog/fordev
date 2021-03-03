@@ -9,7 +9,7 @@ Example
 -------
 Generate data of 1 people:
 
->>> from fordev.generator import people
+>>> from fordev.generators import people
 >>> people(sex='M', age=25, state='SP')
 {
     'altura': '1,90',
@@ -38,12 +38,14 @@ Generate data of 1 people:
 }
 """
 
+__all__ = [
+    'generators',
+    'validators',
+    'filters',
+    'consts'
+]
+
 from .__about__ import __version__
 from .__about__ import __author__
 from .__about__ import __email__
 from .__about__ import __github__
-
-__all__ = [
-    'generator',
-    'validator'
-]

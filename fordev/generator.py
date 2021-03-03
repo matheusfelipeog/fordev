@@ -82,6 +82,8 @@ from .const import ALL_UF_CODE
 from .const import ALL_VEHICLE_BRANDS
 from .const import ALL_BANK_FLAGS
 
+from .validator import raise_for_invalid_uf
+
 from ._filter import filter_city_name
 from ._filter import filter_vehicle_info
 from ._filter import filter_credit_card_info
@@ -174,11 +176,7 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
     # Normalize
     state = state.upper()
 
-    if state != '' and state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    raise_for_invalid_uf(uf=state, include_blank=True)
 
     r = fordev_request(
         content_length=45,
@@ -204,11 +202,7 @@ def cpf(state: str='', formatting: bool=True, data_only: bool=True) -> str:
 
     state = state.upper()
 
-    if state != '' and state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    raise_for_invalid_uf(uf=state, include_blank=True)
 
     r = fordev_request(
         content_length=38 if state == '' else 40,
@@ -372,11 +366,7 @@ def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: 
     # Normalize
     state = state.upper()
 
-    if state != '' and state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    raise_for_invalid_uf(uf=state, include_blank=True)
 
     r = fordev_request(
         content_length=62,  # Max of bytes for generate vehicle data in all possibilities.
@@ -432,11 +422,7 @@ def vehicle_plate(state: str='', formatting: bool=True, data_only: bool=True) ->
 
     state = state.upper()
 
-    if state != '' and state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    raise_for_invalid_uf(uf=state, include_blank=True)
 
     r = fordev_request(
         content_length=36 if state == '' else 38,
@@ -495,11 +481,7 @@ def state_registration(state: str='SP', formatting: bool=True, data_only: bool=T
 
     state = state.upper()
 
-    if state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    raise_for_invalid_uf(uf=state)
 
     r = fordev_request(
         content_length=35,
@@ -522,12 +504,7 @@ def voter_title(state: str, data_only: bool=True) -> str:
 
     state = state.upper()
 
-    # Check if state is invalid. If true, raise exception.
-    if state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    raise_for_invalid_uf(uf=state)
 
     r = fordev_request(
         content_length=35,
@@ -641,12 +618,8 @@ def people(
         msg_error += f' The range is 18 to 80 age'
 
         raise ValueError(msg_error)
-
-    if state != '' and state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    
+    raise_for_invalid_uf(uf=state, include_blank=True)
 
     r = fordev_request(
         content_length=99,  # Max of bytes for generate people in all possibilities.
@@ -691,11 +664,7 @@ def company(state: str='SP', age: int=1, formatting: bool=True, data_only: bool=
     # Normalize
     state = state.upper()
 
-    if state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    raise_for_invalid_uf(uf=state)
 
     if not (1 <= age <= 30):
         msg_error = f'The company age value "{age}" is invalid. Enter a valid company age.'
@@ -755,11 +724,7 @@ def city(state: str='SP', data_only: bool=True) -> list:
     # Normalize
     state = state.upper()
 
-    if state not in ALL_UF_CODE:
-        msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-        msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
-
-        raise ValueError(msg_error)
+    raise_for_invalid_uf(uf=state)
 
     r = fordev_request(
         content_length=35,

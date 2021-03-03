@@ -82,7 +82,7 @@ from .consts import ALL_UF_CODE
 from .consts import ALL_VEHICLE_BRANDS
 from .consts import ALL_BANK_FLAGS
 
-from .validator import raise_for_invalid_uf
+from .validators import raise_for_invalid_uf
 
 from .filters import data_format
 from .filters import filter_city_name

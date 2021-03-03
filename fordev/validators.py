@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-fordev.validator
-----------------
+fordev.validators
+-----------------
 
 This module validate the data using the 4devs website.
 
 Use help function for more information:
 
->>> from fordev import validator
->>> help(validator)
-Help on module fordev.validator in fordev:
+>>> from fordev import validators
+>>> help(validators)
+Help on module fordev.validators in fordev:
 
 NAME
-    fordev.validator
+    fordev.validators
 
 DESCRIPTION
 (...)
@@ -21,7 +21,7 @@ Or consult the official documentation.
 
 Note
 ----
-Most of the functions of the ``fordev.validator`` module contain
+Most of the functions of the ``fordev.validators`` module contain
 common parameter, ``data_only`` is a case.
 
 More details in next section.
@@ -32,7 +32,7 @@ data_only: bool
     If ``True``, return data only. If ``False``, return msg and data or error.
 
 OBS: These are common parameters in the functions
-of the ``fordev.validator`` module.
+of the ``fordev.validators`` module.
 """
 
 __all__ = [

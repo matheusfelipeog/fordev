@@ -106,19 +106,14 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
 
     type_ = type_.upper()
 
-    # Check if certificate type is invalid. If true, raise exception.
-    if type_ not in ['I', 'B', 'W', 'R', 'D']:
-        msg_error = f'The certificate type "{type_}" is invalid. Enter a valid sex.'
+    certificate_types = {'I': 'Indiferente', 'B': 'nascimento', 'W': 'casamento', 'R': 'casamento_religioso', 'D': 'obito'}
+
+    # If type_  not exists in certificate_types, raise exception.
+    if not certificate_types.get(type_, False):
+        msg_error = f'The certificate type "{type_}" is invalid. Enter a valid type.'
         msg_error += f' Ex: "B" = Birth, "W" = Wedding, "R" = Religious Wedding, "D" = Death and "I" = Indifferent (Default).'
 
         raise ValueError(msg_error)
-
-    # Create a true "acao" flag
-    type_ = 'Indiferente' if type_ == 'I' \
-        else 'nascimento' if type_ == 'B' \
-        else 'casamento' if type_ == 'W' \
-        else 'casamento_religioso' if type_ == 'R' \
-        else 'D' # Death
 
     r = fordev_request(
         content_length=67,  # Max of bytes for generate certificate in all possibilities.
@@ -126,7 +121,7 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
         payload={
             'acao': 'gerador_certidao',
             'pontuacao': 'S' if formatting else 'N',
-            'tipo_certidao': type_
+            'tipo_certidao': certificate_types.get(type_)
         }
     )
 

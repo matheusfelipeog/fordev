@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Fordev Module
--------------
+Fordev Package
+--------------
 
-The Fordev module is a generator, validator and manipulator of random data.
+The Fordev package is a generator, validator and manipulator of random data.
 
 Example
 -------

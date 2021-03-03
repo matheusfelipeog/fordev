@@ -432,17 +432,17 @@ def state_registration(uf_code: str, state_registration_code: str, data_only: bo
     uf_code = uf_code.upper()
 
     raise_for_invalid_uf(uf=uf_code)
-
-    content_length = 48
-    referer = 'validar_inscricao_estadual'
-    payload = {
-        'acao': 'validar_ie',
-        'txt_ie': state_registration_code,
-        'estado': uf_code
-    }
-
+    
     r = _data_verification_and_normalize(
-        fordev_request(content_length, referer, payload)
+        fordev_request(
+            content_length=48,
+            referer='validar_inscricao_estadual',
+            payload={
+                'acao': 'validar_ie',
+                'txt_ie': state_registration_code,
+                'estado': uf_code
+            }
+        )
     )
 
     if data_only and r['msg'] == 'success':

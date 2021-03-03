@@ -59,6 +59,7 @@ from .core import fordev_request
 from .const import ALL_UF_CODE
 from .const import ALL_BANK_FLAGS_2
 
+from ._filter import data_format
 
 
 def _data_verification_and_normalize(data: dict) -> dict:
@@ -149,10 +150,7 @@ def credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
         fordev_request(content_length, referer, payload)
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
@@ -199,10 +197,7 @@ def bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> 
         fordev_request(content_length, referer, payload)
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def certificate(certificate_code: str, data_only: bool=True) -> bool:
@@ -225,10 +220,7 @@ def certificate(certificate_code: str, data_only: bool=True) -> bool:
         fordev_request(content_length, referer, payload)
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def cnh(cnh_code: str, data_only: bool=True) -> bool:
@@ -251,10 +243,7 @@ def cnh(cnh_code: str, data_only: bool=True) -> bool:
         fordev_request(content_length, referer, payload)
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
@@ -277,10 +266,7 @@ def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
         fordev_request(content_length, referer, payload)
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def cpf(cpf_code: str, data_only: bool=True) -> bool:
@@ -303,10 +289,7 @@ def cpf(cpf_code: str, data_only: bool=True) -> bool:
         fordev_request(content_length, referer, payload)
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
@@ -329,10 +312,7 @@ def pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
         fordev_request(content_length, referer, payload)
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def renavam(renavam_code: str, data_only: bool=True) -> bool:
@@ -355,10 +335,7 @@ def renavam(renavam_code: str, data_only: bool=True) -> bool:
         fordev_request(content_length, referer, payload)
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def rg(rg_code: str, data_only: bool=True) -> bool:
@@ -381,10 +358,7 @@ def rg(rg_code: str, data_only: bool=True) -> bool:
         fordev_request(content_length, referer, payload)
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def voter_title(voter_title_code: str, data_only: bool=True) -> bool:
@@ -409,10 +383,7 @@ def voter_title(voter_title_code: str, data_only: bool=True) -> bool:
         is_valid = r['data'].split(' - ')[-2].lower() == 'verdadeiro'
         r['data'] = is_valid
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def state_registration(uf_code: str, state_registration_code: str, data_only: bool=True) -> bool:
@@ -432,7 +403,7 @@ def state_registration(uf_code: str, state_registration_code: str, data_only: bo
     uf_code = uf_code.upper()
 
     raise_for_invalid_uf(uf=uf_code)
-    
+
     r = _data_verification_and_normalize(
         fordev_request(
             content_length=48,
@@ -445,7 +416,4 @@ def state_registration(uf_code: str, state_registration_code: str, data_only: bo
         )
     )
 
-    if data_only and r['msg'] == 'success':
-        return r['data']
-
-    return r
+    return data_format(data_only=data_only, data_dict=r)

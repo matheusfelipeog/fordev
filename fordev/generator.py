@@ -108,7 +108,7 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
 
     certificate_types = {'I': 'Indiferente', 'B': 'nascimento', 'W': 'casamento', 'R': 'casamento_religioso', 'D': 'obito'}
 
-    # If type_  not exists in certificate_types, raise exception.
+    # If type_ not exists in certificate_types, raise exception.
     if not certificate_types.get(type_, False):
         msg_error = f'The certificate type "{type_}" is invalid. Enter a valid type.'
         msg_error += f' Ex: "B" = Birth, "W" = Wedding, "R" = Religious Wedding, "D" = Death and "I" = Indifferent (Default).'
@@ -162,7 +162,6 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
                 5 = Santander
     """
 
-    # Check if bank code is invalid. If true, raise exception.
     if not (0 <= bank <= 5):
         msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
         msg_error += f' The range is 0 to 5.'
@@ -175,7 +174,6 @@ def bank_account(bank: int=0, state: str='', data_only: bool=True) -> dict:
     # Normalize
     state = state.upper()
 
-    # Check if state is invalid. If true, raise exception.
     if state != '' and state not in ALL_UF_CODE:
         msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
         msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
@@ -206,7 +204,6 @@ def cpf(state: str='', formatting: bool=True, data_only: bool=True) -> str:
 
     state = state.upper()
 
-    # Check if state is invalid. If true, raise exception.
     if state != '' and state not in ALL_UF_CODE:
         msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
         msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
@@ -360,7 +357,6 @@ def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: 
                 87 = Walk
     """
 
-    # Check if brand code is invalid. If true, raise exception.
     if not (0 <= brand_code <= 87):
         msg_error = f'The vehicle brand code value "{brand_code}" is invalid. Enter a valid vehicle brand code.'
         msg_error += f' The range is 0 to 87.'
@@ -376,7 +372,6 @@ def vehicle(brand_code: int=0, state: str='', formatting: bool=True, data_only: 
     # Normalize
     state = state.upper()
 
-    # Check if state is invalid. If true, raise exception.
     if state != '' and state not in ALL_UF_CODE:
         msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
         msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
@@ -412,7 +407,6 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
         A number of vehicle brand for generate random code. The range is of 1 to 87.
     """
 
-    # Check if number of UF is invalid. If true, raise exception.
     if not (1 <= n <= 87):
         msg_error = f'The n value "{n}" is invalid. Enter a valid number of UF.'
         msg_error += f' The range is 1 to 27 UF code.'
@@ -438,7 +432,6 @@ def vehicle_plate(state: str='', formatting: bool=True, data_only: bool=True) ->
 
     state = state.upper()
 
-    # Check if state is invalid. If true, raise exception.
     if state != '' and state not in ALL_UF_CODE:
         msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
         msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
@@ -502,7 +495,6 @@ def state_registration(state: str='SP', formatting: bool=True, data_only: bool=T
 
     state = state.upper()
 
-    # Check if state is invalid. If true, raise exception.
     if state not in ALL_UF_CODE:
         msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
         msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
@@ -573,7 +565,6 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
                 10 = Aura
     """
 
-    # Check if bank code is invalid. If true, raise exception.
     if not (0 <= bank <= 10):
         msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
         msg_error += f' The range is 0 to 10.'
@@ -633,28 +624,24 @@ def people(
     sex = sex.upper()
     state = state.upper()
 
-    # Check if number of people is invalid. If true, raise exception.
     if not (1 <= n <= 30):
         msg_error = f'The n value "{n}" is invalid. Enter a valid number of people.'
         msg_error += f' The range is 1 to 30 peoples.'
 
         raise ValueError(msg_error)
 
-    # Check if sex is invalid. If true, raise exception.
     if sex not in ['M', 'F', 'R']:
         msg_error = f'The sex "{sex}" is invalid. Enter a valid sex.'
         msg_error += f' Ex: "M" = Male, "F" = Feminine or "R" = Random.'
 
         raise ValueError(msg_error)
 
-    # Check if age is invalid. If true, raise exception.
     if not (18 <= age <= 80) and age != 0:
         msg_error = f'The age "{age}" is invalid. Enter a valid age.'
         msg_error += f' The range is 18 to 80 age'
 
         raise ValueError(msg_error)
 
-    # Check if state is invalid. If true, raise exception.
     if state != '' and state not in ALL_UF_CODE:
         msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
         msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
@@ -704,14 +691,12 @@ def company(state: str='SP', age: int=1, formatting: bool=True, data_only: bool=
     # Normalize
     state = state.upper()
 
-    # Check if state is invalid. If true, raise exception.
     if state not in ALL_UF_CODE:
         msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
         msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
 
         raise ValueError(msg_error)
 
-    # Check if company age is invalid. If true, raise exception.
     if not (1 <= age <= 30):
         msg_error = f'The company age value "{age}" is invalid. Enter a valid company age.'
         msg_error += f' The range is 1 to 30.'
@@ -747,7 +732,6 @@ def uf(n: int=1, data_only: bool=True) -> list:
         A number of UF for generate random code. The range is of 1 to 27.
     """
 
-    # Check if number of UF is invalid. If true, raise exception.
     if not (1 <= n <= 27):
         msg_error = f'The n value "{n}" is invalid. Enter a valid number of UF.'
         msg_error += f' The range is 1 to 27 UF code.'
@@ -771,7 +755,6 @@ def city(state: str='SP', data_only: bool=True) -> list:
     # Normalize
     state = state.upper()
 
-    # Check if state is invalid. If true, raise exception.
     if state not in ALL_UF_CODE:
         msg_error = f'The UF code "{state}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
         msg_error += ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'

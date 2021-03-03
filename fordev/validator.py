@@ -59,7 +59,7 @@ from .core import fordev_request
 from .const import ALL_UF_CODE
 from .const import ALL_BANK_FLAGS_2
 
-from ._filter import data_format
+from .filters import data_format
 
 
 def _data_verification_and_normalize(data: dict) -> dict:

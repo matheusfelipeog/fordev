@@ -84,12 +84,12 @@ from .const import ALL_BANK_FLAGS
 
 from .validator import raise_for_invalid_uf
 
-from ._filter import data_format
-from ._filter import filter_city_name
-from ._filter import filter_vehicle_info
-from ._filter import filter_credit_card_info
-from ._filter import filter_bank_account_info
-from ._filter import filter_company_info
+from .filters import data_format
+from .filters import filter_city_name
+from .filters import filter_vehicle_info
+from .filters import filter_credit_card_info
+from .filters import filter_bank_account_info
+from .filters import filter_company_info
 
 
 def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> str:

@@ -9,7 +9,8 @@ This module contains all constants using in fordev module.
 from .__about__ import __version__
 from .__about__ import __author__
 from .__about__ import __email__
-from .__about__ import __github__
+from .__about__ import __author_github__
+from .__about__ import __project_github__
 
 
 URL_4DEV_API = 'https://www.4devs.com.br/ferramentas_online.php'

@@ -4,4 +4,5 @@
 __version__ = '0.2.2'
 __author__ = 'Matheus Felipe'
 __email__ = 'matheusfelipeog@protonmail.com'
-__github__ = 'https://github.com/matheusfelipeog'
+__author_github__ = 'https://github.com/matheusfelipeog'
+__project_github__ = 'https://github.com/matheusfelipeog/fordev'

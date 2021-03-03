@@ -48,4 +48,5 @@ __all__ = [
 from .__about__ import __version__
 from .__about__ import __author__
 from .__about__ import __email__
-from .__about__ import __github__
+from .__about__ import __author_github__
+from .__about__ import __project_github__

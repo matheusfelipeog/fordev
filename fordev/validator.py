@@ -18,6 +18,21 @@ DESCRIPTION
 (...)
 
 Or consult the official documentation.
+
+Note
+----
+Most of the functions of the ``fordev.validator`` module contain
+common parameter, ``data_only`` is a case.
+
+More details in next section.
+
+Parameter
+---------
+data_only: bool
+    If ``True``, return data only. If ``False``, return msg and data or error.
+
+OBS: These are common parameters in the functions
+of the ``fordev.validator`` module.
 """
 
 __all__ = [
@@ -49,8 +64,8 @@ def _data_verification_and_normalize(data: dict) -> dict:
     """"Check if data key exists and if value is valid.
     If true, replace data for new format.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     data
         Data dictionary for verification and format change.
     """
@@ -87,10 +102,7 @@ def credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
 
     credit_card_code
         Credit Card Code for check.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+   """
 
     # Check if bank code is invalid. If true, raise exception.
     if not (1 <= flag <= 12):
@@ -138,10 +150,7 @@ def bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> 
 
     account
         Code of bank account.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+   """
 
     # Check if bank code is invalid. If true, raise exception.
     if not (1 <= bank <= 5):
@@ -175,13 +184,10 @@ def bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> 
 def certificate(certificate_code: str, data_only: bool=True) -> bool:
     """Check if Certificate(birth, wedding, religious wedding and death) code is valid.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     certificate_code
         Certificate code for check.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 75
@@ -204,13 +210,10 @@ def certificate(certificate_code: str, data_only: bool=True) -> bool:
 def cnh(cnh_code: str, data_only: bool=True) -> bool:
     """Check if CNH code is valid.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     cnh_code
         CNH code for check.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 36
@@ -233,13 +236,10 @@ def cnh(cnh_code: str, data_only: bool=True) -> bool:
 def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
     """Check if CNPJ code is valid.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     cnpj_code
         CNPJ code for check.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 47
@@ -262,13 +262,10 @@ def cnpj(cnpj_code: str, data_only: bool=True) -> bool:
 def cpf(cpf_code: str, data_only: bool=True) -> bool:
     """Check if CPF code is valid.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     cpf_code
         CPF code for check.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 39
@@ -291,12 +288,10 @@ def cpf(cpf_code: str, data_only: bool=True) -> bool:
 def pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
     """Check if PIS/PASEP code is valid.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     pis_pasep_code
         PIS/PASEP code for check.
-    
-    data_only: bool` - If True, return data only. If False, return msg and data/error.
     """
 
     content_length = 39
@@ -319,14 +314,11 @@ def pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
 def renavam(renavam_code: str, data_only: bool=True) -> bool:
     """Check if RENAVAM code is valid.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     renavam_code
         RENAVAM code for check.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
-    """
+   """
 
     content_length = 43
     referer = 'validador_de_renavam'
@@ -348,13 +340,10 @@ def renavam(renavam_code: str, data_only: bool=True) -> bool:
 def rg(rg_code: str, data_only: bool=True) -> bool:
     """Check if RG code is valid.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     rg_code
         RG code for check.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 35
@@ -377,13 +366,10 @@ def rg(rg_code: str, data_only: bool=True) -> bool:
 def voter_title(voter_title_code: str, data_only: bool=True) -> bool:
     """Check if Voter Title code is valid.
     
-    Parameters
-    ----------
+    Parameter
+    ---------
     voter_title_code
         Voter Title code for check.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     content_length = 59
@@ -417,9 +403,6 @@ def state_registration(state: str, state_registration_code: str, data_only: bool
 
     state_registration_code
         State Registration code for check.
-    
-    data_only
-        If True, return data only. If False, return msg and data or error.
     """
 
     state = state.upper()

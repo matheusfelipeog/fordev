@@ -22,7 +22,7 @@ Or consult the official documentation.
 
 Note
 ----
-Most of the functions of the fordev.generator module contain 
+Most of the functions of the ``fordev.generator`` module contain 
 parameters in common, they are ``formatting`` and ``data_only``.
 
 More details in next section.

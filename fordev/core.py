@@ -17,8 +17,8 @@ from random import choice
 
 import requests
 
-from .const import URL_4DEV_API
-from .const import USER_AGENTS
+from .consts import URL_4DEV_API
+from .consts import USER_AGENTS
 
 
 def _random_user_agent() -> str:

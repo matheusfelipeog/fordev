@@ -56,8 +56,8 @@ from .__about__ import __github__
 
 from .core import fordev_request
 
-from .const import ALL_UF_CODE
-from .const import ALL_BANK_FLAGS_2
+from .consts import ALL_UF_CODE
+from .consts import ALL_BANK_FLAGS_2
 
 from .filters import data_format
 

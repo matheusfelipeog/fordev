@@ -78,9 +78,9 @@ from random import choice as random_choice
 
 from .core import fordev_request
 
-from .const import ALL_UF_CODE
-from .const import ALL_VEHICLE_BRANDS
-from .const import ALL_BANK_FLAGS
+from .consts import ALL_UF_CODE
+from .consts import ALL_VEHICLE_BRANDS
+from .consts import ALL_BANK_FLAGS
 
 from .validator import raise_for_invalid_uf
 

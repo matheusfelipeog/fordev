@@ -29,9 +29,9 @@ USER_AGENTS = [
 ]
 
 ALL_UF_CODE = [
-    "AC", "AL", "AP", "AM", "BA", "CE", "ES", "GO", "MA",
-    "MT", "MS", "MG","PA", "PB", "PR", "PE", "PI", "RJ",
-    "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO", "DF"
+    'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA',
+    'MT', 'MS', 'MG','PA', 'PB', 'PR', 'PE', 'PI', 'RJ',
+    'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO', 'DF'
 ]
 
 ALL_VEHICLE_BRANDS = {

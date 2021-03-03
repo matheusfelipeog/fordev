@@ -415,30 +415,30 @@ def voter_title(voter_title_code: str, data_only: bool=True) -> bool:
     return r
 
 
-def state_registration(state: str, state_registration_code: str, data_only: bool=True) -> bool:
+def state_registration(uf_code: str, state_registration_code: str, data_only: bool=True) -> bool:
     """Check if State Registration code is valid.
     
     Parameters
     ----------
-    state
-        State UF(Unidade Federativa) code.
+    uf_code
+        UF(Unidade Federativa) code for generating data.
         
-        More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil 
+        More info about UF: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
     state_registration_code
         State Registration code for check.
     """
 
-    state = state.upper()
+    uf_code = uf_code.upper()
 
-    raise_for_invalid_uf(uf=state)
+    raise_for_invalid_uf(uf=uf_code)
 
     content_length = 48
     referer = 'validar_inscricao_estadual'
     payload = {
         'acao': 'validar_ie',
         'txt_ie': state_registration_code,
-        'estado': state
+        'estado': uf_code
     }
 
     r = _data_verification_and_normalize(

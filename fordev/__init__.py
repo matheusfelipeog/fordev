@@ -55,3 +55,12 @@ from fordev import generators
 from fordev import validators
 from fordev import filters
 from fordev import consts
+
+from fordev.utils import CheckVersion
+
+
+# Check if a newer version of fordev package
+CheckVersion.run(
+    current_version=__version__,
+    package_name='fordev'
+)

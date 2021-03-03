@@ -66,31 +66,31 @@ __all__ = [
     'city'
 ]
 
-from .__about__ import __version__
-from .__about__ import __author__
-from .__about__ import __email__
-from .__about__ import __author_github__
-from .__about__ import __project_github__
+from fordev.__about__ import __version__
+from fordev.__about__ import __author__
+from fordev.__about__ import __email__
+from fordev.__about__ import __author_github__
+from fordev.__about__ import __project_github__
 
 from json import loads as json_loads
 
 from random import sample as random_sample
 from random import choice as random_choice
 
-from .core import fordev_request
+from fordev.core import fordev_request
 
-from .consts import ALL_UF_CODE
-from .consts import ALL_VEHICLE_BRANDS
-from .consts import ALL_BANK_FLAGS
+from fordev.consts import ALL_UF_CODE
+from fordev.consts import ALL_VEHICLE_BRANDS
+from fordev.consts import ALL_BANK_FLAGS
 
-from .validators import raise_for_invalid_uf
+from fordev.validators import raise_for_invalid_uf
 
-from .filters import data_format
-from .filters import filter_city_name
-from .filters import filter_vehicle_info
-from .filters import filter_credit_card_info
-from .filters import filter_bank_account_info
-from .filters import filter_company_info
+from fordev.filters import data_format
+from fordev.filters import filter_city_name
+from fordev.filters import filter_vehicle_info
+from fordev.filters import filter_credit_card_info
+from fordev.filters import filter_bank_account_info
+from fordev.filters import filter_company_info
 
 
 def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> str:

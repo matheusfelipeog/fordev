@@ -8,18 +8,18 @@ This module is a core for create requests in 4dev API.
 
 __all__ = ['fordev_request']
 
-from .__about__ import __version__
-from .__about__ import __author__
-from .__about__ import __email__
-from .__about__ import __author_github__
-from .__about__ import __project_github__
+from fordev.__about__ import __version__
+from fordev.__about__ import __author__
+from fordev.__about__ import __email__
+from fordev.__about__ import __author_github__
+from fordev.__about__ import __project_github__
 
 from random import choice
 
 import requests
 
-from .consts import URL_4DEV_API
-from .consts import USER_AGENTS
+from fordev.consts import URL_4DEV_API
+from fordev.consts import USER_AGENTS
 
 
 def _random_user_agent() -> str:

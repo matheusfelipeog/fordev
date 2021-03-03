@@ -49,18 +49,18 @@ __all__ = [
     'is_valid_state_registration',
 ]
 
-from .__about__ import __version__
-from .__about__ import __author__
-from .__about__ import __email__
-from .__about__ import __author_github__
-from .__about__ import __project_github__
+from fordev.__about__ import __version__
+from fordev.__about__ import __author__
+from fordev.__about__ import __email__
+from fordev.__about__ import __author_github__
+from fordev.__about__ import __project_github__
 
-from .core import fordev_request
+from fordev.core import fordev_request
 
-from .consts import ALL_UF_CODE
-from .consts import ALL_BANK_FLAGS_2
+from fordev.consts import ALL_UF_CODE
+from fordev.consts import ALL_BANK_FLAGS_2
 
-from .filters import data_format
+from fordev.filters import data_format
 
 
 def _data_verification_and_normalize(data: dict) -> dict:

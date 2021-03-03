@@ -45,8 +45,13 @@ __all__ = [
     'consts'
 ]
 
-from .__about__ import __version__
-from .__about__ import __author__
-from .__about__ import __email__
-from .__about__ import __author_github__
-from .__about__ import __project_github__
+from fordev.__about__ import __version__
+from fordev.__about__ import __author__
+from fordev.__about__ import __email__
+from fordev.__about__ import __author_github__
+from fordev.__about__ import __project_github__
+
+from fordev import generators
+from fordev import validators
+from fordev import filters
+from fordev import consts

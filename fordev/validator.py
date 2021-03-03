@@ -60,6 +60,7 @@ from .const import ALL_UF_CODE
 from .const import ALL_BANK_FLAGS_2
 
 
+
 def _data_verification_and_normalize(data: dict) -> dict:
     """"Check if data key exists and if value is valid.
     If true, replace data for new format.
@@ -77,6 +78,29 @@ def _data_verification_and_normalize(data: dict) -> dict:
         data['data'] = is_valid
     
     return data
+
+
+def raise_for_invalid_uf(uf, include_blank=False):
+    """Raising exception if invalid uf.
+    
+    Parameter
+    ---------
+    include_blank
+        Some functions send a blank uf, to consider it define True in ``include_blank``
+    """
+
+    ufs = ALL_UF_CODE.copy()
+
+    if include_blank:
+        ufs.append('')
+
+    if uf not in ufs:
+        msg_error = (
+            f'The UF code "{uf}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
+            ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
+        )
+
+        raise ValueError(msg_error)
 
 
 def credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:

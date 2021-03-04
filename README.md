@@ -28,8 +28,8 @@
 - [Demo](#demo)
 - [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md)
 - [Funcionalidades](#funcionalidades)
-   - [fordev.generator](#fordevgenerator)
-   - [fordev.validator](#fordevvalidator)
+   - [fordev.generators](#fordevgenerators)
+   - [fordev.validators](#fordevvalidators)
 - [Contribuições](#contribuições)
 - [Aviso Legal](#aviso-legal)
 - [Licença](#licença)
@@ -60,11 +60,9 @@ $ pip install fordev
 Socilitando dados randômicos de uma pessoa do sexo *masculino*, de *25 anos de idade* e que *mora em SP*.
 
 ```python
->>> from fordev.generator import people
+>>> from fordev.generators import people
 >>> p = people(sex='M', age=25, state='SP')
 >>> print(p)
-
-# Output ---------------------------------------------------------------------------------
 {
     'altura': '1,90',
     'bairro': 'Jardim Maria Amélia',
@@ -101,7 +99,7 @@ Abaixo estão todas as funções correspondentes às funcionalidades disponívei
 
 Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md) para ver uma explicação detalhada e exemplos do uso de todas as funções.
 
-### `fordev.generator`
+### `fordev.generators`
 
 - `certificate(...)` - Gerador de certidões de nascimento, casamento e óbito;
 - `cnh(...)` -  Gerador de CNH (Carteira Nacional de Habilitação);
@@ -122,7 +120,7 @@ Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeo
 - `uf(...)` - Gerador de código de UF (Unidade Federativa);
 - `city(...)` - Gerador de cidades do brasil por estado selecionado.
 
-### `fordev.validator`
+### `fordev.validators`
 
 Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
 

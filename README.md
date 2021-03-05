@@ -61,8 +61,7 @@ Socilitando dados randômicos de uma pessoa do sexo *masculino*, de *25 anos de 
 
 ```python
 >>> from fordev.generators import people
->>> p = people(sex='M', age=25, state='SP')
->>> print(p)
+>>> people(sex='M', age=25, state='SP')
 {
     'altura': '1,90',
     'bairro': 'Jardim Maria Amélia',

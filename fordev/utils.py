@@ -3,7 +3,7 @@
 fordev.utils
 ------------
 
-This module contains useful classes and functions for the Fordev module.
+This module contains useful classes and functions for the fordev package.
 """
 
 __all__ = ['CheckVersion']

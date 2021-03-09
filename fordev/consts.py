@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-fordev.const
-------------
+fordev.consts
+-------------
 
 This module contains all constants using in fordev module.
 """

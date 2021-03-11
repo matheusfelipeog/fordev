@@ -7,10 +7,12 @@ from fordev.filters import data_format
 from fordev.filters import filter_bank_account_info
 from fordev.filters import filter_vehicle_info
 from fordev.filters import filter_credit_card_info
+from fordev.filters import filter_company_info
 
 from tests.fixtures import HTML_OF_BANK_ACCOUNT_INFOS
 from tests.fixtures import HTML_OF_VEHICLE_INFOS
 from tests.fixtures import HTML_OF_CREDIT_CARD_INFOS
+from tests.fixtures import HTML_OF_COMPANY_INFOS
 
 
 class TestFilters(unittest.TestCase):
@@ -72,6 +74,29 @@ class TestFilters(unittest.TestCase):
         self.assertEqual(len(result.keys()), 3)
         self.assertCountEqual(['Número do Cartão', 'Data de Validade', 'Código Segurança (CVV)'], result.keys())
         self.assertCountEqual(['5016 0926 0945 3715', '11/02/2023', '812'], result.values())
+    
+    def test_company_info_filter(self):
+        result = filter_company_info(html=HTML_OF_COMPANY_INFOS)
+
+        self.assertEqual(len(result.keys()), 14)
+        self.assertCountEqual(
+            [
+                'Nome', 'CNPJ', 'Inscrição Estadual',
+                'Data de Abertura', 'Site', 'E-Mail', 
+                'CEP', 'Endereço', 'Número', 'Bairro', 
+                'Cidade', 'Estado', 'Telefone', 'Celular'
+            ],
+            result.keys()
+        )
+        self.assertCountEqual(
+            [
+                'Isabela e Cristiane Casa Noturna Ltda', '45.641.633/0001-17', 
+                '040.102.816.356', '11/11/2020', 'www.isabelaecristianecasanoturnaltda.com.br', 
+                'estoque@isabelaecristianecasanoturnaltda.com.br', '08559-240', 'Rua Carmem Miranda', 
+                '872', 'Vila Jau', 'Poá', 'SP', '(11) 3597-5594', '(11) 98491-8081'
+            ], 
+            result.values()
+        )
 
 
 if __name__ == '__main__':

@@ -84,3 +84,94 @@ HTML_OF_CREDIT_CARD_INFOS = """
 
 <div class="copy-info">Clique para copiar</div>
 """
+
+
+HTML_OF_COMPANY_INFOS = """
+ <div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Nome:</strong></div>
+    <div class="small-10 medium-7 columns"><input type="text" title="Nome" id="nome" value="Isabela e Cristiane Casa Noturna Ltda" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 columns"><img id="bt_copy_nome" src="imagens/copy_clipboard.png" data-clipboard-target="nome" class="botao_copiar" title="Copiar" alt="Copiar" /></div>
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>CNPJ:</strong></div>
+    <div class="small-10 medium-3 columns"><input type="text" title="CNPJ" id="cnpj" value="45.641.633/0001-17" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-6 columns"><img id="bt_copy_cnpj" src="imagens/copy_clipboard.png" data-clipboard-target="cnpj" class="botao_copiar" title="Copiar" alt="Copiar" /></div>
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Inscrição Estadual:</strong></div>
+    <div class="small-10 medium-3 columns"><input type="text" title="Inscrição Estadual" id="ie" value="040.102.816.356" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-6 columns"><img id="bt_copy_ie" src="imagens/copy_clipboard.png" data-clipboard-target="ie" class="botao_copiar" title="Copiar" alt="Copiar" /></div>
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Data de Abertura:</strong></div>
+    <div class="small-10 medium-2 columns"><input type="text" title="Data de Abertura" id="data_abertura" value="11/11/2020" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-7 columns"><img id="bt_copy_data_abertura" src="imagens/copy_clipboard.png" data-clipboard-target="data_abertura" class="botao_copiar" title="Copiar" alt="Copiar" /></div>
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Site:</strong>
+    </div>
+    <div class="small-10 medium-7 columns"><input type="text" title="Site" id="site" value="www.isabelaecristianecasanoturnaltda.com.br" onFocus="this.select()" class="margem_menor" /></div>   
+    <div class="small-2 columns"><img id="bt_copy_site" src="imagens/copy_clipboard.png" data-clipboard-target="site" class="botao_copiar" title="Copiar" /></div>
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>E-Mail:</strong>
+    </div>
+    <div class="small-10 medium-7 columns"><input type="text" title="E-Mail" id="email" value="estoque@isabelaecristianecasanoturnaltda.com.br" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 columns"><img id="bt_copy_email" src="imagens/copy_clipboard.png" data-clipboard-target="email" class="botao_copiar" title="Copiar" /></div>
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>CEP:</strong></div>
+    <div class="small-10 medium-2 columns"><input type="text" title="CEP" id="cep" value="08559-240" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-7 columns"><img id="bt_copy_cep" src="imagens/copy_clipboard.png" data-clipboard-target="cep" class="botao_copiar" title="Copiar" alt="Copiar" /></div>
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Endereço:</strong></div>
+    <div class="small-10 medium-7 columns"><input type="text" title="Endereço" id="endereco" value="Rua Carmem Miranda" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-2 columns"><img id="bt_copy_endereco" src="imagens/copy_clipboard.png" data-clipboard-target="endereco" class="botao_copiar" title="Copiar" alt="Copiar" /></div> 
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Número:</strong></div>
+    <div class="small-10 medium-2 columns"><input type="text" title="Número" id="numero" value="872" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-7 columns"><img id="bt_copy_numero" src="imagens/copy_clipboard.png" data-clipboard-target="numero" class="botao_copiar" title="Copiar" alt="Copiar" /></div>     
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Bairro:</strong></div>
+    <div class="small-10 medium-7 columns"><input type="text" title="Bairro" id="bairro" value="Vila Jau" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-2 columns"><img id="bt_copy_bairro" src="imagens/copy_clipboard.png" data-clipboard-target="bairro" class="botao_copiar" title="Copiar" alt="Copiar" /></div>     
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Cidade:</strong></div>
+    <div class="small-10 medium-7 columns"><input type="text" title="Cidade" id="cidade" value="Poá" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-2 columns"><img id="bt_copy_cidade" src="imagens/copy_clipboard.png" data-clipboard-target="cidade" class="botao_copiar" title="Copiar" alt="Copiar" /></div>     
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Estado:</strong></div>
+    <div class="small-10 medium-1 columns"><input type="text" title="Estado" id="estado" value="SP" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-8 columns"><img id="bt_copy_estado" src="imagens/copy_clipboard.png" data-clipboard-target="estado" class="botao_copiar" title="Copiar" alt="Copiar" /></div>     
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Telefone:</strong>
+    </div>
+    <div class="small-10 medium-3 columns"><input type="text" title="Telefone Fixo" id="telefone_fixo" value="(11) 3597-5594" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-6 columns"><img id="bt_copy_telefone" src="imagens/copy_clipboard.png" data-clipboard-target="telefone_fixo" class="botao_copiar" title="Copiar" /></div>
+</div>
+
+<div class="row small-collapse">
+    <div class="medium-3 columns medium-text-right"><strong>Celular:</strong>
+    </div>
+    <div class="small-10 medium-3 columns"><input type="text" title="Celular" id="celular" value="(11) 98491-8081" onFocus="this.select()" class="margem_menor" /></div>
+    <div class="small-2 medium-6 columns"><img id="bt_copy_celular" src="imagens/copy_clipboard.png" data-clipboard-target="celular" class="botao_copiar" title="Copiar" /></div>
+</div>
+"""

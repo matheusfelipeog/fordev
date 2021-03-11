@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-HTML_OF_BANK_ACCOUNT = """
+HTML_OF_BANK_ACCOUNT_INFOS = """
 <div class="output-group">
     <div class="output-subtitle">Conta Corrente</div>
     <div id="conta_corrente" onclick="fourdevs.selectText(this)" class="output-txt output-txt-active">1370571-2<span class="clipboard-copy"></span></div>

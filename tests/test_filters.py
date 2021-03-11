@@ -8,7 +8,7 @@ from fordev.filters import filter_bank_account_info
 from fordev.filters import filter_vehicle_info
 from fordev.filters import filter_credit_card_info
 
-from tests.fixtures import HTML_OF_BANK_ACCOUNT
+from tests.fixtures import HTML_OF_BANK_ACCOUNT_INFOS
 from tests.fixtures import HTML_OF_VEHICLE_INFOS
 from tests.fixtures import HTML_OF_CREDIT_CARD_INFOS
 
@@ -53,7 +53,7 @@ class TestFilters(unittest.TestCase):
         self.assertEqual(failed_case['data'], 'exception')
 
     def test_bank_account_filter(self):
-        result = filter_bank_account_info(html=HTML_OF_BANK_ACCOUNT)
+        result = filter_bank_account_info(html=HTML_OF_BANK_ACCOUNT_INFOS)
 
         self.assertEqual(len(result.keys()), 5)
         self.assertCountEqual(['Conta Corrente', 'Agência', 'Banco', 'Cidade', 'Estado'], result.keys())

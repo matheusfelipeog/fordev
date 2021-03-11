@@ -39,10 +39,8 @@ class TestFilters(unittest.TestCase):
         self.assertEqual(len(failed_case), 2)
 
         # Test the return keys
-        self.assertIn('msg', success_case.keys())
-        self.assertIn('data', success_case.keys())
-        self.assertIn('msg', failed_case.keys())
-        self.assertIn('data', failed_case.keys())
+        self.assertCountEqual(['msg', 'data'], success_case.keys())
+        self.assertCountEqual(['msg', 'data'], failed_case.keys())
 
         # Test the return values
         self.assertEqual(success_case['msg'], 'success')

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Fixtures for use of tests."""
 
 HTML_OF_BANK_ACCOUNT_INFOS = """
 <div class="output-group">

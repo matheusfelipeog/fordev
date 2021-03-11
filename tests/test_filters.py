@@ -5,8 +5,10 @@ import unittest
 
 from fordev.filters import data_format
 from fordev.filters import filter_bank_account_info
+from fordev.filters import filter_vehicle_info
 
 from tests.fixtures import HTML_OF_BANK_ACCOUNT
+from tests.fixtures import HTML_OF_VEHICLE_INFOS
 
 
 class TestFilters(unittest.TestCase):
@@ -55,6 +57,12 @@ class TestFilters(unittest.TestCase):
         self.assertCountEqual(['Conta Corrente', 'Agência', 'Banco', 'Cidade', 'Estado'], result.keys())
         self.assertCountEqual(['1370571-2', '1255', 'Bradesco', 'Caieiras', 'SP'], result.values())
 
+    def test_vehicle_info_filter(self):
+        result = filter_vehicle_info(html=HTML_OF_VEHICLE_INFOS)
+
+        self.assertEqual(len(result.keys()), 6)
+        self.assertCountEqual(['Marca', 'Modelo', 'Ano', 'RENAVAM', 'Placa', 'Cor'], result.keys())
+        self.assertCountEqual(['Rolls-Royce', 'Wraith 6.6 V12 Aut.', '2014', '41047812580', 'HVE-9411', 'Verde'], result.values())
 
 if __name__ == '__main__':
     unittest.main()

@@ -6,9 +6,11 @@ import unittest
 from fordev.filters import data_format
 from fordev.filters import filter_bank_account_info
 from fordev.filters import filter_vehicle_info
+from fordev.filters import filter_credit_card_info
 
 from tests.fixtures import HTML_OF_BANK_ACCOUNT
 from tests.fixtures import HTML_OF_VEHICLE_INFOS
+from tests.fixtures import HTML_OF_CREDIT_CARD_INFOS
 
 
 class TestFilters(unittest.TestCase):
@@ -63,6 +65,14 @@ class TestFilters(unittest.TestCase):
         self.assertEqual(len(result.keys()), 6)
         self.assertCountEqual(['Marca', 'Modelo', 'Ano', 'RENAVAM', 'Placa', 'Cor'], result.keys())
         self.assertCountEqual(['Rolls-Royce', 'Wraith 6.6 V12 Aut.', '2014', '41047812580', 'HVE-9411', 'Verde'], result.values())
+    
+    def test_credit_card_info_filter(self):
+        result = filter_credit_card_info(html=HTML_OF_CREDIT_CARD_INFOS)
+
+        self.assertEqual(len(result.keys()), 3)
+        self.assertCountEqual(['Número do Cartão', 'Data de Validade', 'Código Segurança (CVV)'], result.keys())
+        self.assertCountEqual(['5016 0926 0945 3715', '11/02/2023', '812'], result.values())
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -64,3 +64,23 @@ HTML_OF_VEHICLE_INFOS = """
     <div class="small-7 columns"><img id="bt_copy_cor" src="imagens/copy_clipboard.png" data-clipboard-target="cor" class="botao_copiar" title="Copiar" alt="Copiar" /></div>
 </div>
 """
+
+
+HTML_OF_CREDIT_CARD_INFOS = """
+<div class="output-group">
+    <div class="output-subtitle">Número do Cartão</div>
+    <div id="cartao_numero" onclick="fourdevs.selectText(this)" class="output-txt output-txt-active">5016 0926 0945 3715 <span class="clipboard-copy"></span></div>
+</div>
+
+<div class="output-group block">
+    <div class="output-subtitle">Data de Validade</div>
+    <div id="data_validade" onclick="fourdevs.selectText(this)" class="output-txt output-txt-active">11/02/2023<span class="clipboard-copy"></span></div>
+</div>
+
+<div class="output-group">
+    <div class="output-subtitle">Código Segurança (CVV)</div>
+    <div id="codigo_seguranca" onclick="fourdevs.selectText(this)" class="output-txt output-txt-active">812<span class="clipboard-copy"></span></div>
+</div>
+
+<div class="copy-info">Clique para copiar</div>
+"""

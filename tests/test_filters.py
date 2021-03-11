@@ -8,11 +8,13 @@ from fordev.filters import filter_bank_account_info
 from fordev.filters import filter_vehicle_info
 from fordev.filters import filter_credit_card_info
 from fordev.filters import filter_company_info
+from fordev.filters import filter_city_name
 
 from tests.fixtures import HTML_OF_BANK_ACCOUNT_INFOS
 from tests.fixtures import HTML_OF_VEHICLE_INFOS
 from tests.fixtures import HTML_OF_CREDIT_CARD_INFOS
 from tests.fixtures import HTML_OF_COMPANY_INFOS
+from tests.fixtures import HTML_OF_CITY_NAME
 
 
 class TestFilters(unittest.TestCase):
@@ -96,6 +98,19 @@ class TestFilters(unittest.TestCase):
                 '872', 'Vila Jau', 'Poá', 'SP', '(11) 3597-5594', '(11) 98491-8081'
             ], 
             result.values()
+        )
+
+    def test_city_name_filter(self):
+        result = filter_city_name(html=HTML_OF_CITY_NAME)
+
+        self.assertEqual(len(result), 15)
+        self.assertCountEqual(
+            [
+                'Alto Alegre', 'Amajari', 'Boa Vista', 'Bonfim', 'Cantá', 
+                'Caracaraí', 'Caroebe', 'Iracema', 'Mucajaí', 'Normandia', 
+                'Pacaraima', 'Rorainópolis', 'São João da Baliza', 'São Luiz', 'Uiramutã'
+            ],
+            result
         )
 
 

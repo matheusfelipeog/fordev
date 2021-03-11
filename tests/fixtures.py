@@ -175,3 +175,23 @@ HTML_OF_COMPANY_INFOS = """
     <div class="small-2 medium-6 columns"><img id="bt_copy_celular" src="imagens/copy_clipboard.png" data-clipboard-target="celular" class="botao_copiar" title="Copiar" /></div>
 </div>
 """
+
+
+HTML_OF_CITY_NAME = """
+<option value=""></option>
+<option value="7373">Alto Alegre</option>
+<option value="7374">Amajari</option>
+<option value="7375">Boa Vista</option>
+<option value="7376">Bonfim</option>
+<option value="7377">Cantá</option>
+<option value="7378">Caracaraí</option>
+<option value="7379">Caroebe</option>
+<option value="7380">Iracema</option>
+<option value="7381">Mucajaí</option>
+<option value="7382">Normandia</option>
+<option value="7383">Pacaraima</option>
+<option value="7384">Rorainópolis</option>
+<option value="7385">São João da Baliza</option>
+<option value="7386">São Luiz</option>
+<option value="7387">Uiramutã</option>
+"""

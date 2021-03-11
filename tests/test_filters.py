@@ -17,23 +17,23 @@ class TestFilters(unittest.TestCase):
         success_case = data_format(data_only=True, data_dict=self.data_success_case)
         failed_case = data_format(data_only=True, data_dict=self.data_failed_case)
 
-        self.assertEqual('data of test', success_case)
-        self.assertDictEqual(self.data_failed_case, failed_case)
+        self.assertEqual(success_case, 'data of test')
+        self.assertDictEqual(failed_case, self.data_failed_case)
     
     def test_data_format_with_data_only_argument_as_false(self):
         success_case = data_format(data_only=False, data_dict=self.data_success_case)
         failed_case = data_format(data_only=False, data_dict=self.data_failed_case)
 
-        self.assertDictEqual(self.data_success_case, success_case)
-        self.assertDictEqual(self.data_failed_case, failed_case)
+        self.assertDictEqual(success_case, self.data_success_case)
+        self.assertDictEqual(failed_case, self.data_failed_case)
 
     def test_if_data_format_return_correct_keys_and_values_in_success_and_failed_case(self):
         success_case = data_format(data_only=False, data_dict=self.data_success_case)
         failed_case = data_format(data_only=False, data_dict=self.data_failed_case)
 
         # Test the return length
-        self.assertEqual(2, len(success_case))
-        self.assertEqual(2, len(failed_case))
+        self.assertEqual(len(success_case), 2)
+        self.assertEqual(len(failed_case), 2)
 
         # Test the return keys
         self.assertIn('msg', success_case.keys())
@@ -42,10 +42,10 @@ class TestFilters(unittest.TestCase):
         self.assertIn('data', failed_case.keys())
 
         # Test the return values
-        self.assertEqual('success', success_case['msg'])
-        self.assertEqual('data of test', success_case['data'])
-        self.assertEqual('failed', failed_case['msg'])
-        self.assertEqual('exception', failed_case['data'])
+        self.assertEqual(success_case['msg'], 'success')
+        self.assertEqual(success_case['data'], 'data of test')
+        self.assertEqual(failed_case['msg'], 'failed')
+        self.assertEqual(failed_case['data'], 'exception')
 
 
 if __name__ == '__main__':

@@ -18,9 +18,8 @@ class TestGenerators(unittest.TestCase):
         brands = vehicle_brand(data_only=False)
         self.assertIsInstance(brands, dict)
         self.assertCountEqual(['msg', 'data'], brands.keys())
-        self.assertIsInstance(brands['msg'], str)
-        self.assertIsInstance(brands['data'], list)
         self.assertEqual(brands['msg'], 'success')
+        self.assertIsInstance(brands['data'], list)
 
     def test_if_vehicle_brand_generator_returns_max_and_min_number_of_data(self):
         min_brands = vehicle_brand(n=1)

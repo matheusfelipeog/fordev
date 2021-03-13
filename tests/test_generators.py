@@ -8,22 +8,25 @@ from fordev.generators import uf
 
 
 class TestGenerators(unittest.TestCase):
+    """Test Class of fordev.generators module."""
+
     def test_vehicle_brand_generator_with_data_only_argument_as_true(self):
-        result = vehicle_brand(data_only=True)
-        self.assertIsInstance(result, list)
+        brands = vehicle_brand(data_only=True)
+        self.assertIsInstance(brands, list)
     
     def test_vehicle_brand_generator_with_data_only_argument_as_false(self):
-        result = vehicle_brand(data_only=False)
-        self.assertIsInstance(result, dict)
-        self.assertCountEqual(['msg', 'data'], result.keys())
-        self.assertIsInstance(result['msg'], str)
-        self.assertIsInstance(result['data'], list)
+        brands = vehicle_brand(data_only=False)
+        self.assertIsInstance(brands, dict)
+        self.assertCountEqual(['msg', 'data'], brands.keys())
+        self.assertIsInstance(brands['msg'], str)
+        self.assertIsInstance(brands['data'], list)
+        self.assertEqual(brands['msg'], 'success')
 
     def test_if_vehicle_brand_generator_returns_max_and_min_number_of_data(self):
-        n_min = vehicle_brand(n=1)
-        n_max = vehicle_brand(n=87)
-        self.assertGreaterEqual(len(n_min), 1)
-        self.assertLessEqual(len(n_max), 87)
+        min_brands = vehicle_brand(n=1)
+        max_brands = vehicle_brand(n=87)
+        self.assertGreaterEqual(len(min_brands), 1)
+        self.assertLessEqual(len(max_brands), 87)
     
     def test_if_vehicle_brand_generator_not_exceed_min_and_max_limit_of_return(self):
         with self.assertRaises(ValueError):

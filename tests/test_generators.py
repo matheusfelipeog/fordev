@@ -31,6 +31,11 @@ class TestGenerators(unittest.TestCase):
             vehicle_brand(n=-1)  
             vehicle_brand(n=88)
 
+    def test_if_data_type_of_vehicle_brands_generator_return_is_string(self):
+        brands = vehicle_brand(n=87)
+        for brand in brands:
+            self.assertIsInstance(brand, str)
+
 
 if __name__ == '__main__':
     unittest.main()

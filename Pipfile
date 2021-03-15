@@ -10,6 +10,7 @@ beautifulsoup4 = "==4.9.3"
 [dev-packages]
 pylint = "2.7.2"
 sphinx = "3.5.2"
+sphinx-rtd-theme = "*"
 
 [requires]
 python_version = "3.8"

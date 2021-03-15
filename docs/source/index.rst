@@ -51,7 +51,8 @@ Index
    :caption: Docs
    :maxdepth: 1
 
-   fordev/fordev
+   fordev/generators
+   fordev/validators
 
 
 O objetivo

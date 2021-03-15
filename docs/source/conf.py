@@ -14,6 +14,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
 
+from fordev.__about__ import __version__
 
 # -- Project information -----------------------------------------------------
 
@@ -22,9 +23,9 @@ copyright = '2021, Matheus Felipe'
 author = 'Matheus Felipe'
 
 # The short X.Y version.
-version = 'v1.0'
+version = __version__
 # The full version, including alpha/beta/rc tags.
-release = 'v1.0.1'
+release = __version__
 
 # -- General configuration ---------------------------------------------------
 

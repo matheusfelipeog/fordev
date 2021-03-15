@@ -1,7 +1,7 @@
 fordev.generators
 =================
 
-Este módulo coleta dados aleatórios gerados pelo site `4Devs <https://www.4devs.com.br/>`_ e providência uma API simples para uso.
+Este módulo coleta dados aleatórios gerados pelo site `4Devs <https://www.4devs.com.br/>`_ e disponíbiliza uma API simples para uso.
 
 Use a função ``help()`` para mais informações:
 

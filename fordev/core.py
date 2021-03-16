@@ -3,7 +3,7 @@
 fordev.core
 -----------
 
-This module is a core for create requests in 4dev API.
+Este módulo é o core para criar e manipular requests para a API do site 4devs.
 """
 
 __all__ = ['fordev_request']
@@ -23,21 +23,23 @@ from fordev.consts import USER_AGENTS
 
 
 def _random_user_agent() -> str:
-    """A random user agent string."""
+    """Obtenha um user agent aleatório."""
 
     return choice(USER_AGENTS)
 
 
 def _create_headers(content_length: int, referer: str) -> dict:
-    """Create headers for use in requests module.
+    """Gere o header para ser enviado em requests HTTP para o site 4devs.
     
     Parameters
     ----------
     content_length
-        Indicates the size of the entity-body, in bytes, sent to the recipient.
+        Indica o tamanho do entity-body, em bytes, enviados no header para o destinatário.
 
     referer
-        Reference of the action to be performed.
+        Referência a ação a ser executada pela API do site 4devs.
+        Pode-se interpretar como o endpoint do serviço a ser disponibilizado.
+
     """
 
     headers = {
@@ -64,18 +66,20 @@ def _create_headers(content_length: int, referer: str) -> dict:
 
 
 def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
-    """Create request for 4dev API and get your content.
+    """Cria uma request HTTP a API do site 4devs e 
+    retorna seu conteúdo em formato de dicionário.
     
     Parameters
     ----------
     content_length
-        Indicates the size of the entity-body, in bytes, sent to the recipient.
+        Indica o tamanho do entity-body, em bytes, enviados no header para o destinatário.
 
     referer
-        Reference of the action to be performed.
+        Referência a ação a ser executada pela API do site 4devs.
+        Pode-se interpretar como o endpoint do serviço a ser disponibilizado.
 
     payload
-        A data dictionary containing the action and other data to request.
+        Um dicionário de dados contendo a ação e outros dados solicitados pela API.
     """
 
     try:

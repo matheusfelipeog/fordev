@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""This are info about project."""
+"""Metadados do projeto."""
 
 __version__ = '0.2.2'
 __author__ = 'Matheus Felipe'

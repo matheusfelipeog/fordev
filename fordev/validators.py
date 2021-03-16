@@ -3,9 +3,10 @@
 fordev.validators
 -----------------
 
-This module validate the data using the 4devs website.
+Este módulo válida os dados utilizando o site `4Devs <https://www.4devs.com.br/>`_
+e disponibiliza uma API simples para uso.
 
-Use help function for more information:
+Use a função ``help()`` para mais informações:
 
 >>> from fordev import validators
 >>> help(validators)
@@ -17,22 +18,23 @@ NAME
 DESCRIPTION
 (...)
 
-Or consult the official documentation.
+Ou consulte a documentação oficial.
 
 Note
 ----
-Most of the functions of the ``fordev.validators`` module contain
-common parameter, ``data_only`` is a case.
+Muitas funções do módulo ``fordev.validators`` contém parâmetros em comum,
+todos estão descritos abaixo.
 
 More details in next section.
 
 Parameter
 ---------
 data_only: bool
-    If ``True``, return data only. If ``False``, return msg and data or error.
+    Se receber o valor ``True``, retorna somente os dados em texto puro.
+    Se receber o valor ``False``, retorna um dicionário contendo uma chave ``msg`` e ``data`` ou ``error``
+    contendo valores correspondentes à nomenclatura de suas chaves.
 
-OBS: These are common parameters in the functions
-of the ``fordev.validators`` module.
+Sendo assim, sempre que o encontrar, utilize conforme o descrito acima.
 """
 
 __all__ = [
@@ -64,13 +66,13 @@ from fordev.filters import data_format
 
 
 def _data_verification_and_normalize(data: dict) -> dict:
-    """"Check if data key exists and if value is valid.
-    If true, replace data for new format.
+    """"Verifique se a key existe e se o valor é válido.
+    Se válido, substítui para um novo formato.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     data
-        Data dictionary for verification and format change.
+        Um dicionário de dados para verificação e mudança de formato.
     """
 
     data = data.copy()
@@ -83,12 +85,13 @@ def _data_verification_and_normalize(data: dict) -> dict:
 
 
 def raise_for_invalid_uf(uf, include_blank=False):
-    """Raising exception if invalid uf.
+    """Levanta uma exceção if o código UF for inválido.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     include_blank
-        Some functions send a blank uf, to consider it define True in ``include_blank``
+        Algumas funções enviam um UF em branco, para considerá-lo
+        defina ``include_blank`` como ``True``.
     """
 
     ufs = ALL_UF_CODE.copy()
@@ -106,28 +109,28 @@ def raise_for_invalid_uf(uf, include_blank=False):
 
 
 def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
-    """Check if credit card code is valid.
+    """Verifique se o código do cartão de crédito é válido.
     
     Parameters
     ----------
     flag
-        Flag of the credit card that wants to validation the credit card information.
-            Options:
-                1 = MasterCard
-                2 = Visa 16 Dígitos
-                3 = Visa Electron
-                4 = American Express
-                5 = Diners Club
-                6 = Discover
-                7 = enRoute
-                8 = JCB
-                9 = Maestro
-                10 = Solo
-                11 = Switch
-                12 = Laser
+        A bandeira do cartão de crédito que deseja validar o código.
+        Opções:
+            1 = MasterCard
+            2 = Visa 16 Dígitos
+            3 = Visa Electron
+            4 = American Express
+            5 = Diners Club
+            6 = Discover
+            7 = enRoute
+            8 = JCB
+            9 = Maestro
+            10 = Solo
+            11 = Switch
+            12 = Laser
 
     credit_card_code
-        Credit Card Code for check.
+        O código do cartão de crédito para verificação.
    """
 
     # Check if bank code is invalid. If true, raise exception.
@@ -155,24 +158,24 @@ def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True)
 
 
 def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
-    """Check if bank account data is valid.
+    """Verifique se os dados da conta bancária são válidos.
     
     Parameters
     ----------
     bank
-        Flag of the bank that wants to validation the account information.
-            Options:
-                1 = Banco do Brasil
-                2 = Bradesco
-                3 = Citibank
-                4 = Itaú
-                5 = Santander
+        A bandeira do banco da conta bancária que deseja validar os dados.
+        Opções:
+            1 = Banco do Brasil
+            2 = Bradesco
+            3 = Citibank
+            4 = Itaú
+            5 = Santander
     
     agency
-        Code of bank agency.
+        O código da agência bancária para verificação..
 
     account
-        Code of bank account.
+        O código da conta bancária para verificação..
    """
 
     # Check if bank code is invalid. If true, raise exception.
@@ -202,12 +205,12 @@ def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=
 
 
 def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
-    """Check if Certificate(birth, wedding, religious wedding and death) code is valid.
+    """Verifique se o código da Certidão (birth, wedding, religious wedding and death) é válido.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     certificate_code
-        Certificate code for check.
+        O código da certidão para verificação.
     """
 
     content_length = 75
@@ -225,12 +228,12 @@ def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
 
 
 def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
-    """Check if CNH code is valid.
+    """Verifique se o código da CNH é válido.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     cnh_code
-        CNH code for check.
+        O código da CNH para verificação.
     """
 
     content_length = 36
@@ -248,12 +251,12 @@ def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
 
 
 def is_valid_cnpj(cnpj_code: str, data_only: bool=True) -> bool:
-    """Check if CNPJ code is valid.
+    """Verifique se o código do CNPJ é válido.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     cnpj_code
-        CNPJ code for check.
+        O código CNPJ para verificação.
     """
 
     content_length = 47
@@ -271,12 +274,12 @@ def is_valid_cnpj(cnpj_code: str, data_only: bool=True) -> bool:
 
 
 def is_valid_cpf(cpf_code: str, data_only: bool=True) -> bool:
-    """Check if CPF code is valid.
+    """Verifique se o código do CPF é válido.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     cpf_code
-        CPF code for check.
+        O código do CPF para verificação.
     """
 
     content_length = 39
@@ -294,12 +297,12 @@ def is_valid_cpf(cpf_code: str, data_only: bool=True) -> bool:
 
 
 def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
-    """Check if PIS/PASEP code is valid.
+    """Verifique se o código do PIS/PASEP é válido.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     pis_pasep_code
-        PIS/PASEP code for check.
+        O código PIS/PASEP para verificação.
     """
 
     content_length = 39
@@ -317,12 +320,12 @@ def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
 
 
 def is_valid_renavam(renavam_code: str, data_only: bool=True) -> bool:
-    """Check if RENAVAM code is valid.
+    """Verifique se o código do RENAVAM é válido.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     renavam_code
-        RENAVAM code for check.
+        O código do RENAVAM para verificação.
    """
 
     content_length = 43
@@ -340,12 +343,12 @@ def is_valid_renavam(renavam_code: str, data_only: bool=True) -> bool:
 
 
 def is_valid_rg(rg_code: str, data_only: bool=True) -> bool:
-    """Check if RG code is valid.
+    """Verifique se o código do RG é válido.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     rg_code
-        RG code for check.
+        O código do RG para verificação.
     """
 
     content_length = 35
@@ -363,12 +366,12 @@ def is_valid_rg(rg_code: str, data_only: bool=True) -> bool:
 
 
 def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
-    """Check if Voter Title code is valid.
+    """Verifique se o código do título de eleitor é válido.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     voter_title_code
-        Voter Title code for check.
+        O código do título de eleitor para verificação.
     """
 
     content_length = 59
@@ -388,17 +391,17 @@ def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
 
 
 def is_valid_state_registration(uf_code: str, state_registration_code: str, data_only: bool=True) -> bool:
-    """Check if State Registration code is valid.
+    """Verifique se o código do registro estadual é válido.
     
     Parameters
     ----------
     uf_code
-        UF(Unidade Federativa) code for generating data.
+        O código UF(Unidade Federativa) do estado que pertence o registro estadual.
         
-        More info about UF: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
+        Mais informações: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
     state_registration_code
-        State Registration code for check.
+        O código do registro estadual para verificação.
     """
 
     uf_code = uf_code.upper()

@@ -3,7 +3,7 @@
 fordev.consts
 -------------
 
-This module contains all constants using in fordev package.
+Este módulo contém todas as variáveis com valores constantes usadas no pacote fordev.
 """
 
 from fordev.__about__ import __version__

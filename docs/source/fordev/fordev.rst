@@ -6,8 +6,8 @@ Aqui você encontra a referência completa do pacote **fordev**, podendo ser usa
 .. automodule:: fordev
     :no-members:
 
-Funcionalidades
----------------
+
+**Funcionalidades:**
 
 Os módulos e funções internos que contém a API para uso são:
 

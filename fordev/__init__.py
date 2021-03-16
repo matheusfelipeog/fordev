@@ -3,11 +3,12 @@
 Fordev Package
 --------------
 
-The Fordev package is a generator, validator and manipulator of random data.
+Fordev é um pacote que mapeia o site 4devs.com.br via scraping e disponibiliza
+os geradoradores e validadores de dados como uma interface Python.
 
 Example
 -------
-Generate data of 1 people:
+Gere dados de 1 pessoa:
 
 >>> from fordev.generators import people
 >>> people(sex='M', age=25, state='SP')

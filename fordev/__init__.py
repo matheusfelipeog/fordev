@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Fordev Package
---------------
+fordev
+------
 
 Fordev é um pacote que mapeia o site 4devs.com.br via scraping e disponibiliza
 os geradoradores e validadores de dados como uma interface Python.

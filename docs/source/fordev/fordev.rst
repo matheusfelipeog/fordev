@@ -15,3 +15,4 @@ Obtenha mais detalhes dos módulos internos do pacote **fordev** na seção abai
    generators
    validators
    core
+   filters

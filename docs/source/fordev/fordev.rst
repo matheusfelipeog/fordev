@@ -1,7 +1,7 @@
 Referência
 ==========
 
-Aqui você encontra a referência completa do pacote **fordev** para consulta.
+Aqui você encontra a referência completa do pacote **fordev**, podendo ser usado como referência de uso ou referência de desenvolvimento.
 
 .. automodule:: fordev
     :no-members:
@@ -14,3 +14,4 @@ Obtenha mais detalhes dos módulos internos do pacote **fordev** na seção abai
 
    generators
    validators
+   core

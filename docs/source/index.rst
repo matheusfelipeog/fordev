@@ -34,7 +34,7 @@ Fordev - Documentação oficial
 Está é a documentação oficial e completa do módulo **Fordev**, aqui você encontrará exemplos e uma explicação individual de cada função geradora e
 validadora de dados disponibilizados e mapeados no site `4Devs <https://4devs.com.br>`_.
 
-Caso queira obter mais detalhes sobre o projeto, confira o ``README.md`` na página inicial do repositório do `**Fordev** <https://github.com/matheusfelipeog/fordev>`_.
+Caso queira obter mais detalhes sobre o projeto, confira o ``README.md`` na página inicial do repositório do `Fordev <https://github.com/matheusfelipeog/fordev>`_.
 
 
 Index

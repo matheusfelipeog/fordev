@@ -3,8 +3,9 @@
 fordev.filters
 --------------
 
-This module is used to filter data contained in HTML structures
-and json format in Fordev module.
+Este módulo é usado para filtrar os dados contidos na estrutura HTML
+retornada pela API do site 4devs e converter para uma estrutura de
+dicionário Python.
 """
 
 __all__ = [
@@ -25,8 +26,8 @@ from fordev.__about__ import __project_github__
 from bs4 import BeautifulSoup
 
 
-def data_format(data_only: bool, data_dict: dict):
-    """Filter the data format return."""
+def data_format(data_only: bool, data_dict: dict) -> dict:
+    """Filtra os dados conforme especificado."""
     
     if data_only and data_dict['msg'] == 'success':
         return data_dict['data']
@@ -35,12 +36,13 @@ def data_format(data_only: bool, data_dict: dict):
 
 
 def filter_bank_account_info(html: str) -> dict:
-    """Filter the bank account info in the data of the HTML structure.
+    """Filtra dados de conta bancária contidos na estrutura HTML.
 
     Parameter
     ---------
     html
-        Content in html structure.
+        Uma estrutra HTML contendo dados de conta bancária
+        retornados pela API do site 4devs.
     """
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -59,12 +61,13 @@ def filter_bank_account_info(html: str) -> dict:
 
 
 def filter_vehicle_info(html: str) -> dict:
-    """Filter the vehicle info in the data of the HTML structure.
+    """Filtra dados de veículo contido na estrutura HTML.
 
     Parameter
     ---------
     html
-        Content in html structure.
+        Uma estrutra HTML contendo dados de veículo
+        retornados pela API do site 4devs.
     """
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -83,12 +86,13 @@ def filter_vehicle_info(html: str) -> dict:
 
 
 def filter_credit_card_info(html: str) -> dict:
-    """Filter the credit card info in the data of the HTML structure.
+    """Filtra dados de cartão de crédito contidos na estrutura HTML.
 
     Parameter
     ---------
     html
-        Content in html structure.
+        Uma estrutra HTML contendo dados de cartão de crédito
+        retornados pela API do site 4devs.
     """
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -107,12 +111,13 @@ def filter_credit_card_info(html: str) -> dict:
 
 
 def filter_company_info(html: str) -> dict:
-    """Filter the company info in the data of the HTML structure.
+    """Filtra dados de companhia (empresa/organização) contidos na estrutura HTML.
 
     Parameter
     ---------
     html
-        Content in html structure.
+        Uma estrutra HTML contendo dados de companhia (empresa/organização)
+        retornados pela API do site 4devs.
     """
 
     soup = BeautifulSoup(html, 'html.parser')
@@ -131,12 +136,13 @@ def filter_company_info(html: str) -> dict:
 
 
 def filter_city_name(html: str) -> list:
-    """Filter the city name in the data of the HTML structure.
+    """Filtra dados de cidade contidos na estrutura HTML.
 
     Parameter
     ---------
     html
-        Content in html structure.
+        Uma estrutra HTML contendo dados de uma cidade
+        retornados pela API do site 4devs.
     """
 
     soup = BeautifulSoup(html, 'html.parser')

@@ -31,11 +31,6 @@ Fordev - Documentação oficial
     :target: https://github.com/matheusfelipeog/fordev/blob/master/LICENSE
 
 
-Está é a documentação oficial e completa do módulo **Fordev**, aqui você encontrará exemplos e uma explicação individual de cada função geradora e
-validadora de dados disponibilizados e mapeados no site `4Devs <https://4devs.com.br>`_.
-
-Caso queira obter mais detalhes sobre o projeto, confira o ``README.md`` no `repositório <https://github.com/matheusfelipeog/fordev>`_.
-
 .. toctree::
    :caption: Index
    :maxdepth: 1
@@ -43,24 +38,27 @@ Caso queira obter mais detalhes sobre o projeto, confira o ``README.md`` no `rep
    install
    demo
    fordev/fordev
+   contributions
    terms
    license
 
+Está é a documentação oficial e completa do módulo **Fordev**, aqui você encontrará exemplos e uma explicação individual de cada função geradora e
+validadora de dados disponibilizados e mapeados no site `4Devs <https://4devs.com.br>`_.
 
-Contribuições
--------------
+Caso queira obter mais detalhes sobre o projeto, confira o ``README.md`` no `repositório <https://github.com/matheusfelipeog/fordev>`_.
 
-Toda contribuição é super bem-vinda!
 
-Abaixo mostro com o que você pode contribuir:
+Objetivo
+--------
 
-- Encontrou algum bug, quer propor uma nova funcionalidade ou conversar sobre o projeto? `Abra uma Issue <https://github.com/matheusfelipeog/fordev/issues>`_ e descreve seu caso.
+O site 4Devs disponibiliza diversas funcionalidades muito úteis para um desenvolvedor utilizar em seus projetos que necessitam
+de dados randômicos válidos e outras peculiaridades, tais como: dados dos principais documentos pessoais do brasil (CPF, CNPJ, CNH etc),
+dados bancários, dados de cartões de crédito, dados completos de pessoas (nome, idade, documentos, endereço etc) e muitos outros geradores
+de dados. Porém, até o momento, não possui uma interface/API pública para utiliza-los diretamente no código da aplicação em desenvolvimento,
+assim, sendo necessário ir buscar tais dados diretamente no site.
 
-- Existe uma issue aberta e você quer resolve-la, quer implementar uma nova funcionalidade ou melhorar a documentação? Faça suas adições e me envie um *Pull Request*
-
-- Gostou do projeto, mas não quer ou ainda não consegue contribuir com ele? Considere deixar uma estrela ⭐ para o **Fordev**
-
-Obrigado pelo interesse em colaborar de alguma forma com o projeto 😄
+Fordev foi construído para resolver esse problema, disponibilizando um módulo de fácil uso que mapeia todo o site 4Devs usando técnicas de
+scraping, de modo que seja possível obter todos os tipos de dados que são gerados no site.  
 
 
 Índices e tabela

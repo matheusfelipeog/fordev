@@ -96,8 +96,8 @@ from fordev.filters import filter_company_info
 def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> str:
     """Gere o código de certidões (birth, wedding, religious wedding and death) aleatórias.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     type_
         O tipo da certidão para geração do código.
         Opções: 
@@ -147,8 +147,8 @@ def cnh(data_only: bool=True) -> str:
 def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
     """Gere dados de conta bancária.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     bank
         Recebe um valor númerico de 0 a 5 que representa a
         bandeira do banco da conta bancária a ser gerada.
@@ -240,8 +240,8 @@ def renavam(data_only: bool=True) -> str:
 def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only: bool=True) -> dict:
     """Gere dados de veículo aleatório.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     brand
         Recebe um valor númerico de 0 a 87 que representa a marca do carro para
         geração dos dados aleatórios.
@@ -372,8 +372,8 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
 def vehicle_brand(n: int=1, data_only: bool=True) -> list:
     """Obtenha o nome de marca(s) de veículo(s).
 
-    Parameter
-    ---------
+    Parameters
+    ----------
     n
         Recebe o número de marcas de veículos a ser gerado. O valor mínimo é 1 e o máximo é 87.
     """
@@ -490,8 +490,8 @@ def voter_title(uf_code: str, data_only: bool=True) -> str:
 def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dict:
     """Gere dados de cartão de crédito aleatório.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     bank
         Recebe um valor númerico de 0 a 10 representando a
         bandeira do cartão de crédito a ser gerado.
@@ -623,8 +623,8 @@ def people(
 def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
     """Gere dados de companhia (empresa/organização) aleatório.
     
-    Parameter
-    ---------
+    Parameters
+    ----------
     age
         Representa o tempo de existência da companhia (a idade da companhia).
     """

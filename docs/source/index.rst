@@ -31,11 +31,15 @@ Fordev - Documentação oficial
     :target: https://github.com/matheusfelipeog/fordev/blob/master/LICENSE
 
 
+Está é a documentação oficial e completa do módulo **Fordev**, aqui você encontrará exemplos e uma explicação individual de cada função geradora e
+validadora de dados disponibilizados e mapeados no site `4Devs <https://4devs.com.br>`_.
+
+Caso queira obter mais detalhes sobre o projeto, confira o ``README.md`` na página inicial do repositório do `**Fordev** <https://github.com/matheusfelipeog/fordev>`_.
+
+
 Index
 -----
 
-- `O objetivo <#id1>`_
-- `Instalação <#id2>`_
 - `Demo <#id3>`_
 - `Funcionalidades <#id5>`_
 
@@ -51,75 +55,14 @@ Index
    :caption: Fordev
    :maxdepth: 2
 
+   install
    fordev/fordev
-
-
-O objetivo
-----------
-
-O site `4Devs <https://4devs.com.br>`_ disponibiliza diversas funcionalidades muito úteis para um desenvolvedor utilizar em seus projetos que necessitam de dados randômicos válidos e outras peculiaridades, tais como: dados dos principais documentos pessoais do brasil (CPF, CNPJ, CNH etc), dados bancários, dados de cartões de crédito, dados completos de pessoas (nome, idade, documentos, endereço etc) e muitos outros geradores de dados. Porém, até o momento, não possui uma interface/API pública para utiliza-los diretamente no código da aplicação em desenvolvimento, assim, sendo necessário ir buscar tais dados diretamente no site.
-
-**Fordev** foi construído para resolver esse problema, disponibilizando um módulo de fácil uso que mapeia todo o site 4Devs usando técnicas de scraping, de modo que seja possível obter todos os tipos de dados que são gerados no site.
-
-
-Instalação
-----------
-
-Para instalar, certifique-se de que tenha `Python <https://www.python.org/>`_ e o gerenciador de pacotes ``pip`` instalados em seu ambiente.
-
-Instale com ``pip``:
-
-.. code-block:: bash
-
-   $ pip install fordev
-
-
-OBS: fordev precisa de acesso a internet para funcionar corretamente, certifique-se de que também a tenha.
-
-
-Demo
-----
-
-Socilitando dados randômicos de uma pessoa do sexo *masculino*, de *25 anos de idade* e que *mora em SP*.
-
->>> from fordev.generators import people
->>> people(sex='M', age=25, state='SP')
-{
-    'altura': '1,90',
-    'bairro': 'Jardim Maria Amélia',
-    'celular': '(12) 98401-5301',
-    'cep': '12318-110',
-    'cidade': 'Jacareí',
-    'cor': 'laranja',
-    'cpf': '061.632.758-70',
-    'data_nasc': '06/12/1995',
-    'email': 'bentoyagolorenzogoncalves-72@alcastro.com.br',
-    'endereco': 'Rua José Benedito de Oliveira',
-    'estado': 'SP',
-    'idade': 25,
-    'mae': 'Tereza Melissa Priscila',
-    'nome': 'Bento Yago Lorenzo Gonçalves',
-    'numero': 760,
-    'pai': 'Sérgio Guilherme Erick Gonçalves',
-    'peso': 88,
-    'rg': '23.920.314-8',
-    'senha': 'ErOKUUyoml',
-    'sexo': 'Masculino',
-    'signo': 'Sagitário',
-    'telefone_fixo': '(12) 2844-9806',
-    'tipo_sanguineo': 'AB+'
-}
-
-
-Confira a seção de `funcionalidades <#funcionalidades>`_ para ver todas as funções atualmente disponíveis no módulo **fordev**.
 
 
 Funcionalidades
 ---------------
 
 Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs.
-
-Você pode conferir a `Documentação Oficial <https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md>`_ para ver uma explicação detalhada e exemplos do uso de todas as funções.
 
 `fordev.generators`
 ^^^^^^^^^^^^^^^^^^^
@@ -159,6 +102,40 @@ Você pode conferir a `Documentação Oficial <https://github.com/matheusfelipeo
 - ``state_registration(...)`` - Verifica se o código da Inscrição Estadual passado é válido.
 
 
+Demo
+----
+
+Socilitando dados randômicos de uma pessoa do sexo *masculino*, de *25 anos de idade* e que *mora em SP*.
+
+>>> from fordev.generators import people
+>>> people(sex='M', age=25, state='SP')
+{
+    'altura': '1,90',
+    'bairro': 'Jardim Maria Amélia',
+    'celular': '(12) 98401-5301',
+    'cep': '12318-110',
+    'cidade': 'Jacareí',
+    'cor': 'laranja',
+    'cpf': '061.632.758-70',
+    'data_nasc': '06/12/1995',
+    'email': 'bentoyagolorenzogoncalves-72@alcastro.com.br',
+    'endereco': 'Rua José Benedito de Oliveira',
+    'estado': 'SP',
+    'idade': 25,
+    'mae': 'Tereza Melissa Priscila',
+    'nome': 'Bento Yago Lorenzo Gonçalves',
+    'numero': 760,
+    'pai': 'Sérgio Guilherme Erick Gonçalves',
+    'peso': 88,
+    'rg': '23.920.314-8',
+    'senha': 'ErOKUUyoml',
+    'sexo': 'Masculino',
+    'signo': 'Sagitário',
+    'telefone_fixo': '(12) 2844-9806',
+    'tipo_sanguineo': 'AB+'
+}
+
+
 Contribuições
 -------------
 
@@ -180,7 +157,10 @@ Aviso Legal
 
 Todo os dados são gerados de forma randômica, respeitando as regras de criação de cada tipo de dado. 
 
-Todo os dados gerados são para fins informativos e utilizados para auxiliar estudantes, programadores, analistas e testadores no desenvolvimento de softwares que necessitem de tais dados. Não devem ser considerados completos, atualizados, e não se destinam a ser utilizado no lugar de uma consulta jurídica, médica, financeira, ou de qualquer outro profissional. Todo e qualquer risco da utilização dos dados disponibilizados atráves do módulo **Fordev** é assumido pelo próprio usuário.
+Todo os dados gerados são para fins informativos e utilizados para auxiliar estudantes, programadores, analistas e testadores no
+desenvolvimento de softwares que necessitem de tais dados. Não devem ser considerados completos, atualizados, e não se destinam a
+ser utilizado no lugar de uma consulta jurídica, médica, financeira, ou de qualquer outro profissional. Todo e qualquer risco da
+utilização dos dados disponibilizados atráves do módulo **Fordev** é assumido pelo próprio usuário.
 
 O aviso acima é uma adaptação para utilização no repositório, confira os termos de uso oficial do site 4Devs em: `Termos de Uso <https://www.4devs.com.br/termos_de_uso>`_
 

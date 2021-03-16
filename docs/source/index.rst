@@ -58,6 +58,7 @@ Index
    install
    demo
    fordev/fordev
+   terms
 
 
 Funcionalidades
@@ -117,19 +118,6 @@ Abaixo mostro com o que você pode contribuir:
 - Gostou do projeto, mas não quer ou ainda não consegue contribuir com ele? Considere deixar uma estrela ⭐ para o **Fordev**
 
 Obrigado pelo interesse em colaborar de alguma forma com o projeto 😄
-
-
-Aviso Legal
------------
-
-Todo os dados são gerados de forma randômica, respeitando as regras de criação de cada tipo de dado. 
-
-Todo os dados gerados são para fins informativos e utilizados para auxiliar estudantes, programadores, analistas e testadores no
-desenvolvimento de softwares que necessitem de tais dados. Não devem ser considerados completos, atualizados, e não se destinam a
-ser utilizado no lugar de uma consulta jurídica, médica, financeira, ou de qualquer outro profissional. Todo e qualquer risco da
-utilização dos dados disponibilizados atráves do módulo **Fordev** é assumido pelo próprio usuário.
-
-O aviso acima é uma adaptação para utilização no repositório, confira os termos de uso oficial do site 4Devs em: `Termos de Uso <https://www.4devs.com.br/termos_de_uso>`_
 
 
 Licença

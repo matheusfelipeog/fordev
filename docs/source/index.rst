@@ -48,11 +48,10 @@ Index
 - `Índices e tabela <#id11>`_
 
 .. toctree::
-   :caption: Docs
-   :maxdepth: 1
+   :caption: Fordev
+   :maxdepth: 2
 
-   fordev/generators
-   fordev/validators
+   fordev/fordev
 
 
 O objetivo

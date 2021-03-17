@@ -3,6 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. image:: ./_static/fordev.png
+    :alt: Fordev - Gere e Valide Dados Randômicos
+    :target: https://github.com/matheusfelipeog/fordev
+    :align: center
+    :width: 400px
+
 Fordev - Documentação oficial
 =============================
 

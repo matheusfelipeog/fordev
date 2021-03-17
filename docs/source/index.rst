@@ -65,7 +65,7 @@ de dados. Porém, até o momento, não possui uma interface/API pública para ut
 assim, sendo necessário ir buscar tais dados diretamente no site.
 
 Fordev foi construído para resolver esse problema, disponibilizando um módulo de fácil uso que mapeia todo o site 4Devs usando técnicas de
-scraping, de modo que seja possível obter todos os tipos de dados que são gerados no site.  
+scraping, de modo que seja possível obter todos recursos disponíveis no site em um módulo Python.
 
 
 Índices e tabela

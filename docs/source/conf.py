@@ -91,8 +91,9 @@ html_theme_options = {
 html_title = 'v' + version
 html_short_title = 'Fordev Docs v' + version
 
-# Project logo
+# Fordev logo and favicon
 html_logo = './_static/fordev.png'
+html_favicon = './_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

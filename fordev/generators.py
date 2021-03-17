@@ -101,7 +101,7 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
     type_
         O tipo da certidão para geração do código.
 
-        Consulte a docs para verificar os tipos de certidões suportadas:
+        Consulte a doc para verificar as opções suportadas:
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
 
@@ -149,13 +149,9 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
     bank
         Recebe um valor númerico de 0 a 5 que representa a
         bandeira do banco da conta bancária a ser gerada.
-        Opções:
-            0 = Aleatório
-            1 = Banco do Brasil
-            2 = Bradesco
-            3 = Citibank
-            4 = Itaú
-            5 = Santander
+
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
 
     if not (0 <= bank <= 5):

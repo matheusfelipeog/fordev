@@ -72,7 +72,34 @@ Docs de todas funções
 
 
 .. autofunction:: fordev.generators.cnh
+
 .. autofunction:: fordev.generators.bank_account
+
+    :Bandeiras suportadas:
+
+            ``0`` = Aleatório `<Padrão>`
+
+            ``1`` = Banco do Brasil
+
+            ``2`` = Bradesco
+
+            ``3`` = Citibank
+
+            ``4`` = Itaú
+
+            ``5`` = Santander
+            
+            .. note::
+
+                O valor númerico que representa a bandeira do banco deve ser passada para o parâmetro ``bank``.
+
+                **Exemplo:**
+
+                .. code-block:: python
+
+                    >>> from fordev.generators import bank_account
+                    >>> bank_account(bank=2)  # Banco Bradesco
+
 .. autofunction:: fordev.generators.cpf
 .. autofunction:: fordev.generators.pis_pasep
 .. autofunction:: fordev.generators.renavam

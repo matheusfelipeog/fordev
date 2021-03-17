@@ -15,6 +15,9 @@
     <a href="https://github.com/matheusfelipeog/fordev/releases">
         <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/fordev?color=black" />
     </a>
+    <a href="https://fordev.readthedocs.io/pt_BR/latest/?badge=latest">
+        <img alt="Documentation Status" src="https://readthedocs.org/projects/fordev/badge/?version=latest&color=black" />
+    </a>
     <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/matheusfelipeog/fordev?color=black" alt="License MIT" />
     </a>

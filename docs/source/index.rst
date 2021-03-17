@@ -24,7 +24,7 @@ Fordev - Documentação oficial
 
 .. image:: https://readthedocs.org/projects/fordev/badge/?version=latest&color=black
     :alt: Documentation Status
-    :target: https://fordev.readthedocs.io/en/latest/?badge=latest
+    :target: https://fordev.readthedocs.io/pt_BR/latest/?badge=latest
 
 .. image:: https://img.shields.io/github/license/matheusfelipeog/fordev?color=black
     :alt: License MIT

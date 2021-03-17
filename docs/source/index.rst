@@ -9,8 +9,8 @@
     :align: center
     :width: 400px
 
-Fordev - Documentação Oficial
-=============================
+Documentação Oficial
+====================
 
 .. image:: https://img.shields.io/pypi/status/fordev
     :alt: PyPI - Status

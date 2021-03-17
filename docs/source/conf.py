@@ -73,7 +73,7 @@ html_theme = 'sphinx_rtd_theme'
 # More info: https://sphinx-rtd-theme.readthedocs.io/en/latest/configuring.html
 html_theme_options = {
     'logo_only': True,
-    'display_version': False,
+    'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
     'vcs_pageview_mode': '',
@@ -88,8 +88,8 @@ html_theme_options = {
 }
 
 # Title config
-html_title = 'v' + version
-html_short_title = 'Fordev Docs v' + version
+html_title = f'Fordev v{version}'
+html_short_title = f'Fordev Docs v{version}'
 
 # Fordev logo and favicon
 html_logo = './_static/fordev.png'

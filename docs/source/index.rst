@@ -12,19 +12,19 @@
 Fordev - Documentação Oficial
 =============================
 
-.. image:: https://img.shields.io/pypi/status/fordev?color=black
+.. image:: https://img.shields.io/pypi/status/fordev
     :alt: PyPI - Status
     :target: https://pypi.org/project/fordev/
 
-.. image:: https://img.shields.io/pypi/dm/fordev?color=black
+.. image:: https://img.shields.io/pypi/dm/fordev
     :alt: Downloads in month
     :target: https://pypi.org/project/fordev/
 
-.. image:: https://img.shields.io/pypi/v/fordev?color=black
+.. image:: https://img.shields.io/pypi/v/fordev
     :alt: PyPI
     :target: https://pypi.org/project/fordev/
 
-.. image:: https://img.shields.io/github/v/release/matheusfelipeog/fordev?color=black
+.. image:: https://img.shields.io/github/v/release/matheusfelipeog/fordev
     :alt: GitHub release (latest by date)
     :target: https://github.com/matheusfelipeog/fordev/releases
 
@@ -32,7 +32,7 @@ Fordev - Documentação Oficial
     :alt: Documentation Status
     :target: https://fordev.readthedocs.io/pt_BR/latest/?badge=latest
 
-.. image:: https://img.shields.io/github/license/matheusfelipeog/fordev?color=black
+.. image:: https://img.shields.io/github/license/matheusfelipeog/fordev
     :alt: License MIT
     :target: https://github.com/matheusfelipeog/fordev/blob/master/LICENSE
 

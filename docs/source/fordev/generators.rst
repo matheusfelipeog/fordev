@@ -77,17 +77,17 @@ Docs de todas funções
 
     :Bandeiras suportadas:
 
-            ``0`` = Aleatório `<Padrão>`
+            ``0`` = **Aleatório** `<Padrão>`
 
-            ``1`` = Banco do Brasil
+            ``1`` = **Banco do Brasil**
 
-            ``2`` = Bradesco
+            ``2`` = **Bradesco**
 
-            ``3`` = Citibank
+            ``3`` = **Citibank**
 
-            ``4`` = Itaú
+            ``4`` = **Itaú**
 
-            ``5`` = Santander
+            ``5`` = **Santander**
             
             .. note::
 

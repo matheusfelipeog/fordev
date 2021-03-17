@@ -56,7 +56,7 @@ with open(os.path.join(here, 'README.md'), mode='r', encoding='utf-8') as f:
 setup(
     name='fordev',
     version=__version__,
-    description='Gere, valide e manipule dados randômicos com fordev',
+    description='Gere e valide dados randômicos com fordev',
     long_description=long_description,
     long_description_content_type='text/markdown',
     license='MIT License',
@@ -72,7 +72,7 @@ setup(
     python_requires='>=3.6',
     project_urls={
         "Bug Tracker": "https://github.com/matheusfelipeog/fordev/issues",
-        "Documentation": "https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md",
+        "Documentation": "https://fordev.readthedocs.io/",
         "Source Code": "https://github.com/matheusfelipeog/fordev",
     },
     keywords=[
@@ -82,13 +82,18 @@ setup(
         'data-validation', 'random-data'
     ],
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Intended Audience :: Information Technology',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: Portuguese (Brazilian)',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: Implementation :: CPython',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],

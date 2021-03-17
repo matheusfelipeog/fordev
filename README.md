@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/matheusfelipeog/fordev/master/.github/assets/images/fordev.png" alt="Logo Fordev" width="500px" />
+    <img src="https://raw.githubusercontent.com/matheusfelipeog/fordev/master/.github/assets/images/fordev.png" alt="Fordev - Gere e Valide Dados Randômicos" width="400px" />
 </p>
 
 <p align="center">
@@ -42,7 +42,7 @@
 
 O site [4Devs](https://4devs.com.br) disponibiliza diversas funcionalidades muito úteis para um desenvolvedor utilizar em seus projetos que necessitam de dados randômicos válidos e outras peculiaridades, tais como: dados dos principais documentos pessoais do brasil (CPF, CNPJ, CNH etc), dados bancários, dados de cartões de crédito, dados completos de pessoas (nome, idade, documentos, endereço etc) e muitos outros geradores de dados. Porém, até o momento, não possui uma interface/API pública para utiliza-los diretamente no código da aplicação em desenvolvimento, assim, sendo necessário ir buscar tais dados diretamente no site.
 
-**Fordev** foi construído para resolver esse problema, disponibilizando um módulo de fácil uso que mapeia todo o site 4Devs usando técnicas de scraping, de modo que seja possível obter todos os tipos de dados que são gerados no site.
+**Fordev** foi construído para resolver esse problema, disponibilizando um módulo de fácil uso que mapeia todo o site 4Devs usando técnicas de scraping, de modo que seja possível obter todos recursos disponíveis no site em um módulo Python.
 
 
 ## Instalação

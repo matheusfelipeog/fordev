@@ -3,7 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Fordev - Documentação oficial
+.. image:: ./_static/fordev.png
+    :alt: Fordev - Gere e Valide Dados Randômicos
+    :target: https://github.com/matheusfelipeog/fordev
+    :align: center
+    :width: 400px
+
+Fordev - Documentação Oficial
 =============================
 
 .. image:: https://img.shields.io/pypi/status/fordev?color=black
@@ -32,20 +38,19 @@ Fordev - Documentação oficial
 
 
 .. toctree::
-   :caption: Index
-   :maxdepth: 1
+    :hidden:
+    :caption: Index
+    :maxdepth: 1
 
-   install
-   demo
-   fordev/fordev
-   contributions
-   terms
-   license
+    install
+    demo
+    fordev/fordev
+    contributions
+    terms
+    license
 
 Está é a documentação oficial e completa do módulo **Fordev**, aqui você encontrará exemplos e uma explicação individual de cada função geradora e
 validadora de dados disponibilizados e mapeados no site `4Devs <https://4devs.com.br>`_.
-
-Caso queira obter mais detalhes sobre o projeto, confira o ``README.md`` no `repositório <https://github.com/matheusfelipeog/fordev>`_.
 
 
 Objetivo
@@ -58,7 +63,7 @@ de dados. Porém, até o momento, não possui uma interface/API pública para ut
 assim, sendo necessário ir buscar tais dados diretamente no site.
 
 Fordev foi construído para resolver esse problema, disponibilizando um módulo de fácil uso que mapeia todo o site 4Devs usando técnicas de
-scraping, de modo que seja possível obter todos os tipos de dados que são gerados no site.  
+scraping, de modo que seja possível obter todos recursos disponíveis no site em um módulo Python.
 
 
 Índices e tabela

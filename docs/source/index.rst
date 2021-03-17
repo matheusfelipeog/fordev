@@ -9,7 +9,7 @@
     :align: center
     :width: 400px
 
-Fordev - Documentação oficial
+Fordev - Documentação Oficial
 =============================
 
 .. image:: https://img.shields.io/pypi/status/fordev?color=black

@@ -100,12 +100,9 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
     ----------
     type_
         O tipo da certidão para geração do código.
-        Opções: 
-            'B' = Birth (Nascimento)
-            'W' = Wedding (Casamento)
-            'R' = Religious Wedding (Casamento Religioso)
-            'D' = Death (Morte)
-            'I' = Indifferent (Qualquer uma das anteriores)
+
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
 
     type_ = type_.upper()
@@ -152,13 +149,9 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
     bank
         Recebe um valor númerico de 0 a 5 que representa a
         bandeira do banco da conta bancária a ser gerada.
-        Opções:
-            0 = Aleatório
-            1 = Banco do Brasil
-            2 = Bradesco
-            3 = Citibank
-            4 = Itaú
-            5 = Santander
+
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
 
     if not (0 <= bank <= 5):
@@ -245,95 +238,9 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
     brand
         Recebe um valor númerico de 0 a 87 que representa a marca do carro para
         geração dos dados aleatórios.
-        Opções:
-            0 = Aleatório
-            1 = Acura
-            2 = Agrale
-            3 = Alfa Romeo
-            4 = AM Gen
-            5 = Asia Motors
-            6 = ASTON MARTIN
-            7 = Audi
-            8 = BMW
-            9 = BRM
-            10 = Buggy
-            11 = Bugre
-            12 = Cadillac
-            13 = CBT Jipe
-            14 = CHANA
-            15 = CHANGAN
-            16 = CHERY
-            17 = Chrysler
-            18 = Citroen
-            19 = Cross Lander
-            20 = Daewoo
-            21 = Daihatsu
-            22 = Dodge
-            23 = EFFA
-            24 = Engesa
-            25 = Envemo
-            26 = Ferrari
-            27 = Fiat
-            28 = Fibravan
-            29 = Ford
-            30 = FOTON
-            31 = Fyber
-            32 = GEELY
-            33 = GM - Chevrolet
-            34 = GREAT WALL
-            35 = Gurgel
-            36 = HAFEI
-            37 = Honda
-            38 = Hyundai
-            39 = Isuzu
-            40 = JAC
-            41 = Jaguar
-            42 = Jeep
-            43 = JINBEI
-            44 = JPX
-            45 = Kia Motors
-            46 = Lada
-            47 = LAMBORGHINI
-            48 = Land Rover
-            49 = Lexus
-            50 = LIFAN
-            51 = LOBINI
-            52 = Lotus
-            53 = Mahindra
-            54 = Maserati
-            55 = Matra
-            56 = Mazda
-            57 = Mercedes-Benz
-            58 = Mercury
-            59 = MG
-            60 = MINI
-            61 = Mitsubishi
-            62 = Miura
-            63 = Nissan
-            64 = Peugeot
-            65 = Plymouth
-            66 = Pontiac
-            67 = Porsche
-            68 = RAM
-            69 = RELY
-            70 = Renault
-            71 = Rolls-Royce
-            72 = Rover
-            73 = Saab
-            74 = Saturn
-            75 = Seat
-            76 = SHINERAY
-            77 = smart
-            78 = SSANGYONG
-            79 = Subaru
-            80 = Suzuki
-            81 = TAC
-            82 = Toyota
-            83 = Troller
-            84 = Volvo
-            85 = VW - VolksWagen
-            86 = Wake
-            87 = Walk
+
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
 
     if not (0 <= brand_code <= 87):
@@ -495,18 +402,9 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
     bank
         Recebe um valor númerico de 0 a 10 representando a
         bandeira do cartão de crédito a ser gerado.
-        Opções:
-            0 = Aleatório
-            1 = MasterCard
-            2 = Visa 16 Dígitos
-            3 = American Express
-            4 = Diners Club
-            5 = Discover
-            6 = enRoute
-            7 = JCB
-            8 = Voyager
-            9 = HiperCard
-            10 = Aura
+        
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
 
     if not (0 <= bank <= 10):
@@ -555,11 +453,10 @@ def people(
         O número de pessoas a ter dados gerados. O mínimo é 1 e o máximo é 30.
 
     sex
-        Recebe uma única string representando o sexo da pessoa para geração dos dados.
-        Opções:
-            'M' = Male
-            'F' = Feminine
-            'R' = Random
+        Uma string representando o sexo da pessoa para geração dos dados.
+        
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
 
     age
         A idade da pessoa para geração dos dados. A idade mínima é 18 e a máxima é 80.

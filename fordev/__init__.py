@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-The Fordev module is a generator, validator and manipulator of random data.
+fordev
+------
 
-Basic use:
+Fordev é um pacote que mapeia o site 4devs.com.br via scraping e disponibiliza
+os geradoradores e validadores de dados como uma interface Python.
 
-```
->>> from fordev.generator import people
->>> p = people(sex='M', age=25, state='SP')
->>> print(p)
+Example
+-------
+Gere dados de 1 pessoa:
 
-# Output ---------------------------------------------------------------------------------
+>>> from fordev.generators import people
+>>> people(sex='M', age=25, state='SP')
 {
     'altura': '1,90',
     'bairro': 'Jardim Maria Amélia',
@@ -35,20 +37,31 @@ Basic use:
     'telefone_fixo': '(12) 2844-9806',
     'tipo_sanguineo': 'AB+'
 }
-```
-
-More info at: https://github.com/matheusfelipeog/fordev
 """
 
-from .__about__ import __version__
-
-from .__about__ import __author__
-from .__about__ import __email__
-from .__about__ import __github__
-
-__version__ = __version__
-__author__ = f'{__author__} <{__email__}> and <{__github__}>'
-
 __all__ = [
-    'generator'
+    'generators',
+    'validators',
+    'filters',
+    'consts'
 ]
+
+from fordev.__about__ import __version__
+from fordev.__about__ import __author__
+from fordev.__about__ import __email__
+from fordev.__about__ import __author_github__
+from fordev.__about__ import __project_github__
+
+from fordev import generators
+from fordev import validators
+from fordev import filters
+from fordev import consts
+
+from fordev.utils import CheckVersion
+
+
+# Check if a newer version of fordev package
+CheckVersion.run(
+    current_version=__version__,
+    package_name='fordev'
+)

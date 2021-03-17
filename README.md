@@ -4,19 +4,19 @@
 
 <p align="center">
     <a href="https://pypi.org/project/fordev/">
-        <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/fordev?color=black&style=for-the-badge" />
+        <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/fordev?color=black" />
     </a>
     <a href="https://pypi.org/project/fordev/">
-        <img alt="Downloads in month" src="https://img.shields.io/pypi/dm/fordev?color=black&style=for-the-badge" />
+        <img alt="Downloads in month" src="https://img.shields.io/pypi/dm/fordev?color=black" />
     </a>
     <a href="https://pypi.org/project/fordev/">
-        <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev?color=black&style=for-the-badge" />
+        <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev?color=black" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/releases">
-        <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/fordev?color=black&style=for-the-badge" />
+        <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/fordev?color=black" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/matheusfelipeog/fordev?color=black&style=for-the-badge" alt="License MIT" />
+        <img src="https://img.shields.io/github/license/matheusfelipeog/fordev?color=black" alt="License MIT" />
     </a>
 </p>
 
@@ -26,10 +26,10 @@
 - [O objetivo](#o-objetivo)
 - [Instalação](#instalação)
 - [Demo](#demo)
-- [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md)
+- [Documentação Oficial](https://fordev.readthedocs.io/)
 - [Funcionalidades](#funcionalidades)
-   - [fordev.generator](#fordevgenerator)
-   - [fordev.validator](#fordevvalidator)
+   - [fordev.generators](#fordevgenerators)
+   - [fordev.validators](#fordevvalidators)
 - [Contribuições](#contribuições)
 - [Aviso Legal](#aviso-legal)
 - [Licença](#licença)
@@ -60,11 +60,8 @@ $ pip install fordev
 Socilitando dados randômicos de uma pessoa do sexo *masculino*, de *25 anos de idade* e que *mora em SP*.
 
 ```python
->>> from fordev.generator import people
->>> p = people(sex='M', age=25, state='SP')
->>> print(p)
-
-# Output ---------------------------------------------------------------------------------
+>>> from fordev.generators import people
+>>> people(sex='M', age=25, state='SP')
 {
     'altura': '1,90',
     'bairro': 'Jardim Maria Amélia',
@@ -99,9 +96,9 @@ Confira a seção de [funcionalidades](#funcionalidades) para ver todas as funç
 
 Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs.
 
-Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md) para ver uma explicação detalhada e exemplos do uso de todas as funções.
+Você pode conferir a [Documentação Oficial](https://fordev.readthedocs.io/) para ver uma explicação detalhada e exemplos do uso de todas as funções.
 
-### `fordev.generator`
+### `fordev.generators`
 
 - `certificate(...)` - Gerador de certidões de nascimento, casamento e óbito;
 - `cnh(...)` -  Gerador de CNH (Carteira Nacional de Habilitação);
@@ -122,21 +119,21 @@ Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeo
 - `uf(...)` - Gerador de código de UF (Unidade Federativa);
 - `city(...)` - Gerador de cidades do brasil por estado selecionado.
 
-### `fordev.validator`
+### `fordev.validators`
 
 Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
 
-- `credit_card(...)` - Verifica se o código de cartão de crédito passado é válido;
-- `bank_account(...)` - Verifica se os dados da conta bancária passado é válido;
-- `certificate(...)` - Verifica se o código de certidão passado é válido;
-- `cnh(...)` - Verifica se o código do CNH passado é válido;
-- `cnpj(...)` - Verifica se o código do cnpj passado é válido;
-- `cpf(...)` - Verifica se o código do cpf passado é válido;
-- `pis_pasep(...)` - Verifica se o código do PIS/PASEP passado é válido;
-- `renavam(...)` - Verifica se o código do RENAVAM passado é válido;
-- `rg(...)` - Verifica se o código do RG passado é válido;
-- `voter_title(...)` - Verifica se o código do Título de Eleitor passado é válido;
-- `state_registration(...)` - Verifica se o código da Inscrição Estadual passado é válido.
+- `is_valid_credit_card(...)` - Verifica se o código de cartão de crédito passado é válido;
+- `is_valid_bank_account(...)` - Verifica se os dados da conta bancária passado é válido;
+- `is_valid_certificate(...)` - Verifica se o código de certidão passado é válido;
+- `is_valid_cnh(...)` - Verifica se o código do CNH passado é válido;
+- `is_valid_cnpj(...)` - Verifica se o código do cnpj passado é válido;
+- `is_valid_cpf(...)` - Verifica se o código do cpf passado é válido;
+- `is_valid_pis_pasep(...)` - Verifica se o código do PIS/PASEP passado é válido;
+- `is_valid_renavam(...)` - Verifica se o código do RENAVAM passado é válido;
+- `is_valid_rg(...)` - Verifica se o código do RG passado é válido;
+- `is_valid_voter_title(...)` - Verifica se o código do Título de Eleitor passado é válido;
+- `is_valid_state_registration(...)` - Verifica se o código da Inscrição Estadual passado é válido.
 
 
 ## Contribuições

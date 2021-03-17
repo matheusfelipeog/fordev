@@ -154,18 +154,15 @@ def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=
     ----------
     bank
         A bandeira do banco da conta bancária que deseja validar os dados.
-        Opções:
-            1 = Banco do Brasil
-            2 = Bradesco
-            3 = Citibank
-            4 = Itaú
-            5 = Santander
+        
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     
     agency
-        O código da agência bancária para verificação..
+        O código da agência bancária para verificação.
 
     account
-        O código da conta bancária para verificação..
+        O código da conta bancária para verificação.
    """
 
     # Check if bank code is invalid. If true, raise exception.

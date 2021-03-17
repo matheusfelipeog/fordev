@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/matheusfelipeog/fordev/master/.github/assets/images/fordev.png" alt="Logo Fordev" width="500px" />
+    <img src="https://raw.githubusercontent.com/matheusfelipeog/fordev/master/.github/assets/images/fordev.png" alt="Fordev - Gere e Valide Dados Randômicos" width="400px" />
 </p>
 
 <p align="center">

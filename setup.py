@@ -63,10 +63,13 @@ setup(
     author=__author__,
     author_email=__email__,
     url='https://github.com/matheusfelipeog/fordev',
-    packages=find_packages(),
+    packages=find_packages(
+        exclude=('tests',)
+    ),
     install_requires=[
         'requests',
-        'beautifulsoup4'
+        'beautifulsoup4',
+        'colorama'
     ],
     zip_safe=False,
     python_requires='>=3.6',

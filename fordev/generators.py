@@ -402,18 +402,9 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
     bank
         Recebe um valor númerico de 0 a 10 representando a
         bandeira do cartão de crédito a ser gerado.
-        Opções:
-            0 = Aleatório
-            1 = MasterCard
-            2 = Visa 16 Dígitos
-            3 = American Express
-            4 = Diners Club
-            5 = Discover
-            6 = enRoute
-            7 = JCB
-            8 = Voyager
-            9 = HiperCard
-            10 = Aura
+        
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
 
     if not (0 <= bank <= 10):

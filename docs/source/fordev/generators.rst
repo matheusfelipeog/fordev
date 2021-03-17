@@ -301,7 +301,44 @@ Docs de todas funções
 .. autofunction:: fordev.generators.rg
 .. autofunction:: fordev.generators.state_registration
 .. autofunction:: fordev.generators.voter_title
+
 .. autofunction:: fordev.generators.credit_card
+
+    :Bandeiras suportadas:
+
+        ``0`` = **Aleatório** `<Padrão>`
+
+        ``1`` = **MasterCard**
+
+        ``2`` = **Visa 16 Dígitos**
+
+        ``3`` = **American Express**
+
+        ``4`` = **Diners Club**
+
+        ``5`` = **Discover**
+
+        ``6`` = **enRoute**
+
+        ``7`` = **JCB**
+
+        ``8`` = **Voyager**
+
+        ``9`` = **HiperCard**
+
+        ``10`` = **Aura**
+
+        .. note::
+
+            O valor númerico que representa a bandeira do cartão de crédito deve ser passada para o parâmetro ``bank``.
+
+            **Exemplo:**
+
+            .. code-block:: python
+
+                >>> from fordev.generators import credit_card
+                >>> credit_card(bank=3)  # American Express
+
 .. autofunction:: fordev.generators.people
 .. autofunction:: fordev.generators.company
 .. autofunction:: fordev.generators.uf

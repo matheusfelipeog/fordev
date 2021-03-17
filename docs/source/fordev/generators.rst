@@ -46,6 +46,31 @@ Docs de todas funções
 ---------------------
 
 .. autofunction:: fordev.generators.certificate
+    
+    :Tipos de certidões:
+
+        ``I`` = **Indifferent** (Indiferente) `<Padrão>`
+
+        ``B`` = **Birth** (Nascimento)
+
+        ``W`` = **Wedding** (Casamento)
+
+        ``R`` = **Religious** Wedding (Casamento Religioso)
+
+        ``D`` = **Death (Morte)**
+
+        .. note::
+
+            Os tipos de certidões devem ser passados para o parâmetro ``type_``.
+
+            **Exemplo:**
+
+            .. code-block:: python
+
+                >>> from fordev.generators import certificate
+                >>> certificate(type_='B')
+
+
 .. autofunction:: fordev.generators.cnh
 .. autofunction:: fordev.generators.bank_account
 .. autofunction:: fordev.generators.cpf

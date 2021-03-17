@@ -100,12 +100,9 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
     ----------
     type_
         O tipo da certidão para geração do código.
-        Opções: 
-            'B' = Birth (Nascimento)
-            'W' = Wedding (Casamento)
-            'R' = Religious Wedding (Casamento Religioso)
-            'D' = Death (Morte)
-            'I' = Indifferent (Qualquer uma das anteriores)
+
+        Consulte a docs para verificar os tipos de certidões suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
 
     type_ = type_.upper()

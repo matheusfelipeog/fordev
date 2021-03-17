@@ -36,6 +36,44 @@ Docs de todas funções
 ---------------------
 
 .. autofunction:: fordev.validators.is_valid_credit_card
+
+    :Bandeiras suportadas:
+
+        ``1`` = **MasterCard**
+
+        ``2`` = **Visa 16 Dígitos**
+
+        ``3`` = **Visa Electron**
+
+        ``4`` = **American Express**
+
+        ``5`` = **Diners Club**
+
+        ``6`` = **Discover**
+
+        ``7`` = **enRoute**
+
+        ``8`` = **JCB**
+
+        ``9`` = **Maestro**
+
+        ``10`` = **Solo**
+
+        ``11`` = **Switch**
+
+        ``12`` = **Laser**
+
+        .. note::
+
+            O valor númerico que representa a bandeira do cartão de crédito deve ser passada para o parâmetro ``flag``.
+
+            **Exemplo:**
+
+            .. code-block:: python
+
+                >>> from fordev.validators import is_valid_credit_card
+                >>> is_valid_credit_card(flag=3)  # Visa Electron
+
 .. autofunction:: fordev.validators.is_valid_bank_account
 .. autofunction:: fordev.validators.is_valid_certificate
 .. autofunction:: fordev.validators.is_valid_cnh

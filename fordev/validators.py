@@ -115,19 +115,9 @@ def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True)
     ----------
     flag
         A bandeira do cartão de crédito que deseja validar o código.
-        Opções:
-            1 = MasterCard
-            2 = Visa 16 Dígitos
-            3 = Visa Electron
-            4 = American Express
-            5 = Diners Club
-            6 = Discover
-            7 = enRoute
-            8 = JCB
-            9 = Maestro
-            10 = Solo
-            11 = Switch
-            12 = Laser
+        
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
 
     credit_card_code
         O código do cartão de crédito para verificação.

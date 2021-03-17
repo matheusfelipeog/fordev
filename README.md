@@ -26,7 +26,7 @@
 - [O objetivo](#o-objetivo)
 - [Instalação](#instalação)
 - [Demo](#demo)
-- [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md)
+- [Documentação Oficial](https://fordev.readthedocs.io/)
 - [Funcionalidades](#funcionalidades)
    - [fordev.generators](#fordevgenerators)
    - [fordev.validators](#fordevvalidators)
@@ -96,7 +96,7 @@ Confira a seção de [funcionalidades](#funcionalidades) para ver todas as funç
 
 Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs.
 
-Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeog/fordev/blob/master/doc/README.md) para ver uma explicação detalhada e exemplos do uso de todas as funções.
+Você pode conferir a [Documentação Oficial](https://fordev.readthedocs.io/) para ver uma explicação detalhada e exemplos do uso de todas as funções.
 
 ### `fordev.generators`
 
@@ -123,17 +123,17 @@ Você pode conferir a [Documentação Oficial](https://github.com/matheusfelipeo
 
 Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
 
-- `credit_card(...)` - Verifica se o código de cartão de crédito passado é válido;
-- `bank_account(...)` - Verifica se os dados da conta bancária passado é válido;
-- `certificate(...)` - Verifica se o código de certidão passado é válido;
-- `cnh(...)` - Verifica se o código do CNH passado é válido;
-- `cnpj(...)` - Verifica se o código do cnpj passado é válido;
-- `cpf(...)` - Verifica se o código do cpf passado é válido;
-- `pis_pasep(...)` - Verifica se o código do PIS/PASEP passado é válido;
-- `renavam(...)` - Verifica se o código do RENAVAM passado é válido;
-- `rg(...)` - Verifica se o código do RG passado é válido;
-- `voter_title(...)` - Verifica se o código do Título de Eleitor passado é válido;
-- `state_registration(...)` - Verifica se o código da Inscrição Estadual passado é válido.
+- `is_valid_credit_card(...)` - Verifica se o código de cartão de crédito passado é válido;
+- `is_valid_bank_account(...)` - Verifica se os dados da conta bancária passado é válido;
+- `is_valid_certificate(...)` - Verifica se o código de certidão passado é válido;
+- `is_valid_cnh(...)` - Verifica se o código do CNH passado é válido;
+- `is_valid_cnpj(...)` - Verifica se o código do cnpj passado é válido;
+- `is_valid_cpf(...)` - Verifica se o código do cpf passado é válido;
+- `is_valid_pis_pasep(...)` - Verifica se o código do PIS/PASEP passado é válido;
+- `is_valid_renavam(...)` - Verifica se o código do RENAVAM passado é válido;
+- `is_valid_rg(...)` - Verifica se o código do RG passado é válido;
+- `is_valid_voter_title(...)` - Verifica se o código do Título de Eleitor passado é válido;
+- `is_valid_state_registration(...)` - Verifica se o código da Inscrição Estadual passado é válido.
 
 
 ## Contribuições

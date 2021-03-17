@@ -32,15 +32,16 @@ Fordev - Documentação oficial
 
 
 .. toctree::
-   :caption: Index
-   :maxdepth: 1
+    :hidden:
+    :caption: Index
+    :maxdepth: 1
 
-   install
-   demo
-   fordev/fordev
-   contributions
-   terms
-   license
+    install
+    demo
+    fordev/fordev
+    contributions
+    terms
+    license
 
 Está é a documentação oficial e completa do módulo **Fordev**, aqui você encontrará exemplos e uma explicação individual de cada função geradora e
 validadora de dados disponibilizados e mapeados no site `4Devs <https://4devs.com.br>`_.

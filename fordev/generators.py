@@ -453,11 +453,10 @@ def people(
         O número de pessoas a ter dados gerados. O mínimo é 1 e o máximo é 30.
 
     sex
-        Recebe uma única string representando o sexo da pessoa para geração dos dados.
-        Opções:
-            'M' = Male
-            'F' = Feminine
-            'R' = Random
+        Uma string representando o sexo da pessoa para geração dos dados.
+        
+        Consulte a doc para verificar as opções suportadas:
+        https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
 
     age
         A idade da pessoa para geração dos dados. A idade mínima é 18 e a máxima é 80.

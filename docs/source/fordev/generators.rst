@@ -340,6 +340,26 @@ Docs de todas funções
                 >>> credit_card(bank=3)  # American Express
 
 .. autofunction:: fordev.generators.people
+
+    :Opções de sexo:
+
+        ``R`` = **Random** `<Padrão>`
+
+        ``M`` = **Male**
+        
+        ``F`` = **Feminine**
+
+        .. note::
+
+            A opção de sexo deve ser passada para o parâmetro ``sex``.
+
+            **Exemplo:**
+
+            .. code-block:: python
+
+                >>> from fordev.generators import people
+                >>> people(sex='M')  # Male (Masculino)
+
 .. autofunction:: fordev.generators.company
 .. autofunction:: fordev.generators.uf
 .. autofunction:: fordev.generators.city

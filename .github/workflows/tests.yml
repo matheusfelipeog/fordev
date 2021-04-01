@@ -28,4 +28,6 @@ jobs:
         pipenv install
         
     - name: Run Unittest
-      run: python -m unittest discover tests/ --verbose
+      run: |
+        pipenv shell
+        python -m unittest discover tests/ --verbose

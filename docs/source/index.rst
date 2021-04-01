@@ -28,9 +28,13 @@ Documentação Oficial
     :alt: GitHub release (latest by date)
     :target: https://github.com/matheusfelipeog/fordev/releases
 
-.. image:: https://readthedocs.org/projects/fordev/badge/?version=latest&color=black
+.. image:: https://readthedocs.org/projects/fordev/badge/?version=latest
     :alt: Documentation Status
     :target: https://fordev.readthedocs.io/pt_BR/latest/?badge=latest
+
+.. image:: https://github.com/matheusfelipeog/fordev/workflows/Tests/badge.svg
+    :alt: Test Status
+    :target: https://github.com/matheusfelipeog/fordev/actions/workflows/tests.yml
 
 .. image:: https://img.shields.io/github/license/matheusfelipeog/fordev
     :alt: License MIT

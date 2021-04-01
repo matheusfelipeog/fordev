@@ -29,5 +29,4 @@ jobs:
         
     - name: Run Unittest
       run: |
-        pipenv shell
-        python -m unittest discover tests/ --verbose
+        pipenv run python -m unittest discover tests/ --verbose

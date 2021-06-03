@@ -122,7 +122,7 @@ Todas as funcionalidades disponíveis e que foram mapeadas no site 4Devs estão 
 | **uf**                 | ✔ | ❌ |
 | **city**               | ✔ | ❌ |
 
-Confira a [Documentação Oficial](https://fordev.readthedocs.io/) mais detalhes.
+Confira a [Documentação Oficial](https://fordev.readthedocs.io/) para mais detalhes.
 
 
 ## Contribuições

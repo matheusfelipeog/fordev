@@ -3,26 +3,33 @@
 </p>
 
 <p align="center">
-    <a href="https://pypi.org/project/fordev/">
-        <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/fordev" />
-    </a>
-    <a href="https://pypi.org/project/fordev/">
-        <img alt="Downloads in month" src="https://img.shields.io/pypi/dm/fordev" />
-    </a>
+    <sup>Metadata</sup>
+    <br />
     <a href="https://pypi.org/project/fordev/">
         <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/releases">
         <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/fordev" />
     </a>
+    <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/matheusfelipeog/fordev" alt="License MIT" />
+    </a>
+    <a href="https://pypi.org/project/fordev/">
+        <img alt="Downloads in month" src="https://img.shields.io/pypi/dm/fordev" />
+    </a>
+</p>
+
+<p align="center">
+    <sup>Status</sup>
+    <br />
+    <a href="https://pypi.org/project/fordev/">
+        <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/fordev" />
+    </a>
     <a href="https://fordev.readthedocs.io/pt_BR/latest/?badge=latest">
         <img alt="Documentation Status" src="https://readthedocs.org/projects/fordev/badge/?version=latest" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/actions/workflows/tests.yml">
         <img alt="Test Status" src="https://github.com/matheusfelipeog/fordev/workflows/Tests/badge.svg" />
-    </a>
-    <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/matheusfelipeog/fordev" alt="License MIT" />
     </a>
 </p>
 

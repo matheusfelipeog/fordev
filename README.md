@@ -3,26 +3,33 @@
 </p>
 
 <p align="center">
-    <a href="https://pypi.org/project/fordev/">
-        <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/fordev" />
-    </a>
-    <a href="https://pypi.org/project/fordev/">
-        <img alt="Downloads in month" src="https://img.shields.io/pypi/dm/fordev" />
-    </a>
+    <sup>Metadata</sup>
+    <br />
     <a href="https://pypi.org/project/fordev/">
         <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/releases">
         <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/fordev" />
     </a>
+    <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/matheusfelipeog/fordev" alt="License MIT" />
+    </a>
+    <a href="https://pypi.org/project/fordev/">
+        <img alt="Downloads in month" src="https://img.shields.io/pypi/dm/fordev" />
+    </a>
+</p>
+
+<p align="center">
+    <sup>Status</sup>
+    <br />
+    <a href="https://pypi.org/project/fordev/">
+        <img alt="PyPI - Status" src="https://img.shields.io/pypi/status/fordev" />
+    </a>
     <a href="https://fordev.readthedocs.io/pt_BR/latest/?badge=latest">
         <img alt="Documentation Status" src="https://readthedocs.org/projects/fordev/badge/?version=latest" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/actions/workflows/tests.yml">
         <img alt="Test Status" src="https://github.com/matheusfelipeog/fordev/workflows/Tests/badge.svg" />
-    </a>
-    <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/matheusfelipeog/fordev" alt="License MIT" />
     </a>
 </p>
 
@@ -100,46 +107,29 @@ Confira a seção de [funcionalidades](#funcionalidades) para ver todas as funç
 
 ## Funcionalidades
 
-Abaixo estão todas as funções correspondentes às funcionalidades disponíveis e que foram mapeadas no site 4Devs.
+Todas as funcionalidades disponíveis e que foram mapeadas no site 4Devs estão listados na tabela abaixo.
 
-Você pode conferir a [Documentação Oficial](https://fordev.readthedocs.io/) para ver uma explicação detalhada e exemplos do uso de todas as funções.
+| Função | Tem gerador? | Tem validador? |
+| :----: | :----------: | :------------: |
+| **certificate**        | ✔ | ✔ |
+| **cnh**                | ✔ | ✔ |
+| **bank_account**       | ✔ | ✔ |
+| **pis_pasep**          | ✔ | ✔ |
+| **renavam**            | ✔ | ✔ |
+| **vehicle**            | ✔ | ❌ |
+| **vehicle_brand**      | ✔ | ❌ |
+| **vehicle_plate**      | ✔ | ❌ |
+| **cnpj**               | ✔ | ✔ |
+| **rg**                 | ✔ | ❌ |
+| **state_registration** | ✔ | ✔ |
+| **voter_title**        | ✔ | ✔ |
+| **credit_card**        | ✔ | ✔ |
+| **people**             | ✔ | ❌ |
+| **company**            | ✔ | ❌ |
+| **uf**                 | ✔ | ❌ |
+| **city**               | ✔ | ❌ |
 
-### `fordev.generators`
-
-- `certificate(...)` - Gerador de certidões de nascimento, casamento e óbito;
-- `cnh(...)` -  Gerador de CNH (Carteira Nacional de Habilitação);
-- `bank_account(...)` - Gerador de contas bancárias;
-- `cpf(...)` - Gerador de CPF (Cadastro de Pessoas Físicas);
-- `pis_pasep(...)` - Gerador de PIS/PASEP (Programa de Integração Social e Programa de Formação do Patrimônio do Servidor Público);
-- `renavam(...)` - Gerador de RENAVAM (Registro Nacional de Veículos Automotores);
-- `vehicle(...)` - Gerador de veículos;
-- `vehicle_brand(...)` - Gerador de marca de veículos;
-- `vehicle_plate(...)` - Gerador de placa de veículos;
-- `cnpj(...)` - Gerador de CNPJ (Cadastro Nacional da Pessoa Jurídica);
-- `rg(...)` - Gerador de RG (Registro Geral) emitido por SSP-SP;
-- `state_registration(...)` - Gerador de Inscrições Estaduais válidas para todos os estados;
-- `voter_title(...)` - Gerador de título de eleitor;
-- `credit_card(...)` - Gerador de dados de cartão de crédito;
-- `people(...)` - Gerador de dados de pessoas (Nome, RG, CPF, CEP e Endereço);
-- `company(...)` - Gerador de dados de empresa (Nome, Razão Social, Inscrição Estadual, CNPJ, CEP e Endereço);
-- `uf(...)` - Gerador de código de UF (Unidade Federativa);
-- `city(...)` - Gerador de cidades do brasil por estado selecionado.
-
-### `fordev.validators`
-
-Todas as funções disponíveis neste módulo são responsáveis por verificar se o dado passado é válido ou não.
-
-- `is_valid_credit_card(...)` - Verifica se o código de cartão de crédito passado é válido;
-- `is_valid_bank_account(...)` - Verifica se os dados da conta bancária passado é válido;
-- `is_valid_certificate(...)` - Verifica se o código de certidão passado é válido;
-- `is_valid_cnh(...)` - Verifica se o código do CNH passado é válido;
-- `is_valid_cnpj(...)` - Verifica se o código do cnpj passado é válido;
-- `is_valid_cpf(...)` - Verifica se o código do cpf passado é válido;
-- `is_valid_pis_pasep(...)` - Verifica se o código do PIS/PASEP passado é válido;
-- `is_valid_renavam(...)` - Verifica se o código do RENAVAM passado é válido;
-- `is_valid_rg(...)` - Verifica se o código do RG passado é válido;
-- `is_valid_voter_title(...)` - Verifica se o código do Título de Eleitor passado é válido;
-- `is_valid_state_registration(...)` - Verifica se o código da Inscrição Estadual passado é válido.
+Confira a [Documentação Oficial](https://fordev.readthedocs.io/) para mais detalhes.
 
 
 ## Contribuições

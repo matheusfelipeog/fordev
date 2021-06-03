@@ -3,7 +3,7 @@ Aviso Legal
 
 .. note::
 
-    O aviso abaixo é uma adaptação para utilização no repositório, confira os termos de uso oficial do site 4Devs em: `Termos de Uso <https://www.4devs.com.br/termos_de_uso>`_
+    O aviso abaixo é uma adaptação para utilização no repositório. Confira os termos de uso oficial do site 4Devs em: `Termos de Uso <https://www.4devs.com.br/termos_de_uso>`_
 
 Todo os dados são gerados de forma randômica, respeitando as regras de criação de cada tipo de dado.
 

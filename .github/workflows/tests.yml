@@ -2,22 +2,23 @@ name: Tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [master, dev]
   pull_request:
-    branches: [ master ]
+    branches: [master, dev]
 
 jobs:
   unittest:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ['3.6', '3.7', '3.8', '3.9', '3.10']
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
         

@@ -230,7 +230,12 @@ def renavam(data_only: bool=True) -> str:
     return data_format(data_only=data_only, data_dict=resp)
 
 
-def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only: bool=True) -> dict:
+def vehicle(
+        brand_code: int=0,
+        uf_code: str='',
+        formatting: bool=True,
+        data_only: bool=True
+    ) -> dict:
     """Gere dados de veículo aleatório.
 
     Parameters

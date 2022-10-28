@@ -372,7 +372,11 @@ def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
     return data_format(data_only=data_only, data_dict=resp)
 
 
-def is_valid_state_registration(uf_code: str, state_registration_code: str, data_only: bool=True) -> bool:
+def is_valid_state_registration(
+        uf_code: str,
+        state_registration_code: str,
+        data_only: bool=True
+    ) -> bool:
     """Verifique se o código do registro estadual é válido.
 
     Parameters

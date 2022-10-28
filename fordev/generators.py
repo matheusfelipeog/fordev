@@ -28,7 +28,7 @@ Parameters
 ----------
 uf_code: str
     Recebe o Código da **Unidade Federativa** para geração do dado.
-    
+
     Caso não saiba o que é ou não conheça o do estado que necessita, 
     obtenha mais informações em: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
@@ -88,7 +88,7 @@ from fordev.filters import filter_company_info
 
 def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> str:
     """Gere o código de certidões (birth, wedding, religious wedding and death) aleatórias.
-    
+
     Parameters
     ----------
     type_
@@ -136,7 +136,7 @@ def cnh(data_only: bool=True) -> str:
 
 def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
     """Gere dados de conta bancária.
-    
+
     Parameters
     ----------
     bank
@@ -169,10 +169,10 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
             'banco': bank
         }
     )
-    
+
     # Replace data in html format with bank account info only.
     r['data'] = filter_bank_account_info(r['data'])
-    
+
     return data_format(data_only=data_only, data_dict=r)
 
 
@@ -207,7 +207,7 @@ def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
             'pontuacao': 'S' if formatting else 'N'
         }
     )
-    
+
     return data_format(data_only=data_only, data_dict=r)    
 
 
@@ -225,7 +225,7 @@ def renavam(data_only: bool=True) -> str:
 
 def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only: bool=True) -> dict:
     """Gere dados de veículo aleatório.
-    
+
     Parameters
     ----------
     brand
@@ -262,10 +262,10 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
             'fipe_codigo_marca': brand_code
         }
     )
-    
+
     # Replace data in html format with bank account info only.
     r['data'] = filter_vehicle_info(r['data'])
-    
+
     return data_format(data_only=data_only, data_dict=r)
 
 
@@ -283,7 +283,7 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
         msg_error += f' The range is 1 to 27 UF code.'
 
         raise ValueError(msg_error)
-    
+
     full_data = {
         'msg': 'success', 
         'data': random_sample(
@@ -314,7 +314,7 @@ def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) 
             'estado':uf_code
         }
     )
-    
+
     return data_format(data_only=data_only, data_dict=r)
 
 
@@ -344,7 +344,7 @@ def rg(formatting: bool=True, data_only: bool=True) -> str:
             'pontuacao': 'S' if formatting else 'N',
         }
     )
-    
+
     return data_format(data_only=data_only, data_dict=r)
 
 
@@ -389,13 +389,13 @@ def voter_title(uf_code: str, data_only: bool=True) -> str:
 
 def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dict:
     """Gere dados de cartão de crédito aleatório.
-    
+
     Parameters
     ----------
     bank
         Recebe um valor númerico de 0 a 10 representando a
         bandeira do cartão de crédito a ser gerado.
-        
+
         Consulte a doc para verificar as opções suportadas:
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
@@ -412,7 +412,7 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
     else:
         bank = random_choice(
             list(ALL_BANK_FLAGS.values())
-        ) 
+        )
 
     r = fordev_request(
         content_length=43,
@@ -423,7 +423,7 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
             'bandeira': bank
         }
     )
-    
+
     # Replace data in html format with credit card info only.
     r['data'] = filter_credit_card_info(r['data'])
 
@@ -439,7 +439,7 @@ def people(
         data_only: bool=True
     ) -> str:
     """Gere dados de pessoa(s) aleatório(s)
-    
+
     Parameters
     ----------
     n
@@ -447,14 +447,14 @@ def people(
 
     sex
         Uma string representando o sexo da pessoa para geração dos dados.
-        
+
         Consulte a doc para verificar as opções suportadas:
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
 
     age
         A idade da pessoa para geração dos dados. A idade mínima é 18 e a máxima é 80.
     """
-    
+
     sex = sex.upper()
 
     uf_code = uf_code.upper()
@@ -476,7 +476,7 @@ def people(
         msg_error += f' The range is 18 to 80 age'
 
         raise ValueError(msg_error)
-    
+
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
     r = fordev_request(
@@ -498,21 +498,21 @@ def people(
 
     if data_only and r['msg'] == 'success':
         return json_loads(r['data'])
-    
+
     if r['msg'] == 'success':
 
         # Convert data in str to dict.
         r['data'] = json_loads(r['data'])
 
         return r
-    
+
     # In case of failure, return msg status and msg error.
     return r
 
 
 def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
     """Gere dados de companhia (empresa/organização) aleatório.
-    
+
     Parameters
     ----------
     age
@@ -539,7 +539,7 @@ def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: boo
             'idade': age
         }
     )
-    
+
     # Replace data in html format with company info only.
     r['data'] = filter_company_info(r['data'])
 
@@ -560,7 +560,7 @@ def uf(n: int=1, data_only: bool=True) -> list:
         msg_error += f' The range is 1 to 27 UF code.'
 
         raise ValueError(msg_error)
-    
+
     full_data = {
         'msg': 'success', 
         'data': random_sample(ALL_UF_CODE, n)
@@ -587,7 +587,7 @@ def city(uf_code: str='SP', data_only: bool=True) -> list:
             'cep_estado': uf_code
         }
     )
-    
+
     # Replace data in html format with city names only
     r['data'] = filter_city_name(r['data'])
 

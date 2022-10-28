@@ -12,7 +12,7 @@ class TestGenerators(unittest.TestCase):
     def test_vehicle_brand_generator_with_data_only_argument_as_true(self):
         brands = vehicle_brand(data_only=True)
         self.assertIsInstance(brands, list)
-    
+
     def test_vehicle_brand_generator_with_data_only_argument_as_false(self):
         brands = vehicle_brand(data_only=False)
         self.assertIsInstance(brands, dict)
@@ -25,7 +25,7 @@ class TestGenerators(unittest.TestCase):
         max_brands = vehicle_brand(n=87)
         self.assertGreaterEqual(len(min_brands), 1)
         self.assertLessEqual(len(max_brands), 87)
-    
+
     def test_if_vehicle_brand_generator_not_exceed_min_and_max_limit_of_return(self):
         with self.assertRaises(ValueError):
             vehicle_brand(n=0)
@@ -40,7 +40,7 @@ class TestGenerators(unittest.TestCase):
     def test_uf_generator_with_data_only_argument_as_true(self):
         ufs = uf(data_only=True)
         self.assertIsInstance(ufs, list)
-    
+
     def test_uf_generator_with_data_only_argument_as_false(self):
         ufs = uf(data_only=False)
         self.assertIsInstance(ufs, dict)
@@ -53,7 +53,7 @@ class TestGenerators(unittest.TestCase):
         max_ufs = uf(n=27)
         self.assertGreaterEqual(len(min_ufs), 1)
         self.assertLessEqual(len(max_ufs), 27)
-    
+
     def test_if_uf_generator_not_exceed_min_and_max_limit_of_return(self):
         with self.assertRaises(ValueError):
             uf(n=0)

@@ -23,7 +23,7 @@ def _random_user_agent() -> str:
 
 def _create_headers(content_length: int, referer: str) -> dict:
     """Gere o header para ser enviado em requests HTTP para o site 4devs.
-    
+
     Parameters
     ----------
     content_length
@@ -61,7 +61,7 @@ def _create_headers(content_length: int, referer: str) -> dict:
 def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
     """Cria uma request HTTP a API do site 4devs e 
     retorna seu conteúdo em formato de dicionário.
-    
+
     Parameters
     ----------
     content_length
@@ -85,7 +85,7 @@ def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
         # Check if the status code is between 400 to 600,
         # if yes it returns an error message and the error.
         response.raise_for_status()
-        
+
         # On success, returns a message and data.
         return {
             'msg': 'success',

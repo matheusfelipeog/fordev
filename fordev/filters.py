@@ -21,10 +21,10 @@ from bs4 import BeautifulSoup
 
 def data_format(data_only: bool, data_dict: dict) -> dict:
     """Filtra os dados conforme especificado."""
-    
+
     if data_only and data_dict['msg'] == 'success':
         return data_dict['data']
-    
+
     return data_dict
 
 

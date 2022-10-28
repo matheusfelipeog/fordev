@@ -61,7 +61,7 @@ from fordev.filters import data_format
 def _data_verification_and_normalize(data: dict) -> dict:
     """"Verifique se a key existe e se o valor é válido.
     Se válido, substítui para um novo formato.
-    
+
     Parameters
     ----------
     data
@@ -73,13 +73,13 @@ def _data_verification_and_normalize(data: dict) -> dict:
     if data.get('data', False):
         is_valid = data['data'].split(' - ')[-1].lower() == 'verdadeiro'
         data['data'] = is_valid
-    
+
     return data
 
 
 def raise_for_invalid_uf(uf, include_blank=False):
     """Levanta uma exceção if o código UF for inválido.
-    
+
     Parameters
     ----------
     include_blank
@@ -103,12 +103,12 @@ def raise_for_invalid_uf(uf, include_blank=False):
 
 def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do cartão de crédito é válido.
-    
+
     Parameters
     ----------
     flag
         A bandeira do cartão de crédito que deseja validar o código.
-        
+
         Consulte a doc para verificar as opções suportadas:
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
 
@@ -142,15 +142,15 @@ def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True)
 
 def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
     """Verifique se os dados da conta bancária são válidos.
-    
+
     Parameters
     ----------
     bank
         A bandeira do banco da conta bancária que deseja validar os dados.
-        
+
         Consulte a doc para verificar as opções suportadas:
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
-    
+
     agency
         O código da agência bancária para verificação.
 
@@ -186,7 +186,7 @@ def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=
 
 def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
     """Verifique se o código da Certidão (birth, wedding, religious wedding and death) é válido.
-    
+
     Parameters
     ----------
     certificate_code
@@ -209,7 +209,7 @@ def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
 
 def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
     """Verifique se o código da CNH é válido.
-    
+
     Parameters
     ----------
     cnh_code
@@ -232,7 +232,7 @@ def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
 
 def is_valid_cnpj(cnpj_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do CNPJ é válido.
-    
+
     Parameters
     ----------
     cnpj_code
@@ -255,7 +255,7 @@ def is_valid_cnpj(cnpj_code: str, data_only: bool=True) -> bool:
 
 def is_valid_cpf(cpf_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do CPF é válido.
-    
+
     Parameters
     ----------
     cpf_code
@@ -278,7 +278,7 @@ def is_valid_cpf(cpf_code: str, data_only: bool=True) -> bool:
 
 def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do PIS/PASEP é válido.
-    
+
     Parameters
     ----------
     pis_pasep_code
@@ -301,7 +301,7 @@ def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
 
 def is_valid_renavam(renavam_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do RENAVAM é válido.
-    
+
     Parameters
     ----------
     renavam_code
@@ -324,7 +324,7 @@ def is_valid_renavam(renavam_code: str, data_only: bool=True) -> bool:
 
 def is_valid_rg(rg_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do RG é válido.
-    
+
     Parameters
     ----------
     rg_code
@@ -347,7 +347,7 @@ def is_valid_rg(rg_code: str, data_only: bool=True) -> bool:
 
 def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do título de eleitor é válido.
-    
+
     Parameters
     ----------
     voter_title_code
@@ -372,12 +372,12 @@ def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
 
 def is_valid_state_registration(uf_code: str, state_registration_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do registro estadual é válido.
-    
+
     Parameters
     ----------
     uf_code
         O código UF(Unidade Federativa) do estado que pertence o registro estadual.
-        
+
         Mais informações: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
     state_registration_code

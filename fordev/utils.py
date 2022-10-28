@@ -16,11 +16,11 @@ class CheckVersion(object):
     """Check if package has a newer version."""
 
     def __init__(self, current_version: str, package_name: str):
-        
+
         self.current_version = current_version
         self.package_name = package_name
         self.latest_version = None
-    
+
     def endpoint(self):
         """Build endpoint of Pypi API."""
 
@@ -40,7 +40,7 @@ class CheckVersion(object):
             url = self.endpoint()
 
             r = requests.get(url)
-            
+
             if r.status_code == 200:
                 self.latest_version = r.json()['info']['version']
 
@@ -57,7 +57,7 @@ class CheckVersion(object):
 
         if latest_version > current_version:
             return True
-        
+
         return False
 
     def print_status(self):
@@ -78,7 +78,7 @@ class CheckVersion(object):
         print(warning)
 
         deinit()  # Stop colorama
-    
+
     @staticmethod
     def run(current_version: str, package_name: str):
         """Run CheckVersion without instantiating an object."""

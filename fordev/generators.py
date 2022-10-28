@@ -486,8 +486,10 @@ def people(
         raise ValueError(msg_error)
 
     if not (18 <= age <= 80) and age != 0:
-        msg_error = f'The age "{age}" is invalid. Enter a valid age.'
-        msg_error += f' The range is 18 to 80 age'
+        msg_error = (
+            f'The age "{age}" is invalid. Enter a valid age.'
+            ' The range is 18 to 80 age.'
+        )
 
         raise ValueError(msg_error)
 

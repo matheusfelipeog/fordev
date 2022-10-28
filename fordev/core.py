@@ -73,7 +73,8 @@ def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
         response = requests.post(
             url=URL_4DEV_API,
             headers=_create_headers(content_length, referer),
-            data=payload
+            data=payload,
+            timeout=10
         )
 
         response.raise_for_status()

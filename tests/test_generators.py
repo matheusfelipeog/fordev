@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Tests of fordev.generators module."""
 
 import unittest

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Tests of fordev.filters module."""
 
 import unittest

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Metadados do projeto."""
 
 __version__ = '1.0.3'

@@ -7,18 +7,9 @@ Este módulo é o core para criar e manipular requests para a API do site 4devs.
 
 __all__ = ['fordev_request']
 
-from random import choice
-
 import requests
 
 from fordev.consts import URL_4DEV_API
-from fordev.consts import USER_AGENTS
-
-
-def _random_user_agent() -> str:
-    """Obtenha um user agent aleatório."""
-
-    return choice(USER_AGENTS)
 
 
 def _create_headers(content_length: int, referer: str) -> dict:
@@ -36,7 +27,10 @@ def _create_headers(content_length: int, referer: str) -> dict:
     """
 
     headers = {
-        'user-agent': _random_user_agent(),
+        'user-agent': (
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
+            'Chrome/106.0.0.0 Safari/537.36'
+        ),
         'authority': 'www.4devs.com.br',
         'method': 'POST',
         'path': '/ferramentas_online.php',

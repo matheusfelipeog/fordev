@@ -36,23 +36,23 @@ def _create_headers(content_length: int, referer: str) -> dict:
     """
 
     headers = {
-        "user-agent": _random_user_agent(),
-        "authority": "www.4devs.com.br",
-        "method": "POST",
-        "path": "/ferramentas_online.php",
-        "scheme": "https",
-        "accept": "*/*",
-        "accept-encoding": "gzip, deflate, br",
-        "accept-language": "pt,en-US;q=0.9,en;q=0.8",
-        "content-length": str(content_length),
-        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-        "dnt": "1",
-        "origin": "https://www.4devs.com.br",
-        "referer": "https://www.4devs.com.br/{}".format(referer),
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin",
-        "x-requested-with": "XMLHttpRequest"
+        'user-agent': _random_user_agent(),
+        'authority': 'www.4devs.com.br',
+        'method': 'POST',
+        'path': '/ferramentas_online.php',
+        'scheme': 'https',
+        'accept': '*/*',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'pt,en-US;q=0.9,en;q=0.8',
+        'content-length': str(content_length),
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'dnt': '1',
+        'origin': 'https://www.4devs.com.br',
+        'referer': f'https://www.4devs.com.br/{referer}',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'x-requested-with': 'XMLHttpRequest'
     }
 
     return headers

@@ -100,12 +100,20 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
 
     type_ = type_.upper()
 
-    certificate_types = {'I': 'Indiferente', 'B': 'nascimento', 'W': 'casamento', 'R': 'casamento_religioso', 'D': 'obito'}
+    certificate_types = {
+        'I': 'Indiferente',
+        'B': 'nascimento',
+        'W': 'casamento',
+        'R': 'casamento_religioso',
+        'D': 'obito'
+    }
 
     if not certificate_types.get(type_, False):
-        msg_error = f'The certificate type "{type_}" is invalid. Enter a valid type.'
-        msg_error += f' Ex: "B" = Birth, "W" = Wedding, "R" = Religious Wedding, "D" = Death and "I" = Indifferent (Default).'
-
+        msg_error = (
+            f'The certificate type "{type_}" is invalid. Enter a valid type.'
+            ' Ex: "B" = Birth, "W" = Wedding, "R" = Religious Wedding,'
+            '"D" = Death and "I" = Indifferent (Default).'
+        )
         raise ValueError(msg_error)
 
     r = fordev_request(
@@ -147,8 +155,10 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
     """
 
     if not (0 <= bank <= 5):
-        msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
-        msg_error += f' The range is 0 to 5.'
+        msg_error = (
+            f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
+            ' The range is 0 to 5.'
+        )
 
         raise ValueError(msg_error)
 
@@ -234,8 +244,11 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
     """
 
     if not (0 <= brand_code <= 87):
-        msg_error = f'The vehicle brand code value "{brand_code}" is invalid. Enter a valid vehicle brand code.'
-        msg_error += f' The range is 0 to 87.'
+        msg_error = (
+            f'The vehicle brand code value "{brand_code}" is invalid.'
+            ' Enter a valid vehicle brand code.'
+            ' The range is 0 to 87.'
+        )
 
         raise ValueError(msg_error)
 
@@ -274,8 +287,10 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
     """
 
     if not (1 <= n <= 87):
-        msg_error = f'The n value "{n}" is invalid. Enter a valid number of UF.'
-        msg_error += f' The range is 1 to 27 UF code.'
+        msg_error = (
+            f'The n value "{n}" is invalid. Enter a valid number of UF.'
+            ' The range is 1 to 27 UF code.'
+        )
 
         raise ValueError(msg_error)
 
@@ -396,8 +411,10 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
     """
 
     if not (0 <= bank <= 10):
-        msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
-        msg_error += f' The range is 0 to 10.'
+        msg_error = (
+            f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
+            ' The range is 0 to 10.'
+        )
 
         raise ValueError(msg_error)
 
@@ -453,14 +470,18 @@ def people(
     uf_code = uf_code.upper()
 
     if not (1 <= n <= 30):
-        msg_error = f'The n value "{n}" is invalid. Enter a valid number of people.'
-        msg_error += f' The range is 1 to 30 peoples.'
+        msg_error = (
+            f'The n value "{n}" is invalid. Enter a valid number of people.'
+            ' The range is 1 to 30 peoples.'
+        )
 
         raise ValueError(msg_error)
 
     if sex not in ['M', 'F', 'R']:
-        msg_error = f'The sex "{sex}" is invalid. Enter a valid sex.'
-        msg_error += f' Ex: "M" = Male, "F" = Feminine or "R" = Random.'
+        msg_error = (
+            f'The sex "{sex}" is invalid. Enter a valid sex.'
+            ' Ex: "M" = Male, "F" = Feminine or "R" = Random.'
+        )
 
         raise ValueError(msg_error)
 
@@ -512,8 +533,10 @@ def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: boo
     raise_for_invalid_uf(uf=uf_code)
 
     if not (1 <= age <= 30):
-        msg_error = f'The company age value "{age}" is invalid. Enter a valid company age.'
-        msg_error += f' The range is 1 to 30.'
+        msg_error = (
+            f'The company age value "{age}" is invalid. Enter a valid company age.'
+            ' The range is 1 to 30.'
+        )
 
         raise ValueError(msg_error)
 
@@ -543,8 +566,10 @@ def uf(n: int=1, data_only: bool=True) -> list:
     """
 
     if not (1 <= n <= 27):
-        msg_error = f'The n value "{n}" is invalid. Enter a valid number of UF.'
-        msg_error += f' The range is 1 to 27 UF code.'
+        msg_error = (
+            f'The n value "{n}" is invalid. Enter a valid number of UF.'
+            ' The range is 1 to 27 UF code.'
+        )
 
         raise ValueError(msg_error)
 

@@ -8,8 +8,6 @@ Este módulo contém todas as variáveis com valores constantes usadas no pacote
 from fordev.__about__ import __version__
 from fordev.__about__ import __author__
 from fordev.__about__ import __email__
-from fordev.__about__ import __author_github__
-from fordev.__about__ import __project_github__
 
 
 URL_4DEV_API = 'https://www.4devs.com.br/ferramentas_online.php'

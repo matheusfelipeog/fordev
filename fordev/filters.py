@@ -19,8 +19,6 @@ __all__ = [
 from fordev.__about__ import __version__
 from fordev.__about__ import __author__
 from fordev.__about__ import __email__
-from fordev.__about__ import __author_github__
-from fordev.__about__ import __project_github__
 
 from bs4 import BeautifulSoup
 

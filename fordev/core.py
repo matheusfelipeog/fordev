@@ -82,11 +82,8 @@ def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
             data=payload
         )
 
-        # Check if the status code is between 400 to 600,
-        # if yes it returns an error message and the error.
         response.raise_for_status()
 
-        # On success, returns a message and data.
         return {
             'msg': 'success',
             'data': response.text

@@ -116,7 +116,6 @@ def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True)
         O código do cartão de crédito para verificação.
    """
 
-    # Check if bank code is invalid. If true, raise exception.
     if not (1 <= flag <= 12):
         msg_error = f'The flag credit card code value "{flag}" is invalid. Enter a valid flag credit card code.'
         msg_error += f' The range is 1 to 12.'
@@ -158,15 +157,13 @@ def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=
         O código da conta bancária para verificação.
    """
 
-    # Check if bank code is invalid. If true, raise exception.
     if not (1 <= bank <= 5):
         msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
         msg_error += f' The range is 1 to 5.'
 
         raise ValueError(msg_error)
 
-    # Replace the bank number with the bank code used in 4devs.
-    bank = [2, 121, 85, 120, 151][bank - 1]  # Use the index for get the bank code.
+    bank = [2, 121, 85, 120, 151][bank - 1]
 
     content_length = 66
     referer = 'validador_conta_bancaria'

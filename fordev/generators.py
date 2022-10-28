@@ -102,7 +102,6 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
 
     certificate_types = {'I': 'Indiferente', 'B': 'nascimento', 'W': 'casamento', 'R': 'casamento_religioso', 'D': 'obito'}
 
-    # If type_ not exists in certificate_types, raise exception.
     if not certificate_types.get(type_, False):
         msg_error = f'The certificate type "{type_}" is invalid. Enter a valid type.'
         msg_error += f' Ex: "B" = Birth, "W" = Wedding, "R" = Religious Wedding, "D" = Death and "I" = Indifferent (Default).'
@@ -110,7 +109,7 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
         raise ValueError(msg_error)
 
     r = fordev_request(
-        content_length=67,  # Max of bytes for generate certificate in all possibilities.
+        content_length=67,
         referer='gerador_numero_certidoes', 
         payload={
             'acao': 'gerador_certidao',
@@ -123,7 +122,7 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
 
 
 def cnh(data_only: bool=True) -> str:
-    """Random generate of CNH(Carteira Nacional de Habilitação)."""
+    """Geração aleatória de CNH (Carteira Nacional de Habilitação)."""
 
     r = fordev_request(
         content_length=14,
@@ -153,8 +152,7 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
 
         raise ValueError(msg_error)
 
-    # Replace the bank number with the bank code used in 4devs.
-    bank = ['', 2, 121, 85, 120, 151][bank]  # Use the index for get the bank code.
+    bank = ['', 2, 121, 85, 120, 151][bank]
 
     uf_code = uf_code.upper()
 
@@ -170,7 +168,6 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
         }
     )
 
-    # Replace data in html format with bank account info only.
     r['data'] = filter_bank_account_info(r['data'])
 
     return data_format(data_only=data_only, data_dict=r)
@@ -242,7 +239,6 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
 
         raise ValueError(msg_error)
 
-    # Replace the brand code with the brand code used in 4devs.
     if brand_code != 0:
         brand_code = ALL_VEHICLE_BRANDS[brand_code]['code']
     else:
@@ -253,7 +249,7 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
     r = fordev_request(
-        content_length=62,  # Max of bytes for generate vehicle data in all possibilities.
+        content_length=62,
         referer='gerador_de_veiculos',
         payload={
             'acao': 'gerar_veiculo',
@@ -263,7 +259,6 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
         }
     )
 
-    # Replace data in html format with bank account info only.
     r['data'] = filter_vehicle_info(r['data'])
 
     return data_format(data_only=data_only, data_dict=r)
@@ -287,8 +282,8 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
     full_data = {
         'msg': 'success', 
         'data': random_sample(
-            [v_brand['brand_name'] for v_brand in ALL_VEHICLE_BRANDS.values()],  # Create a list brand name
-            n 
+            [v_brand['brand_name'] for v_brand in ALL_VEHICLE_BRANDS.values()],
+            n
         )
     }
 
@@ -406,7 +401,6 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
 
         raise ValueError(msg_error)
 
-    # Replace the bank code with the bank flag used in 4devs.
     if bank != 0:
         bank = ALL_BANK_FLAGS[bank]
     else:
@@ -424,7 +418,6 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
         }
     )
 
-    # Replace data in html format with credit card info only.
     r['data'] = filter_credit_card_info(r['data'])
 
     return data_format(data_only=data_only, data_dict=r)
@@ -480,18 +473,15 @@ def people(
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
     r = fordev_request(
-        content_length=99,  # Max of bytes for generate people in all possibilities.
+        content_length=99,
         referer='gerador_de_pessoas',
         payload={
             'acao': 'gerar_pessoa',
-            'sexo': 'H' if sex == 'M' else 'M' if sex == 'F' else 'I',  # H, M and I flags are used in 4devs for filter.
+            'sexo': 'H' if sex == 'M' else 'M' if sex == 'F' else 'I',
             'pontuacao': 'S' if formatting else 'N',
             'idade': age,
             'cep_estado': uf_code,
             'txt_qtde': n,
-
-            # If the state is not selected, a default flag is used for the city ('Selecione o estado!') or
-            # If the state is selected and city is not selected, a default flag is used for the city ('').
             'cep_cidade': 'Selecione o estado!' if uf_code == '' else ''
         }
     )
@@ -501,12 +491,10 @@ def people(
 
     if r['msg'] == 'success':
 
-        # Convert data in str to dict.
         r['data'] = json_loads(r['data'])
 
         return r
 
-    # In case of failure, return msg status and msg error.
     return r
 
 
@@ -540,7 +528,6 @@ def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: boo
         }
     )
 
-    # Replace data in html format with company info only.
     r['data'] = filter_company_info(r['data'])
 
     return data_format(data_only=data_only, data_dict=r)
@@ -588,7 +575,6 @@ def city(uf_code: str='SP', data_only: bool=True) -> list:
         }
     )
 
-    # Replace data in html format with city names only
     r['data'] = filter_city_name(r['data'])
 
     return data_format(data_only=data_only, data_dict=r)

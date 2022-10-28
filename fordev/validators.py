@@ -50,10 +50,6 @@ __all__ = [
     'is_valid_state_registration',
 ]
 
-from fordev import __version__
-from fordev import __author__
-from fordev import __email__
-
 from fordev.core import fordev_request
 
 from fordev.consts import ALL_UF_CODE

@@ -65,10 +65,6 @@ __all__ = [
     'city'
 ]
 
-from fordev import __version__
-from fordev import __author__
-from fordev import __email__
-
 from json import loads as json_loads
 
 from random import sample as random_sample

@@ -7,10 +7,6 @@ This module contains useful classes and functions for the fordev package.
 
 __all__ = ['CheckVersion']
 
-from fordev import __version__
-from fordev import __author__
-from fordev import __email__
-
 from colorama import init, deinit, Fore
 
 import requests

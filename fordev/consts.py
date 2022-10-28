@@ -5,11 +5,6 @@ fordev.consts
 Este módulo contém todas as variáveis com valores constantes usadas no pacote fordev.
 """
 
-from fordev import __version__
-from fordev import __author__
-from fordev import __email__
-
-
 URL_4DEV_API = 'https://www.4devs.com.br/ferramentas_online.php'
 
 USER_AGENTS = [

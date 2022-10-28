@@ -77,7 +77,7 @@ setup(
         "Source Code": "https://github.com/matheusfelipeog/fordev",
     },
     keywords=[
-        'fordev', '4dev', '4devs', '4devs-api', '4devs-module', 
+        'fordev', '4dev', '4devs', '4devs-api', '4devs-module',
         'fourthdev', 'python', 'api', 'scraping', 'data-generator',
         'fake-data', 'fake-data-generator', 'data-manipulation',
         'data-validation', 'random-data'

@@ -2,7 +2,7 @@
 fordev.generators
 -----------------
 
-Este módulo coleta dados aleatórios gerados pelo site `4Devs <https://www.4devs.com.br/>`_ 
+Este módulo coleta dados aleatórios gerados pelo site `4Devs <https://www.4devs.com.br/>`_
 e disponíbiliza uma API simples para uso.
 
 Use a função ``help()`` para mais informações:
@@ -29,7 +29,7 @@ Parameters
 uf_code: str
     Recebe o Código da **Unidade Federativa** para geração do dado.
 
-    Caso não saiba o que é ou não conheça o do estado que necessita, 
+    Caso não saiba o que é ou não conheça o do estado que necessita,
     obtenha mais informações em: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
 formatting: bool
@@ -118,7 +118,7 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
 
     r = fordev_request(
         content_length=67,
-        referer='gerador_numero_certidoes', 
+        referer='gerador_numero_certidoes',
         payload={
             'acao': 'gerador_certidao',
             'pontuacao': 'S' if formatting else 'N',
@@ -215,7 +215,7 @@ def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)    
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def renavam(data_only: bool=True) -> str:
@@ -227,7 +227,7 @@ def renavam(data_only: bool=True) -> str:
         payload={'acao': 'gerar_renavam'}
     )
 
-    return data_format(data_only=data_only, data_dict=r) 
+    return data_format(data_only=data_only, data_dict=r)
 
 
 def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only: bool=True) -> dict:
@@ -295,7 +295,7 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
         raise ValueError(msg_error)
 
     full_data = {
-        'msg': 'success', 
+        'msg': 'success',
         'data': random_sample(
             [v_brand['brand_name'] for v_brand in ALL_VEHICLE_BRANDS.values()],
             n
@@ -374,7 +374,7 @@ def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool
             'estado': uf_code
         }
     )
-    
+
     return data_format(data_only=data_only, data_dict=r)
 
 
@@ -576,7 +576,7 @@ def uf(n: int=1, data_only: bool=True) -> list:
         raise ValueError(msg_error)
 
     full_data = {
-        'msg': 'success', 
+        'msg': 'success',
         'data': random_sample(ALL_UF_CODE, n)
         }
 

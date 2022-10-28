@@ -29,7 +29,7 @@ class TestGenerators(unittest.TestCase):
     def test_if_vehicle_brand_generator_not_exceed_min_and_max_limit_of_return(self):
         with self.assertRaises(ValueError):
             vehicle_brand(n=0)
-            vehicle_brand(n=-1)  
+            vehicle_brand(n=-1)
             vehicle_brand(n=88)
 
     def test_if_data_type_of_vehicle_brands_generator_return_is_string(self):
@@ -57,7 +57,7 @@ class TestGenerators(unittest.TestCase):
     def test_if_uf_generator_not_exceed_min_and_max_limit_of_return(self):
         with self.assertRaises(ValueError):
             uf(n=0)
-            uf(n=-1)  
+            uf(n=-1)
             uf(n=28)
 
     def test_if_data_type_of_uf_generator_return_is_string(self):

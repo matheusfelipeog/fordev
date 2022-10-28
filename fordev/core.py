@@ -53,7 +53,7 @@ def _create_headers(content_length: int, referer: str) -> dict:
 
 
 def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
-    """Cria uma request HTTP a API do site 4devs e 
+    """Cria uma request HTTP a API do site 4devs e
     retorna seu conteúdo em formato de dicionário.
 
     Parameters

@@ -83,19 +83,19 @@ class TestFilters(unittest.TestCase):
         self.assertCountEqual(
             [
                 'Nome', 'CNPJ', 'Inscrição Estadual',
-                'Data de Abertura', 'Site', 'E-Mail', 
-                'CEP', 'Endereço', 'Número', 'Bairro', 
+                'Data de Abertura', 'Site', 'E-Mail',
+                'CEP', 'Endereço', 'Número', 'Bairro',
                 'Cidade', 'Estado', 'Telefone', 'Celular'
             ],
             result.keys()
         )
         self.assertCountEqual(
             [
-                'Isabela e Cristiane Casa Noturna Ltda', '45.641.633/0001-17', 
-                '040.102.816.356', '11/11/2020', 'www.isabelaecristianecasanoturnaltda.com.br', 
-                'estoque@isabelaecristianecasanoturnaltda.com.br', '08559-240', 'Rua Carmem Miranda', 
+                'Isabela e Cristiane Casa Noturna Ltda', '45.641.633/0001-17',
+                '040.102.816.356', '11/11/2020', 'www.isabelaecristianecasanoturnaltda.com.br',
+                'estoque@isabelaecristianecasanoturnaltda.com.br', '08559-240', 'Rua Carmem Miranda',
                 '872', 'Vila Jau', 'Poá', 'SP', '(11) 3597-5594', '(11) 98491-8081'
-            ], 
+            ],
             result.values()
         )
 
@@ -105,8 +105,8 @@ class TestFilters(unittest.TestCase):
         self.assertEqual(len(result), 15)
         self.assertCountEqual(
             [
-                'Alto Alegre', 'Amajari', 'Boa Vista', 'Bonfim', 'Cantá', 
-                'Caracaraí', 'Caroebe', 'Iracema', 'Mucajaí', 'Normandia', 
+                'Alto Alegre', 'Amajari', 'Boa Vista', 'Bonfim', 'Cantá',
+                'Caracaraí', 'Caroebe', 'Iracema', 'Mucajaí', 'Normandia',
                 'Pacaraima', 'Rorainópolis', 'São João da Baliza', 'São Luiz', 'Uiramutã'
             ],
             result

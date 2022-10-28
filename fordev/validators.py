@@ -135,11 +135,11 @@ def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True)
         'bandeira': flag
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
@@ -179,11 +179,11 @@ def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=
         'conta': account
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
@@ -202,11 +202,11 @@ def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
         'txt_certidao': certificate_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
@@ -225,11 +225,11 @@ def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
         'txt_cnh': cnh_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_cnpj(cnpj_code: str, data_only: bool=True) -> bool:
@@ -248,11 +248,11 @@ def is_valid_cnpj(cnpj_code: str, data_only: bool=True) -> bool:
         'txt_cnpj': cnpj_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_cpf(cpf_code: str, data_only: bool=True) -> bool:
@@ -271,11 +271,11 @@ def is_valid_cpf(cpf_code: str, data_only: bool=True) -> bool:
         'txt_cpf': cpf_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
@@ -294,11 +294,11 @@ def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
         'txt_pis': pis_pasep_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_renavam(renavam_code: str, data_only: bool=True) -> bool:
@@ -317,11 +317,11 @@ def is_valid_renavam(renavam_code: str, data_only: bool=True) -> bool:
         'txt_renavam': renavam_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_rg(rg_code: str, data_only: bool=True) -> bool:
@@ -340,11 +340,11 @@ def is_valid_rg(rg_code: str, data_only: bool=True) -> bool:
         'txt_rg': rg_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
@@ -363,13 +363,13 @@ def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
         'txt_titulo_eleitor': voter_title_code
     }
 
-    r = fordev_request(content_length, referer, payload)
+    resp = fordev_request(content_length, referer, payload)
 
-    if r.get('data', False):
-        is_valid = r['data'].split(' - ')[-2].lower() == 'verdadeiro'
-        r['data'] = is_valid
+    if resp.get('data', False):
+        is_valid = resp['data'].split(' - ')[-2].lower() == 'verdadeiro'
+        resp['data'] = is_valid
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_state_registration(uf_code: str, state_registration_code: str, data_only: bool=True) -> bool:
@@ -390,7 +390,7 @@ def is_valid_state_registration(uf_code: str, state_registration_code: str, data
 
     raise_for_invalid_uf(uf=uf_code)
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(
             content_length=48,
             referer='validar_inscricao_estadual',
@@ -402,4 +402,4 @@ def is_valid_state_registration(uf_code: str, state_registration_code: str, data
         )
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)

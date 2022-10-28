@@ -116,7 +116,7 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
         )
         raise ValueError(msg_error)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=67,
         referer='gerador_numero_certidoes',
         payload={
@@ -126,19 +126,19 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def cnh(data_only: bool=True) -> str:
     """Geração aleatória de CNH (Carteira Nacional de Habilitação)."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=14,
         referer='gerador_de_cnh',
         payload={'acao': 'gerar_cnh'}
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
@@ -168,7 +168,7 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
 
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=45,
         referer='gerador_conta_bancaria',
         payload={
@@ -178,9 +178,9 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
         }
     )
 
-    r['data'] = filter_bank_account_info(r['data'])
+    resp['data'] = filter_bank_account_info(resp['data'])
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
@@ -190,7 +190,7 @@ def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
 
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=38 if uf_code == '' else 40,
         referer='gerador_de_cpf',
         payload={
@@ -200,13 +200,13 @@ def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
     """Gere o código do PIS/PASEP aleatório."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=26,
         referer='gerador_de_pis_pasep',
         payload={
@@ -215,19 +215,19 @@ def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def renavam(data_only: bool=True) -> str:
     """Gere o código do RENAVAM(Registro Nacional de Veículos Automotores) aleatório."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=18,
         referer='gerador_de_renavam',
         payload={'acao': 'gerar_renavam'}
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only: bool=True) -> dict:
@@ -261,7 +261,7 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
 
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=62,
         referer='gerador_de_veiculos',
         payload={
@@ -272,9 +272,9 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
         }
     )
 
-    r['data'] = filter_vehicle_info(r['data'])
+    resp['data'] = filter_vehicle_info(resp['data'])
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def vehicle_brand(n: int=1, data_only: bool=True) -> list:
@@ -315,7 +315,7 @@ def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) 
 
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=36 if uf_code == '' else 38,
         referer='gerador_de_placa_automoveis',
         payload={
@@ -325,13 +325,13 @@ def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) 
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def cnpj(formatting: bool=True, data_only: bool=True) -> str:
     """Gere o código do CNPJ(Cadastro Nacional da Pessoa Jurídica) aleatório."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=27,
         referer='gerador_de_cnpj',
         payload={
@@ -340,13 +340,13 @@ def cnpj(formatting: bool=True, data_only: bool=True) -> str:
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def rg(formatting: bool=True, data_only: bool=True) -> str:
     """Gere o código do RG(Registro Geral) aleatório, emitido por SSP-SP."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=25,
         referer='gerador_de_rg',
         payload={
@@ -355,7 +355,7 @@ def rg(formatting: bool=True, data_only: bool=True) -> str:
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool=True) -> str:
@@ -365,7 +365,7 @@ def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool
 
     raise_for_invalid_uf(uf=uf_code)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=35,
         referer='gerador_de_inscricao_estadual',
         payload={
@@ -375,7 +375,7 @@ def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def voter_title(uf_code: str, data_only: bool=True) -> str:
@@ -385,7 +385,7 @@ def voter_title(uf_code: str, data_only: bool=True) -> str:
 
     raise_for_invalid_uf(uf=uf_code)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=35,
         referer='gerador_de_titulo_de_eleitor',
         payload={
@@ -394,7 +394,7 @@ def voter_title(uf_code: str, data_only: bool=True) -> str:
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dict:
@@ -425,7 +425,7 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
             list(ALL_BANK_FLAGS.values())
         )
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=43,
         referer='gerador_de_numero_cartao_credito',
         payload={
@@ -435,9 +435,9 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
         }
     )
 
-    r['data'] = filter_credit_card_info(r['data'])
+    resp['data'] = filter_credit_card_info(resp['data'])
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def people(
@@ -495,7 +495,7 @@ def people(
 
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=99,
         referer='gerador_de_pessoas',
         payload={
@@ -509,16 +509,16 @@ def people(
         }
     )
 
-    if data_only and r['msg'] == 'success':
-        return json_loads(r['data'])
+    if data_only and resp['msg'] == 'success':
+        return json_loads(resp['data'])
 
-    if r['msg'] == 'success':
+    if resp['msg'] == 'success':
 
-        r['data'] = json_loads(r['data'])
+        resp['data'] = json_loads(resp['data'])
 
-        return r
+        return resp
 
-    return r
+    return resp
 
 
 def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
@@ -542,7 +542,7 @@ def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: boo
 
         raise ValueError(msg_error)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=48,
         referer='gerador_de_empresas',
         payload={
@@ -553,9 +553,9 @@ def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: boo
         }
     )
 
-    r['data'] = filter_company_info(r['data'])
+    resp['data'] = filter_company_info(resp['data'])
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def uf(n: int=1, data_only: bool=True) -> list:
@@ -593,7 +593,7 @@ def city(uf_code: str='SP', data_only: bool=True) -> list:
 
     raise_for_invalid_uf(uf=uf_code)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=35,
         referer='gerador_de_pessoas',
         payload={
@@ -602,6 +602,6 @@ def city(uf_code: str='SP', data_only: bool=True) -> list:
         }
     )
 
-    r['data'] = filter_city_name(r['data'])
+    resp['data'] = filter_city_name(resp['data'])
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)

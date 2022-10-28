@@ -65,9 +65,9 @@ __all__ = [
     'city'
 ]
 
-from fordev.__about__ import __version__
-from fordev.__about__ import __author__
-from fordev.__about__ import __email__
+from fordev import __version__
+from fordev import __author__
+from fordev import __email__
 
 from json import loads as json_loads
 

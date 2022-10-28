@@ -16,9 +16,9 @@ __all__ = [
     'filter_city_name'
 ]
 
-from fordev.__about__ import __version__
-from fordev.__about__ import __author__
-from fordev.__about__ import __email__
+from fordev import __version__
+from fordev import __author__
+from fordev import __email__
 
 from bs4 import BeautifulSoup
 

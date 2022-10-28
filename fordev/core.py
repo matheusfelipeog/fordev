@@ -7,9 +7,9 @@ Este módulo é o core para criar e manipular requests para a API do site 4devs.
 
 __all__ = ['fordev_request']
 
-from fordev.__about__ import __version__
-from fordev.__about__ import __author__
-from fordev.__about__ import __email__
+from fordev import __version__
+from fordev import __author__
+from fordev import __email__
 
 from random import choice
 

@@ -5,9 +5,9 @@ fordev.consts
 Este módulo contém todas as variáveis com valores constantes usadas no pacote fordev.
 """
 
-from fordev.__about__ import __version__
-from fordev.__about__ import __author__
-from fordev.__about__ import __email__
+from fordev import __version__
+from fordev import __author__
+from fordev import __email__
 
 
 URL_4DEV_API = 'https://www.4devs.com.br/ferramentas_online.php'

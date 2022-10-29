@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 requests = "==2.24.0"
 beautifulsoup4 = "==4.9.3"
-colorama = "==0.4.4"
 
 [dev-packages]
 pylint = "2.7.2"

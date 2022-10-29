@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 fordev
 ------
@@ -46,22 +45,11 @@ __all__ = [
     'consts'
 ]
 
-from fordev.__about__ import __version__
-from fordev.__about__ import __author__
-from fordev.__about__ import __email__
-from fordev.__about__ import __author_github__
-from fordev.__about__ import __project_github__
+__version__ = '1.0.3'
+__author__ = 'Matheus Felipe'
+__email__ = 'matheusfelipeog@protonmail.com'
 
 from fordev import generators
 from fordev import validators
 from fordev import filters
 from fordev import consts
-
-from fordev.utils import CheckVersion
-
-
-# Check if a newer version of fordev package
-CheckVersion.run(
-    current_version=__version__,
-    package_name='fordev'
-)

@@ -1,13 +1,11 @@
-# -*- coding: utf-8 -*-
-
 import os
 import sys
 from shutil import rmtree
 from setuptools import setup, find_packages, Command
 
-from fordev.__about__ import __version__
-from fordev.__about__ import __author__
-from fordev.__about__ import __email__
+from fordev import __version__
+from fordev import __author__
+from fordev import __email__
 
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -22,7 +20,7 @@ class PublishCommand(Command):
     @staticmethod
     def print_status(msg):
         """Prints message in bold and yellow."""
-        print('\033[1;33m{m}\033[0m'.format(m=msg))
+        print(f'\033[1;33m{msg}\033[0m')
 
     def initialize_options(self):
         pass
@@ -39,9 +37,9 @@ class PublishCommand(Command):
 
         except OSError:
             pass
-        
+
         self.print_status('Build Source and Wheel distribution…')
-        os.system('{python} setup.py sdist bdist_wheel'.format(python=sys.executable))
+        os.system(f'{sys.executable} setup.py sdist bdist_wheel')
 
         self.print_status('Uploading the package to PyPi via Twine…')
         os.system('twine upload --config-file .pypirc --repository pypi dist/*')
@@ -79,7 +77,7 @@ setup(
         "Source Code": "https://github.com/matheusfelipeog/fordev",
     },
     keywords=[
-        'fordev', '4dev', '4devs', '4devs-api', '4devs-module', 
+        'fordev', '4dev', '4devs', '4devs-api', '4devs-module',
         'fourthdev', 'python', 'api', 'scraping', 'data-generator',
         'fake-data', 'fake-data-generator', 'data-manipulation',
         'data-validation', 'random-data'

@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 """
 fordev.generators
 -----------------
 
-Este módulo coleta dados aleatórios gerados pelo site `4Devs <https://www.4devs.com.br/>`_ 
+Este módulo coleta dados aleatórios gerados pelo site `4Devs <https://www.4devs.com.br/>`_
 e disponíbiliza uma API simples para uso.
 
 Use a função ``help()`` para mais informações:
@@ -29,8 +28,8 @@ Parameters
 ----------
 uf_code: str
     Recebe o Código da **Unidade Federativa** para geração do dado.
-    
-    Caso não saiba o que é ou não conheça o do estado que necessita, 
+
+    Caso não saiba o que é ou não conheça o do estado que necessita,
     obtenha mais informações em: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
 formatting: bool
@@ -66,12 +65,6 @@ __all__ = [
     'city'
 ]
 
-from fordev.__about__ import __version__
-from fordev.__about__ import __author__
-from fordev.__about__ import __email__
-from fordev.__about__ import __author_github__
-from fordev.__about__ import __project_github__
-
 from json import loads as json_loads
 
 from random import sample as random_sample
@@ -95,7 +88,7 @@ from fordev.filters import filter_company_info
 
 def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> str:
     """Gere o código de certidões (birth, wedding, religious wedding and death) aleatórias.
-    
+
     Parameters
     ----------
     type_
@@ -107,18 +100,25 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
 
     type_ = type_.upper()
 
-    certificate_types = {'I': 'Indiferente', 'B': 'nascimento', 'W': 'casamento', 'R': 'casamento_religioso', 'D': 'obito'}
+    certificate_types = {
+        'I': 'Indiferente',
+        'B': 'nascimento',
+        'W': 'casamento',
+        'R': 'casamento_religioso',
+        'D': 'obito'
+    }
 
-    # If type_ not exists in certificate_types, raise exception.
     if not certificate_types.get(type_, False):
-        msg_error = f'The certificate type "{type_}" is invalid. Enter a valid type.'
-        msg_error += f' Ex: "B" = Birth, "W" = Wedding, "R" = Religious Wedding, "D" = Death and "I" = Indifferent (Default).'
-
+        msg_error = (
+            f'The certificate type "{type_}" is invalid. Enter a valid type.'
+            ' Ex: "B" = Birth, "W" = Wedding, "R" = Religious Wedding,'
+            '"D" = Death and "I" = Indifferent (Default).'
+        )
         raise ValueError(msg_error)
 
-    r = fordev_request(
-        content_length=67,  # Max of bytes for generate certificate in all possibilities.
-        referer='gerador_numero_certidoes', 
+    resp = fordev_request(
+        content_length=67,
+        referer='gerador_numero_certidoes',
         payload={
             'acao': 'gerador_certidao',
             'pontuacao': 'S' if formatting else 'N',
@@ -126,24 +126,24 @@ def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> 
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def cnh(data_only: bool=True) -> str:
-    """Random generate of CNH(Carteira Nacional de Habilitação)."""
+    """Geração aleatória de CNH (Carteira Nacional de Habilitação)."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=14,
         referer='gerador_de_cnh',
         payload={'acao': 'gerar_cnh'}
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
     """Gere dados de conta bancária.
-    
+
     Parameters
     ----------
     bank
@@ -155,19 +155,20 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
     """
 
     if not (0 <= bank <= 5):
-        msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
-        msg_error += f' The range is 0 to 5.'
+        msg_error = (
+            f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
+            ' The range is 0 to 5.'
+        )
 
         raise ValueError(msg_error)
 
-    # Replace the bank number with the bank code used in 4devs.
-    bank = ['', 2, 121, 85, 120, 151][bank]  # Use the index for get the bank code.
+    bank = ['', 2, 121, 85, 120, 151][bank]
 
     uf_code = uf_code.upper()
 
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=45,
         referer='gerador_conta_bancaria',
         payload={
@@ -176,11 +177,10 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
             'banco': bank
         }
     )
-    
-    # Replace data in html format with bank account info only.
-    r['data'] = filter_bank_account_info(r['data'])
-    
-    return data_format(data_only=data_only, data_dict=r)
+
+    resp['data'] = filter_bank_account_info(resp['data'])
+
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
@@ -190,7 +190,7 @@ def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
 
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=38 if uf_code == '' else 40,
         referer='gerador_de_cpf',
         payload={
@@ -200,13 +200,13 @@ def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
     """Gere o código do PIS/PASEP aleatório."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=26,
         referer='gerador_de_pis_pasep',
         payload={
@@ -214,25 +214,30 @@ def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
             'pontuacao': 'S' if formatting else 'N'
         }
     )
-    
-    return data_format(data_only=data_only, data_dict=r)    
+
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def renavam(data_only: bool=True) -> str:
     """Gere o código do RENAVAM(Registro Nacional de Veículos Automotores) aleatório."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=18,
         referer='gerador_de_renavam',
         payload={'acao': 'gerar_renavam'}
     )
 
-    return data_format(data_only=data_only, data_dict=r) 
+    return data_format(data_only=data_only, data_dict=resp)
 
 
-def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only: bool=True) -> dict:
+def vehicle(
+        brand_code: int=0,
+        uf_code: str='',
+        formatting: bool=True,
+        data_only: bool=True
+    ) -> dict:
     """Gere dados de veículo aleatório.
-    
+
     Parameters
     ----------
     brand
@@ -244,12 +249,14 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
     """
 
     if not (0 <= brand_code <= 87):
-        msg_error = f'The vehicle brand code value "{brand_code}" is invalid. Enter a valid vehicle brand code.'
-        msg_error += f' The range is 0 to 87.'
+        msg_error = (
+            f'The vehicle brand code value "{brand_code}" is invalid.'
+            ' Enter a valid vehicle brand code.'
+            ' The range is 0 to 87.'
+        )
 
         raise ValueError(msg_error)
 
-    # Replace the brand code with the brand code used in 4devs.
     if brand_code != 0:
         brand_code = ALL_VEHICLE_BRANDS[brand_code]['code']
     else:
@@ -259,8 +266,8 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
 
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
-        content_length=62,  # Max of bytes for generate vehicle data in all possibilities.
+    resp = fordev_request(
+        content_length=62,
         referer='gerador_de_veiculos',
         payload={
             'acao': 'gerar_veiculo',
@@ -269,11 +276,10 @@ def vehicle(brand_code: int=0, uf_code: str='', formatting: bool=True, data_only
             'fipe_codigo_marca': brand_code
         }
     )
-    
-    # Replace data in html format with bank account info only.
-    r['data'] = filter_vehicle_info(r['data'])
-    
-    return data_format(data_only=data_only, data_dict=r)
+
+    resp['data'] = filter_vehicle_info(resp['data'])
+
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def vehicle_brand(n: int=1, data_only: bool=True) -> list:
@@ -286,16 +292,18 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
     """
 
     if not (1 <= n <= 87):
-        msg_error = f'The n value "{n}" is invalid. Enter a valid number of UF.'
-        msg_error += f' The range is 1 to 27 UF code.'
+        msg_error = (
+            f'The n value "{n}" is invalid. Enter a valid number of UF.'
+            ' The range is 1 to 27 UF code.'
+        )
 
         raise ValueError(msg_error)
-    
+
     full_data = {
-        'msg': 'success', 
+        'msg': 'success',
         'data': random_sample(
-            [v_brand['brand_name'] for v_brand in ALL_VEHICLE_BRANDS.values()],  # Create a list brand name
-            n 
+            [v_brand['brand_name'] for v_brand in ALL_VEHICLE_BRANDS.values()],
+            n
         )
     }
 
@@ -312,7 +320,7 @@ def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) 
 
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=36 if uf_code == '' else 38,
         referer='gerador_de_placa_automoveis',
         payload={
@@ -321,14 +329,14 @@ def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) 
             'estado':uf_code
         }
     )
-    
-    return data_format(data_only=data_only, data_dict=r)
+
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def cnpj(formatting: bool=True, data_only: bool=True) -> str:
     """Gere o código do CNPJ(Cadastro Nacional da Pessoa Jurídica) aleatório."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=27,
         referer='gerador_de_cnpj',
         payload={
@@ -337,13 +345,13 @@ def cnpj(formatting: bool=True, data_only: bool=True) -> str:
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def rg(formatting: bool=True, data_only: bool=True) -> str:
     """Gere o código do RG(Registro Geral) aleatório, emitido por SSP-SP."""
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=25,
         referer='gerador_de_rg',
         payload={
@@ -351,8 +359,8 @@ def rg(formatting: bool=True, data_only: bool=True) -> str:
             'pontuacao': 'S' if formatting else 'N',
         }
     )
-    
-    return data_format(data_only=data_only, data_dict=r)
+
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool=True) -> str:
@@ -362,7 +370,7 @@ def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool
 
     raise_for_invalid_uf(uf=uf_code)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=35,
         referer='gerador_de_inscricao_estadual',
         payload={
@@ -371,8 +379,8 @@ def state_registration(uf_code: str='SP', formatting: bool=True, data_only: bool
             'estado': uf_code
         }
     )
-    
-    return data_format(data_only=data_only, data_dict=r)
+
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def voter_title(uf_code: str, data_only: bool=True) -> str:
@@ -382,7 +390,7 @@ def voter_title(uf_code: str, data_only: bool=True) -> str:
 
     raise_for_invalid_uf(uf=uf_code)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=35,
         referer='gerador_de_titulo_de_eleitor',
         payload={
@@ -391,37 +399,38 @@ def voter_title(uf_code: str, data_only: bool=True) -> str:
         }
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dict:
     """Gere dados de cartão de crédito aleatório.
-    
+
     Parameters
     ----------
     bank
         Recebe um valor númerico de 0 a 10 representando a
         bandeira do cartão de crédito a ser gerado.
-        
+
         Consulte a doc para verificar as opções suportadas:
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
     """
 
     if not (0 <= bank <= 10):
-        msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
-        msg_error += f' The range is 0 to 10.'
+        msg_error = (
+            f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
+            ' The range is 0 to 10.'
+        )
 
         raise ValueError(msg_error)
 
-    # Replace the bank code with the bank flag used in 4devs.
     if bank != 0:
         bank = ALL_BANK_FLAGS[bank]
     else:
         bank = random_choice(
             list(ALL_BANK_FLAGS.values())
-        ) 
+        )
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=43,
         referer='gerador_de_numero_cartao_credito',
         payload={
@@ -430,11 +439,10 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
             'bandeira': bank
         }
     )
-    
-    # Replace data in html format with credit card info only.
-    r['data'] = filter_credit_card_info(r['data'])
 
-    return data_format(data_only=data_only, data_dict=r)
+    resp['data'] = filter_credit_card_info(resp['data'])
+
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def people(
@@ -446,7 +454,7 @@ def people(
         data_only: bool=True
     ) -> str:
     """Gere dados de pessoa(s) aleatório(s)
-    
+
     Parameters
     ----------
     n
@@ -454,72 +462,73 @@ def people(
 
     sex
         Uma string representando o sexo da pessoa para geração dos dados.
-        
+
         Consulte a doc para verificar as opções suportadas:
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
 
     age
         A idade da pessoa para geração dos dados. A idade mínima é 18 e a máxima é 80.
     """
-    
+
     sex = sex.upper()
 
     uf_code = uf_code.upper()
 
     if not (1 <= n <= 30):
-        msg_error = f'The n value "{n}" is invalid. Enter a valid number of people.'
-        msg_error += f' The range is 1 to 30 peoples.'
+        msg_error = (
+            f'The n value "{n}" is invalid. Enter a valid number of people.'
+            ' The range is 1 to 30 peoples.'
+        )
 
         raise ValueError(msg_error)
 
     if sex not in ['M', 'F', 'R']:
-        msg_error = f'The sex "{sex}" is invalid. Enter a valid sex.'
-        msg_error += f' Ex: "M" = Male, "F" = Feminine or "R" = Random.'
+        msg_error = (
+            f'The sex "{sex}" is invalid. Enter a valid sex.'
+            ' Ex: "M" = Male, "F" = Feminine or "R" = Random.'
+        )
 
         raise ValueError(msg_error)
 
     if not (18 <= age <= 80) and age != 0:
-        msg_error = f'The age "{age}" is invalid. Enter a valid age.'
-        msg_error += f' The range is 18 to 80 age'
+        msg_error = (
+            f'The age "{age}" is invalid. Enter a valid age.'
+            ' The range is 18 to 80 age.'
+        )
 
         raise ValueError(msg_error)
-    
+
     raise_for_invalid_uf(uf=uf_code, include_blank=True)
 
-    r = fordev_request(
-        content_length=99,  # Max of bytes for generate people in all possibilities.
+    resp = fordev_request(
+        content_length=99,
         referer='gerador_de_pessoas',
         payload={
             'acao': 'gerar_pessoa',
-            'sexo': 'H' if sex == 'M' else 'M' if sex == 'F' else 'I',  # H, M and I flags are used in 4devs for filter.
+            'sexo': 'H' if sex == 'M' else 'M' if sex == 'F' else 'I',
             'pontuacao': 'S' if formatting else 'N',
             'idade': age,
             'cep_estado': uf_code,
             'txt_qtde': n,
-
-            # If the state is not selected, a default flag is used for the city ('Selecione o estado!') or
-            # If the state is selected and city is not selected, a default flag is used for the city ('').
             'cep_cidade': 'Selecione o estado!' if uf_code == '' else ''
         }
     )
 
-    if data_only and r['msg'] == 'success':
-        return json_loads(r['data'])
-    
-    if r['msg'] == 'success':
+    if data_only and resp['msg'] == 'success':
+        return json_loads(resp['data'])
 
-        # Convert data in str to dict.
-        r['data'] = json_loads(r['data'])
+    if resp['msg'] == 'success':
 
-        return r
-    
-    # In case of failure, return msg status and msg error.
-    return r
+        resp['data'] = json_loads(resp['data'])
+
+        return resp
+
+    return resp
 
 
 def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
     """Gere dados de companhia (empresa/organização) aleatório.
-    
+
     Parameters
     ----------
     age
@@ -531,12 +540,14 @@ def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: boo
     raise_for_invalid_uf(uf=uf_code)
 
     if not (1 <= age <= 30):
-        msg_error = f'The company age value "{age}" is invalid. Enter a valid company age.'
-        msg_error += f' The range is 1 to 30.'
+        msg_error = (
+            f'The company age value "{age}" is invalid. Enter a valid company age.'
+            ' The range is 1 to 30.'
+        )
 
         raise ValueError(msg_error)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=48,
         referer='gerador_de_empresas',
         payload={
@@ -546,11 +557,10 @@ def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: boo
             'idade': age
         }
     )
-    
-    # Replace data in html format with company info only.
-    r['data'] = filter_company_info(r['data'])
 
-    return data_format(data_only=data_only, data_dict=r)
+    resp['data'] = filter_company_info(resp['data'])
+
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def uf(n: int=1, data_only: bool=True) -> list:
@@ -563,13 +573,15 @@ def uf(n: int=1, data_only: bool=True) -> list:
     """
 
     if not (1 <= n <= 27):
-        msg_error = f'The n value "{n}" is invalid. Enter a valid number of UF.'
-        msg_error += f' The range is 1 to 27 UF code.'
+        msg_error = (
+            f'The n value "{n}" is invalid. Enter a valid number of UF.'
+            ' The range is 1 to 27 UF code.'
+        )
 
         raise ValueError(msg_error)
-    
+
     full_data = {
-        'msg': 'success', 
+        'msg': 'success',
         'data': random_sample(ALL_UF_CODE, n)
         }
 
@@ -586,7 +598,7 @@ def city(uf_code: str='SP', data_only: bool=True) -> list:
 
     raise_for_invalid_uf(uf=uf_code)
 
-    r = fordev_request(
+    resp = fordev_request(
         content_length=35,
         referer='gerador_de_pessoas',
         payload={
@@ -594,8 +606,7 @@ def city(uf_code: str='SP', data_only: bool=True) -> list:
             'cep_estado': uf_code
         }
     )
-    
-    # Replace data in html format with city names only
-    r['data'] = filter_city_name(r['data'])
 
-    return data_format(data_only=data_only, data_dict=r)
+    resp['data'] = filter_city_name(resp['data'])
+
+    return data_format(data_only=data_only, data_dict=resp)

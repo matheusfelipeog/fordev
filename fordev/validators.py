@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 fordev.validators
 -----------------
@@ -51,12 +50,6 @@ __all__ = [
     'is_valid_state_registration',
 ]
 
-from fordev.__about__ import __version__
-from fordev.__about__ import __author__
-from fordev.__about__ import __email__
-from fordev.__about__ import __author_github__
-from fordev.__about__ import __project_github__
-
 from fordev.core import fordev_request
 
 from fordev.consts import ALL_UF_CODE
@@ -68,7 +61,7 @@ from fordev.filters import data_format
 def _data_verification_and_normalize(data: dict) -> dict:
     """"Verifique se a key existe e se o valor é válido.
     Se válido, substítui para um novo formato.
-    
+
     Parameters
     ----------
     data
@@ -80,13 +73,13 @@ def _data_verification_and_normalize(data: dict) -> dict:
     if data.get('data', False):
         is_valid = data['data'].split(' - ')[-1].lower() == 'verdadeiro'
         data['data'] = is_valid
-    
+
     return data
 
 
 def raise_for_invalid_uf(uf, include_blank=False):
     """Levanta uma exceção if o código UF for inválido.
-    
+
     Parameters
     ----------
     include_blank
@@ -110,12 +103,12 @@ def raise_for_invalid_uf(uf, include_blank=False):
 
 def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do cartão de crédito é válido.
-    
+
     Parameters
     ----------
     flag
         A bandeira do cartão de crédito que deseja validar o código.
-        
+
         Consulte a doc para verificar as opções suportadas:
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
 
@@ -123,10 +116,12 @@ def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True)
         O código do cartão de crédito para verificação.
    """
 
-    # Check if bank code is invalid. If true, raise exception.
     if not (1 <= flag <= 12):
-        msg_error = f'The flag credit card code value "{flag}" is invalid. Enter a valid flag credit card code.'
-        msg_error += f' The range is 1 to 12.'
+        msg_error = (
+            f'The flag credit card code value "{flag}" is invalid.'
+            ' Enter a valid flag credit card code.'
+            ' The range is 1 to 12.'
+        )
 
         raise ValueError(msg_error)
 
@@ -140,24 +135,24 @@ def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True)
         'bandeira': flag
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
     """Verifique se os dados da conta bancária são válidos.
-    
+
     Parameters
     ----------
     bank
         A bandeira do banco da conta bancária que deseja validar os dados.
-        
+
         Consulte a doc para verificar as opções suportadas:
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
-    
+
     agency
         O código da agência bancária para verificação.
 
@@ -165,15 +160,15 @@ def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=
         O código da conta bancária para verificação.
    """
 
-    # Check if bank code is invalid. If true, raise exception.
     if not (1 <= bank <= 5):
-        msg_error = f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
-        msg_error += f' The range is 1 to 5.'
+        msg_error = (
+            f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
+            ' The range is 1 to 5.'
+        )
 
         raise ValueError(msg_error)
 
-    # Replace the bank number with the bank code used in 4devs.
-    bank = [2, 121, 85, 120, 151][bank - 1]  # Use the index for get the bank code.
+    bank = [2, 121, 85, 120, 151][bank - 1]
 
     content_length = 66
     referer = 'validador_conta_bancaria'
@@ -184,16 +179,16 @@ def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=
         'conta': account
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
     """Verifique se o código da Certidão (birth, wedding, religious wedding and death) é válido.
-    
+
     Parameters
     ----------
     certificate_code
@@ -207,16 +202,16 @@ def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
         'txt_certidao': certificate_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
     """Verifique se o código da CNH é válido.
-    
+
     Parameters
     ----------
     cnh_code
@@ -230,16 +225,16 @@ def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
         'txt_cnh': cnh_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_cnpj(cnpj_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do CNPJ é válido.
-    
+
     Parameters
     ----------
     cnpj_code
@@ -253,16 +248,16 @@ def is_valid_cnpj(cnpj_code: str, data_only: bool=True) -> bool:
         'txt_cnpj': cnpj_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_cpf(cpf_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do CPF é válido.
-    
+
     Parameters
     ----------
     cpf_code
@@ -276,16 +271,16 @@ def is_valid_cpf(cpf_code: str, data_only: bool=True) -> bool:
         'txt_cpf': cpf_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do PIS/PASEP é válido.
-    
+
     Parameters
     ----------
     pis_pasep_code
@@ -299,16 +294,16 @@ def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
         'txt_pis': pis_pasep_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_renavam(renavam_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do RENAVAM é válido.
-    
+
     Parameters
     ----------
     renavam_code
@@ -322,16 +317,16 @@ def is_valid_renavam(renavam_code: str, data_only: bool=True) -> bool:
         'txt_renavam': renavam_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_rg(rg_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do RG é válido.
-    
+
     Parameters
     ----------
     rg_code
@@ -345,16 +340,16 @@ def is_valid_rg(rg_code: str, data_only: bool=True) -> bool:
         'txt_rg': rg_code
     }
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(content_length, referer, payload)
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
 def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
     """Verifique se o código do título de eleitor é válido.
-    
+
     Parameters
     ----------
     voter_title_code
@@ -368,23 +363,27 @@ def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
         'txt_titulo_eleitor': voter_title_code
     }
 
-    r = fordev_request(content_length, referer, payload)
+    resp = fordev_request(content_length, referer, payload)
 
-    if r.get('data', False):
-        is_valid = r['data'].split(' - ')[-2].lower() == 'verdadeiro'
-        r['data'] = is_valid
+    if resp.get('data', False):
+        is_valid = resp['data'].split(' - ')[-2].lower() == 'verdadeiro'
+        resp['data'] = is_valid
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)
 
 
-def is_valid_state_registration(uf_code: str, state_registration_code: str, data_only: bool=True) -> bool:
+def is_valid_state_registration(
+        uf_code: str,
+        state_registration_code: str,
+        data_only: bool=True
+    ) -> bool:
     """Verifique se o código do registro estadual é válido.
-    
+
     Parameters
     ----------
     uf_code
         O código UF(Unidade Federativa) do estado que pertence o registro estadual.
-        
+
         Mais informações: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
 
     state_registration_code
@@ -395,7 +394,7 @@ def is_valid_state_registration(uf_code: str, state_registration_code: str, data
 
     raise_for_invalid_uf(uf=uf_code)
 
-    r = _data_verification_and_normalize(
+    resp = _data_verification_and_normalize(
         fordev_request(
             content_length=48,
             referer='validar_inscricao_estadual',
@@ -407,4 +406,4 @@ def is_valid_state_registration(uf_code: str, state_registration_code: str, data
         )
     )
 
-    return data_format(data_only=data_only, data_dict=r)
+    return data_format(data_only=data_only, data_dict=resp)

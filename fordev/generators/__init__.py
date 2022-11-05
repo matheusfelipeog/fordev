@@ -17,3 +17,4 @@ from fordev.generators.voter_title import voter_title
 from fordev.generators.credit_card import credit_card
 from fordev.generators.people import people
 from fordev.generators.company import company
+from fordev.generators.uf import uf

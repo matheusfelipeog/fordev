@@ -12,3 +12,4 @@ from fordev.generators.renavam import renavam
 from fordev.generators.vehicle import vehicle, vehicle_brand, vehicle_plate
 from fordev.generators.cnpj import cnpj
 from fordev.generators.rg import rg
+from fordev.generators.state_registration import state_registration

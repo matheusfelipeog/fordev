@@ -1,6 +1,6 @@
 """
-fordev.generators
------------------
+fordev.generators.people
+------------------------
 """
 
 from json import loads as json_loads

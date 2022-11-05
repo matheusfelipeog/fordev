@@ -16,3 +16,4 @@ from fordev.generators.state_registration import state_registration
 from fordev.generators.voter_title import voter_title
 from fordev.generators.credit_card import credit_card
 from fordev.generators.people import people
+from fordev.generators.company import company

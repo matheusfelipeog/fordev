@@ -9,7 +9,7 @@
         <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/matheusfelipeog/fordev" alt="License MIT" />
+        <img alt="License MIT" src="https://img.shields.io/github/license/matheusfelipeog/fordev" />
     </a>
     <a href="https://pepy.tech/project/fordev">
         <img alt="Total Downloads" src="https://pepy.tech/badge/fordev" />

@@ -7,7 +7,7 @@ from fordev.core import fordev_request
 
 from fordev.filters import data_format
 
-from fordev.validators import raise_for_invalid_uf
+from fordev.validators.utils import raise_for_invalid_uf
 
 
 def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:

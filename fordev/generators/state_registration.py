@@ -5,7 +5,7 @@ fordev.generators.state_registration
 
 from fordev.core import fordev_request
 
-from fordev.validators import raise_for_invalid_uf
+from fordev.validators.utils import raise_for_invalid_uf
 
 from fordev.filters import data_format
 

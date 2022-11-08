@@ -8,7 +8,7 @@ from fordev.core import fordev_request
 from fordev.filters import data_format
 from fordev.filters import filter_bank_account_info
 
-from fordev.validators import raise_for_invalid_uf
+from fordev.validators.utils import raise_for_invalid_uf
 
 
 def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:

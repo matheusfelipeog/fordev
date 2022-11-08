@@ -6,7 +6,7 @@
     <sup>Metadata</sup>
     <br />
     <a href="https://pypi.org/project/fordev/">
-        <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev" />
+        <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/fordev" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
         <img alt="License MIT" src="https://img.shields.io/github/license/matheusfelipeog/fordev" />

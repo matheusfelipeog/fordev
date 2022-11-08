@@ -13,7 +13,7 @@ Documentação Oficial
 ====================
 
 .. image:: https://img.shields.io/pypi/v/fordev
-    :alt: PyPI
+    :alt: PyPI - Version
     :target: https://pypi.org/project/fordev/
 
 .. image:: https://img.shields.io/github/license/matheusfelipeog/fordev

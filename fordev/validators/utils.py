@@ -30,7 +30,7 @@ def _data_verification_and_normalize(data: dict) -> dict:
     return data
 
 
-def raise_for_invalid_uf(uf, include_blank=False):
+def raise_for_invalid_uf(uf: str, include_blank=False):
     """Levanta uma exceção if o código UF for inválido.
 
     Parameters

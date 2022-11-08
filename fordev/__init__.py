@@ -45,7 +45,7 @@ __all__ = [
     'consts'
 ]
 
-__version__ = '1.0.3'
+__version__ = '1.0.4'
 __author__ = 'Matheus Felipe'
 __email__ = 'matheusfelipeog@protonmail.com'
 

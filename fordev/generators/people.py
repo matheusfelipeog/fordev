@@ -7,7 +7,7 @@ from json import loads as json_loads
 
 from fordev.core import fordev_request
 
-from fordev.validators import raise_for_invalid_uf
+from fordev.validators.utils import raise_for_invalid_uf
 
 
 def people(

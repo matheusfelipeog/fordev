@@ -2,7 +2,7 @@
 
 import unittest
 
-from fordev.validators import raise_for_invalid_uf
+from fordev.validators.utils import raise_for_invalid_uf
 
 
 class TestValidators(unittest.TestCase):

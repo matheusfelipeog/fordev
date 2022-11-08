@@ -12,21 +12,21 @@
 Documentação Oficial
 ====================
 
+.. image:: https://img.shields.io/pypi/v/fordev
+    :alt: PyPI - Version
+    :target: https://pypi.org/project/fordev/
+
+.. image:: https://img.shields.io/github/license/matheusfelipeog/fordev
+    :alt: License MIT
+    :target: https://github.com/matheusfelipeog/fordev/blob/master/LICENSE
+
+.. image:: https://pepy.tech/badge/fordev
+    :alt: Total Downloads
+    :target: https://pepy.tech/project/fordev
+
 .. image:: https://img.shields.io/pypi/status/fordev
     :alt: PyPI - Status
     :target: https://pypi.org/project/fordev/
-
-.. image:: https://img.shields.io/pypi/dm/fordev
-    :alt: Downloads in month
-    :target: https://pypi.org/project/fordev/
-
-.. image:: https://img.shields.io/pypi/v/fordev
-    :alt: PyPI
-    :target: https://pypi.org/project/fordev/
-
-.. image:: https://img.shields.io/github/v/release/matheusfelipeog/fordev
-    :alt: GitHub release (latest by date)
-    :target: https://github.com/matheusfelipeog/fordev/releases
 
 .. image:: https://readthedocs.org/projects/fordev/badge/?version=latest
     :alt: Documentation Status
@@ -35,10 +35,6 @@ Documentação Oficial
 .. image:: https://github.com/matheusfelipeog/fordev/workflows/Tests/badge.svg
     :alt: Test Status
     :target: https://github.com/matheusfelipeog/fordev/actions/workflows/tests.yml
-
-.. image:: https://img.shields.io/github/license/matheusfelipeog/fordev
-    :alt: License MIT
-    :target: https://github.com/matheusfelipeog/fordev/blob/master/LICENSE
 
 
 .. toctree::

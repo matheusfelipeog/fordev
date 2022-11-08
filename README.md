@@ -11,8 +11,8 @@
     <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/matheusfelipeog/fordev" alt="License MIT" />
     </a>
-    <a href="https://pypi.org/project/fordev/">
-        <img alt="Downloads in month" src="https://img.shields.io/pypi/dm/fordev" />
+    <a href="https://pepy.tech/project/fordev">
+        <img alt="Total Downloads" src="https://pepy.tech/badge/fordev" />
     </a>
 </p>
 

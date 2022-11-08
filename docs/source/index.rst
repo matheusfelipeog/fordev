@@ -16,9 +16,9 @@ Documentação Oficial
     :alt: PyPI - Status
     :target: https://pypi.org/project/fordev/
 
-.. image:: https://img.shields.io/pypi/dm/fordev
-    :alt: Downloads in month
-    :target: https://pypi.org/project/fordev/
+.. image:: https://pepy.tech/badge/fordev
+    :alt: Total Downloads
+    :target: https://pepy.tech/project/fordev
 
 .. image:: https://img.shields.io/pypi/v/fordev
     :alt: PyPI

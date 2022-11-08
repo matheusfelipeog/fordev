@@ -8,9 +8,6 @@
     <a href="https://pypi.org/project/fordev/">
         <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev" />
     </a>
-    <a href="https://github.com/matheusfelipeog/fordev/releases">
-        <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/fordev" />
-    </a>
     <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/matheusfelipeog/fordev" alt="License MIT" />
     </a>

@@ -24,10 +24,6 @@ Documentação Oficial
     :alt: PyPI
     :target: https://pypi.org/project/fordev/
 
-.. image:: https://img.shields.io/github/v/release/matheusfelipeog/fordev
-    :alt: GitHub release (latest by date)
-    :target: https://github.com/matheusfelipeog/fordev/releases
-
 .. image:: https://readthedocs.org/projects/fordev/badge/?version=latest
     :alt: Documentation Status
     :target: https://fordev.readthedocs.io/pt_BR/latest/?badge=latest

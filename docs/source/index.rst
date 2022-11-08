@@ -12,16 +12,20 @@
 Documentação Oficial
 ====================
 
-.. image:: https://img.shields.io/pypi/status/fordev
-    :alt: PyPI - Status
+.. image:: https://img.shields.io/pypi/v/fordev
+    :alt: PyPI
     :target: https://pypi.org/project/fordev/
+
+.. image:: https://img.shields.io/github/license/matheusfelipeog/fordev
+    :alt: License MIT
+    :target: https://github.com/matheusfelipeog/fordev/blob/master/LICENSE
 
 .. image:: https://pepy.tech/badge/fordev
     :alt: Total Downloads
     :target: https://pepy.tech/project/fordev
 
-.. image:: https://img.shields.io/pypi/v/fordev
-    :alt: PyPI
+.. image:: https://img.shields.io/pypi/status/fordev
+    :alt: PyPI - Status
     :target: https://pypi.org/project/fordev/
 
 .. image:: https://readthedocs.org/projects/fordev/badge/?version=latest
@@ -31,10 +35,6 @@ Documentação Oficial
 .. image:: https://github.com/matheusfelipeog/fordev/workflows/Tests/badge.svg
     :alt: Test Status
     :target: https://github.com/matheusfelipeog/fordev/actions/workflows/tests.yml
-
-.. image:: https://img.shields.io/github/license/matheusfelipeog/fordev
-    :alt: License MIT
-    :target: https://github.com/matheusfelipeog/fordev/blob/master/LICENSE
 
 
 .. toctree::

@@ -35,3 +35,29 @@ data_only: bool
 
 Sendo assim, sempre que o encontrar, utilize conforme o descrito acima.
 """
+
+__all__ = [
+    'is_valid_credit_card',
+    'is_valid_bank_account',
+    'is_valid_certificate',
+    'is_valid_cnh',
+    'is_valid_cnpj',
+    'is_valid_cpf',
+    'is_valid_pis_pasep',
+    'is_valid_renavam',
+    'is_valid_rg',
+    'is_valid_voter_title',
+    'is_valid_state_registration',
+]
+
+from fordev.validators.credit_card import is_valid_credit_card
+from fordev.validators.bank_account import is_valid_bank_account
+from fordev.validators.certificate import is_valid_certificate
+from fordev.validators.cnh import is_valid_cnh
+from fordev.validators.cnpj import is_valid_cnpj
+from fordev.validators.cpf import is_valid_cpf
+from fordev.validators.pis_pasep import is_valid_pis_pasep
+from fordev.validators.renavam import is_valid_renavam
+from fordev.validators.rg import is_valid_rg
+from fordev.validators.voter_title import is_valid_voter_title
+from fordev.validators.state_registration import is_valid_state_registration

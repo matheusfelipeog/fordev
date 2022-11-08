@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 fordev.filters
 --------------
@@ -17,21 +16,15 @@ __all__ = [
     'filter_city_name'
 ]
 
-from fordev.__about__ import __version__
-from fordev.__about__ import __author__
-from fordev.__about__ import __email__
-from fordev.__about__ import __author_github__
-from fordev.__about__ import __project_github__
-
 from bs4 import BeautifulSoup
 
 
 def data_format(data_only: bool, data_dict: dict) -> dict:
     """Filtra os dados conforme especificado."""
-    
+
     if data_only and data_dict['msg'] == 'success':
         return data_dict['data']
-    
+
     return data_dict
 
 
@@ -47,10 +40,8 @@ def filter_bank_account_info(html: str) -> dict:
 
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Get all the labels to use as a key in the dictionary return.
     labels = [div.text for div in soup.find_all('div', 'output-subtitle')]
 
-    # Get all the data to use as a value in the dictionary return.
     data_of_bank_account = [div.text for div in soup.find_all('div', 'output-txt')]
 
     data_dict = dict(
@@ -72,10 +63,8 @@ def filter_vehicle_info(html: str) -> dict:
 
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Get all the labels to use as a key in the dictionary return.
     labels = [div.text[:-1] for div in soup.find_all('strong')]
 
-    # Get all the data to use as a value in the dictionary return.
     data_of_vehicle = [input_.get('value') for input_ in soup.find_all('input', 'margem_menor')]
 
     data_dict = dict(
@@ -97,10 +86,8 @@ def filter_credit_card_info(html: str) -> dict:
 
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Get all the labels to use as a key in the dictionary return.
     labels = [div.text for div in soup.find_all('div', 'output-subtitle')]
 
-    # Get all the data to use as a value in the dictionary return.
     data_of_credit_card = [div.text.strip() for div in soup.find_all('div', 'output-txt')]
 
     data_dict = dict(
@@ -122,10 +109,8 @@ def filter_company_info(html: str) -> dict:
 
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Get all the labels to use as a key in the dictionary return.
     labels = [div.text[:-1] for div in soup.find_all('strong')]
 
-    # Get all the data to use as a value in the dictionary return.
     data_of_company = [input_.get('value') for input_ in soup.find_all('input', 'margem_menor')]
 
     data_dict = dict(
@@ -147,7 +132,6 @@ def filter_city_name(html: str) -> list:
 
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Get text (city name) in option tag.
     return [
         option.text for option in soup.find_all('option')[1:]
     ]

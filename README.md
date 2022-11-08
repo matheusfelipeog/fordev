@@ -6,16 +6,13 @@
     <sup>Metadata</sup>
     <br />
     <a href="https://pypi.org/project/fordev/">
-        <img alt="PyPI" src="https://img.shields.io/pypi/v/fordev" />
-    </a>
-    <a href="https://github.com/matheusfelipeog/fordev/releases">
-        <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/matheusfelipeog/fordev" />
+        <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/fordev" />
     </a>
     <a href="https://github.com/matheusfelipeog/fordev/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/matheusfelipeog/fordev" alt="License MIT" />
+        <img alt="License MIT" src="https://img.shields.io/github/license/matheusfelipeog/fordev" />
     </a>
-    <a href="https://pypi.org/project/fordev/">
-        <img alt="Downloads in month" src="https://img.shields.io/pypi/dm/fordev" />
+    <a href="https://pepy.tech/project/fordev">
+        <img alt="Total Downloads" src="https://pepy.tech/badge/fordev" />
     </a>
 </p>
 

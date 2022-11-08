@@ -1,14 +1,13 @@
-# -*- coding: utf-8 -*-
 """Tests of fordev.validators module."""
 
 import unittest
 
-from fordev.validators import raise_for_invalid_uf
+from fordev.validators.utils import raise_for_invalid_uf
 
 
 class TestValidators(unittest.TestCase):
     """Test Class of fordev.validators module."""
-    
+
     def test_raise_for_invalid_uf(self):
         raise_for_invalid_uf('SP')
         raise_for_invalid_uf('', include_blank=True)

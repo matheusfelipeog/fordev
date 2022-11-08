@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Tests of fordev.filters module."""
 
 import unittest
@@ -30,7 +29,7 @@ class TestFilters(unittest.TestCase):
 
         self.assertEqual(success_case, 'data of test')
         self.assertDictEqual(failed_case, self.data_failed_case)
-    
+
     def test_data_format_with_data_only_argument_as_false(self):
         success_case = data_format(data_only=False, data_dict=self.data_success_case)
         failed_case = data_format(data_only=False, data_dict=self.data_failed_case)
@@ -69,14 +68,14 @@ class TestFilters(unittest.TestCase):
         self.assertEqual(len(result.keys()), 6)
         self.assertCountEqual(['Marca', 'Modelo', 'Ano', 'RENAVAM', 'Placa', 'Cor'], result.keys())
         self.assertCountEqual(['Rolls-Royce', 'Wraith 6.6 V12 Aut.', '2014', '41047812580', 'HVE-9411', 'Verde'], result.values())
-    
+
     def test_credit_card_info_filter(self):
         result = filter_credit_card_info(html=HTML_OF_CREDIT_CARD_INFOS)
 
         self.assertEqual(len(result.keys()), 3)
         self.assertCountEqual(['Número do Cartão', 'Data de Validade', 'Código Segurança (CVV)'], result.keys())
         self.assertCountEqual(['5016 0926 0945 3715', '11/02/2023', '812'], result.values())
-    
+
     def test_company_info_filter(self):
         result = filter_company_info(html=HTML_OF_COMPANY_INFOS)
 
@@ -84,19 +83,19 @@ class TestFilters(unittest.TestCase):
         self.assertCountEqual(
             [
                 'Nome', 'CNPJ', 'Inscrição Estadual',
-                'Data de Abertura', 'Site', 'E-Mail', 
-                'CEP', 'Endereço', 'Número', 'Bairro', 
+                'Data de Abertura', 'Site', 'E-Mail',
+                'CEP', 'Endereço', 'Número', 'Bairro',
                 'Cidade', 'Estado', 'Telefone', 'Celular'
             ],
             result.keys()
         )
         self.assertCountEqual(
             [
-                'Isabela e Cristiane Casa Noturna Ltda', '45.641.633/0001-17', 
-                '040.102.816.356', '11/11/2020', 'www.isabelaecristianecasanoturnaltda.com.br', 
-                'estoque@isabelaecristianecasanoturnaltda.com.br', '08559-240', 'Rua Carmem Miranda', 
+                'Isabela e Cristiane Casa Noturna Ltda', '45.641.633/0001-17',
+                '040.102.816.356', '11/11/2020', 'www.isabelaecristianecasanoturnaltda.com.br',
+                'estoque@isabelaecristianecasanoturnaltda.com.br', '08559-240', 'Rua Carmem Miranda',
                 '872', 'Vila Jau', 'Poá', 'SP', '(11) 3597-5594', '(11) 98491-8081'
-            ], 
+            ],
             result.values()
         )
 
@@ -106,8 +105,8 @@ class TestFilters(unittest.TestCase):
         self.assertEqual(len(result), 15)
         self.assertCountEqual(
             [
-                'Alto Alegre', 'Amajari', 'Boa Vista', 'Bonfim', 'Cantá', 
-                'Caracaraí', 'Caroebe', 'Iracema', 'Mucajaí', 'Normandia', 
+                'Alto Alegre', 'Amajari', 'Boa Vista', 'Bonfim', 'Cantá',
+                'Caracaraí', 'Caroebe', 'Iracema', 'Mucajaí', 'Normandia',
                 'Pacaraima', 'Rorainópolis', 'São João da Baliza', 'São Luiz', 'Uiramutã'
             ],
             result

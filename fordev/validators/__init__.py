@@ -47,7 +47,7 @@ __all__ = [
     'is_valid_renavam',
     'is_valid_rg',
     'is_valid_voter_title',
-    'is_valid_state_registration',
+    'is_valid_state_registration'
 ]
 
 from fordev.validators.credit_card import is_valid_credit_card

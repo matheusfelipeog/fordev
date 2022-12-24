@@ -70,7 +70,7 @@ setup(
         'colorama'
     ],
     zip_safe=False,
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     project_urls={
         "Bug Tracker": "https://github.com/matheusfelipeog/fordev/issues",
         "Documentation": "https://fordev.readthedocs.io/",
@@ -90,7 +90,6 @@ setup(
         'Natural Language :: Portuguese (Brazilian)',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',

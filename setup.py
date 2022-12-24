@@ -5,7 +5,6 @@ from setuptools import setup, find_packages, Command
 
 from fordev import __version__
 from fordev import __author__
-from fordev import __email__
 
 
 here = os.path.abspath(os.path.dirname(__file__))

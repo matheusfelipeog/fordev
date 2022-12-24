@@ -5,7 +5,6 @@ from setuptools import setup, find_packages, Command
 
 from fordev import __version__
 from fordev import __author__
-from fordev import __email__
 
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -59,7 +58,7 @@ setup(
     long_description_content_type='text/markdown',
     license='MIT License',
     author=__author__,
-    author_email=__email__,
+    author_email='matheusfelipeog@protonmail.com',
     url='https://github.com/matheusfelipeog/fordev',
     packages=find_packages(
         exclude=('tests',)
@@ -70,7 +69,7 @@ setup(
         'colorama'
     ],
     zip_safe=False,
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     project_urls={
         "Bug Tracker": "https://github.com/matheusfelipeog/fordev/issues",
         "Documentation": "https://fordev.readthedocs.io/",
@@ -90,10 +89,10 @@ setup(
         'Natural Language :: Portuguese (Brazilian)',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: Implementation :: CPython',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules'

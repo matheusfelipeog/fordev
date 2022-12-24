@@ -45,9 +45,8 @@ __all__ = [
     'consts'
 ]
 
-__version__ = '1.0.4'
+__version__ = '1.0.5'
 __author__ = 'Matheus Felipe'
-__email__ = 'matheusfelipeog@protonmail.com'
 
 from fordev import generators
 from fordev import validators

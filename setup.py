@@ -59,7 +59,7 @@ setup(
     long_description_content_type='text/markdown',
     license='MIT License',
     author=__author__,
-    author_email=__email__,
+    author_email='matheusfelipeog@protonmail.com',
     url='https://github.com/matheusfelipeog/fordev',
     packages=find_packages(
         exclude=('tests',)

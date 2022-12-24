@@ -47,7 +47,6 @@ __all__ = [
 
 __version__ = '1.0.4'
 __author__ = 'Matheus Felipe'
-__email__ = 'matheusfelipeog@protonmail.com'
 
 from fordev import generators
 from fordev import validators

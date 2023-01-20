@@ -10,7 +10,7 @@ Example
 Gere dados de 1 pessoa:
 
 >>> from fordev.generators import people
->>> people(sex='M', age=25, state='SP')
+>>> people(sex='M', age=25, uf_code='SP')
 {
     'altura': '1,90',
     'bairro': 'Jardim Maria Amélia',

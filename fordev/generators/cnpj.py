@@ -3,12 +3,14 @@ fordev.generators.cpnj
 ----------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.filters import data_format
 
 
-def cnpj(formatting: bool = True, data_only: bool = True) -> str:
+def cnpj(formatting: bool = True, data_only: bool = True) -> Union[str, dict]:
     """Gere o código do CNPJ(Cadastro Nacional da Pessoa Jurídica)
     aleatório.
     """

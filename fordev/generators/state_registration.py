@@ -3,6 +3,8 @@ fordev.generators.state_registration
 ------------------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.validators.utils import raise_for_invalid_uf
@@ -14,7 +16,7 @@ def state_registration(
     uf_code: str = 'SP',
     formatting: bool = True,
     data_only: bool = True
-) -> str:
+) -> Union[str, dict]:
     """Gere o código de registro de estado aleatório."""
 
     uf_code = uf_code.upper()

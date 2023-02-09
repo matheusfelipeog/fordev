@@ -3,12 +3,14 @@ fordev.generators.rg
 --------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.filters import data_format
 
 
-def rg(formatting: bool = True, data_only: bool = True) -> str:
+def rg(formatting: bool = True, data_only: bool = True) -> Union[str, dict]:
     """Gere o código do RG(Registro Geral) aleatório, emitido por SSP-SP."""
 
     resp = fordev_request(

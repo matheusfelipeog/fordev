@@ -3,6 +3,8 @@ fordev.generators.people
 ------------------------
 """
 
+from typing import Union
+
 from json import loads as json_loads
 
 from fordev.core import fordev_request
@@ -17,7 +19,7 @@ def people(
     uf_code: str = '',
     formatting: bool = True,
     data_only: bool = True
-) -> str:
+) -> Union[str, dict]:
     """Gere dados de pessoa(s) aleatório(s)
 
     Parameters

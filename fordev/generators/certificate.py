@@ -3,6 +3,8 @@ fordev.generators.certificate
 -----------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.filters import data_format
@@ -12,7 +14,7 @@ def certificate(
     type_: str = 'I',
     formatting: bool = True,
     data_only: bool = True
-) -> str:
+) -> Union[str, dict]:
     """Gere o código de certidões (birth, wedding, religious wedding and death)
     aleatórias.
 

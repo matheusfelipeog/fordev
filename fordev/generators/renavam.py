@@ -3,12 +3,14 @@ fordev.generators.renavam
 -------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.filters import data_format
 
 
-def renavam(data_only: bool = True) -> str:
+def renavam(data_only: bool = True) -> Union[str, dict]:
     """Gere o código do RENAVAM(Registro Nacional de Veículos Automotores)
     aleatório.
     """

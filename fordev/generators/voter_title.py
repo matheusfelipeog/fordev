@@ -3,6 +3,8 @@ fordev.generators.voter_title
 -----------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.validators.utils import raise_for_invalid_uf
@@ -10,7 +12,7 @@ from fordev.validators.utils import raise_for_invalid_uf
 from fordev.filters import data_format
 
 
-def voter_title(uf_code: str, data_only: bool = True) -> str:
+def voter_title(uf_code: str, data_only: bool = True) -> Union[str, dict]:
     """Gere o código do título de eleitor aleatório,
     conforme o UF especificado.
     """

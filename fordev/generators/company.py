@@ -31,8 +31,8 @@ def company(
 
     if not (1 <= age <= 30):
         msg_error = (
-            f'The company age value "{age}" is invalid. Enter a valid company age.'
-            ' The range is 1 to 30.'
+            f'The company age value "{age}" is invalid.'
+            ' Enter a valid company age. The range is 1 to 30.'
         )
 
         raise ValueError(msg_error)

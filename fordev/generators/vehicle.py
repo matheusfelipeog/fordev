@@ -3,6 +3,8 @@ fordev.generators.vehicle
 -------------------------
 """
 
+from typing import Union
+
 from random import sample as random_sample
 
 from fordev.core import fordev_request
@@ -67,13 +69,14 @@ def vehicle(
     return data_format(data_only=data_only, data_dict=resp)
 
 
-def vehicle_brand(n: int = 1, data_only: bool = True) -> list:
+def vehicle_brand(n: int = 1, data_only: bool = True) -> Union[list, dict]:
     """Obtenha o nome de marca(s) de veículo(s).
 
     Parameters
     ----------
     n
-        Recebe o número de marcas de veículos a ser gerado. O valor mínimo é 1 e o máximo é 87.
+        Recebe o número de marcas de veículos a ser gerado.
+        O valor mínimo é 1 e o máximo é 87.
     """
 
     if not (1 <= n <= 87):
@@ -102,7 +105,7 @@ def vehicle_plate(
     uf_code: str = '',
     formatting: bool = True,
     data_only: bool = True
-) -> str:
+) -> Union[str, dict]:
     """Gere o código da placa de veículo aleatório."""
 
     uf_code = uf_code.upper()

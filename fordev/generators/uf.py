@@ -8,7 +8,7 @@ from random import sample as random_sample
 from fordev.consts import ALL_UF_CODE
 
 
-def uf(n: int=1, data_only: bool=True) -> list:
+def uf(n: int = 1, data_only: bool = True) -> list:
     """Gere o código da UF(Unidade Federativa) aleatório.
 
     Parameters
@@ -28,7 +28,7 @@ def uf(n: int=1, data_only: bool=True) -> list:
     full_data = {
         'msg': 'success',
         'data': random_sample(ALL_UF_CODE, n)
-        }
+    }
 
     if data_only:
         return full_data['data']

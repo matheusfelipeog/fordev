@@ -11,7 +11,7 @@ from fordev.filters import filter_city_name
 from fordev.filters import data_format
 
 
-def city(uf_code: str='SP', data_only: bool=True) -> list:
+def city(uf_code: str = 'SP', data_only: bool = True) -> list:
     """Obtenha as cidades do UF especificado."""
 
     uf_code = uf_code.upper()

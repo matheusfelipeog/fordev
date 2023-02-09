@@ -11,7 +11,12 @@ from fordev.filters import filter_company_info
 from fordev.filters import data_format
 
 
-def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
+def company(
+    uf_code: str = 'SP',
+    age: int = 1,
+    formatting: bool = True,
+    data_only: bool = True
+) -> dict:
     """Gere dados de companhia (empresa/organização) aleatório.
 
     Parameters

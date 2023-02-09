@@ -8,8 +8,13 @@ from fordev.core import fordev_request
 from fordev.filters import data_format
 
 
-def certificate(type_: str='I', formatting: bool=True, data_only: bool=True) -> str:
-    """Gere o código de certidões (birth, wedding, religious wedding and death) aleatórias.
+def certificate(
+    type_: str = 'I',
+    formatting: bool = True,
+    data_only: bool = True
+) -> str:
+    """Gere o código de certidões (birth, wedding, religious wedding and death)
+    aleatórias.
 
     Parameters
     ----------

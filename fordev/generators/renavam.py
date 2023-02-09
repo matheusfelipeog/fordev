@@ -8,8 +8,10 @@ from fordev.core import fordev_request
 from fordev.filters import data_format
 
 
-def renavam(data_only: bool=True) -> str:
-    """Gere o código do RENAVAM(Registro Nacional de Veículos Automotores) aleatório."""
+def renavam(data_only: bool = True) -> str:
+    """Gere o código do RENAVAM(Registro Nacional de Veículos Automotores)
+    aleatório.
+    """
 
     resp = fordev_request(
         content_length=18,

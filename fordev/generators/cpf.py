@@ -10,7 +10,11 @@ from fordev.filters import data_format
 from fordev.validators.utils import raise_for_invalid_uf
 
 
-def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
+def cpf(
+    uf_code: str = '',
+    formatting: bool = True,
+    data_only: bool = True
+) -> str:
     """Gere o código de um CPF(Cadastro de Pessoas Físicas) aleatório."""
 
     uf_code = uf_code.upper()

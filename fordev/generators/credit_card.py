@@ -13,7 +13,11 @@ from fordev.filters import filter_credit_card_info
 from fordev.filters import data_format
 
 
-def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dict:
+def credit_card(
+    bank: int = 0,
+    formatting: bool = True,
+    data_only: bool = True
+) -> dict:
     """Gere dados de cartão de crédito aleatório.
 
     Parameters
@@ -28,8 +32,8 @@ def credit_card(bank: int=0, formatting: bool=True, data_only: bool=True) -> dic
 
     if not (0 <= bank <= 10):
         msg_error = (
-            f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
-            ' The range is 0 to 10.'
+            f'The bank code value "{bank}" is invalid.'
+            ' Enter a valid bank code. The range is 0 to 10.'
         )
 
         raise ValueError(msg_error)

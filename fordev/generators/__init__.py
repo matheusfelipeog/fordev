@@ -2,8 +2,8 @@
 fordev.generators
 -----------------
 
-Este módulo coleta dados aleatórios gerados pelo site `4Devs <https://www.4devs.com.br/>`_
-e disponíbiliza uma API simples para uso.
+Este módulo coleta dados aleatórios gerados pelo site
+`4Devs <https://www.4devs.com.br/>`_ e disponíbiliza uma API simples para uso.
 
 Use a função ``help()`` para mais informações:
 
@@ -30,7 +30,8 @@ uf_code: str
     Recebe o Código da **Unidade Federativa** para geração do dado.
 
     Caso não saiba o que é ou não conheça o do estado que necessita,
-    obtenha mais informações em: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
+    obtenha mais informações em:
+     - https://pt.wikipedia.org/wiki/Subdivisões_do_Brasil
 
 formatting: bool
     Se receber o valor ``True``, retorna os dados formatados.
@@ -38,8 +39,9 @@ formatting: bool
 
 data_only: bool
     Se receber o valor ``True``, retorna somente os dados em texto puro.
-    Se receber o valor ``False``, retorna um dicionário contendo uma chave ``msg`` e ``data`` ou ``error``
-    contendo valores correspondentes à nomenclatura de suas chaves.
+    Se receber o valor ``False``, retorna um dicionário contendo uma
+    chave ``msg`` e ``data`` ou ``error`` contendo valores correspondentes
+    à nomenclatura de suas chaves.
 
 Sendo assim, sempre que os encontrar, utilize conforme o descrito acima.
 """

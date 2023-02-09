@@ -8,7 +8,7 @@ from fordev.core import fordev_request
 from fordev.filters import data_format
 
 
-def pis_pasep(formatting: bool=True, data_only: bool=True) -> str:
+def pis_pasep(formatting: bool = True, data_only: bool = True) -> str:
     """Gere o código do PIS/PASEP aleatório."""
 
     resp = fordev_request(

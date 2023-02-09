@@ -8,8 +8,10 @@ from fordev.core import fordev_request
 from fordev.filters import data_format
 
 
-def cnpj(formatting: bool=True, data_only: bool=True) -> str:
-    """Gere o código do CNPJ(Cadastro Nacional da Pessoa Jurídica) aleatório."""
+def cnpj(formatting: bool = True, data_only: bool = True) -> str:
+    """Gere o código do CNPJ(Cadastro Nacional da Pessoa Jurídica)
+    aleatório.
+    """
 
     resp = fordev_request(
         content_length=27,

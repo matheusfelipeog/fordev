@@ -10,8 +10,10 @@ from fordev.validators.utils import raise_for_invalid_uf
 from fordev.filters import data_format
 
 
-def voter_title(uf_code: str, data_only: bool=True) -> str:
-    """Gere o código do título de eleitor aleatório, conforme o UF especificado."""
+def voter_title(uf_code: str, data_only: bool = True) -> str:
+    """Gere o código do título de eleitor aleatório,
+    conforme o UF especificado.
+    """
 
     uf_code = uf_code.upper()
 

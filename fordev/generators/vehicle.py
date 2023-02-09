@@ -16,11 +16,11 @@ from fordev.filters import data_format
 
 
 def vehicle(
-        brand_code: int=0,
-        uf_code: str='',
-        formatting: bool=True,
-        data_only: bool=True
-    ) -> dict:
+    brand_code: int = 0,
+    uf_code: str = '',
+    formatting: bool = True,
+    data_only: bool = True
+) -> dict:
     """Gere dados de veículo aleatório.
 
     Parameters
@@ -67,7 +67,7 @@ def vehicle(
     return data_format(data_only=data_only, data_dict=resp)
 
 
-def vehicle_brand(n: int=1, data_only: bool=True) -> list:
+def vehicle_brand(n: int = 1, data_only: bool = True) -> list:
     """Obtenha o nome de marca(s) de veículo(s).
 
     Parameters
@@ -98,7 +98,11 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
         return full_data
 
 
-def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
+def vehicle_plate(
+    uf_code: str = '',
+    formatting: bool = True,
+    data_only: bool = True
+) -> str:
     """Gere o código da placa de veículo aleatório."""
 
     uf_code = uf_code.upper()
@@ -111,7 +115,7 @@ def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) 
         payload={
             'acao': 'gerar_placa',
             'pontuacao': 'S' if formatting else 'N',
-            'estado':uf_code
+            'estado': uf_code
         }
     )
 

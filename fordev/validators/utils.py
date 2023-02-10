@@ -47,8 +47,9 @@ def raise_for_invalid_uf(uf: str, include_blank=False):
 
     if uf not in ufs:
         msg_error = (
-            f'The UF code "{uf}" is invalid. Enter a valid UF code. Ex: SP, RJ, PB...'
-            ' More info about UF in: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil'
+            f'The UF code "{uf}" is invalid. Enter a valid UF code.'
+            ' Ex: SP, RJ, PB... More info about UF in:'
+            ' https://pt.wikipedia.org/wiki/Subdivisões_do_Brasil'
         )
 
         raise ValueError(msg_error)

@@ -12,18 +12,19 @@ from fordev.validators.utils import raise_for_invalid_uf
 
 
 def is_valid_state_registration(
-        uf_code: str,
-        state_registration_code: str,
-        data_only: bool=True
-    ) -> bool:
+    uf_code: str,
+    state_registration_code: str,
+    data_only: bool = True
+) -> bool:
     """Verifique se o código do registro estadual é válido.
 
     Parameters
     ----------
     uf_code
-        O código UF(Unidade Federativa) do estado que pertence o registro estadual.
+        O código UF(Unidade Federativa) do estado que pertence o 
+        registro estadual.
 
-        Mais informações: https://pt.wikipedia.org/wiki/Subdivis%C3%B5es_do_Brasil
+        Mais informações: https://pt.wikipedia.org/wiki/Subdivisões_do_Brasil
 
     state_registration_code
         O código do registro estadual para verificação.

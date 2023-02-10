@@ -10,8 +10,12 @@ from fordev.filters import data_format
 from fordev.validators.utils import _data_verification_and_normalize
 
 
-def is_valid_certificate(certificate_code: str, data_only: bool=True) -> bool:
-    """Verifique se o código da Certidão (birth, wedding, religious wedding and death) é válido.
+def is_valid_certificate(
+    certificate_code: str,
+    data_only: bool = True
+) -> bool:
+    """Verifique se o código da Certidão
+    (birth, wedding, religious wedding and death)é válido.
 
     Parameters
     ----------

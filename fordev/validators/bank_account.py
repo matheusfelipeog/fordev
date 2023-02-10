@@ -10,7 +10,12 @@ from fordev.filters import data_format
 from fordev.validators.utils import _data_verification_and_normalize
 
 
-def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=True) -> bool:
+def is_valid_bank_account(
+    bank: int,
+    agency: str,
+    account: str,
+    data_only: bool = True
+) -> bool:
     """Verifique se os dados da conta bancária são válidos.
 
     Parameters
@@ -30,8 +35,8 @@ def is_valid_bank_account(bank: int, agency: str, account: str, data_only: bool=
 
     if not (1 <= bank <= 5):
         msg_error = (
-            f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
-            ' The range is 1 to 5.'
+            f'The bank code value "{bank}" is invalid.'
+            ' Enter a valid bank code. The range is 1 to 5.'
         )
 
         raise ValueError(msg_error)

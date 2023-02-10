@@ -10,7 +10,7 @@ from fordev.filters import data_format
 from fordev.validators.utils import _data_verification_and_normalize
 
 
-def is_valid_cnh(cnh_code: str, data_only: bool=True) -> bool:
+def is_valid_cnh(cnh_code: str, data_only: bool = True) -> bool:
     """Verifique se o código da CNH é válido.
 
     Parameters

@@ -42,7 +42,9 @@ def filter_bank_account_info(html: str) -> dict:
 
     labels = [div.text for div in soup.find_all('div', 'output-subtitle')]
 
-    data_of_bank_account = [div.text for div in soup.find_all('div', 'output-txt')]
+    data_of_bank_account = [
+        div.text for div in soup.find_all('div', 'output-txt')
+    ]
 
     data_dict = dict(
         zip(labels, data_of_bank_account)
@@ -65,7 +67,8 @@ def filter_vehicle_info(html: str) -> dict:
 
     labels = [div.text[:-1] for div in soup.find_all('strong')]
 
-    data_of_vehicle = [input_.get('value') for input_ in soup.find_all('input', 'margem_menor')]
+    data_of_vehicle = [input_.get('value')
+                       for input_ in soup.find_all('input', 'margem_menor')]
 
     data_dict = dict(
         zip(labels, data_of_vehicle)
@@ -88,7 +91,8 @@ def filter_credit_card_info(html: str) -> dict:
 
     labels = [div.text for div in soup.find_all('div', 'output-subtitle')]
 
-    data_of_credit_card = [div.text.strip() for div in soup.find_all('div', 'output-txt')]
+    data_of_credit_card = [div.text.strip()
+                           for div in soup.find_all('div', 'output-txt')]
 
     data_dict = dict(
         zip(labels, data_of_credit_card)
@@ -98,7 +102,8 @@ def filter_credit_card_info(html: str) -> dict:
 
 
 def filter_company_info(html: str) -> dict:
-    """Filtra dados de companhia (empresa/organização) contidos na estrutura HTML.
+    """Filtra dados de companhia (empresa/organização) contidos na
+    estrutura HTML.
 
     Parameters
     ----------
@@ -111,7 +116,8 @@ def filter_company_info(html: str) -> dict:
 
     labels = [div.text[:-1] for div in soup.find_all('strong')]
 
-    data_of_company = [input_.get('value') for input_ in soup.find_all('input', 'margem_menor')]
+    data_of_company = [input_.get('value')
+                       for input_ in soup.find_all('input', 'margem_menor')]
 
     data_dict = dict(
         zip(labels, data_of_company)

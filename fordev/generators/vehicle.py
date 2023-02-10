@@ -45,9 +45,9 @@ def vehicle(
         raise ValueError(msg_error)
 
     if brand_code != 0:
-        brand_code = ALL_VEHICLE_BRANDS[brand_code]['code']
+        code = ALL_VEHICLE_BRANDS[brand_code]['code']
     else:
-        brand_code = ''
+        code = ''
 
     uf_code = uf_code.upper()
 
@@ -60,7 +60,7 @@ def vehicle(
             'acao': 'gerar_veiculo',
             'pontuacao': 'S' if formatting else 'N',
             'estado': uf_code,
-            'fipe_codigo_marca': brand_code
+            'fipe_codigo_marca': code
         }
     )
 

@@ -42,14 +42,14 @@ def is_valid_credit_card(
 
         raise ValueError(msg_error)
 
-    flag = ALL_BANK_FLAGS_2[flag]
+    card_flag = ALL_BANK_FLAGS_2[flag]
 
     content_length = 68
     referer = 'validador_numero_cartao_credito'
     payload = {
         'acao': 'validar_cc',
         'txt_cc': credit_card_code,
-        'bandeira': flag
+        'bandeira': card_flag
     }
 
     resp = _data_verification_and_normalize(

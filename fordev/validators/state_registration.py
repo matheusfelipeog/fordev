@@ -3,6 +3,8 @@ fordev.validators.state_registration
 ------------------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.filters import data_format
@@ -15,13 +17,13 @@ def is_valid_state_registration(
     uf_code: str,
     state_registration_code: str,
     data_only: bool = True
-) -> bool:
+) -> Union[bool, dict]:
     """Verifique se o código do registro estadual é válido.
 
     Parameters
     ----------
     uf_code
-        O código UF(Unidade Federativa) do estado que pertence o 
+        O código UF(Unidade Federativa) do estado que pertence o
         registro estadual.
 
         Mais informações: https://pt.wikipedia.org/wiki/Subdivisões_do_Brasil

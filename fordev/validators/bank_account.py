@@ -3,6 +3,8 @@ fordev.validators.bank_account
 ------------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.filters import data_format
@@ -15,7 +17,7 @@ def is_valid_bank_account(
     agency: str,
     account: str,
     data_only: bool = True
-) -> bool:
+) -> Union[bool, dict]:
     """Verifique se os dados da conta bancária são válidos.
 
     Parameters

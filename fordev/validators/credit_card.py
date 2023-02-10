@@ -3,6 +3,8 @@ fordev.validators.credit_card
 -----------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.consts import ALL_BANK_FLAGS_2
@@ -16,7 +18,7 @@ def is_valid_credit_card(
     flag: int,
     credit_card_code: str,
     data_only: bool = True
-) -> bool:
+) -> Union[bool, dict]:
     """Verifique se o código do cartão de crédito é válido.
 
     Parameters

@@ -39,9 +39,9 @@ def credit_card(
         raise ValueError(msg_error)
 
     if bank != 0:
-        bank = ALL_BANK_FLAGS[bank]
+        bank_flag = ALL_BANK_FLAGS[bank]
     else:
-        bank = random_choice(
+        bank_flag = random_choice(
             list(ALL_BANK_FLAGS.values())
         )
 
@@ -51,7 +51,7 @@ def credit_card(
         payload={
             'acao': 'gerar_cc',
             'pontuacao': 'S' if formatting else 'N',
-            'bandeira': bank
+            'bandeira': bank_flag
         }
     )
 

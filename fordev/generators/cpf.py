@@ -3,6 +3,8 @@ fordev.generators.cpf
 ---------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.filters import data_format
@@ -10,7 +12,11 @@ from fordev.filters import data_format
 from fordev.validators.utils import raise_for_invalid_uf
 
 
-def cpf(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
+def cpf(
+    uf_code: str = '',
+    formatting: bool = True,
+    data_only: bool = True
+) -> Union[str, dict]:
     """Gere o código de um CPF(Cadastro de Pessoas Físicas) aleatório."""
 
     uf_code = uf_code.upper()

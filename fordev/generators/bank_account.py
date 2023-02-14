@@ -11,7 +11,11 @@ from fordev.filters import filter_bank_account_info
 from fordev.validators.utils import raise_for_invalid_uf
 
 
-def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
+def bank_account(
+    bank: int = 0,
+    uf_code: str = '',
+    data_only: bool = True
+) -> dict:
     """Gere dados de conta bancária.
 
     Parameters
@@ -26,8 +30,8 @@ def bank_account(bank: int=0, uf_code: str='', data_only: bool=True) -> dict:
 
     if not (0 <= bank <= 5):
         msg_error = (
-            f'The bank code value "{bank}" is invalid. Enter a valid bank code.'
-            ' The range is 0 to 5.'
+            f'The bank code value "{bank}" is invalid.'
+            ' Enter a valid bank code. The range is 0 to 5.'
         )
 
         raise ValueError(msg_error)

@@ -3,6 +3,8 @@ fordev.validators.pis_pasep
 ---------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.filters import data_format
@@ -10,7 +12,10 @@ from fordev.filters import data_format
 from fordev.validators.utils import _data_verification_and_normalize
 
 
-def is_valid_pis_pasep(pis_pasep_code: str, data_only: bool=True) -> bool:
+def is_valid_pis_pasep(
+    pis_pasep_code: str,
+    data_only: bool = True
+) -> Union[bool, dict]:
     """Verifique se o código do PIS/PASEP é válido.
 
     Parameters

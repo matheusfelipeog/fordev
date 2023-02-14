@@ -18,7 +18,8 @@ def _create_headers(content_length: int, referer: str) -> dict:
     Parameters
     ----------
     content_length
-        Indica o tamanho do entity-body, em bytes, enviados no header para o destinatário.
+        Indica o tamanho do entity-body, em bytes, enviados no header
+        para o destinatário.
 
     referer
         Referência a ação a ser executada pela API do site 4devs.
@@ -28,8 +29,9 @@ def _create_headers(content_length: int, referer: str) -> dict:
 
     headers = {
         'user-agent': (
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
-            'Chrome/106.0.0.0 Safari/537.36'
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
+            ' AppleWebKit/537.36 (KHTML, like Gecko)'
+            ' Chrome/106.0.0.0 Safari/537.36'
         ),
         'authority': 'www.4devs.com.br',
         'method': 'POST',
@@ -59,14 +61,16 @@ def fordev_request(content_length: int, referer: str, payload: dict) -> dict:
     Parameters
     ----------
     content_length
-        Indica o tamanho do entity-body, em bytes, enviados no header para o destinatário.
+        Indica o tamanho do entity-body, em bytes, enviados no header
+        para o destinatário.
 
     referer
         Referência a ação a ser executada pela API do site 4devs.
         Pode-se interpretar como o endpoint do serviço a ser disponibilizado.
 
     payload
-        Um dicionário de dados contendo a ação e outros dados solicitados pela API.
+        Um dicionário de dados contendo a ação e outros dados
+        solicitados pela API.
     """
 
     try:

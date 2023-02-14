@@ -2,14 +2,15 @@
 fordev.consts
 -------------
 
-Este módulo contém todas as variáveis com valores constantes usadas no pacote fordev.
+Este módulo contém todas as variáveis com valores constantes
+usadas no pacote fordev.
 """
 
 URL_4DEV_API = 'https://www.4devs.com.br/ferramentas_online.php'
 
 ALL_UF_CODE = [
     'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA',
-    'MT', 'MS', 'MG','PA', 'PB', 'PR', 'PE', 'PI', 'RJ',
+    'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ',
     'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO', 'DF'
 ]
 

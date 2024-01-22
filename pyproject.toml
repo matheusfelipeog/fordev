@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "fordev"
+version = "1.0.5"
+description = "Gere e valide dados randômicos com fordev."
+authors = ["Matheus Felipe <matheusfelipeog@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/matheusfelipeog/fordev"
+repository = "https://github.com/matheusfelipeog/fordev"
+documentation = "https://fordev.readthedocs.io"
+packages = [{include = "fordev"}]
+keywords = [
+    "fordev", "4dev", "4devs", "4devs-api", "4devs-module",
+    "fourthdev", "python", "api", "scraping", "data-generator",
+    "fake-data", "fake-data-generator", "data-manipulation",
+    "data-validation", "random-data"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Portuguese (Brazilian)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/matheusfelipeog/fordev/issues"
+"Pull Requests" = "https://github.com/matheusfelipeog/fordev/pulls"
+
+[tool.poetry.dependencies]
+python = ">=3.9, <3.12"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.3"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.0.3"
+sphinx = "^7.2.6"
+sphinx-rtd-theme = "^2.0.0"
+sphinxcontrib-napoleon = "^0.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

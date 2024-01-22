@@ -11,7 +11,12 @@ from fordev.filters import filter_company_info
 from fordev.filters import data_format
 
 
-def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: bool=True) -> dict:
+def company(
+    uf_code: str = 'SP',
+    age: int = 1,
+    formatting: bool = True,
+    data_only: bool = True
+) -> dict:
     """Gere dados de companhia (empresa/organização) aleatório.
 
     Parameters
@@ -26,8 +31,8 @@ def company(uf_code: str='SP', age: int=1, formatting: bool=True, data_only: boo
 
     if not (1 <= age <= 30):
         msg_error = (
-            f'The company age value "{age}" is invalid. Enter a valid company age.'
-            ' The range is 1 to 30.'
+            f'The company age value "{age}" is invalid.'
+            ' Enter a valid company age. The range is 1 to 30.'
         )
 
         raise ValueError(msg_error)

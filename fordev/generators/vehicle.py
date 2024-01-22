@@ -3,6 +3,8 @@ fordev.generators.vehicle
 -------------------------
 """
 
+from typing import Union
+
 from random import sample as random_sample
 
 from fordev.core import fordev_request
@@ -16,11 +18,11 @@ from fordev.filters import data_format
 
 
 def vehicle(
-        brand_code: int=0,
-        uf_code: str='',
-        formatting: bool=True,
-        data_only: bool=True
-    ) -> dict:
+    brand_code: int = 0,
+    uf_code: str = '',
+    formatting: bool = True,
+    data_only: bool = True
+) -> dict:
     """Gere dados de veículo aleatório.
 
     Parameters
@@ -43,9 +45,9 @@ def vehicle(
         raise ValueError(msg_error)
 
     if brand_code != 0:
-        brand_code = ALL_VEHICLE_BRANDS[brand_code]['code']
+        code = ALL_VEHICLE_BRANDS[brand_code]['code']
     else:
-        brand_code = ''
+        code = ''
 
     uf_code = uf_code.upper()
 
@@ -58,7 +60,7 @@ def vehicle(
             'acao': 'gerar_veiculo',
             'pontuacao': 'S' if formatting else 'N',
             'estado': uf_code,
-            'fipe_codigo_marca': brand_code
+            'fipe_codigo_marca': code
         }
     )
 
@@ -67,13 +69,14 @@ def vehicle(
     return data_format(data_only=data_only, data_dict=resp)
 
 
-def vehicle_brand(n: int=1, data_only: bool=True) -> list:
+def vehicle_brand(n: int = 1, data_only: bool = True) -> Union[list, dict]:
     """Obtenha o nome de marca(s) de veículo(s).
 
     Parameters
     ----------
     n
-        Recebe o número de marcas de veículos a ser gerado. O valor mínimo é 1 e o máximo é 87.
+        Recebe o número de marcas de veículos a ser gerado.
+        O valor mínimo é 1 e o máximo é 87.
     """
 
     if not (1 <= n <= 87):
@@ -98,7 +101,11 @@ def vehicle_brand(n: int=1, data_only: bool=True) -> list:
         return full_data
 
 
-def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) -> str:
+def vehicle_plate(
+    uf_code: str = '',
+    formatting: bool = True,
+    data_only: bool = True
+) -> Union[str, dict]:
     """Gere o código da placa de veículo aleatório."""
 
     uf_code = uf_code.upper()
@@ -111,7 +118,7 @@ def vehicle_plate(uf_code: str='', formatting: bool=True, data_only: bool=True) 
         payload={
             'acao': 'gerar_placa',
             'pontuacao': 'S' if formatting else 'N',
-            'estado':uf_code
+            'estado': uf_code
         }
     )
 

@@ -3,6 +3,8 @@ fordev.generators.people
 ------------------------
 """
 
+from typing import Union
+
 from json import loads as json_loads
 
 from fordev.core import fordev_request
@@ -11,13 +13,13 @@ from fordev.validators.utils import raise_for_invalid_uf
 
 
 def people(
-        n: int=1,
-        sex: str='R',
-        age: int=0,
-        uf_code: str='',
-        formatting: bool=True,
-        data_only: bool=True
-    ) -> str:
+    n: int = 1,
+    sex: str = 'R',
+    age: int = 0,
+    uf_code: str = '',
+    formatting: bool = True,
+    data_only: bool = True
+) -> Union[str, dict]:
     """Gere dados de pessoa(s) aleatório(s)
 
     Parameters
@@ -32,7 +34,8 @@ def people(
         https://fordev.rtfd.io/pt_BR/latest/fordev/generators.html
 
     age
-        A idade da pessoa para geração dos dados. A idade mínima é 18 e a máxima é 80.
+        A idade da pessoa para geração dos dados. A idade mínima é 18 e a
+        máxima é 80.
     """
 
     sex = sex.upper()

@@ -3,6 +3,8 @@ fordev.validators.credit_card
 -----------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.consts import ALL_BANK_FLAGS_2
@@ -12,7 +14,11 @@ from fordev.filters import data_format
 from fordev.validators.utils import _data_verification_and_normalize
 
 
-def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True) -> bool:
+def is_valid_credit_card(
+    flag: int,
+    credit_card_code: str,
+    data_only: bool = True
+) -> Union[bool, dict]:
     """Verifique se o código do cartão de crédito é válido.
 
     Parameters
@@ -36,14 +42,14 @@ def is_valid_credit_card(flag: int, credit_card_code: str, data_only: bool=True)
 
         raise ValueError(msg_error)
 
-    flag = ALL_BANK_FLAGS_2[flag]
+    card_flag = ALL_BANK_FLAGS_2[flag]
 
     content_length = 68
     referer = 'validador_numero_cartao_credito'
     payload = {
         'acao': 'validar_cc',
         'txt_cc': credit_card_code,
-        'bandeira': flag
+        'bandeira': card_flag
     }
 
     resp = _data_verification_and_normalize(

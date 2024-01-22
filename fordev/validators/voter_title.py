@@ -3,12 +3,17 @@ fordev.validators.voter_title
 -----------------------------
 """
 
+from typing import Union
+
 from fordev.core import fordev_request
 
 from fordev.filters import data_format
 
 
-def is_valid_voter_title(voter_title_code: str, data_only: bool=True) -> bool:
+def is_valid_voter_title(
+    voter_title_code: str,
+    data_only: bool = True
+) -> Union[bool, dict]:
     """Verifique se o código do título de eleitor é válido.
 
     Parameters

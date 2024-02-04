@@ -42,7 +42,7 @@ beautifulsoup4 = "^4.12.3"
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.0.3"
-ruff = "^0.1.14"
+ruff = "^0.2.0"
 
 [tool.poetry.group.tests.dependencies]
 pytest = "^7.4.4"

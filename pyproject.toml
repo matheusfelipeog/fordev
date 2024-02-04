@@ -52,6 +52,24 @@ sphinx = "^7.2.6"
 sphinx-rtd-theme = "^2.0.0"
 sphinxcontrib-napoleon = "^0.7"
 
+[tool.ruff]
+line-length = 127
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "UP",  # pyupgrade
+    "I",  # isort
+    "F",  # pyflakes
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "SIM",  # flake8-simplify
+]
+ignore = [
+    "W191",  # indentation contains tabs
+]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
